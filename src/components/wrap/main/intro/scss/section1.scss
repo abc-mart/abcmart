@@ -15,11 +15,12 @@
                         width: 100%;
                         overflow: hidden;
                         .slide-wrap{
-                            width: 100% * 10;
+                            width: 100% * 12;
                             display: flex;
                             margin: 0 0 0 -100%;
                             position: relative;
                             .slide{
+                                width: 100%;
                                 a{
                                     img{
                                         width: auto;
@@ -43,19 +44,22 @@
                         text-align: center;
                         background: #fff;
                         font-size: 14px;
+                        color: #999;
                         .current-page{
                             color: #000;
                             font-weight: 700;
                         }
-                        i{}
+                        i{
+                            margin: 0 3px;
+                            font-weight: 500;
+                        }
                         .all-page{
-                            color: #999;
                             font-weight: 500;
                         }
                     }
                     button{
                         height: 100%;
-                        background: #fff url(../../../../../../public/img/intro/abc_main_banner_btn_control.png) no-repeat 0 0;
+                        background: #fff url() no-repeat 0 0;
                         border: 0;
                         &.prev-btn{
                             width: 22px;
@@ -67,7 +71,17 @@
                         }
                         &.play-btn{
                             width: 48px;
-                            background: rgba(0, 0, 0, 0.5) url(../../../../../../public/img/intro/abc_main_banner_btn_control.png) no-repeat calc(100% - 20px) 50%;
+                            position: relative;
+                            background: rgba(0, 0, 0, 0.5);
+                            &::after{
+                                content: '';
+                                position: absolute;
+                                top: 25%;
+                                left: 25%;
+                                width: 22px;
+                                height: 22px;
+                                background: url(../../../../../../public/img/intro/abc_main_banner_btn_control.png) no-repeat 100% 50%;
+                            }
                         }
                     }
                 }

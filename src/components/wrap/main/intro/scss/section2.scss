@@ -1,3 +1,101 @@
 #section2{
-    
+    width: 100%;
+    .container{
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        .gap{
+            width: 100%;
+            margin: 100px 0 0 0;
+            .content{
+                width: 100%;
+                display: flex;
+                .left{
+                    width: 305px;
+                    font-family: 'Montserrat';
+                    h2{
+                        font-size: 30px;
+                        font-weight: 600;
+                        color: #000;
+                    }
+                    p{
+                        color: #666;
+                        margin: 20px 0 0 0;
+                        line-height: 22px;
+                        font-size: 14px;
+                        letter-spacing: -0.7px;
+                        font-family: 'Noto Sans KR';
+                    }
+                    a{
+                        display: inline-block;
+                        margin: 43px 0 0 0;
+                        color: #666;
+                        padding: 0 12px 0 0;
+                        background: url(../../../../../../public/img/intro/main_btn_section_link.png) no-repeat 100% 50%;
+                        font-weight: 600;
+                        font-size: 15px;
+                    }
+                }
+                .right{
+                    width: calc(100% - 305px);
+                    .slide-container{
+                        width: 100%;
+                        .slide-view{
+                            width: 100%;
+                            .slide-wrap{
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                .slide{
+                                    width: 285px;
+                                    a{
+                                        margin: 0 20px 0 0;
+                                        figure{
+                                            img{
+                                                width: 100%;
+                                            }
+                                            span{
+                                                strong{}
+                                                em{}
+                                            }
+                                            .time-sale{
+                                                .date{
+                                                    .day-value{}
+                                                    .day-text{}
+                                                }
+                                                .time{
+                                                    .hours{}
+                                                    .minutes{}
+                                                    .seconds{}
+                                                }
+                                            }
+                                        }
+                                        .information-box{
+                                            h3{}
+                                            p{}
+                                            .price-box{
+                                                .price{}
+                                                .sale-price{}
+                                                .sale-percent{}
+                                            }
+                                        }
+                                        .sale-period-box{
+                                            .sale-period{}
+                                            .rest-product-count{
+                                                .rest-product-count-value{}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    button{
+                        &.prev-btn{}
+                        &.next-btn{}
+                    }
+                }
+            }
+        }
+    }
 }
