@@ -1,0 +1,77 @@
+#section1{
+    width: 100%;
+    .container{
+        width: 100%;
+        max-width: 1920px;
+        margin: 0 auto;
+        .gap{
+            width: 100%;
+            .content{
+                width: 100%;
+                position: relative;
+                .slide-container{
+                    width: 100%;
+                    .slide-view{
+                        width: 100%;
+                        overflow: hidden;
+                        .slide-wrap{
+                            width: 100% * 10;
+                            display: flex;
+                            margin: 0 0 0 -100%;
+                            position: relative;
+                            .slide{
+                                a{
+                                    img{
+                                        width: auto;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .page-box{
+                    position: absolute;
+                    bottom: 0;
+                    right: 360px;
+                    height: 48px;
+                    display: flex;
+                    justify-content: center;
+                    .pagenation{
+                        width: 82px;
+                        height: 100%;
+                        line-height: 48px;
+                        text-align: center;
+                        background: #fff;
+                        font-size: 14px;
+                        .current-page{
+                            color: #000;
+                            font-weight: 700;
+                        }
+                        i{}
+                        .all-page{
+                            color: #999;
+                            font-weight: 500;
+                        }
+                    }
+                    button{
+                        height: 100%;
+                        background: #fff url(../../../../../../public/img/intro/abc_main_banner_btn_control.png) no-repeat 0 0;
+                        border: 0;
+                        &.prev-btn{
+                            width: 22px;
+                            background: #fff url(../../../../../../public/img/intro/abc_main_banner_btn_control.png) no-repeat 0 50%;
+                        }
+                        &.next-btn{
+                            width: 50px;
+                            background: #fff url(../../../../../../public/img/intro/abc_main_banner_btn_control.png) no-repeat -13px 50%;
+                        }
+                        &.play-btn{
+                            width: 48px;
+                            background: rgba(0, 0, 0, 0.5) url(../../../../../../public/img/intro/abc_main_banner_btn_control.png) no-repeat calc(100% - 20px) 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
