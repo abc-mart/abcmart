@@ -1,0 +1,121 @@
+#section5{
+    width: 100%;
+    .container{
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        .gap{
+            width: 100%;
+            margin: 100px 0 0 0;
+            .title{
+                width: 100%;
+                text-align: center;
+                position: relative;
+                margin: 0 0 35px 0;
+                font-family: 'Montserrat';
+                h2{
+                    font-size: 30px;
+                    font-weight: 600;
+                    color: #000;
+                }
+            }
+            .catecory{
+                width: 100%;
+                ul{
+                    display: flex;
+                    justify-content: center;
+                    li{
+                        a{}
+                    }
+                }
+            }
+            .content{
+                width: 100%;
+                ul{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    li{
+                        width: 224px;
+                        a{
+                            margin: 0 20px 0 0;
+                            figure{
+                                position: relative;
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                            .information-box{
+                                width: 100%;
+                                padding: 15px 10px 0 10px;
+                                h3{
+                                    width: 100%;
+                                    margin: 4px 0 0 0;
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                    color: #000;
+                                    line-height: 120%;
+                                }
+                                p{
+                                    color: #666;
+                                    margin: 8px 0 0 0;
+                                    font-size: 14px;
+                                    height: 38px;
+                                    line-height: 19px;
+                                }
+                                .price-box{
+                                    margin: 9px 0 0 0;
+                                    .price{
+                                        color: #999;
+                                        font-size: 14px;
+                                        &::after{
+                                            content: '원';
+                                        }
+                                    }
+                                    .product-price{
+                                        font-size: 19px;
+                                        color: #000;
+                                        font-weight: 700;
+                                        &::after{
+                                            content: '원';
+                                            font-size: 12px;
+                                            font-weight: 500;
+                                        }
+                                    }
+                                    .sale-price{
+                                        font-size: 20px;
+                                        margin: 0 0 0 8px;
+                                        color: #ee1c25;
+                                        font-weight: 700;
+                                        &::after{
+                                            content: '원';
+                                            font-size: 12px;
+                                            font-weight: 500;
+                                        }
+                                    }
+                                    .sale-percent{
+                                        margin: 0 0 0 2px;
+                                        color: #ee1c25;
+                                        vertical-align: bottom;
+                                    }
+                                }
+                                .delivery{
+                                    width: 64px;
+                                    height: 20px;
+                                    margin: 19px 0 0 0;
+                                    position: relative;
+                                    overflow: hidden;
+                                    img{
+                                        position: absolute;
+                                        top: 0;
+                                        right: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
