@@ -1,0 +1,94 @@
+#section7{
+    width: 100%;
+    .container{
+        width: 100%;
+        max-width: 1920px;
+        margin: 0 auto;
+        .gap{
+            width: 100%;
+            margin: 100px 0 0 0;
+            .title{
+                width: 100%;
+                text-align: center;
+                margin: 0 0 35px 0;
+                font-family: 'Montserrat';
+                h2{
+                    font-size: 30px;
+                    font-weight: 600;
+                    color: #000;
+                }
+                p{
+                    position: relative;
+                    width: 100%;
+                    margin: 20px 0 35px 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    a{
+                        position: absolute;
+                        top: 0;
+                        right: 351.5px;
+                        display: inline-block;
+                        color: #666;
+                        padding: 0 12px 0 0;
+                        background: url(../../../../../../public/img/intro/main_btn_section_link.png) no-repeat 100% 50%;
+                        font-size: 15px;
+                    }
+                }
+            }
+            .content{
+                width: 100%;
+                .slide-container{
+                    width: 100%;
+                    .slide-view{
+                        width: 100%;
+                        .slide-wrap{
+                            width: 100% * 18;
+                            display: flex;
+                            .slide{
+                                width: 565px;
+                                a{
+                                    display: flex;
+                                    margin: 0 20px 0 0;
+                                    figure{
+                                        width: 270px;
+                                        img{
+                                            width: 100%;
+                                        }
+                                    }
+                                    .information-box{
+                                        width: 270px;
+                                        padding: 35px;
+                                        h3{
+                                            font-size: 22px;
+                                            letter-spacing: -1.4px;
+                                            color: #000;
+                                            font-weight: 600;
+                                            line-height: 28px;
+                                        }
+                                        p{}
+                                        .price-box{
+                                            margin: 10px 0 0 0;
+                                            font-size: 18px;
+                                            color: #ee1c25;
+                                            font-weight: 700;
+                                            .sale-price{
+                                                font-size: 20px;
+                                            }
+                                            .product-price{
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                            }
+                                        }
+                                        .search-result-count{
+                                            .search-result-result-value{}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
