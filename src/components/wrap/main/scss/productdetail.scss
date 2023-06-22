@@ -1,0 +1,425 @@
+#ProductDetail{
+    width: 100%; 
+    padding-bottom: 1000px;   
+    .container{
+        width: 100%;
+        .gap{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            .menu{
+                width: 100%;
+                .menu-depth{                    
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 60px;
+                    span{
+                        padding: 0 7px 0 0;
+                        img{
+
+                        }
+                    }
+                    a{
+                        
+                    }
+                    .selectbox{
+                        padding: 0 0 0 5px;
+                    }
+                    i{
+                        padding: 0 10px;
+                        img{}
+                    }
+                }
+                .product-box{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    .left{
+                        width: 580px;
+                        .big-img{
+                            padding: 0 0 10px 0;
+                            img{}
+                        }
+                        .small-img-box{
+                            display: flex;
+                            span{   
+                                padding: 0 5px;
+                                display: flex;
+                                align-items: center;                                    
+                                img{
+                                    
+                                }
+                            }
+                            a{
+                                padding: 0 5px;
+                                img{}
+                            }
+                            
+                        }
+                        .score-box{
+                            width: 100%;
+                            height: 160px;
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid #e5e5e5;
+                            border-top: 1px solid #000;
+                            margin: 37px 0 0 0;
+                            .score{
+                                width: 270px;
+
+                                p{
+                                    text-align: center;
+                                }
+                                h4{
+                                    position: relative;
+                                    text-align: center;
+                                    font-size: 40px;
+                                    font-weight: 600;
+                                    font-family: 'Montserrat';
+                                    color: #ee1c25;
+                                    padding: 10px 0;
+                                    span{
+                                        font-size: 22px;
+                                        font-weight: 500;
+                                    }
+                                }
+                                .star{    
+                                    display: flex;
+                                    justify-content: center;
+                                    img{
+                                        padding: 0 2px;
+                                    }
+                                    span{
+                                        font-weight: 600;
+                                    }
+                                }
+                            }
+                            .size-color{
+                                ul{
+                                    li{
+                                        padding: 6px 0;
+                                        display: flex;
+                                        font-size: 13px;
+                                        color: #000;
+                                        font-weight: 500;
+                                        span{
+                                            display: block;
+                                            width: 108px;
+                                            color: #666;
+                                            font-size: 13px;
+                                            font-weight: 500;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .right{
+                        width: 580px;
+                        .top{
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            .explain{
+                                .brand-name{
+                                    .abcm{
+                                        span{
+                                            width: 78px;                                            
+                                            padding: 2px 6px;
+                                            background: #ee1c25;
+                                            color: #fff;
+                                            font-size: 13px;
+                                            font-weight: 600;
+                                            font-family: 'Montserrat';
+                                        }
+                                        a{
+                                            position: relative;
+                                            text-decoration: underline;
+                                            padding: 0 8px;
+                                            font-size: 16px;
+                                            font-weight: 500;
+                                            &::after{
+                                                content: '';
+                                                display: inline-block;                                                
+                                                position: absolute;
+                                                top: 50%;
+                                                margin-top: -3px;
+                                                right: 5px;
+                                                padding: 3px;                                                
+                                                border-top: 2px solid #000;
+                                                border-right: 2px solid #000;
+                                                transform: rotate(45deg);
+                                            }                                           
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                            .heart-url{
+                                display: flex;
+                                img{
+                                    width: 17px;
+                                    height: 17px;                                    
+                                }
+                                p{
+                                    line-height: 17px;
+                                    font-weight: 400;
+                                    font-size: 13px;
+                                    padding: 0 18px 0 5px;
+                                }
+                                a{
+                                    img{
+                                        height: 24px;
+                                        &:first-child{
+                                            width: 27px;
+                                            margin: 0 18px 0 0;
+                                        }
+                                        &:last-child{
+                                            width: 25px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .txt{
+                            width: 100%;
+                            padding: 15px 0 24px 0;
+                            border-bottom: 2px solid #000;
+                            h2{
+                                font-size: 32px;
+                                font-weight: 700;                                
+                                color: #000;
+                            }
+                            h5{
+                                font-size: 16px;
+                                color: #666;
+                                font-family: 'Montserrat';
+                                padding: 15px 0;
+                            }
+                            ul{
+                                display: flex;
+                                padding: 0 0 25px 0;
+                                li{
+                                    font-size: 13px;
+                                    color: #999;                                    
+                                }
+                            }
+                            .price{
+                                display: flex;
+                                align-items: flex-end;
+                                font-family: 'Montserrat', 'Noto Sans KR', 'sans-serif';
+                                .real-price{
+                                    font-size: 15px;
+                                    padding: 0 8px 0 0;
+                                    color: #999;
+                                    text-decoration: line-through;
+                                }
+                                .sale-price{
+                                    font-size: 26px;
+                                    font-weight: 600;                                    
+                                    color: #ee1c25;
+                                    transform: translateY(2px);
+                                }
+                                .won{
+                                    font-style: 15px;
+                                    color: #ee1c25;
+                                }
+                                .discount-per{
+                                    font-size: 15px;
+                                    color: #ee1c25;
+                                    padding: 0 8px 0 0;
+                                }
+                                img{                                    
+                                    width: 18px;
+                                    height: 18px;
+                                    transform: translateY(3px);
+                                }
+                            }
+                        }
+                        .style-color{
+                            padding: 20px 0;
+                            display: flex;
+                            border-bottom: 1px solid #d5d5d5;
+                            span{
+                                display: block;
+                                width: 200px;
+                                padding: 15px;
+                                font-size: 14px;
+                                font-weight: 500;
+                                font-weight: 'Montserrat';
+                                color: #333;
+                            }
+                            a{
+                                img{}
+                            }
+                        }
+                        .delivery-size{
+                            ul{
+                                li{
+                                    display: flex;
+                                    height: 50px;
+                                    padding: 20px 0 20px 15px;
+                                    &:nth-child(1){                                        
+                                        padding-top: 40px;
+                                        padding-bottom: 40px;                                        
+                                    }
+                                    &:nth-child(4){  
+                                        height: 160px;                                      
+                                    }
+                                    &:nth-child(5){  
+                                        height: 80px;                                      
+                                    }
+                                    span{
+                                        display: block;
+                                        width: 200px;                                        
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                        font-weight: 'Montserrat';
+                                        color: #333;
+                                    }
+                                    p{
+                                        font-weight: 400;
+                                        font-family: 'Montserrat', 'Noto Sans KR';
+                                        color: #000;
+                                        padding: 0 0 10px 0;
+                                        a{                                            
+                                            text-decoration: underline;
+                                            color: #ed1c24;
+                                            
+                                        }
+                                    }
+                                    .benefit{
+                                        font-size: 14px;
+                                        p{                                            
+                                            font-weight: 400;
+                                            font-family: 'Montserrat', 'Noto Sans KR';
+                                            color: #000;
+                                            padding: 0 0 10px 0;
+                                            strong{                                                
+                                                font-weight: 700;                                                
+                                                color: #ee1c25;
+                                            }
+                                            img{}
+                                            a{}
+                                        }
+                                    }
+                                    .how-del{
+                                        label{
+                                            display: flex;
+                                            padding: 0 0 15px 0;
+                                            input{
+                                                display: block;
+                                                margin: 0 8px 0 0;
+                                            }
+                                            input[type='radio'] {
+                                                appearance: none;
+                                                width: 20px;
+                                                height: 20px;
+                                                border: 1px solid #d5d5d5;
+                                                border-radius: 20px;
+                                            }
+                                              input[type='radio']:checked {
+                                                background: #000;
+                                                position: relative;
+                                                &::after{
+                                                    content: '';
+                                                    position: absolute;
+                                                    top: 50%;
+                                                    left: 50%;                                                    
+                                                    margin-top: -4px;
+                                                    margin-left: -4px;
+                                                    width: 8px;
+                                                    height: 8px;
+                                                    border-radius: 20px;
+                                                    background: #fff;
+                                                }
+                                            }
+                                            span{}
+                                            a{
+                                                img{}
+                                            } 
+                                        }
+                                        select{
+                                            display: block;
+                                            width: 360px;
+                                            height: 38px;
+                                            color: #999;
+                                            padding: 0 0 0 10px;
+                                            background: #f8f8f8;
+                                            border: 1px solid #d5d5d5;
+                                            option{
+                                                
+                                            }
+                                            option[disabled]{
+                                                display: none;                                                
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                            }
+                                        }
+
+                                    }
+                                    .size-txt{
+                                        span{}
+                                        a{
+                                            img{}
+                                        }
+                                    }
+                                    .size{
+                                        display: flex;
+                                        flex-wrap: wrap;                                        
+                                        a{
+                                            display: block;
+                                            width: 50px;
+                                            height: 24px;
+                                            border: 1px solid #d5d5d5;
+                                            text-align: center;
+                                            line-height: 20px;
+                                            font-size: 13px;
+                                            font-family: 'Montserrat';
+                                            margin: 0 5px 5px 0;
+                                            transition: all 0.3s;
+                                            &:hover{
+                                                border: 1px solid #000;
+                                            }
+                                        }
+                                    }
+                                    select{
+                                        display: block;
+                                        width: 360px;
+                                        height: 38px;
+                                        padding: 0 0 0 10px;
+                                        border: 1px solid #d5d5d5;
+                                        option{
+    
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .choice{
+                            width: 100%;
+                            .choice-product{
+                                display: flex;
+                                
+                                span{}
+                                .ea-price{
+                                    span{
+                                        i{}
+                                    }
+                                    a{
+                                        img{}
+                                    }
+                                }
+                            }
+                        }
+                        .button-box{
+                            button{}
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
