@@ -16,6 +16,16 @@
                     font-size: 30px;
                     font-weight: 600;
                     color: #000;
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        top: 3px;
+                        left: 46.6%;
+                        content:'';
+                        width: 20px;
+                        height: 21px;
+                        background: url(../../../../../../public/img/intro/icon_pick_title.png) no-repeat 0 0;
+                    }
                 }
                 p{
                     position: relative;
@@ -41,14 +51,20 @@
                     width: 100%;
                     .slide-view{
                         width: 100%;
+                        overflow: hidden;
                         .slide-wrap{
-                            width: 100% * 18;
+                            width: 100% * 26;
                             display: flex;
+                            margin: 0 0 0 calc(-100% - 228px);
                             .slide{
                                 width: 565px;
                                 a{
                                     display: flex;
                                     margin: 0 20px 0 0;
+                                    border: 1px solid #d5d5d5;
+                                    &:hover{
+                                        border-color: #000;
+                                    }
                                     figure{
                                         width: 270px;
                                         img{
@@ -58,14 +74,25 @@
                                     .information-box{
                                         width: 270px;
                                         padding: 35px;
+                                        position: relative;
                                         h3{
                                             font-size: 22px;
                                             letter-spacing: -1.4px;
                                             color: #000;
                                             font-weight: 600;
                                             line-height: 28px;
+                                            display: -webkit-box;
+                                            -webkit-box-orient: vertical;
+                                            -webkit-line-clamp: 2;
+                                            overflow: hidden;
+                                            margin: 0 0 10px 0;
                                         }
-                                        p{}
+                                        p{
+                                            font-size: 15px;
+                                            color: #666;
+                                            height: 38px;
+                                            line-height: 19px;
+                                        }
                                         .price-box{
                                             margin: 10px 0 0 0;
                                             font-size: 18px;
@@ -73,6 +100,14 @@
                                             font-weight: 700;
                                             .sale-price{
                                                 font-size: 20px;
+                                                font-weight: 700;
+                                                margin: 0 0 0 5px;
+                                                &::after{
+                                                    content: '할인';
+                                                    font-size: 14px;
+                                                    font-weight: 400;
+                                                    margin: 0 0 0 5px;
+                                                }
                                             }
                                             .product-price{
                                                 font-size: 14px;
@@ -80,7 +115,18 @@
                                             }
                                         }
                                         .search-result-count{
-                                            .search-result-result-value{}
+                                            position: absolute;
+                                            bottom: 35px;
+                                            left: 35px;
+                                            font-size: 13px;
+                                            color: #000;
+                                            .search-result-result-value{
+                                                color: #ee1c25;
+                                                font-weight: 700;
+                                                vertical-align: baseline;
+                                                font-family: 'Montserrat';
+                                                margin: 0 0 0 2px;
+                                            }
                                         }
                                     }
                                 }

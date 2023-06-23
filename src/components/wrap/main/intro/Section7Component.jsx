@@ -133,12 +133,7 @@ export default function Section7Component(){
                                                     <br />
                                                     JEEP와 함께 해볼까요?
                                                 </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
+                                                <p>EARTHUS 얼리 썸머 세일</p>
                                                 <div className="search-result-count">
                                                     총 
                                                     <span className="search-result-result-value">
@@ -160,11 +155,9 @@ export default function Section7Component(){
                                                     <br />
                                                     여름을 채워볼까요?
                                                 </h3>
-                                                <p>EDITORIAL</p>
                                                 <div className="price-box">
                                                     ~
                                                     <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
                                                 </div>
                                                 <div className="search-result-count">
                                                     총 
@@ -187,12 +180,7 @@ export default function Section7Component(){
                                                     <br />
                                                     JEEP와 함께 해볼까요?
                                                 </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
+                                                <p>EARTHUS 얼리 썸머 세일</p>
                                                 <div className="search-result-count">
                                                     총 
                                                     <span className="search-result-result-value">
@@ -214,10 +202,8 @@ export default function Section7Component(){
                                                     <br />
                                                     JEEP와 함께 해볼까요?
                                                 </h3>
-                                                <p>EDITORIAL</p>
                                                 <div className="price-box">
                                                     ~
-                                                    <strong className='sale-price'>60%</strong>
                                                     <strong className='product-price'>27,600</strong>
                                                 </div>
                                                 <div className="search-result-count">
@@ -619,12 +605,7 @@ export default function Section7Component(){
                                                     <br />
                                                     JEEP와 함께 해볼까요?
                                                 </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
+                                                <p>EARTHUS 얼리 썸머 세일</p>
                                                 <div className="search-result-count">
                                                     총 
                                                     <span className="search-result-result-value">
@@ -646,11 +627,9 @@ export default function Section7Component(){
                                                     <br />
                                                     여름을 채워볼까요?
                                                 </h3>
-                                                <p>EDITORIAL</p>
                                                 <div className="price-box">
                                                     ~
                                                     <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
                                                 </div>
                                                 <div className="search-result-count">
                                                     총 
@@ -673,12 +652,7 @@ export default function Section7Component(){
                                                     <br />
                                                     JEEP와 함께 해볼까요?
                                                 </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
+                                                <p>EARTHUS 얼리 썸머 세일</p>
                                                 <div className="search-result-count">
                                                     총 
                                                     <span className="search-result-result-value">
@@ -700,10 +674,8 @@ export default function Section7Component(){
                                                     <br />
                                                     JEEP와 함께 해볼까요?
                                                 </h3>
-                                                <p>EDITORIAL</p>
                                                 <div className="price-box">
                                                     ~
-                                                    <strong className='sale-price'>60%</strong>
                                                     <strong className='product-price'>27,600</strong>
                                                 </div>
                                                 <div className="search-result-count">
