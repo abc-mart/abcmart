@@ -11,8 +11,9 @@ html, body {
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body {

@@ -7,7 +7,6 @@
         .gap{
             width: 100%;
             margin: 100px 0 0 0;
-            padding-bottom: 100px;
             .content{
                 width: 100%;
                 position: relative;
@@ -18,7 +17,7 @@
                         overflow: hidden;
                         .slide-wrap{
                             width: 100% * 12;
-                            margin: 0 0 0 -25%;
+                            margin: 0 0 0 -50px;
                             position: relative;
                             display: flex;
                             .slide{

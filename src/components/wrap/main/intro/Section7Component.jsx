@@ -1,7 +1,72 @@
 import React from 'react';
+import $ from 'jquery';
+import axios from 'axios';
 import './scss/section7.scss';
 
 export default function Section7Component(){
+
+    const [state, setState] = React.useState({
+        plusPick: [],
+        n: 0
+    });
+
+    React.useEffect(()=>{
+
+        axios({
+            url: './data/intro/section7.json',
+            method:'GET'
+        })
+        .then((res)=>{
+            if(res.status===200){
+                setState({
+                    ...state,
+                    plusPick: res.data.plus_pick,
+                    n: res.data.plus_pick.length-8
+                });
+            }
+        })
+        .catch((err)=>{
+            console.log(`err` + err);
+        });
+
+    },[]);
+
+    React.useEffect(()=>{
+
+        const $slideWrap = $(`#section7 .slide-wrap`);
+        
+        let cnt = 0;
+        let setId = 0;
+
+        $slideWrap.css({width: `${100 * ((state.n+8)/3.5)}%`});
+
+        function mainSlide(){
+            $slideWrap.stop().animate({left: `${-585 * cnt}px`}, 600, function(){
+                if(cnt>state.n-1) cnt=0;
+                if(cnt<0) cnt=state.n-1;
+                $slideWrap.stop().animate({left: `${-585 * cnt}px`}, 0);
+            });
+        }
+
+        function prevCount(){
+            cnt--;
+            mainSlide();
+        }
+
+        function nextCount(){
+            cnt++;
+            mainSlide();
+        }
+
+        function autoTimer(){
+            clearInterval(setId);
+            setId = setInterval(nextCount, 3000);
+        }
+        autoTimer();
+
+    },[state.n]);
+
+
     return (
         <section id="section7">
             <div className="container">
@@ -14,680 +79,40 @@ export default function Section7Component(){
                         <div className="slide-container">
                             <div className="slide-view">
                                 <ul className="slide-wrap">
-                                    <li className="slide slide15">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide16">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    제이다울의 부드러운 무드로
-                                                    <br />
-                                                    여름을 채워볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide17">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide18">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide1">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EARTHUS 얼리 썸머 세일</p>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide2">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    제이다울의 부드러운 무드로
-                                                    <br />
-                                                    여름을 채워볼까요?
-                                                </h3>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide3">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EARTHUS 얼리 썸머 세일</p>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide4">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide5">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide6">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide7">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide8">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide9">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide10">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide11">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide12">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide13">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide14">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide15">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide16">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    제이다울의 부드러운 무드로
-                                                    <br />
-                                                    여름을 채워볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide17">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide18">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EDITORIAL</p>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide1">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EARTHUS 얼리 썸머 세일</p>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide2">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    제이다울의 부드러운 무드로
-                                                    <br />
-                                                    여름을 채워볼까요?
-                                                </h3>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='sale-price'>60%</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide3">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <p>EARTHUS 얼리 썸머 세일</p>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide4">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec7_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>
-                                                    무더위 대비,
-                                                    <br />
-                                                    JEEP와 함께 해볼까요?
-                                                </h3>
-                                                <div className="price-box">
-                                                    ~
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="search-result-count">
-                                                    총 
-                                                    <span className="search-result-result-value">
-                                                        48
-                                                    </span>
-                                                    개의 상품
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
+                                    {
+                                        state.plusPick.map((item, idx)=>{
+                                            return(
+                                                <li className="slide slide1" key={idx}>
+                                                    <div>
+                                                        <figure>
+                                                            <a href="!#">
+                                                                <img src={item.src} alt="" />
+                                                            </a>
+                                                        </figure>
+                                                        <div className='information-box'>
+                                                            <a href="!#">
+                                                                <h3>
+                                                                {item.title}
+                                                                </h3>
+                                                                <p>{item.info}</p>
+                                                                <div className="price-box">
+                                                                    <strong className='start-price'>{item.start_price}</strong>
+                                                                    <strong className='discount-rate'>{item.discount_rate}</strong>
+                                                                </div>
+                                                                <div className="search-result-count">
+                                                                    총 
+                                                                    <span className="search-result-result-value">
+                                                                        48
+                                                                    </span>
+                                                                    개의 상품
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            )
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </div>

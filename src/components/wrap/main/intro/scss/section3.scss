@@ -41,7 +41,6 @@
                         overflow: hidden;
                         .slide-wrap{
                             width: 100% * 6;
-                            margin: 0 0 0 -100%;
                             position: relative;
                             display: flex;
                             justify-content: space-between;
@@ -75,46 +74,47 @@
                                         }
                                         .price-box{
                                             margin: 9px 0 0 0;
-                                            .price{
-                                                color: #999;
-                                                font-size: 14px;
-                                                &::after{
-                                                    content: '원';
-                                                }
-                                            }
                                             .product-price{
                                                 font-size: 19px;
                                                 color: #000;
                                                 font-weight: 700;
-                                                &::after{
-                                                    content: '원';
+                                                em{
                                                     font-size: 12px;
                                                     font-weight: 500;
                                                 }
                                             }
-                                            .sale-price{
+                                            .cost-price{
+                                                color: #999;
+                                                font-size: 14px;
+                                                em{}
+                                            }
+                                            .discount-price{
                                                 font-size: 20px;
                                                 margin: 0 0 0 8px;
                                                 color: #ee1c25;
                                                 font-weight: 700;
-                                                &::after{
-                                                    content: '원';
+                                                em{
                                                     font-size: 12px;
                                                     font-weight: 500;
                                                 }
                                             }
-                                            .sale-percent{
+                                            .discount-rate{
                                                 margin: 0 0 0 2px;
                                                 color: #ee1c25;
                                                 vertical-align: bottom;
+                                                em{}
                                             }
                                         }
-                                        .delivery{
-                                            width: 64px;
+                                        .icon_box{
+                                            display: inline-block;
+                                            width: 44px;
                                             height: 20px;
-                                            margin: 19px 0 0 0;
+                                            margin: 19px 3px 0 0;
                                             position: relative;
                                             overflow: hidden;
+                                            &.delivery{
+                                                width: 64px;
+                                            }
                                             img{
                                                 position: absolute;
                                                 top: 0;
@@ -134,6 +134,7 @@
                     height: 29px;
                     background: url(../../../../../../public/img/intro/main_btn_abc_swiper.png) no-repeat 0 0;
                     border: 0;
+                    cursor: pointer;
                     &.prev-btn{
                         left: -40px;
                         background-position: -15px 0;

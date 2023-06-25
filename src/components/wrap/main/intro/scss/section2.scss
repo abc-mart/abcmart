@@ -46,7 +46,7 @@
                             overflow: hidden;
                             .slide-wrap{
                                 width: (100% / 3) * 18;
-                                margin: 0 0 0 -100%;
+                                margin: 0 0 0 -305px;
                                 position: relative;
                                 display: flex;
                                 justify-content: space-between;
@@ -140,14 +140,14 @@
                                             }
                                             .price-box{
                                                 margin: 9px 0 0 0;
-                                                .price{
+                                                .cost-price{
                                                     color: #999;
                                                     font-size: 14px;
                                                     &::after{
                                                         content: '원';
                                                     }
                                                 }
-                                                .sale-price{
+                                                .discount-price{
                                                     font-size: 20px;
                                                     margin: 0 0 0 8px;
                                                     color: #ee1c25;
@@ -158,10 +158,16 @@
                                                         font-weight: 500;
                                                     }
                                                 }
-                                                .sale-percent{
+                                                .discount-rate{
                                                     margin: 0 0 0 2px;
                                                     color: #ee1c25;
                                                     vertical-align: bottom;
+                                                    &::before{
+                                                        content: '[';
+                                                    }
+                                                    &::after{
+                                                        content: '%]';
+                                                    }
                                                 }
                                             }
                                         }
@@ -205,6 +211,7 @@
                         height: 29px;
                         background: url(../../../../../../public/img/intro/main_btn_abc_swiper.png) no-repeat 0 0;
                         border: 0;
+                        cursor: pointer;
                         &.prev-btn{
                             left: -40px;
                             background-position: -15px 0;

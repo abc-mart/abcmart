@@ -1,7 +1,37 @@
 import React from 'react';
+import $ from 'jquery';
+import axios from 'axios';
 import './scss/section6.scss';
 
 export default function Section6Component(){
+
+    const [state, setState] = React.useState({
+        trendOn: [],
+        n: 0
+    });
+
+    React.useEffect(()=>{
+
+        axios({
+            url: './data/intro/section6.json',
+            method:'GET'
+        })
+        .then((res)=>{
+            if(res.status===200){
+                setState({
+                    ...state,
+                    trendOn: res.data.trend_on,
+                    n: res.data.trend_on.length
+                });
+            }
+        })
+        .catch((err)=>{
+            console.log(`err` + err);
+        });
+
+    },[]);
+
+
     return (
         <section id="section6">
             <div className="container">
@@ -11,66 +41,23 @@ export default function Section6Component(){
                     </div>
                     <div className="content">
                         <ul>
-                            <li>
-                                <a href="!#">
-                                    <figure>
-                                        <img src="./img/intro/intro_sec6_img1.jpg" alt="" />
-                                    </figure>
-                                    <div className='information-box'>
-                                        <p>EDITORIAL</p>
-                                        <h3>
-                                            SUMMER
-                                            <br />
-                                            DIARY
-                                        </h3>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="!#">
-                                    <figure>
-                                        <img src="./img/intro/intro_sec6_img2.jpg" alt="" />
-                                    </figure>
-                                    <div className='information-box'>
-                                        <p>EDITORIAL</p>
-                                        <h3>
-                                            SUMMER
-                                            <br />
-                                            DIARY
-                                        </h3>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="!#">
-                                    <figure>
-                                        <img src="./img/intro/intro_sec6_img3.jpg" alt="" />
-                                    </figure>
-                                    <div className='information-box'>
-                                        <p>EDITORIAL</p>
-                                        <h3>
-                                            SUMMER
-                                            <br />
-                                            DIARY
-                                        </h3>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="!#">
-                                    <figure>
-                                        <img src="./img/intro/intro_sec6_img4.jpg" alt="" />
-                                    </figure>
-                                    <div className='information-box'>
-                                        <p>EDITORIAL</p>
-                                        <h3>
-                                            SUMMER
-                                            <br />
-                                            DIARY
-                                        </h3>
-                                    </div>
-                                </a>
-                            </li>
+                            {
+                                state.trendOn.map((item, idx)=>{
+                                    return(
+                                        <li key={idx}>
+                                            <a href="!#">
+                                                <figure>
+                                                    <img src={item.src} alt="" />
+                                                </figure>
+                                                <div className='information-box'>
+                                                    <p>{item.title}</p>
+                                                    <h3>{item.info}</h3>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    )
+                                })
+                            }
                         </ul>
                     </div>
                 </div>

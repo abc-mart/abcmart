@@ -1,7 +1,87 @@
 import React from 'react';
+import $ from 'jquery';
+import axios from 'axios';
 import './scss/section3.scss';
 
 export default function Section3Component(){
+
+    const [state, setState] = React.useState({
+        newArrivals: [],
+        n: 0
+    });
+
+    React.useEffect(()=>{
+
+        axios({
+            url: './data/intro/section3.json',
+            method:'GET'
+        })
+        .then((res)=>{
+            if(res.status===200){
+                setState({
+                    ...state,
+                    newArrivals: res.data.new_arrivals,
+                    n: res.data.new_arrivals.length
+                });
+            }
+        })
+        .catch((err)=>{
+            console.log(`err` + err);
+        });
+
+    },[]);
+
+    React.useEffect(()=>{
+
+        const $slideWrap = $(`#section3 .slide-wrap`);
+        const $prevBtn = $(`#section3 .prev-btn`);
+        const $nextBtn = $(`#section3 .next-btn`);
+        
+        let cnt = 0;
+        let setId = 0;
+
+        $slideWrap.css({width: `${100 * (state.n/5)}%` });
+
+        function mainSlide(){
+            $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 600, function(){
+
+                $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 0);
+            });
+        }
+
+        function prevCount(){
+            if(cnt>0){
+                cnt--;
+            }
+            mainSlide();
+        }
+
+        function nextCount(){
+            if(cnt<((state.n/5)-1)){
+                cnt++;
+            }
+            mainSlide();
+        }
+
+        $prevBtn.on({
+            click(e){
+                e.preventDefault();
+                prevCount();
+                clearInterval(setId);
+            }
+        });
+
+        $nextBtn.on({
+            click(e){
+                e.preventDefault();
+                nextCount();
+                clearInterval(setId);
+            }
+        });
+
+    },[state.n]);
+
+    
     return (
         <section id="section3">
             <div className="container">
@@ -14,528 +94,41 @@ export default function Section3Component(){
                         <div className="slide-container">
                             <div className="slide-view">
                                 <ul className="slide-wrap">
-                                    <li className="slide slide16">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide17">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide2.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide18">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide3.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide19">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide4.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide20">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide5.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>누오보</h3>
-                                                <p>페이토 3</p>
-                                                <div className="price-box">
-                                                    <s className='price'>69,000</s>
-                                                    <strong className='sale-price'>27,600</strong>
-                                                    <span className="sale-percent">[60%]</span>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide1">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide2">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide2.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide3">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide3.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide4">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide4.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide5">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide5.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>누오보</h3>
-                                                <p>페이토 3</p>
-                                                <div className="price-box">
-                                                    <s className='price'>69,000</s>
-                                                    <strong className='sale-price'>27,600</strong>
-                                                    <span className="sale-percent">[60%]</span>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide6">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide7">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide2.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide8">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide3.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide9">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide4.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide10">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide5.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>누오보</h3>
-                                                <p>페이토 3</p>
-                                                <div className="price-box">
-                                                    <s className='price'>69,000</s>
-                                                    <strong className='sale-price'>27,600</strong>
-                                                    <span className="sale-percent">[60%]</span>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide11">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide12">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide2.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide13">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide3.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide14">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide4.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide15">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide5.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>누오보</h3>
-                                                <p>페이토 3</p>
-                                                <div className="price-box">
-                                                    <s className='price'>69,000</s>
-                                                    <strong className='sale-price'>27,600</strong>
-                                                    <span className="sale-percent">[60%]</span>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide16">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide17">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide2.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide18">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide3.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide19">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide4.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide20">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide5.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>누오보</h3>
-                                                <p>페이토 3</p>
-                                                <div className="price-box">
-                                                    <s className='price'>69,000</s>
-                                                    <strong className='sale-price'>27,600</strong>
-                                                    <span className="sale-percent">[60%]</span>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide1">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide1.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide2">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide2.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 T</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide3">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide3.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide4">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide4.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>크록스</h3>
-                                                <p>오프 코트 클로그 K</p>
-                                                <div className="price-box">
-                                                    <strong className='product-price'>27,600</strong>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="slide slide5">
-                                        <a href="!#">
-                                            <figure>
-                                                <img src="./img/intro/intro_sec3_slide5.jpg" alt="" />
-                                            </figure>
-                                            <div className='information-box'>
-                                                <h3>누오보</h3>
-                                                <p>페이토 3</p>
-                                                <div className="price-box">
-                                                    <s className='price'>69,000</s>
-                                                    <strong className='sale-price'>27,600</strong>
-                                                    <span className="sale-percent">[60%]</span>
-                                                </div>
-                                                <div className="delivery">
-                                                    <img src="./img/intro/icon_delivery.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
+                                    {
+                                        state.newArrivals.map((item, idx)=>{
+                                            return(
+                                                <li className="slide slide1" key={idx}>
+                                                    <a href="!#">
+                                                        <figure>
+                                                            <img src={item.src} alt="" />
+                                                        </figure>
+                                                        <div className='information-box'>
+                                                            <h3>{item.title}</h3>
+                                                            <p>{item.info}</p>
+                                                            <div className="price-box">
+                                                                <strong className='product-price'>{item.product_price}<em>원</em></strong>
+                                                                <s className='cost-price'>{item.cost_price}<em>원</em></s>
+                                                                <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
+                                                                <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                            </div>
+                                                            <div className="icon_box best">
+                                                                <img src="./img/intro/icon_best.png" alt="" />
+                                                            </div>
+                                                            {/* <div className="icon_box coupon">
+                                                                <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                            </div> */}
+                                                            <div className="icon_box only">
+                                                                <img src="./img/intro/icon_only.jpg" alt="" />
+                                                            </div>
+                                                            <div className="icon_box delivery">
+                                                                <img src="./img/intro/icon_delivery.png" alt="" />
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            )
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </div>

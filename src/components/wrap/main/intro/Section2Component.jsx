@@ -1,7 +1,84 @@
 import React from 'react';
+import $ from 'jquery';
+import axios from 'axios';
 import './scss/section2.scss';
 
 export default function Section2Component(){
+
+    const [state, setState] = React.useState({
+        hotDeal: [],
+        n: 0
+    });
+
+    React.useEffect(()=>{
+
+        axios({
+            url: './data/intro/section2.json',
+            method:'GET'
+        })
+        .then((res)=>{
+            if(res.status===200){
+                setState({
+                    ...state,
+                    hotDeal: res.data.hot_deal,
+                    n: res.data.hot_deal.length-4
+                });
+            }
+        })
+        .catch((err)=>{
+            console.log(`err` + err);
+        });
+
+    },[]);
+
+    React.useEffect(()=>{
+
+        const $slideWrap = $(`#section2 .slide-wrap`);
+        const $prevBtn = $(`#section2 .prev-btn`);
+        const $nextBtn = $(`#section2 .next-btn`);
+        
+        let cnt = 0;
+        let setId = 0;
+
+        $slideWrap.css({width: `${305 * (state.n+4)}px` });
+
+        function mainSlide(){
+            $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 600, function(){
+                if(cnt>state.n-1) cnt=0;
+                if(cnt<0) cnt=state.n-1;
+                $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 0);
+            });
+        }
+
+        function prevCount(){
+            cnt--;
+            mainSlide();
+        }
+
+        function nextCount(){
+            cnt++;
+            mainSlide();
+        }
+
+        $prevBtn.on({
+            click(e){
+                e.preventDefault();
+                prevCount();
+                clearInterval(setId);
+            }
+        });
+
+        $nextBtn.on({
+            click(e){
+                e.preventDefault();
+                nextCount();
+                clearInterval(setId);
+            }
+        });
+
+    },[state.n]);
+
+
     return (
         <section id="section2">
             <div className="container">
@@ -20,726 +97,52 @@ export default function Section2Component(){
                             <div className="slide-container">
                                 <div className="slide-view">
                                     <ul className="slide-wrap">
-                                        <li className="slide slide10">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide1.jpg" alt="" />
-                                                    <span>
-                                                        <strong>60</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">15</span>
-                                                            <span className="seconds">38</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>위더로드</h3>
-                                                    <p>WTRD4105-2 엑시오 크로스샌들 카키 [230~290mm]</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>69,000</s>
-                                                        <strong className='sale-price'>27,600</strong>
-                                                        <span className="sale-percent">[60%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>30</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide11">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide2.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">14</span>
-                                                            <span className="seconds">18</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>500</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide12">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide3.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">13</span>
-                                                            <span className="seconds">07</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>271</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide1">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide1.jpg" alt="" />
-                                                    <span>
-                                                        <strong>60</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">15</span>
-                                                            <span className="seconds">38</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>위더로드</h3>
-                                                    <p>WTRD4105-2 엑시오 크로스샌들 카키 [230~290mm]</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>69,000</s>
-                                                        <strong className='sale-price'>27,600</strong>
-                                                        <span className="sale-percent">[60%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>30</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide2">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide2.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">14</span>
-                                                            <span className="seconds">18</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>500</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide3">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide3.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">13</span>
-                                                            <span className="seconds">07</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>271</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide4">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide1.jpg" alt="" />
-                                                    <span>
-                                                        <strong>60</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">15</span>
-                                                            <span className="seconds">38</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>위더로드</h3>
-                                                    <p>WTRD4105-2 엑시오 크로스샌들 카키 [230~290mm]</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>69,000</s>
-                                                        <strong className='sale-price'>27,600</strong>
-                                                        <span className="sale-percent">[60%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>30</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide5">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide2.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">14</span>
-                                                            <span className="seconds">18</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>500</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide6">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide3.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">13</span>
-                                                            <span className="seconds">07</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>271</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide7">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide1.jpg" alt="" />
-                                                    <span>
-                                                        <strong>60</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">15</span>
-                                                            <span className="seconds">38</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>위더로드</h3>
-                                                    <p>WTRD4105-2 엑시오 크로스샌들 카키 [230~290mm]</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>69,000</s>
-                                                        <strong className='sale-price'>27,600</strong>
-                                                        <span className="sale-percent">[60%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>30</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide8">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide2.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">14</span>
-                                                            <span className="seconds">18</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>500</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide9">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide3.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">13</span>
-                                                            <span className="seconds">07</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>271</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide10">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide1.jpg" alt="" />
-                                                    <span>
-                                                        <strong>60</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">15</span>
-                                                            <span className="seconds">38</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>위더로드</h3>
-                                                    <p>WTRD4105-2 엑시오 크로스샌들 카키 [230~290mm]</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>69,000</s>
-                                                        <strong className='sale-price'>27,600</strong>
-                                                        <span className="sale-percent">[60%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>30</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide11">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide2.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">14</span>
-                                                            <span className="seconds">18</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>500</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide12">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide3.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">13</span>
-                                                            <span className="seconds">07</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>271</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide1">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide1.jpg" alt="" />
-                                                    <span>
-                                                        <strong>60</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">15</span>
-                                                            <span className="seconds">38</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>위더로드</h3>
-                                                    <p>WTRD4105-2 엑시오 크로스샌들 카키 [230~290mm]</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>69,000</s>
-                                                        <strong className='sale-price'>27,600</strong>
-                                                        <span className="sale-percent">[60%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>30</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide2">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide2.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">14</span>
-                                                            <span className="seconds">18</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>500</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="slide slide3">
-                                            <a href="!#">
-                                                <figure>
-                                                    <img src="./img/intro/intro_sec2_slide3.jpg" alt="" />
-                                                    <span>
-                                                        <strong>28</strong><em>%</em>
-                                                    </span>
-                                                    <div className="time-sale">
-                                                        <span className="date">
-                                                            <span className="day-value">1</span>
-                                                            <span className="day-text">DAY</span>
-                                                        </span>
-                                                        <span className="time">
-                                                            <span className="hours">18</span>
-                                                            <span className="minutes">13</span>
-                                                            <span className="seconds">07</span>
-                                                        </span>
-                                                    </div>
-                                                </figure>
-                                                <div className='information-box'>
-                                                    <h3>푸마</h3>
-                                                    <p>푸마 이볼브 슬립온 인펀트</p>
-                                                    <div className="price-box">
-                                                        <s className='price'>49,000</s>
-                                                        <strong className='sale-price'>35,000</strong>
-                                                        <span className="sale-percent">[28%]</span>
-                                                    </div>
-                                                </div>
-                                                <div className="sale-period-box">
-                                                    <span className="sale-period">
-                                                        23.06.21 09:00 ~
-                                                        <br />
-                                                        23.06.23 08:59
-                                                    </span>
-                                                    <span className="rest-product-count">
-                                                        <span className='rest-product-count-value'>271</span>개 남음
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
+                                        {
+                                            state.hotDeal.map((item, idx)=>{
+                                                return(
+                                                    <li className="slide slide1" key={idx}>
+                                                        <a href="!#">
+                                                            <figure>
+                                                                <img src={item.src} alt="" />
+                                                                <span>
+                                                                    <strong>{item.discount_rate}</strong><em>%</em>
+                                                                </span>
+                                                                <div className="time-sale">
+                                                                    <span className="date">
+                                                                        <span className="day-value">1</span>
+                                                                        <span className="day-text">DAY</span>
+                                                                    </span>
+                                                                    <span className="time">
+                                                                        <span className="hours">18</span>
+                                                                        <span className="minutes">15</span>
+                                                                        <span className="seconds">38</span>
+                                                                    </span>
+                                                                </div>
+                                                            </figure>
+                                                            <div className='information-box'>
+                                                                <h3>{item.title}</h3>
+                                                                <p>{item.info}</p>
+                                                                <div className="price-box">
+                                                                    <s className='cost-price'>{item.cost_price}</s>
+                                                                    <strong className='discount-price'>{item.discount_price}</strong>
+                                                                    <span className="discount-rate">{item.discount_rate}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="sale-period-box">
+                                                                <span className="sale-period">
+                                                                    23.06.21 09:00 ~
+                                                                    <br />
+                                                                    23.06.23 08:59
+                                                                </span>
+                                                                <span className="rest-product-count">
+                                                                    <span className='rest-product-count-value'>30</span>개 남음
+                                                                </span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                )
+                                            })
+                                        }
                                     </ul>
                                 </div>
                             </div>

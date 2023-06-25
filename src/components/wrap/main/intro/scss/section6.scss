@@ -26,11 +26,12 @@
                     display: flex;
                     justify-content: space-between;
                     li{
+                        width: 285px;
                         a{
                             figure{
                                 position: relative;
                                 img{
-                                    width: auto;
+                                    width: 100%;
                                 }
                             }
                             .information-box{

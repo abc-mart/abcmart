@@ -23,6 +23,7 @@
                 position: relative;
                 .category-btn-box{
                     width: 1200px;
+                    z-index: 3;
                     position: absolute;
                     top: 160px;
                     left: 30%;
@@ -60,17 +61,51 @@
                         }
                     }
                 }
+                .page-btn-box{
+                    z-index: 3;
+                    position: relative;
+                    width: 1200px;
+                    margin: 0 auto;
+                    button{
+                        position: absolute;
+                        top: 106px;
+                        left: 50%;
+                        width: 24px;
+                        height: 45px;
+                        background: url(../../../../../../public/img/intro/main_btn_abc_main_event_swiper.png) no-repeat 0 0;
+                        border: 0;
+                        cursor: pointer;
+                        &.prev-btn{
+                            left: -40px;
+                            background-position: -24px 0;
+                        }
+                        &.next-btn{
+                            left: calc(100% + 16px);
+                        }
+                    }
+                }
                 .slide-container{
                     width: 100%;
                     .slide-view{
                         width: 100%;
                         overflow: hidden;
                         .slide-wrap{
-                            width: 100% * 8;
+                            width: 100% * 10;
                             display: flex;
+                            position: relative;
+                            margin: 0 0 0 -100%;
+                            z-index: 1;
                             .slide{
                                 width: 100%;
-                                background: url(../../../../../../public/img/intro/intro_sec8_slide1_bg.jpg) no-repeat 50% 0;
+                                background: url() no-repeat 50% 0;
+                                &.slide1{background-image: url(../../../../../../public/img/intro/intro_sec8_slide1_bg.jpg);}
+                                &.slide2{background-image: url(../../../../../../public/img/intro/intro_sec8_slide2_bg.jpg);}
+                                &.slide3{background-image: url(../../../../../../public/img/intro/intro_sec8_slide3_bg.jpg);}
+                                &.slide4{background-image: url(../../../../../../public/img/intro/intro_sec8_slide4_bg.jpg);}
+                                &.slide5{background-image: url(../../../../../../public/img/intro/intro_sec8_slide5_bg.jpg);}
+                                &.slide6{background-image: url(../../../../../../public/img/intro/intro_sec8_slide6_bg.jpg);}
+                                &.slide7{background-image: url(../../../../../../public/img/intro/intro_sec8_slide7_bg.jpg);}
+                                &.slide8{background-image: url(../../../../../../public/img/intro/intro_sec8_slide8_bg.jpg);}
                                 .product-list-box{
                                     width: 1200px;
                                     margin: 236px auto 0 auto;
@@ -108,13 +143,6 @@
                                                 }
                                                 .price-box{
                                                     margin: 9px 0 0 0;
-                                                    .price{
-                                                        color: #999;
-                                                        font-size: 14px;
-                                                        &::after{
-                                                            content: '원';
-                                                        }
-                                                    }
                                                     .product-price{
                                                         font-size: 19px;
                                                         color: #000;
@@ -125,7 +153,14 @@
                                                             font-weight: 500;
                                                         }
                                                     }
-                                                    .sale-price{
+                                                    .cost-price{
+                                                        color: #999;
+                                                        font-size: 14px;
+                                                        &::after{
+                                                            content: '원';
+                                                        }
+                                                    }
+                                                    .discount-price{
                                                         font-size: 20px;
                                                         margin: 0 0 0 8px;
                                                         color: #ee1c25;
@@ -136,18 +171,22 @@
                                                             font-weight: 500;
                                                         }
                                                     }
-                                                    .sale-percent{
+                                                    .discount-rate{
                                                         margin: 0 0 0 2px;
                                                         color: #ee1c25;
                                                         vertical-align: bottom;
                                                     }
                                                 }
-                                                .delivery{
-                                                    width: 64px;
+                                                .icon_box{
+                                                    display: inline-block;
+                                                    width: 44px;
                                                     height: 20px;
-                                                    margin: 19px 0 0 0;
+                                                    margin: 19px 3px 0 0;
                                                     position: relative;
                                                     overflow: hidden;
+                                                    &.delivery{
+                                                        width: 64px;
+                                                    }
                                                     img{
                                                         position: absolute;
                                                         top: 0;
