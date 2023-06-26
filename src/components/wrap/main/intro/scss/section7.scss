@@ -99,25 +99,19 @@
                                             }
                                             .price-box{
                                                 margin: 10px 0 0 0;
-                                                font-size: 18px;
                                                 color: #ee1c25;
-                                                font-weight: 700;
                                                 .start-price{
-                                                    // font-size: 14px;
-                                                    // font-weight: 400;
                                                     font-size: 18px;
                                                     font-weight: 700;
+                                                    em{
+                                                        font-size: 14px;
+                                                        font-weight: 400;
+                                                    }
                                                 }
                                                 .discount-rate{
                                                     font-size: 20px;
                                                     font-weight: 700;
-                                                    margin: 0 0 0 5px;
-                                                    &::before{
-                                                        content: '~';
-                                                        margin: 0 5px 0 0;
-                                                    }
-                                                    &::after{
-                                                        content: '할인';
+                                                    em{
                                                         font-size: 14px;
                                                         font-weight: 400;
                                                         margin: 0 0 0 5px;

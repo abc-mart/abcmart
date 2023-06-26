@@ -44,7 +44,7 @@ export default function Section2Component(){
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 600, function(){
-                if(cnt>state.n-1) cnt=0;
+                if(cnt>=state.n) cnt=0;
                 if(cnt<0) cnt=state.n-1;
                 $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 0);
             });
@@ -123,9 +123,9 @@ export default function Section2Component(){
                                                                 <h3>{item.title}</h3>
                                                                 <p>{item.info}</p>
                                                                 <div className="price-box">
-                                                                    <s className='cost-price'>{item.cost_price}</s>
-                                                                    <strong className='discount-price'>{item.discount_price}</strong>
-                                                                    <span className="discount-rate">{item.discount_rate}</span>
+                                                                    {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                    {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                    {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                 </div>
                                                             </div>
                                                             <div className="sale-period-box">

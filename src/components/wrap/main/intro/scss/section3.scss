@@ -86,7 +86,9 @@
                                             .cost-price{
                                                 color: #999;
                                                 font-size: 14px;
-                                                em{}
+                                                em{
+                                                    vertical-align: text-bottom;
+                                                }
                                             }
                                             .discount-price{
                                                 font-size: 20px;
@@ -101,8 +103,11 @@
                                             .discount-rate{
                                                 margin: 0 0 0 2px;
                                                 color: #ee1c25;
-                                                vertical-align: bottom;
-                                                em{}
+                                                vertical-align: middle;
+                                                font-size: 14px;
+                                                em{
+                                                    vertical-align: text-top;
+                                                }
                                             }
                                         }
                                         .icon_box{

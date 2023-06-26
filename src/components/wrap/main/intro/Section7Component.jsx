@@ -94,10 +94,10 @@ export default function Section7Component(){
                                                                 <h3>
                                                                 {item.title}
                                                                 </h3>
-                                                                <p>{item.info}</p>
+                                                                {item.info===""?'':<p>{item.info}</p>}
                                                                 <div className="price-box">
-                                                                    <strong className='start-price'>{item.start_price}</strong>
-                                                                    <strong className='discount-rate'>{item.discount_rate}</strong>
+                                                                    {item.start_price===""?'':<strong className='start-price'>{item.start_price}<em>원~</em></strong>}
+                                                                    {item.discount_rate===""?'':<strong className='discount-rate'>~ {item.discount_rate}%<em>할인</em></strong>}
                                                                 </div>
                                                                 <div className="search-result-count">
                                                                     총 

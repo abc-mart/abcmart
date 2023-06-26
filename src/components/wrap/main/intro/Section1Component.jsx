@@ -6,7 +6,7 @@ import './scss/section1.scss';
 export default function Section1Component(){
 
     const [state, setState] = React.useState({
-        slide: [],
+        mainSlide: [],
         n: 0
     });
 
@@ -18,10 +18,10 @@ export default function Section1Component(){
         })
         .then((res)=>{
             if(res.status===200){
-                console.log(res.data.main_slide.length);
+                // console.log(res.data.main_slide.length);
                 setState({
                     ...state,
-                    slide: res.data.main_slide,
+                    mainSlide: res.data.main_slide,
                     n: res.data.main_slide.length-2
                 });
             }
@@ -49,7 +49,7 @@ export default function Section1Component(){
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 600, function(){
-                if(cnt>state.n-1) cnt=0;
+                if(cnt>=state.n) cnt=0;
                 if(cnt<0) cnt=state.n-1;
                 $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 0);
             });
@@ -100,7 +100,7 @@ export default function Section1Component(){
         $playBtn.on({
             click(e){
                 e.preventDefault();
-                nextCount();
+                autoTimer();
                 $(this).removeClass('on');
                 $stopBtn.removeClass('on');
             }
@@ -124,7 +124,7 @@ export default function Section1Component(){
                                 <ul className="slide-wrap">
 
                                     {
-                                        state.slide.map((item, idx)=>{
+                                        state.mainSlide.map((item, idx)=>{
                                             return(
                                                 <li className="slide slide1" key={idx}>
                                                     <a href="!#">

@@ -104,7 +104,7 @@ export default function Section8Component(){
             }
         });
 
-    },[state.n]);
+    },[]);
 
 
     return (
@@ -146,23 +146,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -185,23 +193,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -224,23 +240,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -263,23 +287,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -302,23 +334,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -341,23 +381,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -380,23 +428,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -419,23 +475,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -458,23 +522,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
@@ -497,23 +569,31 @@ export default function Section8Component(){
                                                                     <h3>{item.title}</h3>
                                                                     <p>{item.info}</p>
                                                                     <div className="price-box">
-                                                                        <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                                        <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                                        <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                                        <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                                     </div>
-                                                                    <div className="icon_box best">
-                                                                        <img src="./img/intro/icon_best.png" alt="" />
-                                                                    </div>
-                                                                    {/* <div className="icon_box coupon">
-                                                                        <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                    </div> */}
-                                                                    <div className="icon_box only">
-                                                                        <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                    </div>
-                                                                    <div className="icon_box delivery">
-                                                                        <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                    </div>
+                                                                    {item.best===""?'':
+                                                                        <div className="icon_box best">
+                                                                            <img src="./img/intro/icon_best.png" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.coupon===""?'':
+                                                                        <div className="icon_box coupon">
+                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.only===""?'':
+                                                                        <div className="icon_box only">
+                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                                        </div>
+                                                                    }
+                                                                    {item.delivery===""?'':
+                                                                        <div className="icon_box delivery">
+                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
+                                                                        </div>
+                                                                    }
                                                                 </div>
                                                             </a>
                                                         </li>
