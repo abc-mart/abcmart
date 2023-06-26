@@ -1,0 +1,165 @@
+@charset "UTF-8";
+#section8 {
+  width: 100%;
+}
+#section8 .container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+#section8 .container .gap {
+  width: 100%;
+  margin: 100px 0 0 0;
+}
+#section8 .container .gap .title {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 35px 0;
+  font-family: "Montserrat";
+}
+#section8 .container .gap .title h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000;
+}
+#section8 .container .gap .content {
+  width: 100%;
+  position: relative;
+}
+#section8 .container .gap .content .category-btn-box {
+  width: 1200px;
+  position: absolute;
+  top: 160px;
+  left: 30%;
+}
+#section8 .container .gap .content .category-btn-box .category-btn {
+  display: inline-block;
+  height: 28px;
+  margin: 0 0 0 35px;
+  opacity: 0.4;
+  position: relative;
+}
+#section8 .container .gap .content .category-btn-box .category-btn::after {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  content: "";
+  width: 0;
+  height: 4px;
+  background: transparent;
+  transition: all 0.3s;
+}
+#section8 .container .gap .content .category-btn-box .category-btn.on {
+  font-weight: 600;
+  opacity: 1;
+}
+#section8 .container .gap .content .category-btn-box .category-btn.on::after {
+  width: 20px;
+  background: #fff;
+}
+#section8 .container .gap .content .category-btn-box .category-btn:first-child {
+  margin: 0;
+}
+#section8 .container .gap .content .category-btn-box .category-btn a {
+  font-size: 17px;
+  color: #fff;
+  font-family: "Montserrat";
+}
+#section8 .container .gap .content .slide-container {
+  width: 100%;
+}
+#section8 .container .gap .content .slide-container .slide-view {
+  width: 100%;
+  overflow: hidden;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap {
+  width: 800%;
+  display: flex;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
+  width: 100%;
+  background: url(../../../../../../public/img/intro/intro_sec8_slide1_bg.jpg) no-repeat 50% 0;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box {
+  width: 1200px;
+  margin: 236px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list {
+  width: 25%;
+  margin: 0 0 0 20px;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list:first-child {
+  margin: 0;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a figure img {
+  width: 100%;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box {
+  width: 100%;
+  padding: 15px 10px 0 10px;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box h3 {
+  width: 100%;
+  margin: 4px 0 0 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  line-height: 120%;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box p {
+  color: #666;
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  height: 38px;
+  line-height: 19px;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .price-box {
+  margin: 9px 0 0 0;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .price-box .price {
+  color: #999;
+  font-size: 14px;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .price-box .price::after {
+  content: "원";
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .price-box .product-price {
+  font-size: 19px;
+  color: #000;
+  font-weight: 700;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .price-box .product-price::after {
+  content: "원";
+  font-size: 12px;
+  font-weight: 500;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .price-box .sale-price {
+  font-size: 20px;
+  margin: 0 0 0 8px;
+  color: #ee1c25;
+  font-weight: 700;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .price-box .sale-price::after {
+  content: "원";
+  font-size: 12px;
+  font-weight: 500;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .price-box .sale-percent {
+  margin: 0 0 0 2px;
+  color: #ee1c25;
+  vertical-align: bottom;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .delivery {
+  width: 64px;
+  height: 20px;
+  margin: 19px 0 0 0;
+  position: relative;
+  overflow: hidden;
+}
+#section8 .container .gap .content .slide-container .slide-view .slide-wrap .slide .product-list-box .product-list a .information-box .delivery img {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
