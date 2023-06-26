@@ -280,7 +280,7 @@ export default function ProductDetailComponent(){
                             </div>
                             <div className="slide-box">
                                 <ul>
-                                    <il className="slide 1">
+                                    <li className="slide 1">
                                         <img src="./img/detail/S1.jpg" alt="" />
                                         <h6>FILA</h6>
                                         <p>FILA NEURON 5 NUCLEUS</p>
@@ -290,8 +290,8 @@ export default function ProductDetailComponent(){
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
-                                    </il>
-                                    <il className="slide 2">
+                                    </li>
+                                    <li className="slide 2">
                                         <img src="./img/detail/S1.jpg" alt="" />
                                         <h6>FILA</h6>
                                         <p>FILA NEURON 5 NUCLEUS</p>
@@ -301,8 +301,8 @@ export default function ProductDetailComponent(){
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
-                                    </il>
-                                    <il className="slide 3">
+                                    </li>
+                                    <li className="slide 3">
                                         <img src="./img/detail/S1.jpg" alt="" />
                                         <h6>FILA</h6>
                                         <p>FILA NEURON 5 NUCLEUS</p>
@@ -312,8 +312,8 @@ export default function ProductDetailComponent(){
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
-                                    </il>
-                                    <il className="slide 4">
+                                    </li>
+                                    <li className="slide 4">
                                         <img src="./img/detail/S1.jpg" alt="" />
                                         <h6>FILA</h6>
                                         <p>FILA NEURON 5 NUCLEUS</p>
@@ -323,8 +323,8 @@ export default function ProductDetailComponent(){
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
-                                    </il>
-                                    <il className="slide 5">
+                                    </li>
+                                    <li className="slide 5">
                                         <img src="./img/detail/S1.jpg" alt="" />
                                         <h6>FILA</h6>
                                         <p>FILA NEURON 5 NUCLEUS</p>
@@ -334,7 +334,7 @@ export default function ProductDetailComponent(){
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
-                                    </il>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -478,9 +478,6 @@ export default function ProductDetailComponent(){
 
                     </div>
                 </div>
-
-
-
 
             </section>
 
