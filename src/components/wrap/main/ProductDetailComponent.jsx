@@ -126,11 +126,7 @@ export default function ProductDetailComponent(){
                                             <li>
                                                 <div className="size-txt">
                                                     <span>사이즈</span>
-<<<<<<< HEAD
-                                                    <a href="!#">매장별 재고확인</a>
-=======
                                                     <a href="!#">매장별 재고확인<img src="./img/detail/" alt="" /></a>
->>>>>>> 8a7d5d0ebd16db59b316198f202ba7806463a2b1
                                                 </div>
                                                 <div className="size">
                                                     <a href="!#">220</a>
@@ -161,26 +157,20 @@ export default function ProductDetailComponent(){
                                         <div className="choice-product">
                                             <span>230</span>
                                             <div className='ea-price'>
-<<<<<<< HEAD
                                                 <div className="number">
                                                     <a href="!#">-</a>
                                                     <div className="count">1</div>
                                                     <a href="!#">+</a>
                                                 </div>
-=======
->>>>>>> 8a7d5d0ebd16db59b316198f202ba7806463a2b1
                                                 <span>63,000 <i>원</i></span>
                                                 <a href="!#"><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
                                             </div>
                                         </div>
                                     </div>
-<<<<<<< HEAD
                                     <div className="total-price">
                                         <span className='total-txt'>총 결제금액</span>
                                         <span className='money'>63000 <i>원</i></span>
                                     </div>
-=======
->>>>>>> 8a7d5d0ebd16db59b316198f202ba7806463a2b1
                                     <div className="button-box">
                                         <button>장바구니</button>
                                         <button>바로구매</button>
@@ -273,12 +263,7 @@ export default function ProductDetailComponent(){
                                     <div className="right">
                                         <span>소재별 관리방법</span>
                                         <p>
-<<<<<<< HEAD
                                         상품 착용 및 세탁 시에는 제품에 부착된 라벨 및 취급 주의사항을 꼭 먼저 확인해 주시길 바랍니다.가벼운 오염물이 묻었을 때에는 부드러운 솔로 털어내주시기 바랍니다. 물에 젖었을 때에는 바람이 잘 통하는 응달에 건조해 주시기 바랍니다.
-=======
-                                            상품 착용 및 세탁 시에는 제품에 부착된 라벨 및 취급 주의사항을 꼭 먼저 확인해 주시길 바랍니다. 
-                                            가벼운 오염물이 묻었을 때에는 부드러운 솔로 털어내주시기 바랍니다. 물에 젖었을 때에는 바람이 잘 통하는 응달에 건조해 주시기 바랍니다.
->>>>>>> 8a7d5d0ebd16db59b316198f202ba7806463a2b1
                                         </p>
                                     </div>
                                 </li>
@@ -293,7 +278,6 @@ export default function ProductDetailComponent(){
                                 <a href="!#">휠라 BEST</a>
                                 <a href="!#">휠라 신상품</a>
                             </div>
-<<<<<<< HEAD
                             <div className="slide-box">
                                 <ul>
                                     <il className="slide 1">
@@ -350,18 +334,6 @@ export default function ProductDetailComponent(){
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
-=======
-                            <div className="slide">
-                                <ul>
-                                    <il className="slide 1"><img src="./img/detail/1685493643014.jpg" alt="" />
-                                        <img src="./img/detail/" alt="" />
-                                        <h6>FILA</h6>
-                                        <p>FILA NEURON 5 NUCLEUS</p>
-                                        <span className='real-price'>99,000원</span>
-                                        <span className='sale-price'>49000</span>
-                                        <span className='won'>원</span>
-                                        <span className='discount-per'>[50%]</span>
->>>>>>> 8a7d5d0ebd16db59b316198f202ba7806463a2b1
                                     </il>
                                 </ul>
                             </div>
@@ -370,7 +342,6 @@ export default function ProductDetailComponent(){
                 </div>
             </section>
             <section id='section4'>
-<<<<<<< HEAD
                 <div className="container">
                     <div className="gap">
                         <div className="sangpum-button-box">
@@ -504,143 +475,13 @@ export default function ProductDetailComponent(){
 
                         </div>
 
-=======
-                <div className="sangpum-button-box">
-                    <a href="!#">상품정보</a>
-                    <a href="!#">상품후기 (2)</a>
-                    <a href="!#">상품 Q&A (0)</a>
-                </div>
-                <div className="event-banner">
-                    <img src="./img/detail/" alt="" />
-                </div>
-                <ul>
-                    <li>일반(텍스트) 후기는 500포인트, 포토 후기는 1,000포인트, 동영상 후기는 1,500포인트를 적립해드립니다.</li>
-                    <li>(동영상 후기는 mp4 형식의 파일만 해당됩니다.)</li>
-                    <li>후기 등록일 이후 최대 3일 이내에 후기 포인트 적립해드립니다. (주말 및 공휴일 제외)</li>
-                    <li>상품 결제 가격이 2만 원 미만인 경우 후기 포인트가 지급되지 않습니다.</li>
-                    <li>구매 확정일로부터 30일 이후에 후기를 등록한 경우 후기 포인트가 지급되지 않습니다.</li>
-                    <li>직접 촬영한 사진 및 동영상이 아닐 경우 포토/동영상 후기에 대한 포인트 지급이 제외됩니다.</li>
-                    <li>동일한 이미지를 사용하여 여러 번 상품 후기를 등록하시는 경우 포토 후기에 대한 포인트는 한 번만 지급됩니다.</li>
-                    <li>허위, 과대광고, 문의 등 후기 내용과 관련 없는 글은 통보 없이 삭제될 수 있습니다.</li>
-                    <li>포인트는 통합멤버십 회원에게만 지급됩니다.</li>
-                    <li>상품후기는 A-RT.COM 주문 상품만 작성 가능합니다.</li>
-                    <li>작성하신 상품후기는 A-RT.COM에 귀속되며, 마케팅 용도로 사용될 수 있습니다.</li>
-                </ul>
-
-                <div className="how-like-box">
-                    <div className="stars">
-                        <p>상품만족도</p>
-                        <h4>100<span>%</span></h4>
-                        <div className="star">
-                            <img src="./img/detail/blackstar.png" alt="" />
-                            <img src="./img/detail/blackstar.png" alt="" />
-                            <img src="./img/detail/blackstar.png" alt="" />
-                            <img src="./img/detail/blackstar.png" alt="" />
-                            <img src="./img/detail/blackstar.png" alt="" />
-                            <span>5</span>
-                        </div>
-                    </div>
-                    <div className="percentage">
-                        <div className="per">
-                            <span>사이즈</span>
-                            <h5>정 사이즈</h5>
-                            <p>100<span>%</span> </p>
-                        </div>
-                        <div className="per">
-                            <span>색상</span>
-                            <h5>화면과 같음</h5>
-                            <p>100<span>%</span> </p>
-                        </div>
-                        <div className="per">
-                            <span>발볼</span>
-                            <h5>적당함</h5>
-                            <p>100<span>%</span> </p>
-                        </div>
-                        <div className="per">
-                            <span>발등</span>
-                            <h5>적당함</h5>
-                            <p>100<span>%</span> </p>
-                        </div>
-                    </div>
-                    <div className="distribution">
-                        <div className="button-box">
-                            <a href="!#">사이즈</a>
-                            <a href="!#">색상</a>
-                            <a href="!#">발볼</a>
-                            <a href="!#">발등</a>
-                        </div>
-                        <div className="size-tap">
-                            <div className='bar'>
-                                <span>
-                                    <i>0%</i>
-                                </span>
-                                <p>10mm정도 작음</p>
-                            </div>
-                            <div className='bar'>
-                                <span>
-                                    <i>0%</i>
-                                </span>
-                                <p>5mm정도 작음</p>
-                            </div>
-                            <div className='bar'>
-                                <span>
-                                    <i>0%</i>
-                                </span>
-                                <p>정 사이즈</p>
-                            </div>
-                            <div className='bar'>
-                                <span>
-                                    <i>0%</i>
-                                </span>
-                                <p>5mm정도 큼</p>
-                            </div>
-                            <div className='bar'>
-                                <span>
-                                    <i>0%</i>
-                                </span>
-                                <p>10mm정도 큼</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="review-filter">
-                        <div className="mysize">
-                            <div className="up">
-                                <img src="./img/detail/product_review_fiter_icon.png" alt="" />
-                                <div className="text">
-                                    <h5>나의 사이즈 선택하기<img src="./img/detail/btn_icon_circle_arr.png" alt="" /></h5>
-                                    <h6>나의 사이즈와 비슷한 상품 후기를 바로 확인해보세요.</h6>
-                                </div>
-                            </div>
-                            <div className="down">
-                                <button>
-                                    <img src="./img/detail/btn_icon_all_del.png" alt="" />전체삭제
-                                </button>
-                            </div>
-                        </div>
-                        <div className="option">
-                            <div className="up">
-                                <img src="./img/detail/product_review_fiter_icon.png" alt="" />
-                                <div className="text">
-                                    <h5>상품 옵션 선택하기<img src="./img/detail/btn_icon_circle_arr.png" alt="" /></h5>
-                                    <h6>상품의 옵션 별 후기를 바로 확인해보세요.</h6>
-                                </div>
-                            </div>
-                            <div className="down">
-                                <button>
-                                    <img src="./img/detail/btn_icon_all_del.png" alt="" />전체삭제
-                                </button>
-                            </div>
-                        </div>
->>>>>>> 8a7d5d0ebd16db59b316198f202ba7806463a2b1
 
                     </div>
                 </div>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 8a7d5d0ebd16db59b316198f202ba7806463a2b1
+
+
             </section>
 
         </div>
