@@ -43,10 +43,10 @@ export default function Section2Component(){
         $slideWrap.css({width: `${305 * (state.n+4)}px` });
 
         function mainSlide(){
-            $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 600, function(){
+            $slideWrap.stop().animate({left: `${-306 * cnt}px`}, 600, function(){
                 if(cnt>=state.n) cnt=0;
                 if(cnt<0) cnt=state.n-1;
-                $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 0);
+                $slideWrap.stop().animate({left: `${-306 * cnt}px`}, 0);
             });
         }
 
