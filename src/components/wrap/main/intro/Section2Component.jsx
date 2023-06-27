@@ -21,7 +21,7 @@ export default function Section2Component(){
                 setState({
                     ...state,
                     hotDeal: res.data.hot_deal,
-                    n: res.data.hot_deal.length-4
+                    n: res.data.hot_deal.length-6
                 });
             }
         })
@@ -40,7 +40,7 @@ export default function Section2Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${305 * (state.n+4)}px` });
+        $slideWrap.css({width: `${305 * (state.n+6)}px` });
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-306 * cnt}px`}, 600, function(){
@@ -79,6 +79,46 @@ export default function Section2Component(){
     },[state.n]);
 
 
+    React.useEffect(()=>{
+        let setId=0;
+
+        function saleTimer(){
+            let start = new Date('2023-06-30 24:00:00');
+            let now = new Date();
+            start.setHours(start.getHours());
+            let end = start - now;
+
+            let eD = Math.floor(end/(60*60*24*1000));
+            let eH = Math.floor(end/(60*60*1000)%24);
+            let eM = Math.floor(end/(60*1000)%60);
+            let eS = Math.floor(end/1000%60);
+
+            // $('.sale-period').text(`${start.getFullYear()}.${start.getMonth()}.${start.getDate()} ~ `);
+
+            if(now >= start){
+                clearInterval(setId);
+                eD=0;
+                eH=0;
+                eM=0;
+                eS=0;
+                $('.day-value').text(eD);
+                $('.hours').text(eH<10?`0${eH}`:eH);
+                $('.minutes').text(eM<10?`0${eM}`:eM);
+                $('.seconds').text(eS<10?`0${eS}`:eS);
+            }
+            else{
+                $('.day-value').text(eD);
+                $('.hours').text(eH<10?`0${eH}`:eH);
+                $('.minutes').text(eM<10?`0${eM}`:eM);
+                $('.seconds').text(eS<10?`0${eS}`:eS);
+            }
+        }
+
+        setId = setInterval(saleTimer, 1000);
+
+    },[]);
+
+
     return (
         <section id="section2">
             <div className="container">
@@ -109,13 +149,13 @@ export default function Section2Component(){
                                                                 </span>
                                                                 <div className="time-sale">
                                                                     <span className="date">
-                                                                        <span className="day-value">1</span>
+                                                                        <span className="day-value"></span>
                                                                         <span className="day-text">DAY</span>
                                                                     </span>
                                                                     <span className="time">
-                                                                        <span className="hours">18</span>
-                                                                        <span className="minutes">15</span>
-                                                                        <span className="seconds">38</span>
+                                                                        <span className="hours"></span>
+                                                                        <span className="minutes"></span>
+                                                                        <span className="seconds"></span>
                                                                     </span>
                                                                 </div>
                                                             </figure>
@@ -130,9 +170,9 @@ export default function Section2Component(){
                                                             </div>
                                                             <div className="sale-period-box">
                                                                 <span className="sale-period">
-                                                                    23.06.21 09:00 ~
+                                                                    23.06.27 09:00 ~
                                                                     <br />
-                                                                    23.06.23 08:59
+                                                                    23.06.30 08:59
                                                                 </span>
                                                                 <span className="rest-product-count">
                                                                     <span className='rest-product-count-value'>30</span>개 남음

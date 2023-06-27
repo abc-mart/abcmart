@@ -61,8 +61,11 @@
                 width: 100%;
                 ul{
                     width: 100%;
-                    display: flex;
+                    display: none;
                     justify-content: space-between;
+                    &.on{
+                        display: flex;
+                    }
                     li{
                         width: 224px;
                         a{
@@ -80,7 +83,7 @@
                                     width: 100%;
                                     margin: 4px 0 0 0;
                                     font-size: 15px;
-                                    font-weight: 500;
+                                    font-weight: 600;
                                     color: #000;
                                     line-height: 120%;
                                 }

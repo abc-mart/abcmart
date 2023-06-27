@@ -13,15 +13,7 @@ export default function Section8Component(){
         bestBrandCrocs: [],
         bestBrandNuovo: [],
         bestBrandAbcselect: [],
-        bestBrandPuma: [],
-        nNike: 0,
-        nAdidas: 0,
-        nVans: 0,
-        nConverse: 0,
-        nCrocs: 0,
-        nNuovo: 0,
-        nAbcselect: 0,
-        nPuma: 0
+        bestBrandPuma: []
     });
 
     React.useEffect(()=>{
@@ -41,15 +33,7 @@ export default function Section8Component(){
                     bestBrandCrocs: res.data.best_brand_crocs,
                     bestBrandNuovo: res.data.best_brand_nuovo,
                     bestBrandAbcselect: res.data.best_brand_abcselect,
-                    bestBrandPuma: res.data.best_brand_puma,
-                    nNike: res.data.best_brand_nike.length,
-                    nAdidas: res.data.best_brand_adidas.length,
-                    nVans: res.data.best_brand_vans.length,
-                    nConverse: res.data.best_brand_converse.length,
-                    nCrocs: res.data.best_brand_crocs.length,
-                    nNuovo: res.data.best_brand_nuovo.length,
-                    nAbcselect: res.data.best_brand_abcselect.length,
-                    nPuma: res.data.best_brand_puma.length
+                    bestBrandPuma: res.data.best_brand_puma
                 });
             }
         })
@@ -64,6 +48,7 @@ export default function Section8Component(){
         const $slideWrap = $(`#section8 .slide-wrap`);
         const $prevBtn = $(`#section8 .prev-btn`);
         const $nextBtn = $(`#section8 .next-btn`);
+        const $categoryBtn = $(`#section8 .category-btn`);
         
         let cnt = 0;
         let setId = 0;
@@ -76,6 +61,7 @@ export default function Section8Component(){
                 if(cnt<0) cnt=7;
                 $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 0);
             });
+            pageNation();
         }
 
         function prevCount(){
@@ -102,6 +88,22 @@ export default function Section8Component(){
                 nextCount();
                 clearInterval(setId);
             }
+        });
+
+        function pageNation(){
+            $categoryBtn.removeClass(`on`);
+            $categoryBtn.eq(cnt>7 ? 0 : cnt).addClass(`on`);
+        }
+
+        $categoryBtn.each(function(idx){
+            $(this).on({
+                click(e){
+                    e.preventDefault();
+                    clearInterval(setId);
+                    cnt=idx;
+                    mainSlide();
+                }
+            })
         });
 
     },[]);

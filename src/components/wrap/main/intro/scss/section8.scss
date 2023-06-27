@@ -34,9 +34,10 @@
                         opacity: 0.4;
                         position: relative;
                         &::after{
+                            // margin: 0 0 0 -35px;
                             position: absolute;
-                            bottom: 0;
-                            left: 25%;
+                            bottom: -7px;
+                            left: 50%;
                             content: '';
                             width: 0;
                             height: 4px;
@@ -47,6 +48,7 @@
                             font-weight: 600;
                             opacity: 1;
                             &::after{
+                                left: 40%;
                                 width: 20px;
                                 background: #fff;
                             }
@@ -130,7 +132,7 @@
                                                     width: 100%;
                                                     margin: 4px 0 0 0;
                                                     font-size: 15px;
-                                                    font-weight: 500;
+                                                    font-weight: 600;
                                                     color: #000;
                                                     line-height: 120%;
                                                 }
