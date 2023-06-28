@@ -21,7 +21,7 @@ export default function Section10Component(){
                 setState({
                     ...state,
                     abcPlus: res.data.abc_plus,
-                    n: res.data.abc_plus.length-2
+                    n: res.data.abc_plus.length-14
                 });
             }
         })
@@ -40,12 +40,12 @@ export default function Section10Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${100 * ((state.n+2/7))}%`});
+        // $slideWrap.css({width: `${100 * ((state.n+14/7))}%`});
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 600, function(){
-                if(cnt>state.n-1) cnt=0;
-                if(cnt<0) cnt=state.n-1;
+                if(cnt>19) cnt=0;
+                if(cnt<0) cnt=19;
                 $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 0);
             });
         }
@@ -82,7 +82,7 @@ export default function Section10Component(){
             }
         });
 
-    },[state.n]);
+    },[]);
 
     
     return (
