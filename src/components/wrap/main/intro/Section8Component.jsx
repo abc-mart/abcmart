@@ -13,7 +13,7 @@ export default function Section8Component(){
         bestBrandCrocs: [],
         bestBrandNuovo: [],
         bestBrandAbcselect: [],
-        bestBrandPuma: []
+        bestBrandPuma: [],
     });
 
     React.useEffect(()=>{
@@ -45,34 +45,52 @@ export default function Section8Component(){
 
     React.useEffect(()=>{
 
-        const $slideWrap = $(`#section8 .slide-wrap`);
+        const $slide = $(`#section8 .slide`);
         const $prevBtn = $(`#section8 .prev-btn`);
         const $nextBtn = $(`#section8 .next-btn`);
         const $categoryBtn = $(`#section8 .category-btn`);
         
         let cnt = 0;
         let setId = 0;
+        let imsi = null;
 
         // $slideWrap.css({width: `${100 * (state.n/5)}%` });
 
-        function mainSlide(){
-            $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 600, function(){
-                if(cnt>7) cnt=0;
-                if(cnt<0) cnt=7;
-                $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 0);
-            });
+        function mainNextSlide(){
+            $slide.css({zIndex: 1, opacity:1});
+            $slide.eq(imsi!==null?imsi:(cnt===0? 7:cnt-1)).css({zIndex: 7});  // 현재슬라이드
+            $slide.eq(cnt).css({zIndex: 8}).stop().animate({opacity:0}, 0).animate({opacity:1}, 600);  // 다음슬라이드
+            pageNation();
+        }
+
+        function mainPrevSlide(){
+            $slide.css({zIndex: 1, opacity:1});
+            $slide.eq(cnt).css({zIndex: 7});  // 이전슬라이드
+            $slide.eq(imsi!==null?imsi:(cnt===7? 0:cnt+1)).css({zIndex: 8}).stop().animate({opacity:1}, 0).animate({opacity:0}, 600);  // 현재슬라이드
             pageNation();
         }
 
         function prevCount(){
             cnt--;
-            mainSlide();
+            if(cnt<0){
+                cnt=7;
+            }
+            mainPrevSlide();
         }
 
         function nextCount(){
             cnt++;
-            mainSlide();
+            if(cnt>7){
+                cnt=0;
+            }
+            mainNextSlide();
         }
+
+        function autoTimer(){
+            clearInterval(setId);
+            setId = setInterval(nextCount, 3000);
+        }
+        autoTimer();
 
         $prevBtn.on({
             click(e){
@@ -100,8 +118,26 @@ export default function Section8Component(){
                 click(e){
                     e.preventDefault();
                     clearInterval(setId);
-                    cnt=idx;
-                    mainSlide();
+                    if(cnt<idx){
+                        if(Math.abs(idx-cnt>=7)){
+                            cnt=imsi;
+                        }
+                        else{
+                            imsi=null;
+                        }
+                        cnt=idx;
+                        mainNextSlide();
+                    }
+                    if(cnt>idx){
+                        if(Math.abs(idx-cnt>=7)){
+                            cnt=imsi;
+                        }
+                        else{
+                            imsi=null;
+                        }
+                        cnt=idx;
+                        mainPrevSlide();
+                    }
                 }
             })
         });
@@ -118,7 +154,7 @@ export default function Section8Component(){
                     </div>
                     <div className="content">
                         <div className="category-btn-box">
-                            <span className='category-btn on'><a href="!#">NIKE</a></span>
+                            <span className='category-btn'><a href="!#">NIKE</a></span>
                             <span className='category-btn'><a href="!#">ADIDAS</a></span>
                             <span className='category-btn'><a href="!#">VANS</a></span>
                             <span className='category-btn'><a href="!#">CONVERSE</a></span>
@@ -134,53 +170,6 @@ export default function Section8Component(){
                         <div className="slide-container">
                             <div className="slide-view">
                                 <ul className="slide-wrap">
-                                <li className="slide slide8">
-                                        <ul className='product-list-box'>
-                                            {
-                                                state.bestBrandPuma.map((item, idx)=>{
-                                                    return(
-                                                        <li className="product-list" key={idx}>
-                                                            <a href="!#">
-                                                                <figure>
-                                                                    <img src={item.src} alt="" />
-                                                                </figure>
-                                                                <div className='information-box'>
-                                                                    <h3>{item.title}</h3>
-                                                                    <p>{item.info}</p>
-                                                                    <div className="price-box">
-                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
-                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
-                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
-                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
-                                                                    </div>
-                                                                    {item.best===""?'':
-                                                                        <div className="icon_box best">
-                                                                            <img src="./img/intro/icon_best.png" alt="" />
-                                                                        </div>
-                                                                    }
-                                                                    {item.coupon===""?'':
-                                                                        <div className="icon_box coupon">
-                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                        </div>
-                                                                    }
-                                                                    {item.only===""?'':
-                                                                        <div className="icon_box only">
-                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                        </div>
-                                                                    }
-                                                                    {item.delivery===""?'':
-                                                                        <div className="icon_box delivery">
-                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                        </div>
-                                                                    }
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    )
-                                                })
-                                            }
-                                        </ul>
-                                    </li>
                                     <li className="slide slide1">
                                         <ul className='product-list-box'>
                                             {
@@ -514,53 +503,6 @@ export default function Section8Component(){
                                         <ul className='product-list-box'>
                                             {
                                                 state.bestBrandPuma.map((item, idx)=>{
-                                                    return(
-                                                        <li className="product-list" key={idx}>
-                                                            <a href="!#">
-                                                                <figure>
-                                                                    <img src={item.src} alt="" />
-                                                                </figure>
-                                                                <div className='information-box'>
-                                                                    <h3>{item.title}</h3>
-                                                                    <p>{item.info}</p>
-                                                                    <div className="price-box">
-                                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
-                                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
-                                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
-                                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
-                                                                    </div>
-                                                                    {item.best===""?'':
-                                                                        <div className="icon_box best">
-                                                                            <img src="./img/intro/icon_best.png" alt="" />
-                                                                        </div>
-                                                                    }
-                                                                    {item.coupon===""?'':
-                                                                        <div className="icon_box coupon">
-                                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
-                                                                        </div>
-                                                                    }
-                                                                    {item.only===""?'':
-                                                                        <div className="icon_box only">
-                                                                            <img src="./img/intro/icon_only.jpg" alt="" />
-                                                                        </div>
-                                                                    }
-                                                                    {item.delivery===""?'':
-                                                                        <div className="icon_box delivery">
-                                                                            <img src="./img/intro/icon_delivery.png" alt="" />
-                                                                        </div>
-                                                                    }
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    )
-                                                })
-                                            }
-                                        </ul>
-                                    </li>
-                                    <li className="slide slide1">
-                                        <ul className='product-list-box'>
-                                            {
-                                                state.bestBrandNike.map((item, idx)=>{
                                                     return(
                                                         <li className="product-list" key={idx}>
                                                             <a href="!#">
