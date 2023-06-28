@@ -12,7 +12,7 @@ import Section10Component from './intro/Section10Component';
 
 export default function IntroComponent(){
     return (
-        <footer id="intro">
+        <div id="intro">
             <Section1Component/>
             <Section2Component/>
             <Section3Component/>
@@ -23,6 +23,6 @@ export default function IntroComponent(){
             <Section8Component/>
             <Section9Component/>
             <Section10Component/>
-        </footer>
+        </div>
     );
 };

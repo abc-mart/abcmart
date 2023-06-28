@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function BrandComponent(){
     return (
-        <footer id="brand">
+        <div id="brand">
 
-        </footer>
+        </div>
     );
 };

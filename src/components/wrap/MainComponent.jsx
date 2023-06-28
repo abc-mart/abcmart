@@ -5,6 +5,7 @@ import KidsComponent from './main/KidsComponent';
 import MenComponent from './main/MenComponent';
 import ProductDetailComponent from './main/ProductDetailComponent';
 import SaleComponent from './main/SaleComponent';
+import EventComponent from './main/EventComponent';
 import WomenComponent from './main/WomenComponent';
 
 export default function MainComponent(){
@@ -16,6 +17,7 @@ export default function MainComponent(){
             <WomenComponent/>
             <KidsComponent/>
             <SaleComponent/>
+            <EventComponent/>
             <ProductDetailComponent/>
         </div>
     );
