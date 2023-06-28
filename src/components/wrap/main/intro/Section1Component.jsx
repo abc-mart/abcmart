@@ -6,7 +6,7 @@ import './scss/section1.scss';
 export default function Section1Component(){
 
     const [state, setState] = React.useState({
-        slide: [],
+        mainSlide: [],
         n: 0
     });
 
@@ -18,10 +18,10 @@ export default function Section1Component(){
         })
         .then((res)=>{
             if(res.status===200){
-                console.log(res.data.main_slide.length);
+                // console.log(res.data.main_slide.length);
                 setState({
                     ...state,
-                    slide: res.data.main_slide,
+                    mainSlide: res.data.main_slide,
                     n: res.data.main_slide.length-2
                 });
             }
@@ -45,15 +45,15 @@ export default function Section1Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${100 * (state.n+2)}%` });
+        // $slideWrap.css({width: `${100 * (state.n+2)}%` });
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 600, function(){
-                if(cnt>state.n-1) cnt=0;
-                if(cnt<0) cnt=state.n-1;
+                if(cnt>5) cnt=0;
+                if(cnt<0) cnt=5;
                 $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 0);
             });
-            pageNumber();
+            // pageNumber();
         }
 
         function prevCount(){
@@ -100,18 +100,18 @@ export default function Section1Component(){
         $playBtn.on({
             click(e){
                 e.preventDefault();
-                nextCount();
+                autoTimer();
                 $(this).removeClass('on');
                 $stopBtn.removeClass('on');
             }
         });
 
-        function pageNumber(){
-            $currentPage.html( `0${cnt+1===(state.n+1) ? 1 : (cnt+1===0 ? state.n : cnt+1)}` );
-            $totalPage.html(`0${state.n}`);
-        }
+        // function pageNumber(){
+        //     $currentPage.html( `0${cnt+1===(state.n+1) ? 1 : (cnt+1===0 ? state.n : cnt+1)}` );
+        //     $totalPage.html(`0${state.n}`);
+        // }
 
-    },[state.n]);
+    },[]);
 
 
     return (
@@ -124,7 +124,7 @@ export default function Section1Component(){
                                 <ul className="slide-wrap">
 
                                     {
-                                        state.slide.map((item, idx)=>{
+                                        state.mainSlide.map((item, idx)=>{
                                             return(
                                                 <li className="slide slide1" key={idx}>
                                                     <a href="!#">
@@ -146,7 +146,7 @@ export default function Section1Component(){
                             <div className="pagenation">
                                 <span className='current-page'>01</span>
                                 <i>/</i>
-                                <span className='total-page'>{`0${state.n}`}</span>
+                                <span className='total-page'>{/* {`0${state.n}`} */}06</span>
                             </div>
                             <button className='prev-btn'></button>
                             <button className='next-btn'></button>

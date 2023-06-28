@@ -9,7 +9,6 @@ export default function Section4Component(){
         eventSlide: [],
         n: 0
     });
-
     React.useEffect(()=>{
 
         axios({
@@ -21,7 +20,7 @@ export default function Section4Component(){
                 setState({
                     ...state,
                     eventSlide: res.data.event_slide,
-                    n: res.data.event_slide.length-5
+                    n: res.data.event_slide.length-10
                 });
             }
         })
@@ -38,12 +37,12 @@ export default function Section4Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${407 * (state.n+5)}px` });
+        // $slideWrap.css({width: `${407 * (state.n+10)}px` });
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-407 * cnt}px`}, 600, function(){
-                if(cnt>state.n-1) cnt=0;
-                if(cnt<0) cnt=state.n-1;
+                if(cnt>9) {cnt=0;}
+                if(cnt<0) {cnt=9;}
                 $slideWrap.stop().animate({left: `${-407 * cnt}px`}, 0);
             });
         }
@@ -64,7 +63,7 @@ export default function Section4Component(){
         }
         autoTimer();
 
-    },[state.n]);
+    },[]);
 
 
     return (

@@ -3,6 +3,7 @@ import './main/css/footer.css';
 
 export default function FooterComponent(){
     return (
+<<<<<<< HEAD
         <div id="footer">
             <div className="wrap">
                 <div className="container">
@@ -89,5 +90,10 @@ export default function FooterComponent(){
                 </div>
             </div>
         </div>
+=======
+        <footer id="footer">
+            ddd
+        </footer>
+>>>>>>> 3804013705652e34843714d681a6657a0f2d088e
     );
 };

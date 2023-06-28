@@ -34,9 +34,10 @@
                         opacity: 0.4;
                         position: relative;
                         &::after{
+                            // margin: 0 0 0 -35px;
                             position: absolute;
-                            bottom: 0;
-                            left: 25%;
+                            bottom: -7px;
+                            left: 50%;
                             content: '';
                             width: 0;
                             height: 4px;
@@ -47,6 +48,7 @@
                             font-weight: 600;
                             opacity: 1;
                             &::after{
+                                left: 40%;
                                 width: 20px;
                                 background: #fff;
                             }
@@ -130,7 +132,7 @@
                                                     width: 100%;
                                                     margin: 4px 0 0 0;
                                                     font-size: 15px;
-                                                    font-weight: 500;
+                                                    font-weight: 600;
                                                     color: #000;
                                                     line-height: 120%;
                                                 }
@@ -147,8 +149,7 @@
                                                         font-size: 19px;
                                                         color: #000;
                                                         font-weight: 700;
-                                                        &::after{
-                                                            content: '원';
+                                                        em{
                                                             font-size: 12px;
                                                             font-weight: 500;
                                                         }
@@ -156,8 +157,8 @@
                                                     .cost-price{
                                                         color: #999;
                                                         font-size: 14px;
-                                                        &::after{
-                                                            content: '원';
+                                                        em{
+                                                            vertical-align: text-bottom;
                                                         }
                                                     }
                                                     .discount-price{
@@ -165,8 +166,7 @@
                                                         margin: 0 0 0 8px;
                                                         color: #ee1c25;
                                                         font-weight: 700;
-                                                        &::after{
-                                                            content: '원';
+                                                        em{
                                                             font-size: 12px;
                                                             font-weight: 500;
                                                         }
@@ -174,7 +174,11 @@
                                                     .discount-rate{
                                                         margin: 0 0 0 2px;
                                                         color: #ee1c25;
-                                                        vertical-align: bottom;
+                                                        vertical-align: middle;
+                                                        font-size: 14px;
+                                                        em{
+                                                            vertical-align: text-top;
+                                                        }
                                                     }
                                                 }
                                                 .icon_box{

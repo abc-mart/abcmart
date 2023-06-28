@@ -38,13 +38,13 @@ export default function Section7Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${100 * ((state.n+8)/3.5)}%`});
+        // $slideWrap.css({width: `${100 * ((state.n+8)/3.5)}%`});
 
         function mainSlide(){
-            $slideWrap.stop().animate({left: `${-585 * cnt}px`}, 600, function(){
-                if(cnt>state.n-1) cnt=0;
-                if(cnt<0) cnt=state.n-1;
-                $slideWrap.stop().animate({left: `${-585 * cnt}px`}, 0);
+            $slideWrap.stop().animate({left: `${-565 * cnt}px`}, 600, function(){
+                if(cnt>18) cnt=0;
+                if(cnt<0) cnt=18;
+                $slideWrap.stop().animate({left: `${-565 * cnt}px`}, 0);
             });
         }
 
@@ -64,7 +64,7 @@ export default function Section7Component(){
         }
         autoTimer();
 
-    },[state.n]);
+    },[]);
 
 
     return (
@@ -94,10 +94,10 @@ export default function Section7Component(){
                                                                 <h3>
                                                                 {item.title}
                                                                 </h3>
-                                                                <p>{item.info}</p>
+                                                                {item.info===""?'':<p>{item.info}</p>}
                                                                 <div className="price-box">
-                                                                    <strong className='start-price'>{item.start_price}</strong>
-                                                                    <strong className='discount-rate'>{item.discount_rate}</strong>
+                                                                    {item.start_price===""?'':<strong className='start-price'>{item.start_price}<em>원~</em></strong>}
+                                                                    {item.discount_rate===""?'':<strong className='discount-rate'>~ {item.discount_rate}%<em>할인</em></strong>}
                                                                 </div>
                                                                 <div className="search-result-count">
                                                                     총 

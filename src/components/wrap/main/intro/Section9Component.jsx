@@ -1,13 +1,11 @@
 import React from 'react';
-import $ from 'jquery';
 import axios from 'axios';
 import './scss/section9.scss';
 
 export default function Section9Component(){
 
     const [state, setState] = React.useState({
-        mainBanner: [],
-        n: 0
+        mainBanner: []
     });
 
     React.useEffect(()=>{
@@ -20,8 +18,7 @@ export default function Section9Component(){
             if(res.status===200){
                 setState({
                     ...state,
-                    mainBanner: res.data.main_banner,
-                    n: res.data.main_banner.length
+                    mainBanner: res.data.main_banner
                 });
             }
         })
