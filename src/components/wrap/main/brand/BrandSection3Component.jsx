@@ -1,6 +1,7 @@
 import React from 'react';
 import './scss/brandSection3.scss'
 import $ from 'jquery';
+import { Link } from 'react-router-dom';
 
 export default function BrandSection3Component({abcGrand, adidas, 아디다스ABC, 아디다스GRAND, nike, 나이키ABC, 나이키GRAND}) {
 
@@ -604,7 +605,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
                                                             <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                                <a href="http://localhost:3000/PRODUCT">
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1001,7 +1002,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
                                                             <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                                <Link to='/PRODUCT'>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1025,7 +1026,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </a>
+                                                                </Link>
                                                                 
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">

@@ -71,23 +71,11 @@ export default function HeaderComponent({setSelectButton}){
                                 <div className="box2-container">
                                 <div className="box2_1">
                                     <ul>
-<<<<<<< HEAD
                                         <li className="BRAND"><a href="!#"  onMouseEnter={()=>onMouseEnterShow('BRAND')}>BRAND</a></li>
                                         <li className="MEN"><a href="!#" onMouseEnter={()=>onMouseEnterShow('MEN')}>MEN</a></li>
                                         <li className="WOMEN"><a href="!#" onMouseEnter={()=>onMouseEnterShow('WOMEN')}>WOMEN</a></li>
                                         <li className="KIDS"><a href="!#" onMouseEnter={()=>onMouseEnterShow('KIDS')}>KIDS</a></li>
                                         <li className="SALE"><a href="!#" onMouseEnter={()=>onMouseEnterShow('SALE')}>SALE</a></li>
-=======
-                                        <li className="BRAND">
-                                            <a href="!#"  onMouseEnter={onMouseEnterTest} onMouseLeave={onMouseLeaveTest}>BRAND
-                                                <span className={isTest?' on':''} onMouseEnter={onMouseEnterTest} onMouseLeave={onMouseLeaveTest}></span>
-                                            </a>
-                                        </li>
-                                        <li className="MEN"><a href="!#">MEN</a></li>
-                                        <li className="WOMEN"><a href="!#">WOMEN</a></li>
-                                        <li className="KIDS"><a href="!#">KIDS</a></li>
-                                        <li className="SALE"><a href="!#">SALE</a></li>
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
                                     </ul>
                                     <ul  onMouseLeave={onMouseLeaveShow}>
                                         <li className={`hidden1 ${isShow==='BRAND'?' on':''}`} >
