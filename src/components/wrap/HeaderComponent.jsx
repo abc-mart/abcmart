@@ -59,7 +59,11 @@ export default function HeaderComponent(){
                             <div className="box2">
                                 <div className="box2_1">
                                     <ul>
-                                        <li className="BRAND"><a href="!#"  onMouseEnter={onMouseEnterTest} onMouseLeave={onMouseLeaveTest}>BRAND</a></li>
+                                        <li className="BRAND">
+                                            <a href="!#"  onMouseEnter={onMouseEnterTest} onMouseLeave={onMouseLeaveTest}>BRAND
+                                                <span className={isTest?' on':''} onMouseEnter={onMouseEnterTest} onMouseLeave={onMouseLeaveTest}></span>
+                                            </a>
+                                        </li>
                                         <li className="MEN"><a href="!#">MEN</a></li>
                                         <li className="WOMEN"><a href="!#">WOMEN</a></li>
                                         <li className="KIDS"><a href="!#">KIDS</a></li>

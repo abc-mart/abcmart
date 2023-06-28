@@ -1,0 +1,837 @@
+#ProductDetail {
+  width: 100%;
+}
+#ProductDetail #section1 {
+  width: 100%;
+}
+#ProductDetail #section1 .container {
+  width: 100%;
+  padding-bottom: 60px;
+}
+#ProductDetail #section1 .container .gap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#ProductDetail #section1 .container .gap .menu {
+  width: 100%;
+}
+#ProductDetail #section1 .container .gap .menu .menu-depth {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+#ProductDetail #section1 .container .gap .menu .menu-depth span {
+  padding: 0 7px 0 0;
+}
+#ProductDetail #section1 .container .gap .menu .menu-depth .selectbox {
+  padding: 0 0 0 5px;
+}
+#ProductDetail #section1 .container .gap .menu .menu-depth i {
+  padding: 0 10px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left {
+  width: 580px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .big-img {
+  padding: 0 0 10px 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .small-img-box {
+  display: flex;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .small-img-box span {
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .small-img-box a {
+  padding: 0 5px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  border-top: 1px solid #000;
+  margin: 37px 0 0 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .score {
+  width: 270px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .score p {
+  text-align: center;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .score h4 {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: "Montserrat";
+  color: #ee1c25;
+  padding: 10px 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .score h4 span {
+  font-size: 22px;
+  font-weight: 500;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .score .star {
+  display: flex;
+  justify-content: center;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .score .star img {
+  padding: 0 2px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .score .star span {
+  font-weight: 600;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .size-color ul li {
+  padding: 6px 0;
+  display: flex;
+  font-size: 13px;
+  color: #000;
+  font-weight: 500;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .left .score-box .size-color ul li span {
+  display: block;
+  width: 108px;
+  color: #666;
+  font-size: 13px;
+  font-weight: 500;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right {
+  width: 580px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .explain .brand-name .abcm span {
+  width: 78px;
+  padding: 2px 6px;
+  background: #ee1c25;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Montserrat";
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .explain .brand-name .abcm a {
+  position: relative;
+  text-decoration: underline;
+  padding: 0 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .explain .brand-name .abcm a::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  margin-top: -3px;
+  right: 5px;
+  padding: 3px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(45deg);
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url {
+  display: flex;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url img {
+  width: 17px;
+  height: 17px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url p {
+  line-height: 17px;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 0 18px 0 5px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a img {
+  height: 24px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a img:first-child {
+  width: 27px;
+  margin: 0 18px 0 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a img:last-child {
+  width: 25px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt {
+  width: 100%;
+  padding: 15px 0 24px 0;
+  border-bottom: 2px solid #000;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt h5 {
+  font-size: 16px;
+  color: #666;
+  font-family: "Montserrat";
+  padding: 15px 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt ul {
+  display: flex;
+  padding: 0 0 25px 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt ul li {
+  font-size: 13px;
+  color: #999;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price {
+  display: flex;
+  align-items: flex-end;
+  font-family: "Montserrat", "Noto Sans KR", "sans-serif";
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .real-price {
+  font-size: 15px;
+  padding: 0 8px 0 0;
+  color: #999;
+  text-decoration: line-through;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .sale-price {
+  font-size: 26px;
+  font-weight: 600;
+  color: #ee1c25;
+  transform: translateY(2px);
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .won {
+  font-style: 15px;
+  color: #ee1c25;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .discount-per {
+  font-size: 15px;
+  color: #ee1c25;
+  padding: 0 8px 0 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(3px);
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .style-color {
+  padding: 20px 0;
+  display: flex;
+  border-bottom: 1px solid #d5d5d5;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .style-color span {
+  display: block;
+  width: 200px;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  font-weight: "Montserrat";
+  color: #333;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul {
+  padding-bottom: 50px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li {
+  display: flex;
+  height: 50px;
+  padding: 20px 0 20px 15px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li:nth-child(1) {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li:nth-child(4) {
+  height: 160px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li:nth-child(5) {
+  height: 80px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li span {
+  display: block;
+  width: 200px;
+  font-size: 14px;
+  font-weight: 500;
+  font-weight: "Montserrat";
+  color: #333;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li p {
+  font-weight: 400;
+  font-family: "Montserrat", "Noto Sans KR";
+  color: #000;
+  padding: 0 0 10px 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li p a {
+  text-decoration: underline;
+  color: #ed1c24;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .benefit {
+  font-size: 14px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .benefit p {
+  font-weight: 400;
+  font-family: "Montserrat", "Noto Sans KR";
+  color: #000;
+  padding: 0 0 10px 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .benefit p strong {
+  font-weight: 700;
+  color: #ee1c25;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .how-del label {
+  display: flex;
+  padding: 0 0 15px 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .how-del label input {
+  display: block;
+  margin: 0 8px 0 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .how-del label input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #d5d5d5;
+  border-radius: 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .how-del label input[type=radio]:checked {
+  background: #000;
+  position: relative;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .how-del label input[type=radio]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -4px;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 20px;
+  background: #fff;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .how-del select {
+  display: block;
+  width: 360px;
+  height: 38px;
+  color: #999;
+  padding: 0 0 0 10px;
+  background: #f8f8f8;
+  border: 1px solid #d5d5d5;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .how-del select option[disabled] {
+  display: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .size-txt a {
+  position: relative;
+  display: block;
+  padding: 15px 0 0 0;
+  color: #999;
+  font-size: 13px;
+  text-decoration: underline;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .size-txt a::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 3px;
+  right: 105px;
+  padding: 2px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: rotate(45deg);
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .size {
+  display: flex;
+  flex-wrap: wrap;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .size a {
+  display: block;
+  width: 50px;
+  height: 24px;
+  border: 1px solid #d5d5d5;
+  text-align: center;
+  line-height: 20px;
+  font-size: 13px;
+  font-family: "Montserrat";
+  margin: 0 5px 5px 0;
+  transition: all 0.3s;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .size a:hover {
+  border: 1px solid #000;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li select {
+  display: block;
+  width: 360px;
+  height: 38px;
+  padding: 0 0 0 10px;
+  border: 1px solid #d5d5d5;
+  color: #d5d5d5;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice {
+  width: 100%;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 20px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #999;
+  background: #f8f8f8;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product .ea-price {
+  display: flex;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product .ea-price .number {
+  display: flex;
+  height: 29px;
+  transform: translateY(23px);
+  background: #fff;
+  border: 1px solid #ccc;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product .ea-price .number > a {
+  width: 24px;
+  height: 100%;
+  line-height: 29px;
+  text-align: center;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product .ea-price .number .count {
+  width: 49px;
+  height: 100%;
+  line-height: 29px;
+  text-align: center;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product .ea-price span {
+  padding: 0 0 0 60px;
+  line-height: 70px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Montserrat";
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product .ea-price span i {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Montserrat", "Noto Sans KR", "sans-serif";
+  transform: translate(-3px);
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product .ea-price > a {
+  line-height: 70px;
+  padding: 0 0 0 10px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .total-price {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .total-price .total-txt {
+  width: 200px;
+  font-size: 14px;
+  font-weight: 500;
+  font-weight: "Montserrat";
+  color: #333;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .total-price .money {
+  font-size: 36px;
+  font-weight: 600;
+  font-family: "Montserrat";
+  color: #ee1c25;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .total-price .money i {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .button-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .button-box button {
+  width: 285px;
+  height: 60px;
+  border: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .button-box button:nth-child(1) {
+  background: #666;
+  transition: all 0.3s;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .button-box button:nth-child(1):hover {
+  background: #000;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .button-box button:nth-child(2) {
+  background: #000;
+}
+#ProductDetail #section2 {
+  width: 100%;
+}
+#ProductDetail #section2 .container {
+  width: 100%;
+  padding: 0 0 80px 0;
+}
+#ProductDetail #section2 .container .gap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#ProductDetail #section2 .container .gap .title-box {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #e5e5e5;
+}
+#ProductDetail #section2 .container .gap .title-box .title {
+  width: 145px;
+  height: 100%;
+  padding: 0 20px;
+  border-bottom: 2px solid #000;
+}
+#ProductDetail #section2 .container .gap .title-box .title h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 50px;
+  color: #000;
+}
+#ProductDetail #section2 .container .gap .content {
+  padding: 30px 0 0 0;
+  width: 220px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#ProductDetail #section2 .container .gap .content span {
+  display: block;
+}
+#ProductDetail #section2 .container .gap .content p {
+  padding: 15px 0 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+#ProductDetail #section3 {
+  width: 100%;
+}
+#ProductDetail #section3 .container {
+  width: 100%;
+  padding: 50px 0;
+}
+#ProductDetail #section3 .container .gap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#ProductDetail #section3 .container .gap .sangpum-button-box {
+  width: 100%;
+  display: flex;
+}
+#ProductDetail #section3 .container .gap .sangpum-button-box a {
+  display: block;
+  width: 400px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-bottom: 3px solid #000;
+  font-size: 15px;
+}
+#ProductDetail #section3 .container .gap .sangpum-button-box a.on {
+  border: 3px solid #000;
+  border-bottom: none;
+  color: #000;
+  font-weight: 600;
+}
+#ProductDetail #section3 .container .gap .event-banner {
+  padding: 20px 0 0 0;
+}
+#ProductDetail #section3 .container .gap .product-infoimg {
+  padding: 40px 0 0 0;
+}
+#ProductDetail #section3 .container .gap .product-infoimg img {
+  display: block;
+  margin: 0 auto;
+}
+#ProductDetail #section3 .container .gap .product-infoimg p {
+  padding: 40px 0 40px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+}
+#ProductDetail #section3 .container .gap .show-product-info {
+  width: 100%;
+  padding: 40px 0;
+}
+#ProductDetail #section3 .container .gap .show-product-info h5 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  padding: 5px 0;
+  border-bottom: 2px solid #000;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul {
+  width: 100%;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  font-size: 13px;
+  border-bottom: 1px solid #d5d5d5;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li:last-child {
+  height: 106px;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li:last-child .right span {
+  line-height: 62px;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li:last-child .right p {
+  line-height: 160%;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li .left {
+  display: flex;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li .left span {
+  width: 153px;
+  padding: 0 0 0 20px;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li .left p {
+  width: 447px;
+  color: #000;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li .right {
+  display: flex;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li .right span {
+  width: 153px;
+  padding: 0 0 0 20px;
+}
+#ProductDetail #section3 .container .gap .show-product-info ul li .right p {
+  width: 447px;
+  padding: 0 10px 0 0;
+  color: #000;
+}
+#ProductDetail #section3 .container .gap .show-product-info h6 {
+  text-align: right;
+  padding: 15px 0 0 0;
+  font-size: 13px;
+  color: #999;
+}
+#ProductDetail #section3 .container .gap .show-product-info h6 img {
+  padding: 0 8px 0 0;
+  transform: translateY(-2px);
+}
+#ProductDetail #section3 .container .gap .product-slide {
+  padding: 40px 0;
+}
+#ProductDetail #section3 .container .gap .product-slide .button-box {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+}
+#ProductDetail #section3 .container .gap .product-slide .button-box a {
+  display: block;
+  width: 135px;
+  height: 100%;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+}
+#ProductDetail #section3 .container .gap .product-slide .button-box a.on {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box {
+  padding: 30px 0 0 0;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul {
+  width: 100%;
+  display: flex;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide {
+  width: 100%;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide img {
+  width: 220px;
+  height: 220px;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide h6 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  padding: 20px 0 0 0;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide p {
+  font-size: 14px;
+  padding: 10px 0 0 0;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide .price-box {
+  padding: 30px 0 0 0;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide .price-box .real-price {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  padding: 0 7px 0 0;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide .price-box .sale-price {
+  font-size: 19px;
+  font-weight: 600;
+  color: #ee1c25;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide .price-box .won {
+  font-size: 14px;
+  color: #ee1c25;
+}
+#ProductDetail #section3 .container .gap .product-slide .slide-box ul .slide .price-box .discount-per {
+  font-size: 14px;
+  color: #ee1c25;
+}
+#ProductDetail #section4 {
+  width: 100%;
+}
+#ProductDetail #section4 .container {
+  width: 100%;
+  padding: 50px 0;
+}
+#ProductDetail #section4 .container .gap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#ProductDetail #section4 .container .gap .sangpum-button-box {
+  width: 100%;
+  display: flex;
+}
+#ProductDetail #section4 .container .gap .sangpum-button-box a {
+  display: block;
+  width: 400px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-bottom: 3px solid #000;
+  font-size: 15px;
+}
+#ProductDetail #section4 .container .gap .sangpum-button-box a.on {
+  border: 3px solid #000;
+  border-bottom: none;
+  color: #000;
+  font-weight: 600;
+}
+#ProductDetail #section4 .container .gap .event-banner {
+  padding: 40px 0 20px 0;
+}
+#ProductDetail #section4 .container .gap ul {
+  width: 100%;
+  padding: 0 0 60px 0;
+}
+#ProductDetail #section4 .container .gap ul li {
+  height: 22px;
+  padding: 0 0 0 10px;
+  font-size: 13px;
+}
+#ProductDetail #section4 .container .gap .how-like-box {
+  border: 6px solid #e5e5e5;
+  padding: 40px;
+  display: flex;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars {
+  width: 212px;
+  padding: 0 40px 0 0;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars p {
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars h4 {
+  font-size: 60px;
+  color: #ee1c25;
+  text-align: center;
+  font-size: 60px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  padding: 20px 0;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars h4 span {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars .star {
+  width: 100%;
+  text-align: center;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars .star img {
+  padding: 0 5px 0 0;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars .star span {
+  font-size: 16px;
+  font-weight: 600;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage {
+  width: 456px;
+  display: flex;
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  padding: 20px 12px;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per {
+  width: 114px;
+  text-align: center;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per > span {
+  width: 62px;
+  height: 26px;
+  border: 1px solid #ee1c25;
+  border-radius: 25px;
+  color: #ee1c25;
+  font-size: 13px;
+  padding: 3px 13px;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per h5 {
+  padding: 40px 0;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per p {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Montserrat";
+  color: #000;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per p > span {
+  font-size: 13px;
+  color: #000;
+}
+#ProductDetail #section4 .container .gap .how-like-box .distribution {
+  width: 415px;
+  padding: 0 0 0 49px;
+}
+#ProductDetail #section4 .container .gap .how-like-box .distribution .button-box {
+  display: flex;
+}
+#ProductDetail #section4 .container .gap .how-like-box .distribution .button-box a {
+  display: block;
+  width: 90px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-bottom: 1px solid #000;
+  font-size: 13px;
+}
+#ProductDetail #section4 .container .gap .how-like-box .distribution .button-box a.on {
+  border: 1px solid #000;
+  border-bottom: none;
+}

@@ -592,11 +592,13 @@
                         line-height: 52px;
                         text-align: center;
                         border: 1px solid #eee;
-                        border-bottom: 2px solid #000;
+                        border-bottom: 3px solid #000;
                         font-size: 15px;
                         &.on{
-                            border: 2px solid #000;
+                            border: 3px solid #000;
                             border-bottom: none;
+                            color: #000;
+                            font-weight: 600;
                         }
 
                     }
@@ -776,11 +778,13 @@
                         line-height: 52px;
                         text-align: center;
                         border: 1px solid #eee;
-                        border-bottom: 2px solid #000;
+                        border-bottom: 3px solid #000;
                         font-size: 15px;
                         &.on{
-                            border: 2px solid #000;
+                            border: 3px solid #000;
                             border-bottom: none;
+                            color: #000;
+                            font-weight: 600;
                         }
         
                     }
@@ -803,11 +807,36 @@
                     display: flex;
                     .stars{
                         width: 212px;
-                        p{}
-                        h4{}
+                        padding: 0 40px 0 0;
+                        p{
+                            font-size: 16px;
+                            color: #000;
+                            text-align: center;
+                        }
+                        h4{
+                            font-size: 60px;
+                            color: #ee1c25;
+                            text-align: center;
+                            font-size: 60px;
+                            font-family: 'Montserrat';
+                            font-weight: 600;
+                            padding: 20px 0;
+                            span{                                
+                                font-size: 22px;
+                                font-weight: 500;
+                                color: #000;                                
+                            }
+                        }
                         .star{
-                            img{}
-                            span{}
+                            width: 100%;
+                            text-align: center;
+                            img{
+                                padding: 0 5px 0 0;
+                            }
+                            span{
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
                         }
                     }
                     .percentage{
@@ -818,10 +847,31 @@
                         padding: 20px 12px;
                         .per{
                             width: 114px;
-                            span{}
-                            h5{}
+                            text-align: center;
+                            > span{
+                                width: 62px;
+                                height: 26px;
+                                border: 1px solid #ee1c25;
+                                border-radius: 25px;
+                                color: #ee1c25;
+                                font-size: 13px;
+                                padding: 3px 13px;
+                            }
+                            h5{
+                                padding: 40px 0;
+                                color: #000;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
                             p{
-                                span{}
+                                font-size: 24px;
+                                font-weight: 600;
+                                font-family: 'Montserrat';
+                                color: #000;
+                                > span{
+                                    font-size: 13px;
+                                    color: #000;
+                                }
                             }
                         }
                     }
@@ -838,51 +888,146 @@
                                 text-align: center;
                                 border: 1px solid #eee;
                                 border-bottom: 1px solid #000;
-                                font-size: 15px;
+                                font-size: 13px;
                                 &.on{
                                     border: 1px solid #000;
                                     border-bottom: none;
                                 }
                             }
                         }
-                        .size-tap{
-                            
-                            .bar{
-                                
-                                span{
-                                    i{}
+                        .tap{
+                            width: 360px;
+                            padding: 20px 0 0 0;
+                            display: none;
+                            &.on{
+                                display: block;
+                            }
+                            .bar{                                                                    
+                                display: flex;                      
+                                width: 100%;
+                                height: 28px;
+                                padding: 5px 0;
+                                span{        
+                                    display: block;
+                                    width: 208px;
+                                    height: 100%;                        
+                                    border: 0;
+                                    border-radius: 25px;
+                                    background: #eee;
+                                    &:nth-child(3){
+                                        background: #85c55b;
+                                    }
+                                    i{
+                                        padding: 0 9px;
+                                        font-size: 11px;
+                                        font-family: 'Montserrat';
+                                    }
+                                }
+                                p{
+                                    font-size: 13px;
+                                    padding: 0 0 0 15px;
                                 }
                             }
                         }
                     }
-                    .review-filter{
-                        
-                        .mysize{
-                            .up{
-                                img{}
-                                .text{
-                                    h5{}
-                                    h6{}
-                                }
+
+                }
+                .review-filter{
+                    width: 100%;
+                    margin: 40px 0 0 0;   
+                    border-top: 3px solid #000;
+                    border-bottom: 1px solid #e5e5e5;
+                    display: flex;                                                                
+                    .mysize{
+                        width: 50%;
+                        border-right: 1px solid #e5e5e5;
+                        .up{
+                            height: 112px;
+                            padding: 32px 20px;
+                            display: flex;
+                            .image{
+                                width: 48px;
+                                height: 48px;
+                                background: url(../../../../../public/img/detail/product_review_fiter_icon.png);
                             }
-                            .down{
-                                button{
-                                    img{}
+                            .text{
+                                padding: 4px 0 0 10px;
+                                h5{
+                                    font-size: 16px;
+                                    font-weight: 700;
+                                    color: #000;
+                                    padding: 0 0 5px 0;
+                                }
+                                h6{
+                                    font-size: 13px;
+                                    font-weight: 400;
+                                    color: #999;
                                 }
                             }
                         }
-                        .option{
-                            .up{
-                                img{}
-                                .text{
-                                    h5{}
-                                    h6{}
+                        .down{
+                            height: 60px;
+                            background: #f8f8f8;
+                            text-align: right;
+                            padding: 16px;
+                            button{                                
+                                width: 91px;
+                                height: 28px;                              
+                                border: 1px solid #666;
+                                border-radius: 25px;
+                                color: #666;                                     
+                                background: #fff;
+                                font-size: 13px;
+                                font-weight: 400;
+                                color: #666;                                                  
+                                img{
+                                    transform: translateY(-1px);
                                 }
                             }
-                            .down{
-                                button{
-                                    img{}
+                        }
+                    }
+                    .option{
+                        width: 50%;
+                        .up{
+                            height: 112px;
+                            padding: 32px 20px;
+                            display: flex;
+                            .image{
+                                width: 48px;
+                                height: 48px;
+                                background: url(../../../../../public/img/detail/product_review_fiter_icon.png) 100% 0;
+                            }
+                            .text{
+                                padding: 4px 0 0 10px;
+                                h5{
+                                    font-size: 16px;
+                                    font-weight: 700;
+                                    color: #000;
+                                    padding: 0 0 5px 0;
                                 }
+                                h6{
+                                    font-size: 13px;
+                                    font-weight: 400;
+                                    color: #999;
+                                }
+                            }
+                        }
+                        .down{
+                            height: 60px;
+                            background: #f8f8f8;
+                            text-align: right;
+                            padding: 16px;
+                            button{                                
+                                width: 91px;
+                                height: 28px;                              
+                                border: 1px solid #666;
+                                border-radius: 25px;
+                                color: #666;                                     
+                                background: #fff;
+                                font-size: 13px;
+                                font-weight: 400;
+                                color: #666;                                                       
+                                img{}
                             }
                         }
                     }
