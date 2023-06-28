@@ -1,10 +1,10 @@
 import React from 'react';
-import './main/css/footer.css';
+import './main/scss/footer.scss';
 
 export default function FooterComponent(){
     return (
-<<<<<<< HEAD
-        <div id="footer">
+
+        <footer id="footer">
             <div className="wrap">
                 <div className="container">
                     <div className="gap">
@@ -22,20 +22,21 @@ export default function FooterComponent(){
                                     <span className="box1R3"><a href="!#">+</a></span>
                                     <span className="box1R4">|</span>
                                     <span className="box1R5">FAMILY SITE</span>
-                                    <span className="box1R6"><div className="teel"><img src="./img/headereventfooter/comm_footer_icon_family_site_arr.png"/></div></span>
+                                    <span className="box1R6"><div className="teel"><img src="./img/headereventfooter/comm_footer_icon_family_site_arr.png" alt=''/></div></span>
                                 </div>
                             </div>
                             <div className="box2">
+                                
                                 <div className="box21">
-                                    <div className="box211"><img src="./img/headereventfooter/1658299296317.png"/></div>
+                                    <div className="box211"><img src="./img/headereventfooter/1658299296317.png"  alt=''/></div>
                                     <div className="box212">
                                         <div className="box2121">(주)에이비씨마트 코리아  <span>|</span>  대표이사 : 이기호  <span>|</span>  주소 : 서울특별시 중구 을지로 100, B동 21층(을지로2가,파인에비뉴)</div>
                                         <div className="box2122">사업자등록번호 : 201-81-76174  <span>|</span>  통신판매업신고 : 제 2015-서울중구-1036호</div>
                                         <div className="box2123">개인정보보호 책임자 : 박영수  <span>|</span>  이메일 : abcmartcs@abcmartkorea.com</div>
                                     </div>
                                     <div className="box213">
-                                        <div className="box2131"><a> 사업자정보확인 </a><span>|</span><a> 개인정보처리방침 </a><span>|</span><a> 이용약관 </a><span>|</span><a> 멤버십 이용약관 </a><span>|</span><a> 위치 정보 서비스 이용약관 </a><span>|</span></div>
-                                        <div className="box2132"><a> 구매안전서비스 가입사실확인 </a></div>
+                                        <div className="box2131"><a href='!#'> 사업자정보확인 </a><span>|</span><a href='!#'> 개인정보처리방침 </a><span>|</span><a href='!#'> 이용약관 </a><span>|</span><a href='!#'> 멤버십 이용약관 </a><span>|</span><a href='!#'> 위치 정보 서비스 이용약관 </a><span>|</span></div>
+                                        <div className="box2132"><a href='!#'> 구매안전서비스 가입사실확인 </a></div>
                                     </div>
                                 </div>
                                 <div className="box22">
@@ -60,10 +61,10 @@ export default function FooterComponent(){
                                 <div className="box24">
                                     <div className="ultitle">SOCIAL</div>
                                     <ul>
-                                        <li><div className="teel1"><img className="imgw" src="./img/headereventfooter/comm_footer_social_link.png"/></div></li>
-                                        <li><div className="teel1"><img className="imgx" src="./img/headereventfooter/comm_footer_social_link.png"/></div></li>
-                                        <li><div className="teel1"><img className="imgy" src="./img/headereventfooter/comm_footer_social_link.png"/></div></li>
-                                        <li><div className="teel1"><img className="imgz" src="./img/headereventfooter/comm_footer_social_link.png"/></div></li>
+                                        <li><div className="teel1"><img className="imgw" src="./img/headereventfooter/comm_footer_social_link.png" alt=''/></div></li>
+                                        <li><div className="teel1"><img className="imgx" src="./img/headereventfooter/comm_footer_social_link.png" alt=''/></div></li>
+                                        <li><div className="teel1"><img className="imgy" src="./img/headereventfooter/comm_footer_social_link.png" alt=''/></div></li>
+                                        <li><div className="teel1"><img className="imgz" src="./img/headereventfooter/comm_footer_social_link.png" alt=''/></div></li>
                                     </ul>
                                 </div>
                             </div>
@@ -73,12 +74,12 @@ export default function FooterComponent(){
                                     <p>Copyright ABC-MART KOREA Corp. All rights reserved.</p>
                                 </div>
                                 <div className="box32">
-                                    <div className="teela"><img src="./img/headereventfooter/comm_footer_if-award.png" className="imga"/></div>
-                                    <div className="teelb"><img src="./img/headereventfooter/comm_footer_mark.png" className="imgb"/></div>
-                                    <div className="teelc"><img src="./img/headereventfooter/comm_footer_mark.png" className="imgc"/></div>
-                                    <div className="teeld"><img src="./img/headereventfooter/comm_footer_mark.png" className="imgd"/></div>
-                                    <div className="teele"><img src="./img/headereventfooter/comm_footer_mark.png" className="imge"/></div>
-                                    <div className="teelf"><img src="./img/headereventfooter/comm_footer_mark.png" className="imgf"/></div>
+                                    <div className="teela"><img src="./img/headereventfooter/comm_footer_if-award.png" className="imga" alt=''/></div>
+                                    <div className="teelb"><img src="./img/headereventfooter/comm_footer_mark.png" className="imgb" alt=''/></div>
+                                    <div className="teelc"><img src="./img/headereventfooter/comm_footer_mark.png" className="imgc" alt=''/></div>
+                                    <div className="teeld"><img src="./img/headereventfooter/comm_footer_mark.png" className="imgd" alt=''/></div>
+                                    <div className="teele"><img src="./img/headereventfooter/comm_footer_mark.png" className="imge" alt=''/></div>
+                                    <div className="teelf"><img src="./img/headereventfooter/comm_footer_mark.png" className="imgf" alt=''/></div>
                                     <div className="teelg">
                                         <p className="p1">[인증범위] 온라인 쇼핑몰 서비스 운영</p>
                                         <p className="p2">[유효기간] 2020-11-18 ~ 2023-11-17</p>
@@ -89,11 +90,7 @@ export default function FooterComponent(){
                     </div>
                 </div>
             </div>
-        </div>
-=======
-        <footer id="footer">
-            ddd
         </footer>
->>>>>>> 3804013705652e34843714d681a6657a0f2d088e
+
     );
 };

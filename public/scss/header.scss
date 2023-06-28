@@ -1,0 +1,317 @@
+#header {
+	width: 100%;
+	font-family: 'Montserrat';
+	height: 145px;
+	.wrap {
+		width: 100%;
+		.container {
+			width: 100%;
+			.gap {
+				
+				.content {
+					width: 100%;
+					.box1 {
+
+						width: 1200px;
+						margin: 0 auto;
+						height: 97px;
+						display: flex;
+						.box1_1 {
+							width: 138px;
+							height: 97px;
+							display: flex;
+							a {
+								width: 138px;
+								margin: auto 0;
+								img {
+									height: 42px;
+								}
+							}
+						}
+						.box1_2 {
+							width: 840px;
+							height: 97px;
+							display: flex;
+							.search_box {
+								width: 458px;
+								height: 44px;
+								border-bottom: 1.6px solid black;
+								display: flex;
+								margin: 22px 110px 0 223px;
+								input {
+									width: 384px;
+									font-size: 13px;
+									padding: 10px 0;
+									border-style: none;
+								}
+								.a1 {
+									width: 37px;
+									height: 42px;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									img {
+										width: 37px;
+									}
+								}
+								.a2 {
+									width: 37px;
+									height: 42px;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									img {
+										width: 23px;
+									}
+								}
+							}
+						}
+						.box1_3 {
+							width: 212px;
+							height: 97px;
+							display: flex;
+							ul {
+								width: 212px;
+								display: flex;
+								align-items: center;
+								.a1 {
+									width: 59px;
+									margin: 0 34px 0 0;
+								}
+								a .box3_ul_li1 {
+									width: 25px;
+									height: 31px;
+									overflow: hidden;
+									text-align: center;
+									position: relative;
+									img {
+										position: absolute;
+										left: -355%;
+									}
+									.h6 {
+										font-size: 10px;
+										position: fixed;
+										top: 68px;
+										right: 543px;
+									}
+								}
+								.a2 {
+									width: 64px;
+									margin: 0 34px 0 0;
+								}
+								a .box3_ul_li2 {
+									width: 30px;
+									height: 31px;
+									overflow: hidden;
+									text-align: center;
+									position: relative;
+									img {
+										position: absolute;
+										left: -00%;
+									}
+									.h6 {
+										font-size: 10px;
+										position: fixed;
+										top: 68px;
+										right: 487px;
+									}
+								}
+								.a3 {
+									width: 59px;
+									margin: 0 34px 0 0;
+								}
+								a .box3_ul_li3 {
+									width: 25px;
+									height: 31px;
+									overflow: hidden;
+									text-align: center;
+									position: relative;
+									img {
+										position: absolute;
+										left: -252%;
+									}
+									.h6 {
+										font-size: 10px;
+										position: fixed;
+										top: 68px;
+										right: 423px;
+									}
+								}
+								.a4 {
+									width: 30px;
+								}
+								a .box3_ul_li4 {
+									width: 30px;
+									height: 31px;
+									overflow: hidden;
+									text-align: center;
+									position: relative;
+									img {
+										position: absolute;
+										left: -00%;
+									}
+									.h6 {
+										font-size: 10px;
+										position: fixed;
+										top: 68px;
+										right: 359px;
+									}
+								}
+							}
+						}
+					}
+					.box2 {
+						width: 100%;
+						height: 48px;						
+						background-color: #ee1c25;
+						position: relative;
+						.box2-container{
+							width: 1200px;
+							margin: 0 auto;
+							display: flex;
+							.box2_1 {
+								width: 835px;
+								
+								height: 48px;
+								ul {
+									width: 835px;
+									display: flex;
+									.BRAND {
+										height: 48px;
+										margin: 0 18px 0 0;
+										display: flex;
+										align-items: center;
+										a {
+											color: yellow;
+											font-size: 16px;
+											font-weight: 500;
+										}
+									}
+									.MEN {
+										height: 48px;
+										margin: 0 18px 0 18px;
+										display: flex;
+										align-items: center;
+										a {
+											font-size: 16px;
+											color: white;
+											font-weight: 500;
+										}
+									}
+									.WOMEN {
+										height: 48px;
+										margin: 0 18px 0 18px;
+										display: flex;
+										align-items: center;
+										a {
+											font-size: 16px;
+											color: white;
+											font-weight: 500;
+										}
+									}
+									.KIDS {
+										height: 48px;
+										margin: 0 18px 0 18px;
+										display: flex;
+										align-items: center;
+										a {
+											font-size: 16px;
+											color: white;
+											font-weight: 500;
+										}
+									}
+									.SALE {
+										height: 48px;
+										margin: 0 18px 0 18px;
+										display: flex;
+										align-items: center;
+										a {
+											font-size: 16px;
+											color: white;
+											font-weight: 500;
+										}
+									}
+									.hidden1 {
+										position: absolute;
+										top: 48px;
+										left: 0;
+										width: 100%;
+										height: 0;
+										opacity: 0;
+										z-index: 2;
+										transition: all 0.3s;
+										background-color: aqua;
+										
+										&.on {
+											opacity: 1;
+											height: 500px;
+										}
+									}
+									.hidden2 {
+										position: absolute;
+										top: 48px;
+										left: 0;
+										width: 100%;
+										height: 0;
+										z-index: 1;
+										transition: all 0.3s;
+										background-color: cornflowerblue;
+										&.on {
+											height: 500px;
+										}
+									}
+									.hidden3 {
+										position: absolute;
+										top: 48px;
+										left: 0;
+										width: 100%;
+										height: 0;
+										z-index: 1;
+										transition: all 0.3s;
+										background-color: fuchsia;
+										&.on {
+											height: 500px;
+										}
+									}
+									.hidden4 {
+										position: absolute;
+										top: 48px;
+										left: 0;
+										width: 100%;
+										height: 0;
+										z-index: 1;
+										transition: all 0.3s;
+										background-color: chartreuse;
+										&.on {
+											height: 500px;
+										}
+									}
+								}
+								ul {
+								}
+							}
+							.box2_2 {
+								width: 365px;
+								height: 48px;
+								ul {
+									width: 365px;
+									display: flex;
+									li {
+										height: 48px;
+										margin: 17px 11px 0 11px;
+										a {
+											font-size: 15px;
+											color: white;
+											font-weight: 600;
+										}
+									}
+								}
+							}
+						}
+						
+					}
+				}
+			}
+		}
+	}
+}

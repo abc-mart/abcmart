@@ -1,0 +1,112 @@
+#brandSection1 {
+  width: 100%;
+}
+#brandSection1 .container {
+  width: 100%;
+}
+#brandSection1 .container .gap {
+  width: 100%;
+}
+#brandSection1 .container .gap .title {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+#brandSection1 .container .gap .title .row1 {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+#brandSection1 .container .gap .title .row1 ul {
+  display: flex;
+}
+#brandSection1 .container .gap .title .row1 ul li {
+  padding: 0 0 0 10px;
+  display: flex;
+  align-items: center;
+}
+#brandSection1 .container .gap .title .row1 ul li:nth-child(1) {
+  padding: 0 0 0 17px;
+}
+#brandSection1 .container .gap .title .row1 ul li span {
+  display: flex;
+  align-items: center;
+  width: 12px;
+  height: 11px;
+  overflow: hidden;
+  margin: 0 3px 0 0;
+  pointer-events: none;
+}
+#brandSection1 .container .gap .title .row1 ul li span img {
+  pointer-events: none;
+}
+#brandSection1 .container .gap .title .row1 ul li:nth-child(2) span img, #brandSection1 .container .gap .title .row1 ul li:nth-child(3) span img {
+  transform: translateX(-12px);
+}
+#brandSection1 .container .gap .title .row2 {
+  margin: 18px 0 0 0;
+}
+#brandSection1 .container .gap .title .row2 h1 {
+  position: relative;
+  color: #000;
+  font-size: 38px;
+  font-weight: 700;
+}
+#brandSection1 .container .gap .title .row2 h1 span {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+#brandSection1 .container .gap .title .row2 h1 span button {
+  cursor: pointer;
+  border: 0;
+  background: 0;
+  width: 27px;
+  height: 24px;
+  overflow: hidden;
+  margin: 0 0 0 15px;
+}
+#brandSection1 .container .gap .title .row2 h1 span button:first-child {
+  margin: 0;
+}
+#brandSection1 .container .gap .title .row2 h1 span button.on img {
+  transform: translateX(-27px);
+}
+#brandSection1 .container .gap .content {
+  margin: 44px 0 0 0;
+  width: 100%;
+  height: 388px;
+  position: relative;
+}
+#brandSection1 .container .gap .content .txt-box {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0 0 0;
+  color: #fff;
+  font-family: "Noto Sans";
+  line-height: 1.5;
+}
+#brandSection1 .container .gap .content .txt-box h2 {
+  font-size: 34px;
+  font-weight: 700;
+}
+#brandSection1 .container .gap .content .txt-box p {
+  margin: 20px 0 0 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+#brandSection1 .container .gap .content .logo-box {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0 0 0;
+}
+#brandSection1 .container .gap .content .logo-box img {
+  width: 70px;
+}
+#brandSection1 .container .gap .content .background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
