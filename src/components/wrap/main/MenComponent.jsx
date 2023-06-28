@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function MenComponent(){
     return (
-        <footer id="men">
+        <div id="men">
 
-        </footer>
+        </div>
     );
 };

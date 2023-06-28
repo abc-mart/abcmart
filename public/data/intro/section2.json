@@ -1,5 +1,7 @@
 {
     "hot_deal":[
+        {"src":"./img/intro/intro_sec2_slide10.jpg", "title":"위더로드", "info":"WTRD2102 카터 테슬로퍼 블랙 [240~300mm]", "cost_price":"89,000", "discount_price":"40,050", "discount_rate":"55"},
+        {"src":"./img/intro/intro_sec2_slide11.jpg", "title":"어더스", "info":"로프트 슬라이드 블랙", "cost_price":"29,000", "discount_price":"19,900", "discount_rate":"31"},
         {"src":"./img/intro/intro_sec2_slide12.jpg", "title":"아키클래식", "info":"퀵슬라이드2 블랙화이트", "cost_price":"59,000", "discount_price":"29,900", "discount_rate":"49"},
         {"src":"./img/intro/intro_sec2_slide1.jpg", "title":"컨버스", "info":"척테일러올스타 울트라 썸머 옥스", "cost_price":"39,000", "discount_price":"31,000", "discount_rate":"20"},
         {"src":"./img/intro/intro_sec2_slide2.jpg", "title":"컨버스", "info":"척테일러올스타 울트라 썸머 옥스", "cost_price":"39,000", "discount_price":"31,000", "discount_rate":"20"},

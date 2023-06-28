@@ -1,0 +1,59 @@
+@import url(./fonts.css);
+
+#header{width: 100%; font-family: 'Montserrat'; height: 145px;}
+#header .wrap{width: 100%;}
+#header .wrap .container{width: 100%;}
+#header .wrap .container .gap{width: 1200px; margin: 0 auto;}
+#header .wrap .container .gap .content{width: 100%;}
+#header .wrap .container .gap .content .box1{width: 100%; height: 97px; display: flex;}
+#header .wrap .container .gap .content .box1 .box1_1{width: 138px; height: 97px; display: flex;}
+#header .wrap .container .gap .content .box1 .box1_1 a{width: 138px; margin: auto 0;}
+#header .wrap .container .gap .content .box1 .box1_1 a img{height: 42px; }
+#header .wrap .container .gap .content .box1 .box1_2{width: 840px; height: 97px; display: flex;}
+#header .wrap .container .gap .content .box1 .box1_2 .search_box{width: 458px; height: 44px; border-bottom: 1.6px solid black; display: flex;  margin: 22px 110px 0 223px;}
+#header .wrap .container .gap .content .box1 .box1_2 .search_box input{width: 384px; font-size: 13px; padding: 10px 0; border-style: none;}
+#header .wrap .container .gap .content .box1 .box1_2 .search_box .a1{width: 37px; height: 42px; display: flex; justify-content: center; align-items: center;}
+#header .wrap .container .gap .content .box1 .box1_2 .search_box .a1 img{width: 37px;}
+#header .wrap .container .gap .content .box1 .box1_2 .search_box .a2{width: 37px; height: 42px; display: flex; justify-content: center; align-items: center;}
+#header .wrap .container .gap .content .box1 .box1_2 .search_box .a2 img{width: 23px;}
+#header .wrap .container .gap .content .box1 .box1_3{width: 212px; height: 97px; display: flex;}
+#header .wrap .container .gap .content .box1 .box1_3 ul{width: 212px; display: flex; align-items: center;}
+#header .wrap .container .gap .content .box1 .box1_3 ul .a1{width: 59px; margin: 0 34px 0 0;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li1{width: 25px; height: 31px; overflow: hidden; text-align: center; position: relative;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li1 img{position: absolute; left: -355%;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li1 .h6{font-size: 10px; position: fixed; top: 68px; right: 543px;}
+#header .wrap .container .gap .content .box1 .box1_3 ul .a2{width: 64px; margin: 0 34px 0 0;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li2{width: 30px; height: 31px; overflow: hidden; text-align: center; position: relative;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li2 img{position: absolute; left: -00%;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li2 .h6{font-size: 10px; position: fixed; top: 68px; right: 487px;}
+#header .wrap .container .gap .content .box1 .box1_3 ul .a3{width: 59px; margin: 0 34px 0 0;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li3{width: 25px; height: 31px; overflow: hidden; text-align: center; position: relative;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li3 img{position: absolute; left: -252%;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li3 .h6{font-size: 10px; position: fixed; top: 68px; right: 423px;}
+#header .wrap .container .gap .content .box1 .box1_3 ul .a4{width: 30px;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li4{width: 30px; height: 31px; overflow: hidden; text-align: center; position: relative;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li4 img{position: absolute; left: -00%;}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li4 .h6{font-size: 10px; position: fixed; top: 68px; right: 359px;}
+#header .wrap .container .gap .content .box2{width: 100%; height: 48px; display: flex; background-color: #ee1c25;}
+#header .wrap .container .gap .content .box2 .box2_1{width: 835px; height: 48px;}
+#header .wrap .container .gap .content .box2 .box2_1 ul{width: 835px; display: flex;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .BRAND {height: 48px; margin: 0 18px 0 0; display: flex; align-items: center;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .BRAND a{color: yellow; font-size: 16px; font-weight: 500;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .MEN{height: 48px; margin: 0 18px 0 18px; display: flex; align-items: center;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .MEN a{font-size: 16px; color:white; font-weight: 500;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .WOMEN{height: 48px; margin: 0 18px 0 18px; display: flex; align-items: center;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .WOMEN a{font-size: 16px; color:white; font-weight: 500;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .KIDS{height: 48px; margin: 0 18px 0 18px; display: flex; align-items: center;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .KIDS a{font-size: 16px; color:white; font-weight: 500;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .SALE{height: 48px; margin: 0 18px 0 18px; display: flex; align-items: center;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .SALE a{font-size: 16px; color:white; font-weight: 500;}
+#header .wrap .container .gap .content .box2 .box2_1 ul{}
+#header .wrap .container .gap .content .box2 .box2_1 ul .hidden1{opacity:0; position: absolute; width:1903px; height: 500px; z-index: 1; background-color: aqua;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .hidden1.on{opacity: 1;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .hidden2{opacity:0; position: absolute; width:1903px; height: 500px; z-index: 2; background-color:cornflowerblue;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .hidden3{opacity:0; position: absolute; width:1903px; height: 500px; z-index: 3; background-color:fuchsia;}
+#header .wrap .container .gap .content .box2 .box2_1 ul .hidden4{opacity:0; position: absolute; width:1903px; height: 500px; z-index: 4; background-color:chartreuse;}
+#header .wrap .container .gap .content .box2 .box2_2{width: 365px; height: 48px;}
+#header .wrap .container .gap .content .box2 .box2_2 ul{width: 365px; display: flex;}
+#header .wrap .container .gap .content .box2 .box2_2 ul li{height: 48px; margin: 17px 11px 0 11px;}
+#header .wrap .container .gap .content .box2 .box2_2 ul li a{font-size: 15px; color:white; font-weight: 600;}

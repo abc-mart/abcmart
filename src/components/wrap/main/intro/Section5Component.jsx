@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import axios from 'axios';
 import './scss/section5.scss';
 
@@ -14,11 +13,7 @@ export default function Section5Component(){
         mdsPickCrocs: [],
         mdsPickSlide: [],
         mdsPickMule: [],
-        mdsPickZaxy: [],
-        nCrocs: 0,
-        nSlide: 0,
-        nMule: 0,
-        nZaxy: 0
+        mdsPickZaxy: []
     });
 
     React.useEffect(()=>{
@@ -34,11 +29,7 @@ export default function Section5Component(){
                     mdsPickCrocs: res.data.mds_pick_crocs,
                     mdsPickSlide: res.data.mds_pick_slide,
                     mdsPickMule: res.data.mds_pick_mule,
-                    mdsPickZaxy: res.data.mds_pick_zaxy,
-                    nCrocs: res.data.mds_pick_crocs.length,
-                    nSlide: res.data.mds_pick_slide.length,
-                    nMule: res.data.mds_pick_mule.length,
-                    nZaxy: res.data.mds_pick_zaxy.length,
+                    mdsPickZaxy: res.data.mds_pick_zaxy
                 });
             }
         })
@@ -94,130 +85,186 @@ export default function Section5Component(){
                         </ul>
                     </div>
                     <div className="content">
-                        {
-                            isCrocs &&
-                            <ul className="crocs-section">
-                                {
-                                    state.mdsPickCrocs.map((item, idx)=>{
-                                        return(
-                                            <li key={idx}>
-                                                <a href="!#">
-                                                    <figure>
-                                                        <img src={item.src} alt="" />
-                                                    </figure>
-                                                    <div className='information-box'>
-                                                        <h3>{item.title}</h3>
-                                                        <p>{item.info}</p>
-                                                        <div className="price-box">
-                                                            <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                            <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                            <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                            <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                        <ul className={`crocs-section ${isCrocs?' on':''}`}>
+                            {
+                                state.mdsPickCrocs.map((item, idx)=>{
+                                    return(
+                                        <li key={idx}>
+                                            <a href="!#">
+                                                <figure>
+                                                    <img src={item.src} alt="" />
+                                                </figure>
+                                                <div className='information-box'>
+                                                    <h3>{item.title}</h3>
+                                                    <p>{item.info}</p>
+                                                    <div className="price-box">
+                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
+                                                    </div>
+                                                    {item.best===""?'':
+                                                        <div className="icon_box best">
+                                                            <img src="./img/intro/icon_best.png" alt="" />
                                                         </div>
-                                                        <div className="delivery">
+                                                    }
+                                                    {item.coupon===""?'':
+                                                        <div className="icon_box coupon">
+                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                        </div>
+                                                    }
+                                                    {item.only===""?'':
+                                                        <div className="icon_box only">
+                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                        </div>
+                                                    }
+                                                    {item.delivery===""?'':
+                                                        <div className="icon_box delivery">
                                                             <img src="./img/intro/icon_delivery.png" alt="" />
                                                         </div>
+                                                    }
+                                                </div>
+                                            </a>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                        <ul className={`slide-section ${isSlide?' on':''}`}>
+                            {
+                                state.mdsPickSlide.map((item, idx)=>{
+                                    return(
+                                        <li key={idx}>
+                                            <a href="!#">
+                                                <figure>
+                                                    <img src={item.src} alt="" />
+                                                </figure>
+                                                <div className='information-box'>
+                                                    <h3>{item.title}</h3>
+                                                    <p>{item.info}</p>
+                                                    <div className="price-box">
+                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                     </div>
-                                                </a>
-                                            </li>
-                                        )
-                                    })
-                                }
-                            </ul>
-                        }
-                        {
-                            isSlide &&
-                            <ul className="slide-section">
-                                {
-                                    state.mdsPickSlide.map((item, idx)=>{
-                                        return(
-                                            <li key={idx}>
-                                                <a href="!#">
-                                                    <figure>
-                                                        <img src={item.src} alt="" />
-                                                    </figure>
-                                                    <div className='information-box'>
-                                                        <h3>{item.title}</h3>
-                                                        <p>{item.info}</p>
-                                                        <div className="price-box">
-                                                            <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                            <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                            <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                            <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                    {item.best===""?'':
+                                                        <div className="icon_box best">
+                                                            <img src="./img/intro/icon_best.png" alt="" />
                                                         </div>
-                                                        <div className="delivery">
+                                                    }
+                                                    {item.coupon===""?'':
+                                                        <div className="icon_box coupon">
+                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                        </div>
+                                                    }
+                                                    {item.only===""?'':
+                                                        <div className="icon_box only">
+                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                        </div>
+                                                    }
+                                                    {item.delivery===""?'':
+                                                        <div className="icon_box delivery">
                                                             <img src="./img/intro/icon_delivery.png" alt="" />
                                                         </div>
+                                                    }
+                                                </div>
+                                            </a>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                        <ul className={`mule-section ${isMule?' on':''}`}>
+                            {
+                                state.mdsPickMule.map((item, idx)=>{
+                                    return(
+                                        <li key={idx}>
+                                            <a href="!#">
+                                                <figure>
+                                                    <img src={item.src} alt="" />
+                                                </figure>
+                                                <div className='information-box'>
+                                                    <h3>{item.title}</h3>
+                                                    <p>{item.info}</p>
+                                                    <div className="price-box">
+                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                     </div>
-                                                </a>
-                                            </li>
-                                        )
-                                    })
-                                }
-                            </ul>
-                        }
-                        {
-                            isMule &&
-                            <ul className="mule-section">
-                                {
-                                    state.mdsPickMule.map((item, idx)=>{
-                                        return(
-                                            <li key={idx}>
-                                                <a href="!#">
-                                                    <figure>
-                                                        <img src={item.src} alt="" />
-                                                    </figure>
-                                                    <div className='information-box'>
-                                                        <h3>{item.title}</h3>
-                                                        <p>{item.info}</p>
-                                                        <div className="price-box">
-                                                            <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                            <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                            <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                            <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                    {item.best===""?'':
+                                                        <div className="icon_box best">
+                                                            <img src="./img/intro/icon_best.png" alt="" />
                                                         </div>
-                                                        <div className="delivery">
+                                                    }
+                                                    {item.coupon===""?'':
+                                                        <div className="icon_box coupon">
+                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                        </div>
+                                                    }
+                                                    {item.only===""?'':
+                                                        <div className="icon_box only">
+                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                        </div>
+                                                    }
+                                                    {item.delivery===""?'':
+                                                        <div className="icon_box delivery">
                                                             <img src="./img/intro/icon_delivery.png" alt="" />
                                                         </div>
+                                                    }
+                                                </div>
+                                            </a>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                        <ul className={`zaxy-section ${isZaxy?' on':''}`}>
+                            {
+                                state.mdsPickZaxy.map((item, idx)=>{
+                                    return(
+                                        <li key={idx}>
+                                            <a href="!#">
+                                                <figure>
+                                                    <img src={item.src} alt="" />
+                                                </figure>
+                                                <div className='information-box'>
+                                                    <h3>{item.title}</h3>
+                                                    <p>{item.info}</p>
+                                                    <div className="price-box">
+                                                        {item.product_price===""?'':<strong className='product-price'>{item.product_price}<em>원</em></strong>}
+                                                        {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                        {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                        {item.discount_rate===""?'':<span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>}
                                                     </div>
-                                                </a>
-                                            </li>
-                                        )
-                                    })
-                                }
-                            </ul>
-                        }
-                        {
-                            isZaxy &&
-                            <ul className="zaxy-section">
-                                {
-                                    state.mdsPickZaxy.map((item, idx)=>{
-                                        return(
-                                            <li key={idx}>
-                                                <a href="!#">
-                                                    <figure>
-                                                        <img src={item.src} alt="" />
-                                                    </figure>
-                                                    <div className='information-box'>
-                                                        <h3>{item.title}</h3>
-                                                        <p>{item.info}</p>
-                                                        <div className="price-box">
-                                                            <strong className='product-price'>{item.product_price}<em>원</em></strong>
-                                                            <s className='cost-price'>{item.cost_price}<em>원</em></s>
-                                                            <strong className='discount-price'>{item.discount_price}<em>원</em></strong>
-                                                            <span className="discount-rate"><em>[</em>{item.discount_rate}<em>%]</em></span>
+                                                    {item.best===""?'':
+                                                        <div className="icon_box best">
+                                                            <img src="./img/intro/icon_best.png" alt="" />
                                                         </div>
-                                                        <div className="delivery">
+                                                    }
+                                                    {item.coupon===""?'':
+                                                        <div className="icon_box coupon">
+                                                            <img src="./img/intro/icon_coupon.gif" alt="" />
+                                                        </div>
+                                                    }
+                                                    {item.only===""?'':
+                                                        <div className="icon_box only">
+                                                            <img src="./img/intro/icon_only.jpg" alt="" />
+                                                        </div>
+                                                    }
+                                                    {item.delivery===""?'':
+                                                        <div className="icon_box delivery">
                                                             <img src="./img/intro/icon_delivery.png" alt="" />
                                                         </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        )
-                                    })
-                                }
-                            </ul>
-                        }
+                                                    }
+                                                </div>
+                                            </a>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
                     </div>
                 </div>
             </div>

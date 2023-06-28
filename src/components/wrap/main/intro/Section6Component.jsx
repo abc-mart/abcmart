@@ -1,13 +1,11 @@
 import React from 'react';
-import $ from 'jquery';
 import axios from 'axios';
 import './scss/section6.scss';
 
 export default function Section6Component(){
 
     const [state, setState] = React.useState({
-        trendOn: [],
-        n: 0
+        trendOn: []
     });
 
     React.useEffect(()=>{
@@ -20,8 +18,7 @@ export default function Section6Component(){
             if(res.status===200){
                 setState({
                     ...state,
-                    trendOn: res.data.trend_on,
-                    n: res.data.trend_on.length
+                    trendOn: res.data.trend_on
                 });
             }
         })

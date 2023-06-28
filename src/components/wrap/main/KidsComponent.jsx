@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function KidsComponent(){
     return (
-        <footer id="kids">
+        <div id="kids">
 
-        </footer>
+        </div>
     );
 };

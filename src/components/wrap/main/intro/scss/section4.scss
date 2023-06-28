@@ -16,8 +16,8 @@
                         width: 100%;
                         overflow: hidden;
                         .slide-wrap{
-                            width: 100% * 12;
-                            margin: 0 0 0 -50px;
+                            width: 407px * 20;
+                            margin: 0 0 0 calc(-407px * 5);
                             position: relative;
                             display: flex;
                             .slide{
@@ -48,7 +48,7 @@
                                             margin: 9px 0 0 0;
                                             font-size: 13px;
                                             color: #999;
-                                            font-size: 'Montserrat';
+                                            font-family: 'Montserrat';
                                         }
                                     }
                                 }

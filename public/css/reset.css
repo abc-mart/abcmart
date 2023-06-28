@@ -16,7 +16,11 @@ html {
 }
 
 body {
+<<<<<<< HEAD
   font: normal 14px/1 "Noto Sans KR", "Montserrat", "sans-serif";
+=======
+  font: normal 14px/1 "Montserrat", "Noto Sans KR", "sans-serif";
+>>>>>>> 373913da933aea5c4984e791dd27faf00b3ee2d5
   color: #626262;
   background: #fff;
 }
