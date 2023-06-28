@@ -46,7 +46,7 @@
                             overflow: hidden;
                             .slide-wrap{
                                 width: (100% / 3) * 18;
-                                margin: 0 0 0 -306px;
+                                margin: 0 0 0 (-306px * 3);
                                 position: relative;
                                 display: flex;
                                 justify-content: space-between;

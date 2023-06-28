@@ -540,12 +540,23 @@
   line-height: 52px;
   text-align: center;
   border: 1px solid #eee;
+<<<<<<< HEAD
   border-bottom: 2px solid #000;
   font-size: 15px;
 }
 #ProductDetail #section3 .container .gap .sangpum-button-box a.on {
   border: 2px solid #000;
   border-bottom: none;
+=======
+  border-bottom: 3px solid #000;
+  font-size: 15px;
+}
+#ProductDetail #section3 .container .gap .sangpum-button-box a.on {
+  border: 3px solid #000;
+  border-bottom: none;
+  color: #000;
+  font-weight: 600;
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #ProductDetail #section3 .container .gap .event-banner {
   padding: 20px 0 0 0;
@@ -716,12 +727,23 @@
   line-height: 52px;
   text-align: center;
   border: 1px solid #eee;
+<<<<<<< HEAD
   border-bottom: 2px solid #000;
   font-size: 15px;
 }
 #ProductDetail #section4 .container .gap .sangpum-button-box a.on {
   border: 2px solid #000;
   border-bottom: none;
+=======
+  border-bottom: 3px solid #000;
+  font-size: 15px;
+}
+#ProductDetail #section4 .container .gap .sangpum-button-box a.on {
+  border: 3px solid #000;
+  border-bottom: none;
+  color: #000;
+  font-weight: 600;
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #ProductDetail #section4 .container .gap .event-banner {
   padding: 40px 0 20px 0;
@@ -742,6 +764,40 @@
 }
 #ProductDetail #section4 .container .gap .how-like-box .stars {
   width: 212px;
+<<<<<<< HEAD
+=======
+  padding: 0 40px 0 0;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars p {
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars h4 {
+  font-size: 60px;
+  color: #ee1c25;
+  text-align: center;
+  font-size: 60px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  padding: 20px 0;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars h4 span {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars .star {
+  width: 100%;
+  text-align: center;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars .star img {
+  padding: 0 5px 0 0;
+}
+#ProductDetail #section4 .container .gap .how-like-box .stars .star span {
+  font-size: 16px;
+  font-weight: 600;
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #ProductDetail #section4 .container .gap .how-like-box .percentage {
   width: 456px;
@@ -752,6 +808,35 @@
 }
 #ProductDetail #section4 .container .gap .how-like-box .percentage .per {
   width: 114px;
+<<<<<<< HEAD
+=======
+  text-align: center;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per > span {
+  width: 62px;
+  height: 26px;
+  border: 1px solid #ee1c25;
+  border-radius: 25px;
+  color: #ee1c25;
+  font-size: 13px;
+  padding: 3px 13px;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per h5 {
+  padding: 40px 0;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per p {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Montserrat";
+  color: #000;
+}
+#ProductDetail #section4 .container .gap .how-like-box .percentage .per p > span {
+  font-size: 13px;
+  color: #000;
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #ProductDetail #section4 .container .gap .how-like-box .distribution {
   width: 415px;
@@ -768,7 +853,11 @@
   text-align: center;
   border: 1px solid #eee;
   border-bottom: 1px solid #000;
+<<<<<<< HEAD
   font-size: 15px;
+=======
+  font-size: 13px;
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #ProductDetail #section4 .container .gap .how-like-box .distribution .button-box a.on {
   border: 1px solid #000;

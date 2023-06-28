@@ -37,6 +37,10 @@
 }
 #section10 .container .gap .content .slide-container .slide-view {
   width: 100%;
+<<<<<<< HEAD
+=======
+  padding: 0 auto;
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
   overflow: hidden;
 }
 #section10 .container .gap .content .slide-container .slide-view .slide-wrap {
@@ -44,14 +48,21 @@
   display: flex;
   position: relative;
   z-index: 1;
+<<<<<<< HEAD
   margin: 0 0 0 -2085px;
+=======
+  margin: 0 0 0 -260px;
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
   margin: 0 20px 0 0;
 }
 #section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide a {
   position: relative;
+<<<<<<< HEAD
   display: block;
+=======
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide a figure img {
   width: auto;

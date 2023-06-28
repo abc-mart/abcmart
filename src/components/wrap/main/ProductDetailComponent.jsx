@@ -1,7 +1,68 @@
 import React from 'react';
+import { useState } from 'react';
 import './scss/productdetail.scss';
 
 export default function ProductDetailComponent(){
+
+    const [state, setState] = React.useState({
+        size: true,
+        color: false,
+        footWidth: false,
+        footUp: false
+    })
+
+    const onClickSize=(e)=>{
+        e.preventDefault();
+
+        setState({
+            ...state,
+            size: true,
+            color: false,
+            footWidth: false,
+            footUp: false
+        })
+
+
+    }
+
+    const onClickColor=(e)=>{
+        e.preventDefault();
+
+        setState({
+            ...state,
+            size: false,
+            color: true,
+            footWidth: false,
+            footUp: false
+        })
+
+    }
+    const onClickFootWidth=(e)=>{
+        e.preventDefault();
+
+        setState({
+            ...state,
+            size: false,
+            color: false,
+            footWidth: true,
+            footUp: false
+        })
+
+    }
+    const onClickFootUp=(e)=>{
+        e.preventDefault();
+
+        setState({
+            ...state,
+            size: false,
+            color: false,
+            footWidth: false,
+            footUp: true
+        })
+
+    }
+
+
     return (
         <div id='ProductDetail'>
             <section id='section1'>
@@ -81,8 +142,8 @@ export default function ProductDetailComponent(){
                                             <li>상품코드 : 1010098951</li>
                                         </ul>
                                         <div className="price">
-                                            <span className='real-price'>79000원</span>
-                                            <span className='sale-price'>63000</span>
+                                            <span className='real-price'>79,000원</span>
+                                            <span className='sale-price'>63,000</span>
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[20%]</span>
                                             <img src="./img/detail/mypage_icon_tooltip_discount.png" alt="" />
@@ -169,7 +230,7 @@ export default function ProductDetailComponent(){
                                     </div>
                                     <div className="total-price">
                                         <span className='total-txt'>총 결제금액</span>
-                                        <span className='money'>63000 <i>원</i></span>
+                                        <span className='money'>63,000 <i>원</i></span>
                                     </div>
                                     <div className="button-box">
                                         <button>장바구니</button>
@@ -201,7 +262,7 @@ export default function ProductDetailComponent(){
                 <div className="container">
                     <div className="gap">
                         <div className="sangpum-button-box">
-                            <a href="!#">상품정보</a>
+                            <a href="!#" className='on'>상품정보</a>
                             <a href="!#">상품후기 (2)</a>
                             <a href="!#">상품 Q&A (0)</a>
                         </div>
@@ -308,7 +369,7 @@ export default function ProductDetailComponent(){
                                         <p>FILA NEURON 5 NUCLEUS</p>
                                         <div className='price-box'>
                                             <span className='real-price'>99,000원</span>
-                                            <span className='sale-price'>49000</span>
+                                            <span className='sale-price'>49,000</span>
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
@@ -319,7 +380,7 @@ export default function ProductDetailComponent(){
                                         <p>FILA NEURON 5 NUCLEUS</p>
                                         <div className='price-box'>
                                             <span className='real-price'>99,000원</span>
-                                            <span className='sale-price'>49000</span>
+                                            <span className='sale-price'>49,000</span>
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
@@ -330,7 +391,7 @@ export default function ProductDetailComponent(){
                                         <p>FILA NEURON 5 NUCLEUS</p>
                                         <div className='price-box'>
                                             <span className='real-price'>99,000원</span>
-                                            <span className='sale-price'>49000</span>
+                                            <span className='sale-price'>49,000</span>
                                             <span className='won'>원</span>
                                             <span className='discount-per'>[50%]</span>
                                         </div>
@@ -346,7 +407,7 @@ export default function ProductDetailComponent(){
                     <div className="gap">
                         <div className="sangpum-button-box">
                             <a href="!#">상품정보</a>
-                            <a href="!#">상품후기 (2)</a>
+                            <a href="!#" className='on' >상품후기 (2)</a>
                             <a href="!#">상품 Q&A (0)</a>
                         </div>
                         <div className="event-banner">
@@ -403,12 +464,12 @@ export default function ProductDetailComponent(){
                             </div>
                             <div className="distribution">
                                 <div className="button-box">
-                                    <a href="!#">사이즈</a>
-                                    <a href="!#">색상</a>
-                                    <a href="!#">발볼</a>
-                                    <a href="!#">발등</a>
+                                    <a onClick={onClickSize} href="!#" className={state.size?'on':''}>사이즈</a>
+                                    <a onClick={onClickColor} href="!#" className={state.color?'on':''}>색상</a>
+                                    <a onClick={onClickFootWidth} href="!#" className={state.footWidth?'on':''}>발볼</a>
+                                    <a onClick={onClickFootUp} href="!#" className={state.footUp?'on':''}>발등</a>
                                 </div>
-                                <div className="size-tap">
+                                <div className={`tap size ${state.size?' on':''}`}>
                                     <div className='bar'>
                                         <span>
                                             <i>0%</i>
@@ -440,13 +501,109 @@ export default function ProductDetailComponent(){
                                         <p>10mm정도 큼</p>
                                     </div>
                                 </div>
+                                <div className={`tap color ${state.color?'on':''}`}>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>많이 밝음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>조금 밝음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>화면과 같음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>조금 어두움</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>많이 어두움</p>
+                                    </div>
+                                </div>
+                                <div className={`tap footwidth ${state.footWidth?'on':''}`}>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>아주 좁음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>좁음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>적당함</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>넓음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>아주 넓음</p>
+                                    </div>
+                                </div>
+                                <div className={`tap footup ${state.footUp?'on':''}`}>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>아주 낮음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>낮음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>적당함</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>높음</p>
+                                    </div>
+                                    <div className='bar'>
+                                        <span>
+                                            <i>0%</i>
+                                        </span>
+                                        <p>아주 높음</p>
+                                    </div>
+                                </div>
                             </div>
                            
                         </div>
                         <div className="review-filter">
                             <div className="mysize">
                                 <div className="up">
-                                    <img src="./img/detail/product_review_fiter_icon.png" alt="" />
+                                    <div className="image"></div>
                                     <div className="text">
                                         <h5>나의 사이즈 선택하기<img src="./img/detail/btn_icon_circle_arr.png" alt="" /></h5>
                                         <h6>나의 사이즈와 비슷한 상품 후기를 바로 확인해보세요.</h6>
@@ -460,7 +617,7 @@ export default function ProductDetailComponent(){
                             </div>
                             <div className="option">
                                 <div className="up">
-                                    <img src="./img/detail/product_review_fiter_icon.png" alt="" />
+                                    <div className="image"></div>
                                     <div className="text">
                                         <h5>상품 옵션 선택하기<img src="./img/detail/btn_icon_circle_arr.png" alt="" /></h5>
                                         <h6>상품의 옵션 별 후기를 바로 확인해보세요.</h6>

@@ -88,17 +88,23 @@
                 }
                 .slide-container{
                     width: 100%;
+                    height: 671px;
                     .slide-view{
                         width: 100%;
+                        height: 100%;
                         overflow: hidden;
                         .slide-wrap{
-                            width: 100% * 10;
+                            width: 100%;
+                            height: 100%;
                             display: flex;
                             position: relative;
-                            margin: 0 0 0 -100%;
                             z-index: 1;
                             .slide{
+                                position: absolute;
+                                top: 0;
+                                left: 0;
                                 width: 100%;
+                                height: 100%;
                                 background: url() no-repeat 50% 0;
                                 &.slide1{background-image: url(../../../../../../public/img/intro/intro_sec8_slide1_bg.jpg);}
                                 &.slide2{background-image: url(../../../../../../public/img/intro/intro_sec8_slide2_bg.jpg);}
@@ -128,6 +134,7 @@
                                             .information-box{
                                                 width: 100%;
                                                 padding: 15px 10px 0 10px;
+                                                background: #fff;
                                                 h3{
                                                     width: 100%;
                                                     margin: 4px 0 0 0;
@@ -145,6 +152,7 @@
                                                 }
                                                 .price-box{
                                                     margin: 9px 0 0 0;
+                                                    height: 19px;
                                                     .product-price{
                                                         font-size: 19px;
                                                         color: #000;

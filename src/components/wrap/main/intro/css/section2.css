@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+@charset "UTF-8";
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 #section2 {
   width: 100%;
 }
@@ -53,7 +57,11 @@
 }
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap {
   width: 600%;
+<<<<<<< HEAD
   margin: 0 0 0 -306px;
+=======
+  margin: 0 0 0 -305px;
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -149,8 +157,13 @@
   color: #999;
   font-size: 14px;
 }
+<<<<<<< HEAD
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .cost-price em {
   vertical-align: text-bottom;
+=======
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .cost-price::after {
+  content: "원";
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-price {
   font-size: 20px;
@@ -158,18 +171,33 @@
   color: #ee1c25;
   font-weight: 700;
 }
+<<<<<<< HEAD
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-price em {
+=======
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-price::after {
+  content: "원";
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
   font-size: 12px;
   font-weight: 500;
 }
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate {
   margin: 0 0 0 2px;
   color: #ee1c25;
+<<<<<<< HEAD
   vertical-align: middle;
   font-size: 14px;
 }
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate em {
   vertical-align: text-top;
+=======
+  vertical-align: bottom;
+}
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate::before {
+  content: "[";
+}
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate::after {
+  content: "%]";
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .sale-period-box {
   margin: 19px 0 0 0;

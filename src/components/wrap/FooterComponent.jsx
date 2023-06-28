@@ -3,8 +3,12 @@ import './main/scss/footer.scss';
 
 export default function FooterComponent(){
     return (
+<<<<<<< HEAD
 
         <footer id="footer">
+=======
+        <div id="footer">
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
             <div className="wrap">
                 <div className="container">
                     <div className="gap">
@@ -90,7 +94,11 @@ export default function FooterComponent(){
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         </footer>
 
+=======
+        </div>
+>>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
     );
 };

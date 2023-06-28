@@ -17,7 +17,7 @@
                         overflow: hidden;
                         .slide-wrap{
                             width: 407px * 20;
-                            margin: 0 0 0 calc(-407px * 5);
+                            margin: 0 0 0 ((-407px * 5) - 50px);
                             position: relative;
                             display: flex;
                             .slide{

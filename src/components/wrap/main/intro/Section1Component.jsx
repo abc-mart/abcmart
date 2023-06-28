@@ -6,7 +6,7 @@ import './scss/section1.scss';
 export default function Section1Component(){
 
     const [state, setState] = React.useState({
-        mainSlide: [],
+        slide: [],
         n: 0
     });
 
@@ -21,8 +21,8 @@ export default function Section1Component(){
                 // console.log(res.data.main_slide.length);
                 setState({
                     ...state,
-                    mainSlide: res.data.main_slide,
-                    n: res.data.main_slide.length-2
+                    slide: res.data.main_slide,
+                    n: res.data.main_slide.length
                 });
             }
         })
@@ -34,7 +34,7 @@ export default function Section1Component(){
 
     React.useEffect(()=>{
 
-        const $slideWrap = $(`#section1 .slide-wrap`);
+        const $slide = $(`#section1 .slide`);
         const $prevBtn = $(`#section1 .prev-btn`);
         const $nextBtn = $(`#section1 .next-btn`);
         const $stopBtn = $(`#section1 .stop-btn`);
@@ -44,26 +44,38 @@ export default function Section1Component(){
         
         let cnt = 0;
         let setId = 0;
+        let imsi = null;
 
         // $slideWrap.css({width: `${100 * (state.n+2)}%` });
+        
+        function mainNextSlide(){
+            $slide.css({zIndex: 1, opacity:1});
+            $slide.eq(imsi!==null?imsi:(cnt===0? state.n-1:cnt-1)).css({zIndex: state.n-1});  // 현재슬라이드
+            $slide.eq(cnt).css({zIndex: state.n}).stop().animate({opacity:0}, 0).animate({opacity:1}, 600);  // 다음슬라이드
+            pageNumber();
+        }
 
-        function mainSlide(){
-            $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 600, function(){
-                if(cnt>5) cnt=0;
-                if(cnt<0) cnt=5;
-                $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 0);
-            });
-            // pageNumber();
+        function mainPrevSlide(){
+            $slide.css({zIndex: 1, opacity:1});
+            $slide.eq(cnt).css({zIndex: state.n-1});  // 이전슬라이드
+            $slide.eq(imsi!==null?imsi:(cnt===state.n-1? 0:cnt+1)).css({zIndex: state.n}).stop().animate({opacity:1}, 0).animate({opacity:0}, 600);  // 현재슬라이드
+            pageNumber();
         }
 
         function prevCount(){
             cnt--;
-            mainSlide();
+            if(cnt<0){
+                cnt=state.n-1;
+            }
+            mainPrevSlide();
         }
 
         function nextCount(){
             cnt++;
-            mainSlide();
+            if(cnt>state.n-1){
+                cnt=0;
+            }
+            mainNextSlide();
         }
 
         function autoTimer(){
@@ -106,12 +118,12 @@ export default function Section1Component(){
             }
         });
 
-        // function pageNumber(){
-        //     $currentPage.html( `0${cnt+1===(state.n+1) ? 1 : (cnt+1===0 ? state.n : cnt+1)}` );
-        //     $totalPage.html(`0${state.n}`);
-        // }
+        function pageNumber(){
+            $currentPage.html( `0${cnt+1===(state.n+1) ? 1 : (cnt+1===0 ? state.n : cnt+1)}` );
+            $totalPage.html(`0${state.n}`);
+        }
 
-    },[]);
+    },[state.n]);
 
 
     return (
@@ -124,9 +136,9 @@ export default function Section1Component(){
                                 <ul className="slide-wrap">
 
                                     {
-                                        state.mainSlide.map((item, idx)=>{
+                                        state.slide.map((item, idx)=>{
                                             return(
-                                                <li className="slide slide1" key={idx}>
+                                                <li className="slide" key={idx}>
                                                     <a href="!#">
                                                         <img src={item.src} alt="" />
                                                         <div className="title-box">
@@ -146,7 +158,7 @@ export default function Section1Component(){
                             <div className="pagenation">
                                 <span className='current-page'>01</span>
                                 <i>/</i>
-                                <span className='total-page'>{/* {`0${state.n}`} */}06</span>
+                                <span className='total-page'>{`0${state.n}`}</span>
                             </div>
                             <button className='prev-btn'></button>
                             <button className='next-btn'></button>
