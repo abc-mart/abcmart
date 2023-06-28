@@ -60,33 +60,34 @@
   overflow: hidden;
 }
 #section7 .container .gap .content .slide-container .slide-view .slide-wrap {
-  width: 2600%;
+  width: 100%;
   display: flex;
-  margin: 0 0 0 calc(-100% - 228px);
+  margin: 0 0 0 -2047.5px;
+  position: relative;
 }
 #section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
   width: 565px;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div {
   display: flex;
   margin: 0 20px 0 0;
   border: 1px solid #d5d5d5;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a:hover {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div:hover {
   border-color: #000;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a figure {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div figure {
   width: 270px;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a figure img {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div figure a img {
   width: 100%;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box {
   width: 270px;
   padding: 35px;
   position: relative;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box h3 {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a h3 {
   font-size: 22px;
   letter-spacing: -1.4px;
   color: #000;
@@ -98,41 +99,45 @@
   overflow: hidden;
   margin: 0 0 10px 0;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box p {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a p {
   font-size: 15px;
   color: #666;
   height: 38px;
   line-height: 19px;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a .price-box {
   margin: 10px 0 0 0;
   font-size: 18px;
   color: #ee1c25;
   font-weight: 700;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .sale-price {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a .price-box .start-price {
+  font-size: 18px;
+  font-weight: 700;
+}
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a .price-box .discount-rate {
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 0 5px;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .sale-price::after {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a .price-box .discount-rate::before {
+  content: "~";
+  margin: 0 5px 0 0;
+}
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a .price-box .discount-rate::after {
   content: "할인";
   font-size: 14px;
   font-weight: 400;
   margin: 0 0 0 5px;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .product-price {
-  font-size: 14px;
-  font-weight: 400;
-}
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .search-result-count {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a .search-result-count {
   position: absolute;
   bottom: 35px;
   left: 35px;
   font-size: 13px;
   color: #000;
 }
-#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .search-result-count .search-result-result-value {
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div .information-box a .search-result-count .search-result-result-value {
   color: #ee1c25;
   font-weight: 700;
   vertical-align: baseline;

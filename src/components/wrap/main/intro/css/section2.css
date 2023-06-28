@@ -54,7 +54,7 @@
 }
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap {
   width: 600%;
-  margin: 0 0 0 -100%;
+  margin: 0 0 0 -305px;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -146,28 +146,34 @@
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box {
   margin: 9px 0 0 0;
 }
-#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .price {
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .cost-price {
   color: #999;
   font-size: 14px;
 }
-#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .price::after {
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .cost-price::after {
   content: "원";
 }
-#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .sale-price {
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-price {
   font-size: 20px;
   margin: 0 0 0 8px;
   color: #ee1c25;
   font-weight: 700;
 }
-#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .sale-price::after {
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-price::after {
   content: "원";
   font-size: 12px;
   font-weight: 500;
 }
-#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .sale-percent {
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate {
   margin: 0 0 0 2px;
   color: #ee1c25;
   vertical-align: bottom;
+}
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate::before {
+  content: "[";
+}
+#section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate::after {
+  content: "%]";
 }
 #section2 .container .gap .content .right .slide-container .slide-view .slide-wrap .slide a .sale-period-box {
   margin: 19px 0 0 0;
@@ -204,6 +210,7 @@
   height: 29px;
   background: url(../../../../../../public/img/intro/main_btn_abc_swiper.png) no-repeat 0 0;
   border: 0;
+  cursor: pointer;
 }
 #section2 .container .gap .content .right button.prev-btn {
   left: -40px;

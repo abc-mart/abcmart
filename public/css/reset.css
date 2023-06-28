@@ -11,19 +11,19 @@ html, body {
 }
 
 html {
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
 body {
-<<<<<<< HEAD
-  font: normal 14px/1 "Montserrat", "Noto Sans KR", "sans-serif";
-=======
-  font: normal 14px/1 "Noto Sans KR", "Montserrat", "Roboto";
->>>>>>> 8a7d5d0ebd16db59b316198f202ba7806463a2b1
+  font: normal 14px/1 "Noto Sans KR", "Montserrat", "sans-serif";
   color: #626262;
   background: #fff;
+}
+
+html { /* scroll-behavior: smooth; */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 ul {
