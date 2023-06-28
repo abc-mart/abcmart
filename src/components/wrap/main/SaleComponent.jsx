@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function SaleComponent(){
     return (
-        <footer id="sale">
+        <div id="sale">
 
-        </footer>
+        </div>
     );
 };

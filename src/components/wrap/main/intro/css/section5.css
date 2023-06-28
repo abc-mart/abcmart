@@ -1,4 +1,3 @@
-@charset "UTF-8";
 #section5 {
   width: 100%;
 }
@@ -96,35 +95,30 @@
 #section5 .container .gap .content ul li a .information-box .price-box {
   margin: 9px 0 0 0;
 }
-#section5 .container .gap .content ul li a .information-box .price-box .price {
-  color: #999;
-  font-size: 14px;
-}
-#section5 .container .gap .content ul li a .information-box .price-box .price::after {
-  content: "원";
-}
 #section5 .container .gap .content ul li a .information-box .price-box .product-price {
   font-size: 19px;
   color: #000;
   font-weight: 700;
 }
-#section5 .container .gap .content ul li a .information-box .price-box .product-price::after {
-  content: "원";
+#section5 .container .gap .content ul li a .information-box .price-box .product-price em {
   font-size: 12px;
   font-weight: 500;
 }
-#section5 .container .gap .content ul li a .information-box .price-box .sale-price {
+#section5 .container .gap .content ul li a .information-box .price-box .cost-price {
+  color: #999;
+  font-size: 14px;
+}
+#section5 .container .gap .content ul li a .information-box .price-box .discount-price {
   font-size: 20px;
   margin: 0 0 0 8px;
   color: #ee1c25;
   font-weight: 700;
 }
-#section5 .container .gap .content ul li a .information-box .price-box .sale-price::after {
-  content: "원";
+#section5 .container .gap .content ul li a .information-box .price-box .discount-price em {
   font-size: 12px;
   font-weight: 500;
 }
-#section5 .container .gap .content ul li a .information-box .price-box .sale-percent {
+#section5 .container .gap .content ul li a .information-box .price-box .discount-rate {
   margin: 0 0 0 2px;
   color: #ee1c25;
   vertical-align: bottom;
