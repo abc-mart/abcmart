@@ -1,5 +1,5 @@
 {
-    "main_slide":[
+    "slide":[
         {"no":6, "src":"./img/intro/intro_sec1_slide6.jpg", "title":"", "info":""},
         {"no":1, "src":"./img/intro/intro_sec1_slide1.jpg", "title":"", "info":""},
         {"no":2, "src":"./img/intro/intro_sec1_slide2.jpg", "title":"여름 준비를 위한 닥터마틴", "info":"시원함에 스타일까지"},

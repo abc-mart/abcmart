@@ -106,7 +106,7 @@ export default function Section10Component(){
                                                             <img src={item.src} alt="" />
                                                         </figure>
                                                         <span>
-                                                        {item.title}
+                                                            {item.title}
                                                         </span>
                                                     </a>
                                                 </li>

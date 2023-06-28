@@ -17,12 +17,12 @@ export default function IntroComponent(){
             <Section2Component/>
             <Section3Component/>
             <Section4Component/>
-            <Section5Component/>
-            <Section6Component/>
-            <Section7Component/>
-            <Section8Component/>
-            <Section9Component/>
-            <Section10Component/>
+            {/* <Section5Component/> */}
+            {/* <Section6Component/> */}
+            {/* <Section7Component/> */}
+            {/* <Section8Component/> */}
+            {/* <Section9Component/> */}
+            {/* <Section10Component/> */}
         </footer>
     );
 };

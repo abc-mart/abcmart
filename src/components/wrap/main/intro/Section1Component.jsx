@@ -7,7 +7,7 @@ export default function Section1Component(){
 
     const [state, setState] = React.useState({
         mainSlide: [],
-        n: 0
+        nSec1: 0
     });
 
     React.useEffect(()=>{
@@ -21,8 +21,8 @@ export default function Section1Component(){
                 // console.log(res.data.main_slide.length);
                 setState({
                     ...state,
-                    mainSlide: res.data.main_slide,
-                    n: res.data.main_slide.length-2
+                    mainSlide: res.data.slide,
+                    nSec1: res.data.slide.length-2
                 });
             }
         })
@@ -45,12 +45,12 @@ export default function Section1Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${100 * (state.n+2)}%` });
+        $slideWrap.css({width: `${100 * (state.nSec1+2)}%` });
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 600, function(){
-                if(cnt>=state.n) cnt=0;
-                if(cnt<0) cnt=state.n-1;
+                if(cnt>=state.nSec1) cnt=0;
+                if(cnt<0) cnt=state.nSec1-1;
                 $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 0);
             });
             pageNumber();
@@ -107,11 +107,11 @@ export default function Section1Component(){
         });
 
         function pageNumber(){
-            $currentPage.html( `0${cnt+1===(state.n+1) ? 1 : (cnt+1===0 ? state.n : cnt+1)}` );
-            $totalPage.html(`0${state.n}`);
+            $currentPage.html( `0${cnt+1===(state.nSec1+1) ? 1 : (cnt+1===0 ? state.nSec1 : cnt+1)}` );
+            $totalPage.html(`0${state.nSec1}`);
         }
 
-    },[state.n]);
+    },[state.nSec1]);
 
 
     return (
@@ -146,7 +146,7 @@ export default function Section1Component(){
                             <div className="pagenation">
                                 <span className='current-page'>01</span>
                                 <i>/</i>
-                                <span className='total-page'>{`0${state.n}`}</span>
+                                <span className='total-page'>{`0${state.nSec1}`}</span>
                             </div>
                             <button className='prev-btn'></button>
                             <button className='next-btn'></button>
