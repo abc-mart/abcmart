@@ -124,12 +124,12 @@ export default function HeaderComponent({setSelectButton}){
                                                 <div className="h6">JOIN</div>
                                             </li>
                                         </a>
-                                        <a href="!#" className="a3">
+                                        <Link to="/CART" className="a3">
                                             <li className="box3_ul_li3">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
                                                 <div className="h6">CART</div>
                                             </li>
-                                        </a>
+                                        </Link>
                                         <a href="!#" className="a4">
                                             <li className="box3_ul_li4">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart_store.png" alt=''/></figure>

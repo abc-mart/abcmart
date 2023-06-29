@@ -7,6 +7,7 @@ import BrandComponent from './wrap/main/BrandComponent';
 import ProductDetailComponent from './wrap/main/ProductDetailComponent';
 import NotFoundComponent from './wrap/main/NotFoundComponent';
 import EventComponent from './wrap/main/EventComponent';
+import CartComponent from './wrap/main/CartComponent';
 
 
 
@@ -57,6 +58,7 @@ export default function WrapComponent(){
                         <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}/>}/>
                         <Route path='/PRODUCT' element={<ProductDetailComponent/>}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
+                        <Route path='/CART' element={<CartComponent/>}/>
                         <Route path='/*' element={<NotFoundComponent/>}/>
                         
                     </Route>
