@@ -8,6 +8,7 @@ import ProductDetailComponent from './wrap/main/ProductDetailComponent';
 import NotFoundComponent from './wrap/main/NotFoundComponent';
 import EventComponent from './wrap/main/EventComponent';
 import CartComponent from './wrap/main/CartComponent';
+import LoginComponent from './wrap/main/LoginComponent';
 
 
 
@@ -59,6 +60,7 @@ export default function WrapComponent(){
                         <Route path='/PRODUCT' element={<ProductDetailComponent/>}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/CART' element={<CartComponent/>}/>
+                        <Route path='/LOGIN' element={<LoginComponent/>}/>
                         <Route path='/*' element={<NotFoundComponent/>}/>
                         
                     </Route>
