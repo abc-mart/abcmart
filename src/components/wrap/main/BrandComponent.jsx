@@ -4,6 +4,9 @@ import BrandSection2Component from './brand/BrandSection2Component';
 import BrandSection3Component from './brand/BrandSection3Component';
 import axios from 'axios';
 export default function BrandComponent({adidas, nike}) {
+
+   
+
     const[abcGrand, setAbcGrand]=React.useState(true);
 
     const abcChange =()=>{

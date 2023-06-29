@@ -605,7 +605,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
                                                             <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="http://localhost:3000/PRODUCT">
+                                                                <Link to='/PRODUCT'>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -629,7 +629,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </a>
+                                                                </Link>
                                                                 
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
@@ -801,7 +801,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
                                                             <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                                <Link to='/PRODUCT'>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -825,7 +825,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </a>
+                                                                </Link>
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
                                                                             <dl>
@@ -894,7 +894,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
                                                             <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                                <Link to='/PRODUCT'>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -918,7 +918,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </a>
+                                                                </Link>
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
                                                                             <dl>
@@ -1096,7 +1096,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
                                                             <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                                <Link to='/PRODUCT'>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1120,7 +1120,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </a>
+                                                                </Link>
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
                                                                             <dl>
@@ -1198,7 +1198,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
                                                             <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                                <Link to='/PRODUCT'>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1222,7 +1222,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </a>
+                                                                </Link>
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
                                                                             <dl>
@@ -1291,7 +1291,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
                                                             <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                                <Link to='/PRODUCT'>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1315,7 +1315,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </a>
+                                                                </Link>
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
                                                                             <dl>

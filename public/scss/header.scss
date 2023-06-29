@@ -78,20 +78,23 @@
 									width: 59px;
 									margin: 0 34px 0 0;
 								}
-								a .box3_ul_li1 {
-									width: 25px;
-									height: 31px;
-									overflow: hidden;
-									text-align: center;
-									position: relative;
-									img {
-										position: absolute;
-										left: -355%;
+								a .box3_ul_li1 {									
+									text-align: center;									
+									figure{
+										display: inline-block;
+										width: 25px;
+										height: 31px;
+										overflow: hidden;
+										position: relative;
+										img {
+											position: absolute;
+											left: -355%;
+										}
 									}
+									
 									.h6 {
+										margin: 3px 0 0 0;
 										font-size: 10px;
-										top: 68px;
-										right: 543px;
 									}
 								}
 								.a2 {
@@ -99,19 +102,21 @@
 									margin: 0 34px 0 0;
 								}
 								a .box3_ul_li2 {
-									width: 30px;
-									height: 31px;
-									overflow: hidden;
-									text-align: center;
-									position: relative;
-									img {
-										position: absolute;
-										left: -00%;
+									text-align: center;									
+									figure{
+										display: inline-block;
+										width: 30px;
+										height: 31px;
+										overflow: hidden;
+										position: relative;
+										img {
+											position: absolute;
+											left: 0;
+										}
 									}
 									.h6 {
+										margin: 3px 0 0 0;
 										font-size: 10px;
-										top: 68px;
-										right: 487px;
 									}
 								}
 								.a3 {
@@ -119,38 +124,42 @@
 									margin: 0 34px 0 0;
 								}
 								a .box3_ul_li3 {
-									width: 25px;
-									height: 31px;
-									overflow: hidden;
-									text-align: center;
-									position: relative;
-									img {
-										position: absolute;
-										left: -252%;
+									text-align: center;									
+									figure{
+										display: inline-block;
+										width: 25px;
+										height: 31px;
+										overflow: hidden;
+										position: relative;
+										img {
+											position: absolute;
+											left: -252%;
+										}
 									}
 									.h6 {
+										margin: 3px 0 0 0;
 										font-size: 10px;
-										top: 68px;
-										right: 423px;
 									}
 								}
 								.a4 {
 									width: 30px;
 								}
 								a .box3_ul_li4 {
-									width: 30px;
-									height: 31px;
-									overflow: hidden;
-									text-align: center;
-									position: relative;
-									img {
-										position: absolute;
-										left: -00%;
+									text-align: center;									
+									figure{
+										display: inline-block;
+										width: 30px;
+										height: 31px;
+										overflow: hidden;
+										position: relative;
+										img {
+											position: absolute;
+											left: 0;
+										}
 									}
 									.h6 {
+										margin: 3px 0 0 0;
 										font-size: 10px;
-										top: 68px;
-										right: 359px;
 									}
 								}
 							}
@@ -232,16 +241,17 @@
 										top: 48px;
 										left: 0;
 										width: 100%;
-										height: 550px;
-										opacity: 1;
-										z-index: 2;
+										height: 0;
+										opacity: 0;
+										visibility: hidden;
+										z-index: 10;
 										transition: all 0.3s;
 										background: #fff;	
-										border-bottom: 1px solid #ee1c25;	
-										box-shadow: 0 0 3px 0;								
+															
 										&.on {
 											opacity: 1;
-											height: 500px;
+											visibility: visible;
+											height: 600px;
 										}
 										.hidden1-container{
 											width: 1200px;
@@ -249,14 +259,15 @@
 											margin: 0 auto;
 											display: flex;
 											.left{
-												width: 960px;
+												width: 940px;
 												height: 100%;
 												border-right: 1px solid #eee;
+												padding: 30px 30px 30px 0;
 												.left-head{
 													width: 100%;
 													display: flex;
 													justify-content: space-between;
-													padding: 68px 30px 68px 0;
+													margin: 0 0 50px 0;
 													.search-box{
 														width: 340px;
 														height: 38px;
@@ -281,6 +292,7 @@
 														}
 													}
 													.btn-box{
+														display: none;
 														button{
 															width: 100px;
 															height: 38px;
@@ -300,6 +312,15 @@
 												}
 												.left-content{
 													width: 100%;
+													height: 450px;
+													overflow-y: auto;
+													&::-webkit-scrollbar{
+														width: 5px;
+													}
+													&::-webkit-scrollbar-thumb{
+														background: #ccc;
+														border-radius: 5px;
+													}
 													.category{
 														width: 100%;
 														display: flex;
@@ -316,18 +337,56 @@
 															display: flex;
 															flex-flow: row wrap;
 															dd{
+																position: relative;
 																width: 20%;
 																margin: 0 0 30px 0;
 																a{
 																	span{
-																		display: block;
+																		position: relative;
+																		display: flex;
 																		color: #000;
 																		letter-spacing: 1.5;
+																		width: 70%;
 																		&:nth-child(2){
 																			color: #999;
 																			font-size: 13px;
 																			font-weight: 600;
 																			margin: 10px 0 0 0;
+																		}
+																		
+																		
+																		
+																	}
+																}
+																&:hover{
+																	a{
+																		span{
+																			&:nth-child(1){
+																				text-decoration: underline;
+																			}
+																		}
+																	}
+																	label{
+																		display: block;
+																	}
+																	
+																}
+																label{
+																	position: absolute;
+																	top: 0;
+																	right: 25%;
+																	display: none;
+																	input[type='checkbox']{
+																		cursor: pointer;
+																		appearance: none;
+																		width: 17px;
+																		height: 13px;
+																		background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 0 0;
+																		background-size: 34px 13px;												
+																		
+																		&:checked{
+																			background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 100% 0;
+																			background-size: 34px 13px;	
 																		}
 																	}
 																}
@@ -337,8 +396,9 @@
 												}
 											}
 											.right{
-												width: 240px;
+												width: 260px;
 												padding: 68px 20px;
+												
 												.row{
 													margin: 0 0 30px 0;
 													h2{
@@ -347,37 +407,87 @@
 														margin: 0 0 20px 0;
 													}
 													>button{
+														cursor: pointer;
 														width: 200px;
 														height: 50px;
 														margin: 0 0 10px 0;
+														background: url(../img//brand/btn_channel_art2.png)no-repeat 50% 50%;
+														background-size: cover;
+														border: 0;
+														&:nth-child(3){
+															background-image: url(../img//brand/btn_channel_gs2.png);
+														}
 													}
 													>a{
+														line-height: 1.5;
 														text-decoration: underline;
 													}
 													.content-box{
-														.img-box{}
-														a{
-															span{
+														padding: 15px 0;
+														height: 155px;
+														overflow-y: auto;
+														&::-webkit-scrollbar{
+															width: 5px;
+														}
+														&::-webkit-scrollbar-thumb{
+															background: #ccc;
+															border-radius: 5px;
+														}
+														a{					
+															display: block;
+															margin: 0 0 15px 0;
+															.img-box{
+																width: 196px;
+																border: 1px solid #ddd;
+																img{
+																	width: 100%;
+																}
+															}										
+															.info-box{
+																width: 196px;
+																span{
 																display: flex;
 																align-items: center;
 																justify-content: space-between;
-																i{
+																color: #000;
+																font-size: 15px;
+																font-weight: 500;
+																&:nth-child(2){
+																	color: #999;
+																	font-size: 13px;
+																}
+																label{
 																	display: block;
-																	width: 17px;
-																	height: 15px;
-																	overflow: hidden;
-																	img{
-																		width: 34px;
+																	input[type='checkbox']{
+																		cursor: pointer;
+																		appearance: none;
+																		width: 17px;
 																		height: 13px;
+																		background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 0 0;
+																		background-size: 34px 13px;												
+																		
+																		&:checked{
+																			background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 100% 0;
+																			background-size: 34px 13px;	
+																		}
 																	}
+																	
 																}
 																
+															}
 															}
 														}
 													}
 												}
 	
 											}
+										}
+										.back{
+											border-top: 2px solid #ee1c25;	
+											pointer-events: none;
+											width: 100%;
+											height: 100vh;
+											background: rgba(0,0,0,0.5);
 										}
 										
 										
@@ -388,7 +498,7 @@
 										left: 0;
 										width: 100%;
 										height: 0;
-										z-index: 1;
+										z-index: 10;
 										transition: all 0.3s;
 										background-color: cornflowerblue;
 										&.on {
@@ -401,7 +511,7 @@
 										left: 0;
 										width: 100%;
 										height: 0;
-										z-index: 1;
+										z-index: 10;
 										transition: all 0.3s;
 										background-color: fuchsia;
 										&.on {
@@ -414,7 +524,7 @@
 										left: 0;
 										width: 100%;
 										height: 0;
-										z-index: 1;
+										z-index: 10;
 										transition: all 0.3s;
 										background-color: chartreuse;
 										&.on {

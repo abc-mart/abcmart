@@ -8,39 +8,52 @@ import ProductDetailComponent from './wrap/main/ProductDetailComponent';
 import NotFoundComponent from './wrap/main/NotFoundComponent';
 
 
+
 export default function WrapComponent(){
 
     const [selectButton, setSelectButton ]= React.useState(null);
     
     //브랜드
-    const [adidas, setAdidas]=React.useState(false);
-    const [nike, setNike]=React.useState(false);
+    const [adidas, setAdidas] = React.useState(
+        localStorage.getItem('ADIDAS') === 'true' ? true : false
+      );
+      const [nike, setNike] = React.useState(
+        localStorage.getItem('NIKE') === 'true' ? true : false
+      );
+
+   
 
     
 
 
     React.useEffect(()=>{
-        if(selectButton==='adidas'){
+        if(selectButton==='ADIDAS'){
             setAdidas(true);
 
             setNike(false);
             
         }
-        else if(selectButton==='nike'){
+        else if(selectButton==='NIKE'){
             setNike(true);
             
             setAdidas(false);
         }
+
     },[selectButton])
+
+    React.useEffect(() => {
+        localStorage.setItem('ADIDAS', adidas);
+        localStorage.setItem('NIKE', nike);
+    }, [adidas, nike]);
 
     return (
         <div id='wrap'>
             <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Routes>                    
-                    <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton}/>}>
+                    <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} />}>
                         <Route index element={<IntroComponent/>}/>
-                        <Route path='/INTRO' element={<IntroComponent/>}/>                        
-                        <Route path='/BRAND' element={<BrandComponent adidas={adidas} nike={nike}/>}/>
+                        <Route path='/INTRO' element={<IntroComponent />}/>                        
+                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}/>}/>
                         <Route path='/PRODUCT' element={<ProductDetailComponent/>}/>
                         <Route path='/*' element={<NotFoundComponent/>}/>
                         
