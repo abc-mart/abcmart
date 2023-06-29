@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/event.css';
+import './scss/event.scss';
 
 export default function EventComponent(){
     return (
@@ -170,11 +170,13 @@ export default function EventComponent(){
                                         </div>
                                     </div>
                                 </div>
+
                                 <div className="page-page">
                                     <div className="btn-box">
                                         <button>1</button><button>2</button><button>3</button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
