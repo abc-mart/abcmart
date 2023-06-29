@@ -167,9 +167,13 @@
                                     }
                                     .badge-box{
                                         display: flex;
+                                        
                                         margin: 19px 0 0 0;
                                         span{
+
                                             position: relative;
+                                            display: flex;
+                                            align-items: center;
                                             overflow: hidden;
                                             height: 20px;
                                             margin: 0 3px 0 0;

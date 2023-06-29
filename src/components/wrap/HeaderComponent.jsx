@@ -71,30 +71,150 @@ export default function HeaderComponent({setSelectButton}){
                                 <div className="box2-container">
                                 <div className="box2_1">
                                     <ul>
-<<<<<<< HEAD
                                         <li className="BRAND"><a href="!#"  onMouseEnter={()=>onMouseEnterShow('BRAND')}>BRAND</a></li>
                                         <li className="MEN"><a href="!#" onMouseEnter={()=>onMouseEnterShow('MEN')}>MEN</a></li>
                                         <li className="WOMEN"><a href="!#" onMouseEnter={()=>onMouseEnterShow('WOMEN')}>WOMEN</a></li>
                                         <li className="KIDS"><a href="!#" onMouseEnter={()=>onMouseEnterShow('KIDS')}>KIDS</a></li>
                                         <li className="SALE"><a href="!#" onMouseEnter={()=>onMouseEnterShow('SALE')}>SALE</a></li>
-=======
-                                        <li className="BRAND">
-                                            <a href="!#"  onMouseEnter={onMouseEnterTest} onMouseLeave={onMouseLeaveTest}>BRAND
-                                                <span className={isTest?' on':''} onMouseEnter={onMouseEnterTest} onMouseLeave={onMouseLeaveTest}></span>
-                                            </a>
-                                        </li>
-                                        <li className="MEN"><a href="!#">MEN</a></li>
-                                        <li className="WOMEN"><a href="!#">WOMEN</a></li>
-                                        <li className="KIDS"><a href="!#">KIDS</a></li>
-                                        <li className="SALE"><a href="!#">SALE</a></li>
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
                                     </ul>
                                     <ul  onMouseLeave={onMouseLeaveShow}>
                                         <li className={`hidden1 ${isShow==='BRAND'?' on':''}`} >
-                                            <dl>
-                                                <dd><Link to='/BRAND' onClick={()=>onClickSelect('adidas')}>아디다스</Link></dd>
-                                                <dd><Link to='/BRAND' onClick={()=>onClickSelect('nike')}>나이키</Link></dd>                                                
-                                            </dl>
+                                            <div className="hidden1-container">
+                                                <div className="left">
+                                                    <div className="left-head">                                                        
+                                                        <div className="search-box">
+                                                            <input type="text" placeholder='브랜드를 검색하세요'/>
+                                                            <span><img src="./img/brand/comm_gnb_search_icon.png" alt="" /></span>
+                                                        </div>
+                                                        <div className="btn-box">
+                                                            <button className='on'>ABC, 123</button>
+                                                            <button>ㄱㄴㄷ</button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="left-content">                                                        
+                                                        <div className="category a">
+                                                            <h2>A</h2>
+                                                            <dl>
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('adidas')}>
+                                                                        <span>ADIDAS</span>
+                                                                        <span>아디다스</span>
+                                                                    </Link>
+                                                                </dd>
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                            </dl>        
+                                                        </div>
+                                                        <div className="category b">
+                                                            <h2>B</h2>
+                                                            <dl>
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('adidas')}>
+                                                                        <span>ADIDAS</span>
+                                                                        <span>아디다스</span>
+                                                                    </Link>
+                                                                </dd>
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                                <dd>
+                                                                    <Link to='/BRAND' onClick={()=>onClickSelect('nike')}>
+                                                                        <span>NIKE</span>
+                                                                        <span>나이키</span>
+                                                                    </Link>
+                                                                </dd>                                                
+                                                            </dl>        
+                                                        </div>
+                                                    </div>                                                   
+                                                    
+                                                </div>
+                                                <div className="right">
+                                                    <div className="row 1">
+                                                        <h2>Family site</h2>
+                                                        <button></button>
+                                                        <button></button>
+                                                    </div>
+                                                    <div className="row 2">
+                                                        <h2>My Brands</h2>
+                                                        <a href="!#">로그인 하여 나의 관심브랜드를 확인해보세요.</a>
+                                                    </div>
+                                                    <div className="row 3">
+                                                        <h2>Hot Brands</h2>
+                                                        <div className="content-box">
+                                                            <div className="img-box">
+                                                                <img src="./img/brand/1629843492243.jpg" alt="" />
+                                                            </div>
+                                                            <a href="!#">
+                                                                <span>NIKE <i><img src="./img/brand/btn_icon_prod_favorite.png" alt="" /></i></span>
+                                                                <span>nike</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            
                                         </li>
                                         <li className={`hidden2 ${isShow==='MEN'?' on':''}`}></li>
                                         <li className={`hidden3 ${isShow==='WOMEN'?' on':''}`}></li>

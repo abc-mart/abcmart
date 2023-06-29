@@ -167,6 +167,8 @@
 }
 #brandSection2 .container .gap .content .row2 .row2-content ul li .info-box .badge-box span {
   position: relative;
+  display: flex;
+  align-items: center;
   overflow: hidden;
   height: 20px;
   margin: 0 3px 0 0;

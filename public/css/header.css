@@ -95,7 +95,6 @@
 }
 #header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li1 .h6 {
   font-size: 10px;
-  position: fixed;
   top: 68px;
   right: 543px;
 }
@@ -116,7 +115,6 @@
 }
 #header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li2 .h6 {
   font-size: 10px;
-  position: fixed;
   top: 68px;
   right: 487px;
 }
@@ -137,7 +135,6 @@
 }
 #header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li3 .h6 {
   font-size: 10px;
-  position: fixed;
   top: 68px;
   right: 423px;
 }
@@ -157,7 +154,6 @@
 }
 #header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li4 .h6 {
   font-size: 10px;
-  position: fixed;
   top: 68px;
   right: 359px;
 }
@@ -240,15 +236,145 @@
   top: 48px;
   left: 0;
   width: 100%;
-  height: 0;
-  opacity: 0;
+  height: 550px;
+  opacity: 1;
   z-index: 2;
   transition: all 0.3s;
-  background-color: aqua;
+  background: #fff;
+  border-bottom: 1px solid #ee1c25;
+  box-shadow: 0 0 3px 0;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1.on {
   opacity: 1;
   height: 500px;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left {
+  width: 960px;
+  height: 100%;
+  border-right: 1px solid #eee;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 68px 30px 68px 0;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-head .search-box {
+  width: 340px;
+  height: 38px;
+  padding: 0 0 0 36px;
+  border-bottom: 1px solid #000;
+  position: relative;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-head .search-box input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-head .search-box input::-moz-placeholder {
+  color: #999;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-head .search-box input::placeholder {
+  color: #999;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-head .search-box span {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-head .btn-box button {
+  width: 100px;
+  height: 38px;
+  border-radius: 19px;
+  margin: 0 0 0 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #999;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-head .btn-box button.on {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+  font-weight: 600;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-content {
+  width: 100%;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-content .category {
+  width: 100%;
+  display: flex;
+  padding: 0 0 31px 0;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-content .category h2 {
+  width: 90px;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 700;
+  color: #000;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-content .category dl {
+  width: 870px;
+  display: flex;
+  flex-flow: row wrap;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-content .category dl dd {
+  width: 20%;
+  margin: 0 0 30px 0;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-content .category dl dd a span {
+  display: block;
+  color: #000;
+  letter-spacing: 1.5;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .left .left-content .category dl dd a span:nth-child(2) {
+  color: #999;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 10px 0 0 0;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .right {
+  width: 240px;
+  padding: 68px 20px;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .right .row {
+  margin: 0 0 30px 0;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .right .row h2 {
+  color: #000;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .right .row > button {
+  width: 200px;
+  height: 50px;
+  margin: 0 0 10px 0;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .right .row > a {
+  text-decoration: underline;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .right .row .content-box a span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .right .row .content-box a span i {
+  display: block;
+  width: 17px;
+  height: 15px;
+  overflow: hidden;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container .right .row .content-box a span i img {
+  width: 34px;
+  height: 13px;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden2 {
   position: absolute;

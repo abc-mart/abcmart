@@ -22,13 +22,8 @@
   overflow: hidden;
 }
 #section4 .container .gap .content .slide-container .slide-view .slide-wrap {
-<<<<<<< HEAD
   width: 8140px;
-  margin: 0 0 0 -2035px;
-=======
-  width: 1200%;
-  margin: 0 0 0 -50px;
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
+  margin: 0 0 0 -2085px;
   position: relative;
   display: flex;
 }
@@ -61,9 +56,5 @@
   margin: 9px 0 0 0;
   font-size: 13px;
   color: #999;
-<<<<<<< HEAD
   font-family: "Montserrat";
-=======
-  font-size: "Montserrat";
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }

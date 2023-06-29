@@ -559,6 +559,8 @@
   overflow: hidden;
   height: 20px;
   margin: 0 3px 0 0;
+  display: flex;
+  align-items: center;
 }
 #brandSection3 .container .gap .content .right .right-content ul li .inner-box {
   display: none;

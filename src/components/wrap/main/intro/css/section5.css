@@ -37,7 +37,6 @@
   margin: 0 18px;
   position: relative;
 }
-<<<<<<< HEAD
 #section5 .container .gap .catecory ul li::after {
   content: "";
   position: absolute;
@@ -51,16 +50,6 @@
 #section5 .container .gap .catecory ul li.on::after {
   left: 0;
   width: 100%;
-=======
-#section5 .container .gap .catecory ul li.on::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #ee1c25;
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #section5 .container .gap .catecory ul li a {
   font-size: 16px;
@@ -74,16 +63,11 @@
 }
 #section5 .container .gap .content ul {
   width: 100%;
-<<<<<<< HEAD
   display: none;
   justify-content: space-between;
 }
 #section5 .container .gap .content ul.on {
   display: flex;
-=======
-  display: flex;
-  justify-content: space-between;
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 }
 #section5 .container .gap .content ul li {
   width: 224px;
@@ -105,11 +89,7 @@
   width: 100%;
   margin: 4px 0 0 0;
   font-size: 15px;
-<<<<<<< HEAD
   font-weight: 600;
-=======
-  font-weight: 500;
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
   color: #000;
   line-height: 120%;
 }
@@ -136,12 +116,9 @@
   color: #999;
   font-size: 14px;
 }
-<<<<<<< HEAD
 #section5 .container .gap .content ul li a .information-box .price-box .cost-price em {
   vertical-align: text-bottom;
 }
-=======
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
 #section5 .container .gap .content ul li a .information-box .price-box .discount-price {
   font-size: 20px;
   margin: 0 0 0 8px;
@@ -155,7 +132,6 @@
 #section5 .container .gap .content ul li a .information-box .price-box .discount-rate {
   margin: 0 0 0 2px;
   color: #ee1c25;
-<<<<<<< HEAD
   vertical-align: middle;
   font-size: 14px;
 }
@@ -174,18 +150,6 @@
   width: 64px;
 }
 #section5 .container .gap .content ul li a .information-box .icon_box img {
-=======
-  vertical-align: bottom;
-}
-#section5 .container .gap .content ul li a .information-box .delivery {
-  width: 64px;
-  height: 20px;
-  margin: 19px 0 0 0;
-  position: relative;
-  overflow: hidden;
-}
-#section5 .container .gap .content ul li a .information-box .delivery img {
->>>>>>> 427ce47d3026703c4b647bd156beaa2bceacbcea
   position: absolute;
   top: 0;
   right: 0;
