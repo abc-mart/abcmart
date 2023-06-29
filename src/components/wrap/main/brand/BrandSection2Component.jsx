@@ -1,6 +1,7 @@
 import React from 'react';
 import './scss/brandSection2.scss';
 import $ from 'jquery';
+import { Link } from 'react-router-dom';
 
 
 
@@ -52,7 +53,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <a href="!#">
+                                                        <a href="http://localhost:3000/PRODUCT">
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -120,7 +121,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <a href="!#">
+                                                        <a href="http://localhost:3000/PRODUCT">
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -216,7 +217,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <a href="!#">
+                                                        <Link to='/PRODUCT'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -240,7 +241,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </Link>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -284,7 +285,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <a href="!#">
+                                                        <Link to='/PRODUCT'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -308,7 +309,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </Link>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
