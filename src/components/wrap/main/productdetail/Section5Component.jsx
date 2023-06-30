@@ -1,4 +1,5 @@
 import React from 'react';
+import '../scss/productdetail.scss';
 
 export default function Section5Component(){
     return (
@@ -50,20 +51,24 @@ export default function Section5Component(){
                                 <p>발사이즈<span>250</span></p>
                             </div>
                             <div className="comment">
-                                <p>에어포스 보다 가벼워서 좋아요. 재활용 소재가 사용된점도 마음에 듭니다.</p>
+                                <p>
+                                    에어포스 보다 가벼워서 좋아요. 재활용 소재가 사용된점도 마음에 듭니다.<br/>
+                                    잘 신을게요
+                                </p> 
                             </div>
                             <div className="nickname">
                                 <p>h***3</p><i>|</i><p>2023.06.04 05:08:06</p>
                             </div>
                             <div className="helpful">
-                                <a href="!#" className='good-help'><img src="" alt="" />도움돼요 <span>13</span></a>
+                                <a href="!#" className='good-help'><i></i>도움돼요 <span>13</span></a>
                                 <a href="!#" className='singo'>신고</a>
                             </div>
                         </div>
                         <div className="review-btn-box">
                             <div className="pagenation">
-                                <a href="!#">1</a>
+                                <a href="!#" className='on'>1</a>
                                 <a href="!#">2</a>
+                                <a href="!#">3</a>
                             </div>
                             <button>상품 후기 작성</button>
                         </div>
