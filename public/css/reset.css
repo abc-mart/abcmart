@@ -29,6 +29,9 @@ html { /* scroll-behavior: smooth; */
 ul {
   list-style: none;
 }
+input, label, button{
+  cursor: pointer;
+}
 
 a {
   color: #626262;
