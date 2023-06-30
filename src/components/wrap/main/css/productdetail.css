@@ -700,7 +700,7 @@
 }
 #ProductDetail #section4 .container {
   width: 100%;
-  padding: 50px 0;
+  padding: 50px 0 0 0;
 }
 #ProductDetail #section4 .container .gap {
   width: 100%;
@@ -967,4 +967,69 @@
   font-size: 13px;
   font-weight: 400;
   color: #666;
+}
+#ProductDetail #section4 .container .gap .review-filter .option .down button img {
+  transform: translateY(-1px);
+}
+#ProductDetail #section5 {
+  width: 100%;
+}
+#ProductDetail #section5 .container {
+  width: 100%;
+  padding: 23px 0 0 0;
+}
+#ProductDetail #section5 .container .gap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#ProductDetail #section5 .container .gap .review-box {
+  width: 100%;
+}
+#ProductDetail #section5 .container .gap .review-box .button-box {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+}
+#ProductDetail #section5 .container .gap .review-box .button-box a {
+  display: block;
+  width: 100px;
+  height: 100%;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+}
+#ProductDetail #section5 .container .gap .review-box .button-box a.on {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+#ProductDetail #section5 .container .gap .review-box .button-box a span {
+  color: #ee1c25;
+}
+#ProductDetail #section5 .container .gap .review-box .review-title {
+  display: flex;
+  justify-content: space-between;
+}
+#ProductDetail #section5 .container .gap .review-box .review-title h6 {
+  font-size: 15px;
+}
+#ProductDetail #section5 .container .gap .review-box .review-title h6 span {
+  color: #ee1c25;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review {
+  width: 100%;
+  padding: 24px 52px 30px 20px;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .star-score {
+  display: flex;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .star-score .star-txt {
+  display: flex;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .mysize {
+  display: flex;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .nickname {
+  display: flex;
 }

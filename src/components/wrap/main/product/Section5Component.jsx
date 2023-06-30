@@ -7,7 +7,7 @@ export default function Section5Component(){
                 <div className="gap">
                     <div className="review-box">
                         <div className="button-box">                            
-                            <a href="!#">전체 <span>2</span></a>
+                            <a href="!#" className='on'>전체 <span>2</span></a>
                             <a href="!#">포토/영상 <span>0</span></a>
                             <a href="!#">일반 <span>2</span></a>
                         </div>
