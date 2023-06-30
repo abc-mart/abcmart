@@ -83,16 +83,15 @@
                             dd{
                                 width: 100%;
                                 width: 100%;
-                                height: 0;
-                                                                
+                                height: 0;                                                                
                                 border-bottom: 1px solid #d5d5d5;
                                 transition: height 0.3s;
+                                overflow: hidden;
                                 
                                 ul{
                                     width: 100%;
                                     display: flex;
                                     flex-flow: row wrap;
-                                    opacity: 0;
                                     label{
                                         cursor: pointer;
                                     }
@@ -283,11 +282,7 @@
                                     }
                                 }
                                 &.on{
-                                    opacity: 1;
                                     border-bottom: 1px solid #d5d5d5;
-                                    ul{
-                                        opacity: 1;
-                                    }
                                 }
                             }
                             &:nth-child(2){
@@ -403,9 +398,7 @@
                                         z-index: 2;
                                         top: 40px;
                                         width: 170px;
-                                        height: 0;
-                                        opacity: 0;
-                                        
+                                        height: 0;                                        
                                         background: #fff;
                                         border: 1px solid #ccc;
                                         border-top: 0;
@@ -428,7 +421,6 @@
                                         }
                                         &.on{
                                             height: 120px;
-                                            opacity: 1;
                                            
                                         }
                                         

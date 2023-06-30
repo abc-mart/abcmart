@@ -58,7 +58,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -126,7 +126,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -220,7 +220,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -288,7 +288,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -382,7 +382,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -450,7 +450,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -544,7 +544,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -612,7 +612,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -706,7 +706,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -774,7 +774,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                             if(idx<=4){
                                                 return(
                                                     <li key={idx}>
-                                                        <Link to='/PRODUCT'>
+                                                        <Link to='/PRODUCTDETAIL'>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
