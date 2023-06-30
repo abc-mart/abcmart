@@ -106,7 +106,7 @@ export default function HeaderComponent({setSelectButton}){
                                 </div>
                                 <div className="box1_2">
                                     <div className="search_box">
-                                        <input type="text" placeholder="아디다스 키즈 페스티벌 ★ 최대 50% 할인에 10% 추가 할인"/>
+                                        <input type="text" placeholder='아디다스 키즈 페스티벌 ★ 최대 50% 할인에 10% 추가 할인'/>
                                         <a href="!#" className="a1"><img src="./img/headereventfooter/comm_header_icon_smart.png" alt=''/></a>
                                         <a href="!#" className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></a>
                                     </div>

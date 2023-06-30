@@ -1,4 +1,5 @@
 import React from 'react';
+import './scss/cart.scss';
 
 export default function CartComponent(){
     return (
@@ -8,20 +9,20 @@ export default function CartComponent(){
                     <div className="title">
                         <h1>장바구니</h1>
                         <ul>
-                            <li>01. 장바구니</li>
+                            <li className='on'>01. 장바구니</li>
                             <li>02. 주문서작성/결제</li>
                             <li>03. 주문완료</li>
                         </ul>
                     </div>
                     <div className="delivery-category">
                         <ul>
-                            <li><a href="!#">일반배송 <span>(4)</span></a></li>
+                            <li className='on'><a href="!#">일반배송 <span>(4)</span></a></li>
                             <li><a href="!#">아트배송 <span>(0)</span></a></li>
                         </ul>
                     </div>
                     <div className="content">
                         <ul>
-                            <li><a href="!#">전체 <span>4</span>개</a></li>
+                            <li className='on'><a href="!#">전체 <span>4</span>개</a></li>
                             <li><a href="!#">ABC-MART 매장 픽업 가능상품</a></li>
                         </ul>
                         <div className="cart-box">
@@ -45,13 +46,13 @@ export default function CartComponent(){
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td>
+                                                <td className='col1'>
                                                     <span>
                                                         <input type="checkbox" />
                                                         <label></label>
                                                     </span>
                                                 </td>
-                                                <td>
+                                                <td className='col2'>
                                                     <div className="product-box">
                                                         <figure>
                                                             <a href="!#">
@@ -72,7 +73,7 @@ export default function CartComponent(){
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td className='col3'>
                                                     <span>
                                                         <a href="!#"></a>
                                                         <input type="number" />
@@ -80,7 +81,7 @@ export default function CartComponent(){
                                                     </span>
                                                     <button>변경</button>
                                                 </td>
-                                                <td>
+                                                <td className='col4'>
                                                     <span>540P</span>
                                                     <p>
                                                         통합멤버십 회원 가입 시
@@ -88,7 +89,7 @@ export default function CartComponent(){
                                                         예상적립 포인트
                                                     </p>
                                                 </td>
-                                                <td>
+                                                <td className='col5'>
                                                     <p>
                                                         <s className='cost-price'><em>원</em></s>
                                                         <strong className='discount-price'><em>원</em></strong>
@@ -96,7 +97,7 @@ export default function CartComponent(){
                                                     </p>
                                                     <button>쿠폰적용</button>
                                                 </td>
-                                                <td>
+                                                <td className='col6'>
                                                     <button>바로구매</button>
                                                     <button><span>삭제</span></button>
                                                 </td>
@@ -117,19 +118,19 @@ export default function CartComponent(){
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td className='col1'>
                                                 <p>
                                                     <span>주문금액</span>
                                                     <span>36,500<em>원</em></span>
                                                 </p>
                                             </td>
-                                            <td>
+                                            <td className='col2'>
                                                 <p>
                                                     <span>총 할인금액</span>
                                                     <span>15,000<em>원</em></span>
                                                 </p>
                                             </td>
-                                            <td>
+                                            <td className='col3'>
                                                 <p>
                                                     <span>결제예정금액</span>
                                                     <span>21,500<em>원</em></span>
@@ -139,7 +140,7 @@ export default function CartComponent(){
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td>
+                                            <td className='col1'>
                                                 <p>
                                                     <span>상품금액</span>
                                                     <span>34,000<em>원</em></span>
@@ -149,13 +150,13 @@ export default function CartComponent(){
                                                     <span>2,500<em>원</em></span>
                                                 </p>
                                             </td>
-                                            <td>
+                                            <td className='col2'>
                                                 <p>
                                                     <span>상품할인</span>
                                                     <span>15,000<em>원</em></span>
                                                 </p>
                                             </td>
-                                            <td>
+                                            <td className='col3'>
                                                 <p>
                                                     <span>상품할인</span>
                                                     <span>15,000<em>원</em></span>

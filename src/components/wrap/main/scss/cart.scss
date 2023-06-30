@@ -1,0 +1,303 @@
+#cart{
+    width: 100%;
+    .container{
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        .gap{
+            width: 100%;
+            .title{
+                width: 100%;
+                margin: 79px 0 0 0;
+                display: flex;
+                justify-content: space-between;
+                h1{
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #000;
+                    transform: translateY(-3px);
+                }
+                ul{
+                    display: flex;
+                    padding: 10px 0 0 0;
+                    li{
+                        color: #999;
+                        padding: 0 22px 0 0;
+                        font-size: 15px;
+                        position: relative;
+                        font-weight: 600;
+                        letter-spacing: -1.1px;
+                        font-family: 'Montserrat';
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            display: inline-block;
+                            width: 7px;
+                            height: 11px;
+                            top: 2px;
+                            right: 0;
+                            background: url(../../../../../public/img/intro/order_breadcrumb_icon.png) no-repeat 0 0;
+                        }
+                        &:nth-child(2){
+                            padding: 0 22px 0 14px;
+                        }
+                        &:nth-child(3){
+                            padding: 0;
+                            margin: 0 0 0 9px;
+                            &::after{
+                                display: none;
+                            }
+                        }
+                        &.on{
+                            color: #000;
+                            font-family: 'Noto Sans KR';
+                            font-weight: 500;
+                            &::after{
+                                background-position: 100% 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .delivery-category{
+                width: 100%;
+                margin: 106px 0 31px 0;
+                ul{
+                    display: flex;
+                    li{
+                        &:nth-child(1){
+                            &::after{
+                                content:'';
+                                display: inline-block;
+                                margin: 6px 16px 0 14px;
+                                width: 1px;
+                                height: 13px;
+                                background: #999;
+                                vertical-align: top;
+                            }
+                        }
+                        &.on{
+                            a{
+                                color: #000;
+                            }
+                        }
+                        a{
+                            color: #999;
+                            font-weight: 500;
+                            font-size: 22px;
+                            letter-spacing: -1.1px;
+                            span{
+                                font-weight: 600;
+                                font-family: 'Montserrat';
+                                vertical-align: baseline;
+                                letter-spacing: normal;
+                            }
+                        }
+                    }
+                }
+            }
+            .content{
+                width: 100%;
+                ul{
+                    width: 100%;
+                    display: flex;
+                    margin: 0 20px 0 0;
+                    height: 56px;
+                    li{
+                        width: 50%;
+                        border: 1px solid #d5d5d5;
+                        border-left: 0;
+                        border-bottom: 3px solid #000;
+                        text-align: center;
+                        &.on{
+                            border: 3px solid #000;
+                            border-bottom: 0;
+                            a{
+                                padding: 0 20px;
+                                color: #000;
+                                font-weight: 500;
+                                line-height: 48px;
+                                letter-spacing: -0.75px;
+                            }
+                        }
+                        a{
+                            display: block;
+                            padding: 0 21px;
+                            line-height: 52px;
+                            color: #666;
+                            font-size: 15px;
+                            letter-spacing: -0.55px;
+                            span{
+                                color: #ee1c25;
+                                vertical-align: top;
+                                margin: 0 0 0 1px;
+                            }
+                        }
+                    }
+                }
+                .cart-box{
+                    background-color: #0c0;
+                    .cart-top-box{
+                        span{
+                            input{}
+                            label{}
+                        }
+                        .right-box{
+                            span{}
+                            button{}
+                        }
+                    }
+                    .cart-middle-box{
+                        .cart-header{
+                            .left-box{
+                                span{
+                                    em{}
+                                }
+                            }
+                        }
+                        .cart-container{
+                            table{
+                                tbody{
+                                    tr{
+                                        td{
+                                            .col1{
+                                                span{
+                                                    input{}
+                                                    label{}
+                                                }
+                                            }
+                                            .col2{
+                                                .product-box{
+                                                    figure{
+                                                        a{
+                                                            img{}
+                                                        }
+                                                    }
+                                                    .information{
+                                                        h3{}
+                                                        a{}
+                                                        p{
+                                                            span{}
+                                                            button{}
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .col3{
+                                                span{
+                                                    a{}
+                                                    input{}
+                                                }
+                                                button{}
+                                            }
+                                            .col4{
+                                                span{}
+                                                p{}
+                                            }
+                                            .col5{
+                                                p{
+                                                    .cost-price{
+                                                        em{}
+                                                    }
+                                                    .discount-price{
+                                                        em{}
+                                                    }
+                                                    span{}
+                                                }
+                                                button{}
+                                            }
+                                            .col6{
+                                                button{
+                                                    span{}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .cart-footer{
+                            .cart-btn-box{
+                                button{}
+                            }
+                            p{}
+                        }
+                    }
+                    .cart-bottom-box{
+                        table{
+                            tbody{
+                                tr{
+                                    td{
+                                        .col1{
+                                            p{
+                                                span{
+                                                    em{}
+                                                }
+                                            }
+                                        }
+                                        .col2{
+                                            p{
+                                                span{
+                                                    em{}
+                                                }
+                                            }
+                                        }
+                                        .col3{
+                                            p{
+                                                span{
+                                                    em{}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            tfoot{
+                                tr{
+                                    td{
+                                        .col1{
+                                            p{
+                                                span{
+                                                    em{}
+                                                }
+                                            }
+                                            p{
+                                                span{
+                                                    em{}
+                                                }
+                                            }
+                                        }
+                                        .col2{
+                                            p{
+                                                span{
+                                                    em{}
+                                                }
+                                            }
+                                        }
+                                        .col3{
+                                            p{
+                                                span{
+                                                    em{}
+                                                }
+                                            }
+                                            p{}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .main-button-box{
+                        button{}
+                    }
+                }
+                .notice-box{
+                    h2{}
+                    ul{
+                        li{}
+                    }
+                }
+            }
+        }
+    }
+}
