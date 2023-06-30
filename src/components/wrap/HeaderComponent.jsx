@@ -17,6 +17,7 @@ export default function HeaderComponent({setSelectButton}){
     }
 
 
+    //헤더 브랜드 히든메뉴 json데이터
     const [state, setState] = React.useState({
         카테고리A: [],
         카테고리B: [],
@@ -143,11 +144,11 @@ export default function HeaderComponent({setSelectButton}){
                                 <div className="box2-container">
                                 <div className="box2_1">
                                     <ul>
-                                        <li className="BRAND"><a href="!#"  onMouseEnter={()=>onMouseEnterShow('BRAND')}>BRAND</a></li>
-                                        <li className="MEN"><a href="!#" onMouseEnter={()=>onMouseEnterShow('MEN')}>MEN</a></li>
-                                        <li className="WOMEN"><a href="!#" onMouseEnter={()=>onMouseEnterShow('WOMEN')}>WOMEN</a></li>
-                                        <li className="KIDS"><a href="!#" onMouseEnter={()=>onMouseEnterShow('KIDS')}>KIDS</a></li>
-                                        <li className="SALE"><a href="!#" onMouseEnter={()=>onMouseEnterShow('SALE')}>SALE</a></li>
+                                        <li className="BRAND"onMouseEnter={()=>onMouseEnterShow('BRAND')}><button >BRAND</button></li>
+                                        <li className="MEN"onMouseEnter={()=>onMouseEnterShow('MEN')}><button>MEN</button></li>
+                                        <li className="WOMEN"onMouseEnter={()=>onMouseEnterShow('WOMEN')}><button>WOMEN</button></li>
+                                        <li className="KIDS"onMouseEnter={()=>onMouseEnterShow('KIDS')}><button>KIDS</button></li>
+                                        <li className="SALE"><a href="!#">SALE</a></li>
                                     </ul>
                                     <ul  onMouseLeave={onMouseLeaveShow}>
                                         <li className={`hidden1 ${isShow==='BRAND'?' on':''}`} >
@@ -175,7 +176,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -193,7 +194,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -211,7 +212,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -229,7 +230,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -247,7 +248,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -265,7 +266,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -283,7 +284,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -301,7 +302,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -319,7 +320,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -337,7 +338,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -355,7 +356,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -373,7 +374,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -391,7 +392,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -409,7 +410,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -427,7 +428,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -445,7 +446,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -463,7 +464,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -481,7 +482,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -499,7 +500,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -517,7 +518,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -535,7 +536,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -553,7 +554,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -571,7 +572,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -589,7 +590,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -607,7 +608,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -625,7 +626,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -643,7 +644,7 @@ export default function HeaderComponent({setSelectButton}){
                                                                                 <span>{item.eng}</span>
                                                                                 <span>{item.kor}</span>
                                                                             </Link>
-                                                                            <label htmlFor=""><input type="checkbox"/></label>
+                                                                            <label htmlFor={`${item.eng}`}><input type="checkbox" id={`${item.eng}`}/></label>
                                                                         </dd> 
                                                                         )
                                                                     }) 
@@ -660,56 +661,71 @@ export default function HeaderComponent({setSelectButton}){
                                                     </div>
                                                     <div className="row row2">
                                                         <h2>My Brands</h2>
-                                                        <a href="!#">로그인 하여 나의 관심브랜드를 <br /> 확인해보세요.</a>
+                                                        <a href="http://localhost:3000/LOGIN">로그인 하여 나의 관심브랜드를 <br /> 확인해보세요.</a>
                                                     </div>
                                                     <div className="row row3">
                                                         <h2>Hot Brands</h2>
                                                         <div className="content-box content-box1">
-                                                            <Link to='/BRAND?NIKE' onClick={()=>onClickSelect('NIKE')}>
-                                                                <div className="img-box">
-                                                                    <img src="./img/brand/1629843492243.jpg" alt="" />
-                                                                </div>
-                                                                <div className="info-box">
-                                                                    <span>NIKE <label htmlFor=""><input type="checkbox"/></label></span>
-                                                                    <span>나이키</span>
-                                                                </div>                                                                
-                                                            </Link>
-                                                            <Link to='/BRAND?ADIDAS' onClick={()=>onClickSelect('ADIDAS')}>
-                                                                <div className="img-box">
-                                                                    <img src="./img/brand/1629844261525.jpg" alt="" />
-                                                                </div>
-                                                                <div className="info-box">
-                                                                    <span>ADIDAS <label htmlFor=""><input type="checkbox"/></label></span>
-                                                                    <span>아디다스</span>
-                                                                </div>                                                                
-                                                            </Link>
-                                                            <a href="!#">
-                                                                <div className="img-box">
-                                                                    <img src="./img/brand/1629844323216.jpg" alt="" />
-                                                                </div>
-                                                                <div className="info-box">
-                                                                    <span>CONVERSE <label htmlFor=""><input type="checkbox"/></label></span>
-                                                                    <span>컨버스</span>
-                                                                </div>                                                                
-                                                            </a>
-                                                            <a href="!#">
-                                                                <div className="img-box">
-                                                                    <img src="./img/brand/1629844226333.jpg" alt="" />
-                                                                </div>
-                                                                <div className="info-box">
-                                                                    <span>VANS <label htmlFor=""><input type="checkbox"/></label></span>
-                                                                    <span>반스</span>
-                                                                </div>                                                                
-                                                            </a>
-                                                            <a href="!#">
-                                                                <div className="img-box">
-                                                                    <img src="./img/brand/1629844162667.jpg" alt="" />
-                                                                </div>
-                                                                <div className="info-box">
-                                                                    <span>NEW BALANCE<label htmlFor=""><input type="checkbox"/></label></span>
-                                                                    <span>뉴발란스</span>
-                                                                </div>                                                                
-                                                            </a>
+                                                            <div className="inner-box nike">
+                                                                <Link to='/BRAND?NIKE' onClick={()=>onClickSelect('NIKE')}>
+                                                                    <div className="img-box">
+                                                                        <img src="./img/brand/1629843492243.jpg" alt="" />
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <span>NIKE </span>
+                                                                        <span>나이키</span>
+                                                                    </div>                                                                
+                                                                </Link>
+                                                                <label htmlFor="nike"><input type="checkbox" id='nike'/></label>
+                                                            </div>
+                                                            <div className="inner-box adidas">
+                                                                <Link to='/BRAND?ADIDAS' onClick={()=>onClickSelect('ADIDAS')}>
+                                                                    <div className="img-box">
+                                                                        <img src="./img/brand/1629844261525.jpg" alt="" />
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <span>ADIDAS </span>
+                                                                        <span>아디다스</span>
+                                                                    </div>                                                                
+                                                                </Link>
+                                                                <label htmlFor="adidas"><input type="checkbox" id='adidas'/></label>
+                                                            </div>
+                                                            <div className="inner-box converse">
+                                                                <Link to='/BRAND?CONVERSE' onClick={()=>onClickSelect('CONVERSE')}>
+                                                                    <div className="img-box">
+                                                                        <img src="./img/brand/1629844323216.jpg" alt="" />
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <span>CONVERSE </span>
+                                                                        <span>컨버스</span>
+                                                                    </div>                                                                
+                                                                </Link>
+                                                                <label htmlFor="converse"><input type="checkbox" id='converse'/></label>
+                                                            </div>
+                                                            <div className="inner-box vans">
+                                                                <Link to='/BRAND?VANS' onClick={()=>onClickSelect('VANS')}>
+                                                                    <div className="img-box">
+                                                                        <img src="./img/brand/1629844226333.jpg" alt="" />
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <span>VANS </span>
+                                                                        <span>반스</span>
+                                                                    </div>                                                                
+                                                                </Link>
+                                                                <label htmlFor="vans"><input type="checkbox" id='vans'/></label>
+                                                            </div>
+                                                            <div className="inner-box newbalance">
+                                                                <Link to='/BRAND?NEW BALANCE' onClick={()=>onClickSelect('NEW BALANCE')}>
+                                                                    <div className="img-box">
+                                                                        <img src="./img/brand/1629844162667.jpg" alt="" />
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <span>NEW BALANCE</span>
+                                                                        <span>뉴발란스</span>
+                                                                    </div>                                                                       
+                                                                </Link>
+                                                                <label htmlFor="newBalance"><input type="checkbox" id='newBalance'/></label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

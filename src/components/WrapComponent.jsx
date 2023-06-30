@@ -19,27 +19,60 @@ export default function WrapComponent(){
     //브랜드
     const [adidas, setAdidas] = React.useState(
         localStorage.getItem('ADIDAS') === 'true' ? true : false
-      );
-      const [nike, setNike] = React.useState(
-        localStorage.getItem('NIKE') === 'true' ? true : false
-      );
-
-   
-
-    
-
+    );
+    const [nike, setNike] = React.useState(
+      localStorage.getItem('NIKE') === 'true' ? true : false
+    );
+    const [converse, setConverse] = React.useState(
+      localStorage.getItem('CONVERSE') === 'true' ? true : false
+    );
+    const [vans, setVans] = React.useState(
+      localStorage.getItem('VANS') === 'true' ? true : false
+    );
+    const [newbalance, setNewbalance] = React.useState(
+      localStorage.getItem('NEW BALANCE') === 'true' ? true : false
+    );
 
     React.useEffect(()=>{
         if(selectButton==='ADIDAS'){
             setAdidas(true);
 
-            setNike(false);
-            
+            setNike(false);   
+            setConverse(false); 
+            setVans(false);  
+            setNewbalance(false);       
         }
         else if(selectButton==='NIKE'){
-            setNike(true);
-            
+            setNike(true);  
+
             setAdidas(false);
+            setConverse(false); 
+            setVans(false);  
+            setNewbalance(false); 
+        }
+        else if(selectButton==='CONVERSE'){
+            setConverse(true);
+
+            setAdidas(false);
+            setNike(false);   
+            setVans(false);  
+            setNewbalance(false); 
+        }
+        else if(selectButton==='VANS'){
+            setVans(true);     
+
+            setAdidas(false);
+            setNike(false);   
+            setConverse(false);
+            setNewbalance(false); 
+        }
+        else if(selectButton==='NEW BALANCE'){
+            setNewbalance(true);  
+
+            setAdidas(false);
+            setNike(false);   
+            setConverse(false); 
+            setVans(false);  
         }
 
     },[selectButton])
@@ -47,7 +80,10 @@ export default function WrapComponent(){
     React.useEffect(() => {
         localStorage.setItem('ADIDAS', adidas);
         localStorage.setItem('NIKE', nike);
-    }, [adidas, nike]);
+        localStorage.setItem('CONVERSE', converse);
+        localStorage.setItem('VANS', vans);
+        localStorage.setItem('NEW BALANCE', newbalance);
+    }, [adidas, nike, converse, vans, newbalance]);
 
     return (
         <div id='wrap'>
@@ -56,7 +92,7 @@ export default function WrapComponent(){
                     <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} />}>
                         <Route index element={<IntroComponent/>}/>
                         <Route path='/INTRO' element={<IntroComponent />}/>                        
-                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}/>}/>
+                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance}/>}/>
                         <Route path='/PRODUCT' element={<ProductDetailComponent/>}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/CART' element={<CartComponent/>}/>
