@@ -85,12 +85,12 @@
   height: 0;
   border-bottom: 1px solid #d5d5d5;
   transition: height 0.3s;
+  overflow: hidden;
 }
 #brandSection3 .container .gap .content .left .left-content dl dd ul {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  opacity: 0;
 }
 #brandSection3 .container .gap .content .left .left-content dl dd ul label {
   cursor: pointer;
@@ -263,11 +263,7 @@
   justify-content: center;
 }
 #brandSection3 .container .gap .content .left .left-content dl dd.on {
-  opacity: 1;
   border-bottom: 1px solid #d5d5d5;
-}
-#brandSection3 .container .gap .content .left .left-content dl dd.on ul {
-  opacity: 1;
 }
 #brandSection3 .container .gap .content .left .left-content dl:nth-child(2) dd.on {
   height: 230px;
@@ -360,7 +356,6 @@
   top: 40px;
   width: 170px;
   height: 0;
-  opacity: 0;
   background: #fff;
   border: 1px solid #ccc;
   border-top: 0;
@@ -384,7 +379,6 @@
 }
 #brandSection3 .container .gap .content .right .right-title ul li .select-box dl.on {
   height: 120px;
-  opacity: 1;
 }
 #brandSection3 .container .gap .content .right .right-title ul li .radio-box {
   display: flex;

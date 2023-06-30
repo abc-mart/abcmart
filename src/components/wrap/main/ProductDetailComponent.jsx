@@ -1,16 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
 import './scss/productdetail.scss';
-import Section1Component from './product/Section1Component';
-import Section2Component from './product/Section2Component';
-import Section3Component from './product/Section3Component';
-import Section4Component from './product/Section4Component';
-import Section5Component from './product/Section5Component';
-import Section6Component from './product/Section6Component';
+import Section1Component from './productdetail/Section1Component';
+import Section2Component from './productdetail/Section2Component';
+import Section3Component from './productdetail/Section3Component';
+import Section4Component from './productdetail/Section4Component';
+import Section5Component from './productdetail/Section5Component';
+import Section6Component from './productdetail/Section6Component';
 
 export default function ProductDetailComponent(){
 
-
+    React.useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[])
 
 
     return (

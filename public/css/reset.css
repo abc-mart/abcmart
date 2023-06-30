@@ -29,7 +29,8 @@ html { /* scroll-behavior: smooth; */
 ul {
   list-style: none;
 }
-input, label, button{
+
+input, button, label {
   cursor: pointer;
 }
 
