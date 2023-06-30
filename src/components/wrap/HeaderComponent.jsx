@@ -730,12 +730,12 @@ export default function HeaderComponent({setSelectButton}){
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="back"></div>
                                         </li>
                                         <li className={`hidden2 ${isShow==='MEN'?' on':''}`}></li>
                                         <li className={`hidden3 ${isShow==='WOMEN'?' on':''}`}></li>
                                         <li className={`hidden4 ${isShow==='KIDS'?' on':''}`}></li>
                                     </ul>
+                                    <div className={`back ${isShow!==''?' on':''}`}></div>
                                 </div>
                                 <div className="box2_2">
                                     <ul>

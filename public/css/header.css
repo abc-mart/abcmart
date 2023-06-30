@@ -178,7 +178,6 @@
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 {
   width: 835px;
-  height: 48px;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul {
   width: 835px;
@@ -190,6 +189,7 @@
   color: #fff;
   font-size: 16px;
   font-weight: 500;
+  height: 48px;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul li:nth-child(1) button {
   color: yellow;
@@ -235,20 +235,18 @@
   left: 0;
   width: 100%;
   height: 0;
-  opacity: 0;
-  visibility: hidden;
   z-index: 10;
+  overflow: hidden;
   transition: all 0.3s;
   background: #fff;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1.on {
-  opacity: 1;
-  visibility: visible;
   height: 600px;
+  border-bottom: 2px solid #ee1c25;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .hidden1-container {
   width: 1200px;
-  height: 100%;
+  height: 600px;
   margin: 0 auto;
   display: flex;
 }
@@ -471,13 +469,6 @@
   background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 100% 0;
   background-size: 34px 13px;
 }
-#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden1 .back {
-  border-top: 2px solid #ee1c25;
-  pointer-events: none;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-}
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden2 {
   position: absolute;
   top: 48px;
@@ -516,6 +507,17 @@
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .hidden4.on {
   height: 500px;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 .back {
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 .back.on {
+  background: rgba(0, 0, 0, 0.5);
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_2 {
   width: 365px;
