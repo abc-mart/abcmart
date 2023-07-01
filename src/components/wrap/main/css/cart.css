@@ -1,0 +1,138 @@
+#cart {
+  width: 100%;
+}
+#cart .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#cart .container .gap {
+  width: 100%;
+}
+#cart .container .gap .title {
+  width: 100%;
+  margin: 79px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+#cart .container .gap .title h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  transform: translateY(-3px);
+}
+#cart .container .gap .title ul {
+  display: flex;
+  padding: 10px 0 0 0;
+}
+#cart .container .gap .title ul li {
+  color: #999;
+  padding: 0 22px 0 0;
+  font-size: 15px;
+  position: relative;
+  font-weight: 600;
+  letter-spacing: -1.1px;
+  font-family: "Montserrat";
+}
+#cart .container .gap .title ul li::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 7px;
+  height: 11px;
+  top: 2px;
+  right: 0;
+  background: url(../../../../../public/img/intro/order_breadcrumb_icon.png) no-repeat 0 0;
+}
+#cart .container .gap .title ul li:nth-child(2) {
+  padding: 0 22px 0 14px;
+}
+#cart .container .gap .title ul li:nth-child(3) {
+  padding: 0;
+  margin: 0 0 0 9px;
+}
+#cart .container .gap .title ul li:nth-child(3)::after {
+  display: none;
+}
+#cart .container .gap .title ul li.on {
+  color: #000;
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+}
+#cart .container .gap .title ul li.on::after {
+  background-position: 100% 0;
+}
+#cart .container .gap .delivery-category {
+  width: 100%;
+  margin: 106px 0 31px 0;
+}
+#cart .container .gap .delivery-category ul {
+  display: flex;
+}
+#cart .container .gap .delivery-category ul li:nth-child(1)::after {
+  content: "";
+  display: inline-block;
+  margin: 6px 16px 0 14px;
+  width: 1px;
+  height: 13px;
+  background: #999;
+  vertical-align: top;
+}
+#cart .container .gap .delivery-category ul li.on a {
+  color: #000;
+}
+#cart .container .gap .delivery-category ul li a {
+  color: #999;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -1.1px;
+}
+#cart .container .gap .delivery-category ul li a span {
+  font-weight: 600;
+  font-family: "Montserrat";
+  vertical-align: baseline;
+  letter-spacing: normal;
+}
+#cart .container .gap .content {
+  width: 100%;
+}
+#cart .container .gap .content ul {
+  width: 100%;
+  display: flex;
+  margin: 0 20px 0 0;
+  height: 56px;
+}
+#cart .container .gap .content ul li {
+  width: 50%;
+  border: 1px solid #d5d5d5;
+  border-left: 0;
+  border-bottom: 3px solid #000;
+  text-align: center;
+}
+#cart .container .gap .content ul li.on {
+  border: 3px solid #000;
+  border-bottom: 0;
+}
+#cart .container .gap .content ul li.on a {
+  padding: 0 20px;
+  color: #000;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: -0.75px;
+}
+#cart .container .gap .content ul li a {
+  display: block;
+  padding: 0 21px;
+  line-height: 52px;
+  color: #666;
+  font-size: 15px;
+  letter-spacing: -0.55px;
+}
+#cart .container .gap .content ul li a span {
+  color: #ee1c25;
+  vertical-align: top;
+  margin: 0 0 0 1px;
+}
+#cart .container .gap .content .cart-box {
+  background-color: #0c0;
+}

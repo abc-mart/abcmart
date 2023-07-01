@@ -10,6 +10,7 @@ import EventComponent from './wrap/main/EventComponent';
 import CartComponent from './wrap/main/CartComponent';
 import LoginComponent from './wrap/main/LoginComponent';
 import ProductComponent from './wrap/main/ProductComponent';
+import ServiceComponent from './wrap/main/ServiceComponent';
 
 
 
@@ -99,6 +100,8 @@ export default function WrapComponent(){
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/CART' element={<CartComponent/>}/>
                         <Route path='/LOGIN' element={<LoginComponent/>}/>
+                        <Route path='SERVICE' element={<ServiceComponent/>}/>
+
                         <Route path='/*' element={<NotFoundComponent/>}/>
                         
                     </Route>
