@@ -2,14 +2,37 @@ import React from 'react';
 import '../scss/productdetail.scss';
 
 export default function Section6Component(){
+
+    const onClickInfo=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+
+        window.scrollTo(0, 1745);
+    }
+
+    const onClickReview=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+      
+        window.scrollTo(0, 6862);                
+    }
+
+    const onClickQna=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+
+        window.scrollTo(0, 8537); 
+    }
+
+    
     return (
         <section id='section6'>
             <div className="container">
                 <div className="gap">
                     <div className="sangpum-button-box">
-                        <a href="!#">상품정보</a>
-                        <a href="!#">상품후기 (2)</a>
-                        <a href="!#" className='on'>상품 Q&A (0)</a>
+                        <a href="!#" onClick={onClickInfo} >상품정보</a>
+                        <a href="!#" onClick={onClickReview} >상품후기 (2)</a>
+                        <a href="!#" onClick={onClickQna} className='on' >상품 Q&A (0)</a>
                     </div>
                     <div className="explain">
                         <p><i>·</i>단순 상품비방, 상업적인 내용, 미풍양속 위반, 게시판의 성격에 맞지 않는 글은 통보 없이 삭제될 수 있습니다.</p>                        

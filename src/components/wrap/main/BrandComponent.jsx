@@ -3,7 +3,7 @@ import BrandSection1Component from './brand/BrandSection1Component';
 import BrandSection2Component from './brand/BrandSection2Component';
 import BrandSection3Component from './brand/BrandSection3Component';
 import axios from 'axios';
-export default function BrandComponent({adidas, nike, converse, vans, newbalance}) {
+export default function BrandComponent({adidas, nike, converse, vans, newbalance, setViewProductDetail}) {
 
    
 
@@ -66,6 +66,7 @@ export default function BrandComponent({adidas, nike, converse, vans, newbalance
         .catch()
     },[])
 
+
     return (
         <main id='brand'>
             <BrandSection1Component   
@@ -83,6 +84,7 @@ export default function BrandComponent({adidas, nike, converse, vans, newbalance
                 vans={vans}  반스ABC={state.반스ABC} 반스GRAND={state.반스GRAND} 
                 newbalance={newbalance}  뉴발란스ABC={state.뉴발란스ABC} 뉴발란스GRAND={state.뉴발란스GRAND} 
                 abcChange={abcChange} grandChange={grandChange} abcGrand={abcGrand}
+                setViewProductDetail={setViewProductDetail}
             />
             <BrandSection3Component 
                 nike={nike} 나이키ABC={state.나이키ABC} 나이키GRAND={state.나이키GRAND} 
@@ -90,7 +92,7 @@ export default function BrandComponent({adidas, nike, converse, vans, newbalance
                 converse={converse}  컨버스ABC={state.컨버스ABC} 컨버스GRAND={state.컨버스GRAND} 
                 vans={vans}  반스ABC={state.반스ABC} 반스GRAND={state.반스GRAND} 
                 newbalance={newbalance}  뉴발란스ABC={state.뉴발란스ABC} 뉴발란스GRAND={state.뉴발란스GRAND}
-                abcGrand={abcGrand} 
+                abcGrand={abcGrand} setViewProductDetail={setViewProductDetail}
             />
         </main>
     );

@@ -3,7 +3,7 @@ import './scss/brandSection3.scss'
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
-export default function BrandSection3Component({abcGrand, adidas, 아디다스ABC, 아디다스GRAND, nike, 나이키ABC, 나이키GRAND,  converse, 컨버스ABC, 컨버스GRAND, vans, 반스ABC, 반스GRAND, newbalance, 뉴발란스ABC, 뉴발란스GRAND}) {
+export default function BrandSection3Component({abcGrand, adidas, 아디다스ABC, 아디다스GRAND, nike, 나이키ABC, 나이키GRAND,  converse, 컨버스ABC, 컨버스GRAND, vans, 반스ABC, 반스GRAND, newbalance, 뉴발란스ABC, 뉴발란스GRAND, setViewProductDetail}) {
 
     //좌측박스 토글
     const [filter, setFilter] = React.useState({'카테고리':true});
@@ -412,6 +412,30 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
             setCategory('전체');
         }
     },[abcGrand, nike, adidas])
+
+
+    // 클릭 시 상품화면으로 이동 및 사진 적용
+    const onClickProductDetailList=(e, item)=>{
+        e.preventDefault();
+        let obj = {
+            이미지: item.이미지,
+            카테고리: item.카테고리,
+            제조사: item.제조사,
+            제품명: item.제품명,
+            가격: item.가격,
+            할인율: item.할인율,
+            뱃지1: item.뱃지1,
+            뱃지2: item.뱃지2,
+            뱃지3: item.뱃지3,
+            뱃지4: item.뱃지4,
+            추천: item.추천,
+            배경: item.배경,
+        }
+        console.log(obj);
+        setViewProductDetail(obj);
+        window.location.pathname='/PRODUCTDETAIL';
+    }
+
 
     return (
         <section id='brandSection3'>

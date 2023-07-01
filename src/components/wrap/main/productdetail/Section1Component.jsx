@@ -116,8 +116,8 @@ export default function Section1Component(){
                                                                                                 
                                                 <select name="" id="">
                                                     <option disabled selected value="">배송지주소를 선택해주세요</option>
-                                                    <option value="">예비</option>
-                                                    <option value="">예비</option>
+                                                    <option value="예비">예비</option>
+                                                    <option value="예비">예비</option>
                                                 </select>
                                                 
                                             </div>

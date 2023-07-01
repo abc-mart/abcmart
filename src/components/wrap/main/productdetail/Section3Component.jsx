@@ -2,14 +2,44 @@ import React from 'react';
 import '../scss/productdetail.scss';
 
 export default function Section3Component(){
+
+    // 버튼박스 클릭 시 위치 이동
+    const onClickInfo=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+
+        window.scrollTo(0, 1745);
+    }
+
+    const onClickReview=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+      
+        window.scrollTo(0, 6862);                
+    }
+
+    const onClickQna=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+
+        window.scrollTo(0, 8537); 
+    }
+
+
+
+
+
+
+
+
     return (
         <section id='section3'>
             <div className="container">
                 <div className="gap">
                     <div className="sangpum-button-box">
-                        <a href="!#" className='on'>상품정보</a>
-                        <a href="!#">상품후기 (2)</a>
-                        <a href="!#">상품 Q&A (0)</a>
+                        <a href="!#" onClick={onClickInfo} className='on'>상품정보</a>
+                        <a href="!#" onClick={onClickReview} >상품후기 (2)</a>
+                        <a href="!#" onClick={onClickQna} >상품 Q&A (0)</a>
                     </div>
                     <div className="event-banner">
                         <img src="./img/detail/16859462545061.jpg" alt="" />

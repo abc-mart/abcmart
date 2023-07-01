@@ -86,6 +86,49 @@ export default function WrapComponent(){
         localStorage.setItem('NEW BALANCE', newbalance);
     }, [adidas, nike, converse, vans, newbalance]);
 
+
+    // 상품클릭 시 ProductDetail화면으로 이동
+    const [productDetail, setProductDetail] = React.useState({
+        key: 'PRODUCTDETAILKEY',
+        sign: false,
+        getProductDetail : []
+    });
+
+    // 비구조화
+    const {key, sign, getProductDetail} = productDetail;
+
+    const setViewProductDetail=(value)=>{
+        let arr = [];
+
+        if(localStorage.getItem(key)!==null){
+            arr = JSON.parse(localStorage.getItem(key));
+            arr = [value, ...arr]
+            localStorage.setItem(key, JSON.stringify(arr));
+            setProductDetail({
+                ...productDetail,
+                sign: !sign,
+                getProductDetail: arr
+            });
+        }
+        else{
+            arr = [value]
+            localStorage.setItem(key, JSON.stringify(arr));
+            setProductDetail({
+                ...productDetail,
+                sign: !sign,
+                getProductDetail: arr
+            });
+        }
+
+    }
+
+
+
+
+
+
+
+
     return (
         <div id='wrap'>
             <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -93,8 +136,8 @@ export default function WrapComponent(){
                     <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} />}>
                         <Route index element={<IntroComponent/>}/>
                         <Route path='/INTRO' element={<IntroComponent />}/>                        
-                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance}/>}/>
-                        <Route path='/PRODUCT' element={<ProductComponent/>}/>
+                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} />}/>
+                        <Route path='/PRODUCT' element={<ProductComponent setViewProductDetail={setViewProductDetail} />}/>
                         <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent/>}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/CART' element={<CartComponent/>}/>

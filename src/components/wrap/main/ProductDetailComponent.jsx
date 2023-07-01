@@ -10,9 +10,9 @@ import Section6Component from './productdetail/Section6Component';
 
 export default function ProductDetailComponent(){
 
-    React.useEffect(()=>{
-        window.scrollTo(0, 0);
-    },[])
+    // React.useEffect(()=>{
+    //     window.scrollTo(0, 0);
+    // },[])
 
 
     return (

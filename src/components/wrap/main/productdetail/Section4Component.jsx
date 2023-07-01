@@ -3,6 +3,28 @@ import '../scss/productdetail.scss';
 
 export default function Section4Component(){
 
+
+    const onClickInfo=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+
+        window.scrollTo(0, 1745);
+    }
+
+    const onClickReview=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+      
+        window.scrollTo(0, 6862);                
+    }
+
+    const onClickQna=(e)=>{
+        e.preventDefault();
+        // console.log(window.scrollY); y축 위치확인
+
+        window.scrollTo(0, 8537); 
+    }
+
     const [state, setState] = React.useState({
         size: true,
         color: false,
@@ -67,9 +89,9 @@ export default function Section4Component(){
             <div className="container">
                 <div className="gap">
                     <div className="sangpum-button-box">
-                        <a href="!#">상품정보</a>
-                        <a href="!#" className='on' >상품후기 (2)</a>
-                        <a href="!#">상품 Q&A (0)</a>
+                        <a href="!#" onClick={onClickInfo} >상품정보</a>
+                        <a href="!#" onClick={onClickReview} className='on' >상품후기 (2)</a>
+                        <a href="!#" onClick={onClickQna} >상품 Q&A (0)</a>
                     </div>
                     <div className="event-banner">
                         <img src="./img/detail/1685493643014.jpg" alt="" />
