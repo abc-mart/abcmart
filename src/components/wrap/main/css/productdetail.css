@@ -97,6 +97,7 @@
   font-size: 13px;
   color: #000;
   font-weight: 500;
+  font-size: 13px;
 }
 #ProductDetail #section1 .container .gap .menu .product-box .left .score-box .size-color ul li span {
   display: block;
@@ -1005,9 +1006,13 @@
   border-bottom: 2px solid #000;
 }
 #ProductDetail #section5 .container .gap .review-box .button-box a span {
+  display: inline-block;
   color: #ee1c25;
+  transform: translateY(-3px);
 }
 #ProductDetail #section5 .container .gap .review-box .review-title {
+  width: 100%;
+  height: 46px;
   display: flex;
   justify-content: space-between;
 }
@@ -1017,19 +1022,190 @@
 #ProductDetail #section5 .container .gap .review-box .review-title h6 span {
   color: #ee1c25;
 }
+#ProductDetail #section5 .container .gap .review-box .review-title select {
+  border: 0;
+  width: 138px;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
 #ProductDetail #section5 .container .gap .review-box .customer-review {
   width: 100%;
   padding: 24px 52px 30px 20px;
+  border-bottom: 1px solid #bbb;
 }
 #ProductDetail #section5 .container .gap .review-box .customer-review .star-score {
   display: flex;
+  padding: 15px 0;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .star-score .star {
+  padding: 0 13px 0 0;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .star-score .star img {
+  margin: 0 3px 0 0;
 }
 #ProductDetail #section5 .container .gap .review-box .customer-review .star-score .star-txt {
   display: flex;
 }
+#ProductDetail #section5 .container .gap .review-box .customer-review .star-score .star-txt span {
+  color: #666;
+  font-size: 13px;
+  font-family: "Montserrat";
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .star-score .star-txt p {
+  font-size: 13px;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .star-score .star-txt p > span {
+  display: inline-block;
+  font-family: "Noto Sans KR";
+  color: #ee1c25;
+  transform: translateY(-2px);
+  padding: 0 0 0 2px;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .star-score .star-txt i {
+  padding: 0 10px;
+  color: #d5d5d5;
+  font-size: 5px;
+}
 #ProductDetail #section5 .container .gap .review-box .customer-review .mysize {
   display: flex;
 }
+#ProductDetail #section5 .container .gap .review-box .customer-review .mysize span {
+  font-size: 13px;
+  color: #666;
+  margin: 0 13px 0 0;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .mysize span i {
+  display: inline-block;
+  margin: 0 5px 0 0;
+  transform: translateY(-2px);
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .mysize p {
+  font-size: 13px;
+  color: #000;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .mysize p > span {
+  display: inline-block;
+  color: #ee1c25;
+  transform: translateY(-2px);
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .comment {
+  padding: 15px 0 0 0;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .comment p {
+  font-size: 15px;
+  color: #000;
+  line-height: 150%;
+}
 #ProductDetail #section5 .container .gap .review-box .customer-review .nickname {
+  padding: 15px 0 0 0;
   display: flex;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .helpful {
+  padding: 24px 0 0 0;
+  display: flex;
+  align-items: center;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .helpful a:nth-child(1) {
+  display: inline-block;
+  width: 102px;
+  height: 28px;
+  line-height: 26px;
+  padding: 0 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 15px;
+  color: #000;
+  font-size: 12px;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .helpful a:nth-child(2) {
+  margin: 0 0 0 12px;
+  font-size: 13px;
+  text-decoration: underline;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .helpful a i {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../../../../../public/img/detail/btn_icon_helpful.png);
+  transform: translateY(-1px);
+  margin: 0 3px 0 0;
+}
+#ProductDetail #section5 .container .gap .review-box .customer-review .helpful a span {
+  display: inline-block;
+  font-size: 13px;
+  font-family: "Montserrat";
+  transform: translateY(-1px);
+}
+#ProductDetail #section5 .container .gap .review-box .review-btn-box {
+  width: 100%;
+  height: 44px;
+  position: relative;
+  margin: 30px 0 0 0;
+}
+#ProductDetail #section5 .container .gap .review-box .review-btn-box .pagenation {
+  display: flex;
+  max-width: 362px;
+  margin: 0 auto;
+  justify-content: center;
+}
+#ProductDetail #section5 .container .gap .review-box .review-btn-box .pagenation a {
+  display: block;
+  margin: 0 5px 0 0;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  font-size: 13px;
+  font-family: "Montserrat";
+  color: #999;
+}
+#ProductDetail #section5 .container .gap .review-box .review-btn-box .pagenation a.on {
+  background: #000;
+  color: #fff;
+}
+#ProductDetail #section5 .container .gap .review-box .review-btn-box button {
+  position: absolute;
+  width: 140px;
+  height: 100%;
+  top: 0%;
+  right: 0%;
+  border: 0;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+}
+#ProductDetail #section6 {
+  width: 100%;
+}
+#ProductDetail #section6 .container {
+  width: 100%;
+  padding: 120px 0;
+}
+#ProductDetail #section6 .container .gap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#ProductDetail #section6 .container .gap .sangpum-button-box {
+  width: 100%;
+  display: flex;
+}
+#ProductDetail #section6 .container .gap .sangpum-button-box a {
+  display: block;
+  width: 400px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-bottom: 3px solid #000;
+  font-size: 15px;
+}
+#ProductDetail #section6 .container .gap .sangpum-button-box a.on {
+  border: 3px solid #000;
+  border-bottom: none;
+  color: #000;
+  font-weight: 600;
 }

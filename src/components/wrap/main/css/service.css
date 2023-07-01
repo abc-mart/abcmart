@@ -1,0 +1,286 @@
+#service {
+  width: 100%;
+  padding: 0 0 150px 0;
+}
+#service .container {
+  width: 1200px;
+  margin: 0 auto;
+}
+#service .container .gap {
+  width: 100%;
+}
+#service .container .gap .title {
+  width: 100%;
+}
+#service .container .gap .title .row1 {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+#service .container .gap .title .row1 ul {
+  display: flex;
+}
+#service .container .gap .title .row1 ul li {
+  padding: 0 0 0 10px;
+  display: flex;
+  align-items: center;
+}
+#service .container .gap .title .row1 ul li:nth-child(1) {
+  padding: 0;
+}
+#service .container .gap .title .row1 ul li span {
+  display: flex;
+  align-items: center;
+  width: 12px;
+  height: 11px;
+  overflow: hidden;
+  margin: 0 3px 0 0;
+  pointer-events: none;
+}
+#service .container .gap .title .row1 ul li span img {
+  pointer-events: none;
+}
+#service .container .gap .title .row1 ul li:nth-child(2) span img, #service .container .gap .title .row1 ul li:nth-child(3) span img {
+  transform: translateX(-12px);
+}
+#service .container .gap .title .row1 ul li a {
+  color: #999;
+  font-size: 13px;
+}
+#service .container .gap .title .row1 ul li:nth-child(3) a {
+  color: #000;
+  font-weight: 500;
+}
+#service .container .gap .title .row2 {
+  margin: 18px 0 0 0;
+}
+#service .container .gap .title .row2 h1 {
+  font-size: 32px;
+  color: #000;
+  font-weight: 700;
+}
+#service .container .gap .content {
+  display: flex;
+  margin: 50px 0 0 0;
+}
+#service .container .gap .content .left {
+  width: 220px;
+}
+#service .container .gap .content .left .row1 ul li {
+  margin: 0 0 25px 0;
+}
+#service .container .gap .content .left .row1 ul li button {
+  position: relative;
+  font-family: "Noto Sans";
+  font-size: 20px;
+  color: #000;
+  font-weight: 600;
+  transition: all 0.3s;
+  background: none;
+  border: 0;
+}
+#service .container .gap .content .left .row1 ul li button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  width: 0;
+  background-color: #ee1c25;
+  transition: all 0.3s;
+}
+#service .container .gap .content .left .row1 ul li button:hover, #service .container .gap .content .left .row1 ul li button.on {
+  color: #ee1c25;
+}
+#service .container .gap .content .left .row1 ul li button:hover::before, #service .container .gap .content .left .row1 ul li button.on::before {
+  width: 100%;
+}
+#service .container .gap .content .left .row2 {
+  width: 160px;
+}
+#service .container .gap .content .left .row2 .info-box {
+  margin: 69px 0 0 0;
+  padding: 29px 0 0 0;
+  border-top: 1px solid #ddd;
+}
+#service .container .gap .content .left .row2 .info-box h3 {
+  color: #666;
+  font-size: 15px;
+  font-weight: 500;
+}
+#service .container .gap .content .left .row2 .info-box h3 span {
+  margin: 0 5px 0 0;
+}
+#service .container .gap .content .left .row2 .info-box h4 {
+  margin: 11px 0 0 0;
+  color: #000;
+  font-size: 16px;
+}
+#service .container .gap .content .left .row2 .info-box ul {
+  margin: 11px 0 0 0;
+  display: flex;
+}
+#service .container .gap .content .left .row2 .info-box ul li {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0 10px 0 0;
+}
+#service .container .gap .content .left .row2 .info-box p {
+  color: #999;
+  font-size: 13px;
+  line-height: 1.4;
+}
+#service .container .gap .content .right {
+  width: 980px;
+}
+#service .container .gap .content .right .sub-title h2 {
+  font-family: "Montserrat";
+  color: #000;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+#service .container .gap .content .right .notice-content {
+  margin: 14px 0 0 0;
+}
+#service .container .gap .content .right .notice-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#service .container .gap .content .right .notice-content table tr {
+  text-align: center;
+}
+#service .container .gap .content .right .notice-content table tr th {
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 18px 0;
+  color: #666;
+}
+#service .container .gap .content .right .notice-content table tr td {
+  padding: 23px 10px;
+  border-bottom: 1px solid #e5e5e5;
+  color: #000;
+  font-size: 15px;
+}
+#service .container .gap .content .right .notice-content table tr td:nth-child(2) {
+  text-align: left;
+}
+#service .container .gap .content .right .faq-content .search-box {
+  margin: 21px 0 0 0;
+  height: 120px;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #d5d5d5;
+  padding: 40px;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+}
+#service .container .gap .content .right .faq-content .search-box label {
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+}
+#service .container .gap .content .right .faq-content .search-box label input {
+  cursor: auto;
+  border: 1px solid #d5d5d5;
+  padding: 0 10px;
+  margin: 0 0 0 50px;
+  width: 672px;
+  height: 38px;
+}
+#service .container .gap .content .right .faq-content .search-box button {
+  margin: 0 0 0 5px;
+  width: 110px;
+  height: 38px;
+  background: #000;
+  font-size: 13px;
+  color: #fff;
+  border: 0;
+  border-radius: 2px;
+}
+#service .container .gap .content .right .faq-content .nav-box {
+  margin: 40px 0 20px 0;
+}
+#service .container .gap .content .right .faq-content .nav-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#service .container .gap .content .right .faq-content .nav-box table tbody tr td {
+  width: 16.6666%;
+  height: 48px;
+  border: 1px solid #d5d5d5;
+}
+#service .container .gap .content .right .faq-content .nav-box table tbody tr td a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+}
+#service .container .gap .content .right .faq-content .nav-box table tbody tr td a.on, #service .container .gap .content .right .faq-content .nav-box table tbody tr td a:hover {
+  background: #000;
+  color: #fff;
+}
+#service .container .gap .content .right .faq-content .list-box h3 {
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+#service .container .gap .content .right .faq-content .list-box ul {
+  margin: 16px 0 0 0;
+  border-top: 2px solid #000;
+}
+#service .container .gap .content .right .faq-content .list-box ul li {
+  overflow: hidden;
+  border-bottom: 1px solid #b5b5b5;
+}
+#service .container .gap .content .right .faq-content .list-box ul li .list-front {
+  cursor: pointer;
+  padding: 25px 57px;
+  height: 2px;
+  height: 70px;
+  position: relative;
+}
+#service .container .gap .content .right .faq-content .list-box ul li .list-front h2 {
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+#service .container .gap .content .right .faq-content .list-box ul li .list-front span {
+  display: block;
+  width: 26px;
+  height: 26px;
+  overflow: hidden;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translatey(-50%);
+}
+#service .container .gap .content .right .faq-content .list-box ul li .list-back {
+  background: #f8f8f8;
+  color: #333;
+  padding: 0 66px;
+  height: 0;
+  transition: all 0.3s;
+  line-height: 1.4;
+  position: relative;
+}
+#service .container .gap .content .right .faq-content .list-box ul li .list-back span {
+  display: block;
+  width: 26px;
+  height: 26px;
+  overflow: hidden;
+  position: absolute;
+  left: 25px;
+  top: 22px;
+}
+#service .container .gap .content .right .faq-content .list-box ul li .list-back span img {
+  transform: translateX(-26px);
+}
+#service .container .gap .content .right .faq-content .list-box ul li.on .list-back {
+  padding: 25px 66px;
+  height: auto;
+}
