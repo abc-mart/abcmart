@@ -154,17 +154,17 @@ export default function HeaderComponent({setSelectButton}){
                             </div>
                             <div className="box2">
                                 <div className="box2-container">
-                                <div className="box2_1">
+                                <div className="box2_1" onMouseLeave={onMouseLeaveShow}>
                                     <ul>
-                                        <li className="BRAND"onMouseEnter={()=>onMouseEnterShow('BRAND')}><button >BRAND</button></li>
-                                        <li className="MEN"onMouseEnter={()=>onMouseEnterShow('MEN')}><button>MEN</button></li>
-                                        <li className="WOMEN"onMouseEnter={()=>onMouseEnterShow('WOMEN')}><button>WOMEN</button></li>
-                                        <li className="KIDS"onMouseEnter={()=>onMouseEnterShow('KIDS')}><button>KIDS</button></li>
+                                        <li className={`BRAND ${isShow==='BRAND'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('BRAND')}><button >BRAND</button></li>
+                                        <li className={`MEN ${isShow==='MEN'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('MEN')}><button>MEN</button></li>
+                                        <li className={`WOMEN ${isShow==='WOMEN'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('WOMEN')}><button>WOMEN</button></li>
+                                        <li className={`KIDS ${isShow==='KIDS'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('KIDS')}><button>KIDS</button></li>
                                         <li className="SALE"><a href="!#">SALE</a></li>
                                     </ul>
-                                    <ul  onMouseLeave={onMouseLeaveShow}>
-                                        <li className={`hidden1 ${isShow==='BRAND'?' on':''}`} >
-                                            <div className="hidden1-container">
+                                    <ul  >
+                                        <li className={`brand-inner ${isShow==='BRAND'?' on':''}`} >
+                                            <div className="brand-inner-container">
                                                 <div className="left">
                                                     <div className="left-head">                                                        
                                                         <div className="search-box">
@@ -743,11 +743,165 @@ export default function HeaderComponent({setSelectButton}){
                                                 </div>
                                             </div>
                                         </li>
-                                        <li className={`hidden2 ${isShow==='MEN'?' on':''}`}>
-                                            <Link to='/PRODUCT'>스니커즈</Link>
+                                        <li className={`men-inner mwk-inner ${isShow==='MEN'?' on':''}`}>
+                                            <div className="men-inner-container mwk-inner-container">
+                                                <div className="left">
+                                                    <div className="title">
+                                                        <h1>MEN</h1>
+                                                    </div>                                                    
+                                                    <div className='content'>
+                                                        <dl>
+                                                            <dt><Link to='/'>스포츠</Link></dt>
+                                                            <dd><Link to='/'>런닝화</Link></dd>
+                                                            <dd><Link to='/'>테니스화</Link></dd>
+                                                            <dd><Link to='/'>골프화</Link></dd>
+                                                            <dd><Link to='/'>등산화</Link></dd>
+                                                            <dd><Link to='/'>배드민턴화</Link></dd>
+                                                            <dd><Link to='/'>워킹화</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>캐주얼</Link></dt>
+                                                            <dd><Link to='/PRODUCT'>스니커즈</Link></dd>
+                                                            <dd><Link to='/'>데크슈즈</Link></dd>
+                                                            <dd><Link to='/'>워킹슈즈</Link></dd>
+                                                            <dd><Link to='/'>로퍼</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>구두</Link></dt>
+                                                            <dd><Link to='/'>로퍼</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                            <dd><Link to='/'>뮬/블로퍼</Link></dd>
+                                                            <dd><Link to='/'>몽크스트랩</Link></dd>
+                                                            <dd><Link to='/'>토오픈/슬링백</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>샌들</Link></dt>
+                                                            <dd><Link to='/'>슬라이드</Link></dd>
+                                                            <dd><Link to='/'>아쿠아슈즈</Link></dd>
+                                                            <dd><Link to='/'>스포츠샌들</Link></dd>
+                                                            <dd><Link to='/'>코르크샌들</Link></dd>
+                                                            <dd><Link to='/'>윈터샌들</Link></dd>
+                                                            <dd><Link to='/'>플립플랍</Link></dd>
+                                                            <dd><Link to='/'>레더샌들</Link></dd>
+                                                            <dd><Link to='/'>클로그샌들</Link></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                                <div className="right">
+                                                    <a href="!#">
+                                                        <img src="./img/product/1688093196573.jpg" alt="" />
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </li>
-                                        <li className={`hidden3 ${isShow==='WOMEN'?' on':''}`}></li>
-                                        <li className={`hidden4 ${isShow==='KIDS'?' on':''}`}></li>
+                                        <li className={`women-inner mwk-inner ${isShow==='WOMEN'?' on':''}`}>
+                                            <div className="women-inner-container mwk-inner-container">
+                                                <div className="left">
+                                                    <div className="title">
+                                                        <h1>WOMEN</h1>
+                                                    </div>                                                    
+                                                    <div className='content'>
+                                                        <dl>
+                                                            <dt><Link to='/'>스포츠</Link></dt>
+                                                            <dd><Link to='/'>런닝화</Link></dd>
+                                                            <dd><Link to='/'>테니스화</Link></dd>
+                                                            <dd><Link to='/'>골프화</Link></dd>
+                                                            <dd><Link to='/'>등산화</Link></dd>
+                                                            <dd><Link to='/'>배드민턴화</Link></dd>
+                                                            <dd><Link to='/'>워킹화</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>캐주얼</Link></dt>
+                                                            <dd><Link to='/PRODUCT'>스니커즈</Link></dd>
+                                                            <dd><Link to='/'>데크슈즈</Link></dd>
+                                                            <dd><Link to='/'>워킹슈즈</Link></dd>
+                                                            <dd><Link to='/'>로퍼</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>구두</Link></dt>
+                                                            <dd><Link to='/'>로퍼</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                            <dd><Link to='/'>뮬/블로퍼</Link></dd>
+                                                            <dd><Link to='/'>몽크스트랩</Link></dd>
+                                                            <dd><Link to='/'>토오픈/슬링백</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>샌들</Link></dt>
+                                                            <dd><Link to='/'>슬라이드</Link></dd>
+                                                            <dd><Link to='/'>아쿠아슈즈</Link></dd>
+                                                            <dd><Link to='/'>스포츠샌들</Link></dd>
+                                                            <dd><Link to='/'>코르크샌들</Link></dd>
+                                                            <dd><Link to='/'>윈터샌들</Link></dd>
+                                                            <dd><Link to='/'>플립플랍</Link></dd>
+                                                            <dd><Link to='/'>레더샌들</Link></dd>
+                                                            <dd><Link to='/'>클로그샌들</Link></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                                <div className="right">
+                                                    <a href="!#">
+                                                        <img src="./img/product/1676858646590.jpg" alt="" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li className={`kids-inner mwk-inner ${isShow==='KIDS'?' on':''}`}>
+                                            <div className="kids-inner-container mwk-inner-container">
+                                                <div className="left">
+                                                    <div className="title">
+                                                        <h1>KIDS</h1>
+                                                    </div>                                                    
+                                                    <div className='content'>
+                                                        <dl>
+                                                            <dt><Link to='/'>스포츠</Link></dt>
+                                                            <dd><Link to='/'>런닝화</Link></dd>
+                                                            <dd><Link to='/'>테니스화</Link></dd>
+                                                            <dd><Link to='/'>골프화</Link></dd>
+                                                            <dd><Link to='/'>등산화</Link></dd>
+                                                            <dd><Link to='/'>배드민턴화</Link></dd>
+                                                            <dd><Link to='/'>워킹화</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>캐주얼</Link></dt>
+                                                            <dd><Link to='/PRODUCT'>스니커즈</Link></dd>
+                                                            <dd><Link to='/'>데크슈즈</Link></dd>
+                                                            <dd><Link to='/'>워킹슈즈</Link></dd>
+                                                            <dd><Link to='/'>로퍼</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>구두</Link></dt>
+                                                            <dd><Link to='/'>로퍼</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                            <dd><Link to='/'>뮬/블로퍼</Link></dd>
+                                                            <dd><Link to='/'>몽크스트랩</Link></dd>
+                                                            <dd><Link to='/'>토오픈/슬링백</Link></dd>
+                                                            <dd><Link to='/'>레이스업</Link></dd>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt><Link to='/'>샌들</Link></dt>
+                                                            <dd><Link to='/'>슬라이드</Link></dd>
+                                                            <dd><Link to='/'>아쿠아슈즈</Link></dd>
+                                                            <dd><Link to='/'>스포츠샌들</Link></dd>
+                                                            <dd><Link to='/'>코르크샌들</Link></dd>
+                                                            <dd><Link to='/'>윈터샌들</Link></dd>
+                                                            <dd><Link to='/'>플립플랍</Link></dd>
+                                                            <dd><Link to='/'>레더샌들</Link></dd>
+                                                            <dd><Link to='/'>클로그샌들</Link></dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                                <div className="right">
+                                                    <a href="!#">
+                                                        <img src="./img/product/1688109728421.jpg" alt="" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ul>
                                     <div className={`back ${isShow!==''?' on':''}`}></div>
                                 </div>

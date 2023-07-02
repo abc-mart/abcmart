@@ -160,7 +160,7 @@ export default function BrandSection1Component({abcGrand, adidas, 아디다스AB
                             <ul>
                                 <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">HOME</a></li>
                                 <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">BRAND</a></li>
-                                <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">NIKE</a></li>
+                                <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">CONVERSE</a></li>
                             </ul>
                         </div>
                         <div className="row2">
@@ -230,7 +230,7 @@ export default function BrandSection1Component({abcGrand, adidas, 아디다스AB
                             <ul>
                                 <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">HOME</a></li>
                                 <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">BRAND</a></li>
-                                <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">NIKE</a></li>
+                                <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">VANS</a></li>
                             </ul>
                         </div>
                         <div className="row2">
@@ -300,7 +300,7 @@ export default function BrandSection1Component({abcGrand, adidas, 아디다스AB
                             <ul>
                                 <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">HOME</a></li>
                                 <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">BRAND</a></li>
-                                <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">NIKE</a></li>
+                                <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">NEW BALANCE</a></li>
                             </ul>
                         </div>
                         <div className="row2">

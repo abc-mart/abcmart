@@ -19,7 +19,7 @@ export default function ServiceComponent(props) {
                             <ul>
                                 <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">HOME</a></li>
                                 <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">고객센터</a></li>
-                                <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">공지사항</a></li>
+                                <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">{menu}</a></li>
                             </ul>
                         </div>
                         <div className="row2">

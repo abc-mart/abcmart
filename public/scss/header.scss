@@ -203,24 +203,100 @@
 										margin: 0 18px 0 0;
 										display: flex;
 										align-items: center;
+										position: relative;
+										&::after{
+											content: '';
+											position: absolute;
+											z-index: 11;
+											width: 0;
+											height: 0;
+											border-left: 8px solid transparent;
+											border-right: 8px solid transparent;
+											border-bottom: 8px solid transparent;
+											left: 50%;
+											bottom: 0;
+											transform: translateX(-50%);
+										}
+										&.on{
+											&::after{
+												border-bottom: 8px solid #fff;
+											}
+										}		
 									}
-									.MEN {
+									.MEN {										
 										height: 48px;
 										margin: 0 18px 0 18px;
 										display: flex;
 										align-items: center;
+										position: relative;
+										&::after{
+											content: '';
+											position: absolute;
+											z-index: 11;
+											width: 0;
+											height: 0;
+											border-left: 8px solid transparent;
+											border-right: 8px solid transparent;
+											border-bottom: 8px solid transparent;
+											left: 50%;
+											bottom: 0;
+											transform: translateX(-50%);
+										}
+										&.on{
+											&::after{
+												border-bottom: 8px solid #fff;
+											}
+										}											
 									}
 									.WOMEN {
 										height: 48px;
 										margin: 0 18px 0 18px;
 										display: flex;
 										align-items: center;
+										position: relative;
+										&::after{
+											content: '';
+											position: absolute;
+											z-index: 11;
+											width: 0;
+											height: 0;
+											border-left: 8px solid transparent;
+											border-right: 8px solid transparent;
+											border-bottom: 8px solid transparent;
+											left: 50%;
+											bottom: 0;
+											transform: translateX(-50%);
+										}
+										&.on{
+											&::after{
+												border-bottom: 8px solid #fff;
+											}
+										}	
 									}
 									.KIDS {
 										height: 48px;
 										margin: 0 18px 0 18px;
 										display: flex;
 										align-items: center;
+										position: relative;
+										&::after{
+											content: '';
+											position: absolute;
+											z-index: 11;
+											width: 0;
+											height: 0;
+											border-left: 8px solid transparent;
+											border-right: 8px solid transparent;
+											border-bottom: 8px solid transparent;
+											left: 50%;
+											bottom: 0;
+											transform: translateX(-50%);
+										}
+										&.on{
+											&::after{
+												border-bottom: 8px solid #fff;
+											}
+										}		
 									}
 									.SALE {
 										height: 48px;
@@ -233,7 +309,7 @@
 											font-weight: 500;
 										}
 									}
-									.hidden1 {
+									.brand-inner {
 										position: absolute;
 										top: 48px;
 										left: 0;
@@ -248,7 +324,7 @@
 											border-bottom: 2px solid #ee1c25;										
 											
 										}
-										.hidden1-container{
+										.brand-inner-container{
 											width: 1200px;
 											height: 600px;
 											margin: 0 auto;
@@ -487,7 +563,7 @@
 										
 										
 									}
-									.hidden2 {
+									.mwk-inner {
 										position: absolute;
 										top: 48px;
 										left: 0;
@@ -496,42 +572,80 @@
 										z-index: 10;
 										overflow: hidden;
 										transition: all 0.3s;
-										background-color: cornflowerblue;
+										background-color: #fff;
 										&.on {
-											height: 500px;
+											height: 600px;
+											border-bottom: 2px solid #ee1c25;
 										}
-										a{
-											margin: 300px;
-											color: #fff;
-											font-size: 50px;
+										.mwk-inner-container{											
+											display: flex;
+											width: 1260px;
+											margin: 0 auto;
+											padding: 40px 0;
+											.left{
+												width: 900px;
+												.title{
+													padding: 0 30px;
+													margin: 0 0 30px 0;
+													h1{
+														color: #000;
+														font-weight: 700;
+													}
+												}
+												.content{
+													display: flex;
+													dl{
+														padding: 8px 30px 10px 30px;
+														width: 25%;
+														border-left: 1px solid #ededed;
+														&:first-child{
+															border: 0;
+														}
+														dt{
+															width: 100%;														
+															padding: 0 0 20px 0;
+															margin: 0 0 25px 0;
+															border-bottom: 2px solid #000;
+															a{
+																font-size: 18px;
+																color: #000;
+																font-weight: 600;
+															}
+														}
+														dd{
+															width: 100%;
+															padding: 0 0 20px 0;
+															a{
+																font-size: 15px;
+																color: #666;
+																font-weight: 600;
+																&:hover{
+																	color: #ee1c25;
+																	text-decoration: underline;
+																	font-weight: 700;
+																}
+															}
+															
+														}
+													}
+												}
+												
+											}
+											.right{
+												width: 300px;
+												padding: 10px 0 0 0;
+												a{
+													display: block;
+												}
+											}
 										}
+										
 									}
-									.hidden3 {
-										position: absolute;
-										top: 48px;
-										left: 0;
-										width: 100%;
-										height: 0;
-										z-index: 10;
-										transition: all 0.3s;
-										background-color: fuchsia;
-										&.on {
-											height: 500px;
-										}
+									.men-inner{
+										
 									}
-									.hidden4 {
-										position: absolute;
-										top: 48px;
-										left: 0;
-										width: 100%;
-										height: 0;
-										z-index: 10;
-										transition: all 0.3s;
-										background-color: chartreuse;
-										&.on {
-											height: 500px;
-										}
-									}
+									.women-inner{}
+									.kids-inner{}
 								}
 								.back {
 									position: absolute;
