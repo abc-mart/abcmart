@@ -96,6 +96,12 @@
   position: absolute;
   left: -355%;
 }
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li1 .logout-figure {
+  width: 28px;
+}
+#header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li1 .logout-figure img {
+  left: -405%;
+}
 #header .wrap .container .gap .content .box1 .box1_3 ul a .box3_ul_li1 .h6 {
   margin: 3px 0 0 0;
   font-size: 10px;

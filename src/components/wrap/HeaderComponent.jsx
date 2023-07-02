@@ -119,12 +119,24 @@ export default function HeaderComponent({setSelectButton}){
                                                 <div className="h6">LOGIN</div>
                                             </li>
                                         </Link>
+                                        <a href="!#" className="a1">
+                                            <li className="box3_ul_li1">
+                                                <figure className='logout-figure'><img  src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
+                                                <div className="h6">LOGOUT</div>
+                                            </li>
+                                        </a>
                                         <a href="!#" className="a2">
                                             <li className="box3_ul_li2">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
                                                 <div className="h6">JOIN</div>
                                             </li>
                                         </a>
+                                        <Link to="/MYPAGE" className="a2">
+                                            <li className="box3_ul_li2">
+                                                <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
+                                                <div className="h6">MY</div>
+                                            </li>
+                                        </Link>
                                         <Link to="/CART" className="a3">
                                             <li className="box3_ul_li3">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
