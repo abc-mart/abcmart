@@ -46,7 +46,6 @@ export default function Section1Component(){
         let setId = 0;
         let imsi = null;
 
-        // $slideWrap.css({width: `${100 * (state.n+2)}%` });
         
         function mainNextSlide(){
             $slide.css({zIndex: 1, opacity:1});
