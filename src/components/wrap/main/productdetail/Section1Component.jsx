@@ -1,8 +1,27 @@
 import React from 'react';
 import '../scss/productdetail.scss';
 
-export default function Section1Component(){
+export default function Section1Component({d_key}){
+
+    const [state, setState] = React.useState({
+        shoes:{}
+    });
+
+    const {shoes} = state;
+
+    React.useEffect(()=>{
+        console.log(d_key);        
+        if(localStorage.getItem(d_key) !== null){
+            let result = JSON.parse(localStorage.getItem(d_key));
+            setState({
+                ...state,
+                shoes: result[0]
+            })
+        }
+    },[])
+
     return (
+        
         <section id='section1'>
             <div className="container">
                 <div className="gap">
@@ -22,7 +41,7 @@ export default function Section1Component(){
                         </div>
                         <div className="product-box">
                             <div className="left">
-                                <div className="big-img"><a href="!#"><img src="./img/detail/bigimg.jpg" alt="" /></a></div>
+                                <div className="big-img"><a href="!#"><img src={shoes.이미지} alt="" /></a></div>
                                 <div className="small-img-box">
                                     <span><img src="./img/detail/btn_icon_prev.png" alt="" /></span>
                                     <a href="!#"><img src="./img/detail/small_1.jpg" alt="" /></a>
@@ -61,7 +80,7 @@ export default function Section1Component(){
                                         <div className="brand-name">
                                             <div className="abcm">
                                                 <span>ABC-MART</span>
-                                                <a href="!#">휠라&ensp;&nbsp;</a>
+                                                <a href="!#">{shoes.제조사}&ensp;&nbsp;</a>
                                             </div>
                                         </div>
                                     </div>
@@ -73,17 +92,17 @@ export default function Section1Component(){
                                     </div>
                                 </div>
                                 <div className="txt">
-                                    <h2>엘리트 코드 v2</h2>
+                                    <h2>{shoes.제품명}</h2>
                                     <h5>ELITE COURT v2</h5>
                                     <ul>
                                         <li>스타일코드 : 1XM01970F</li>
                                         <li>상품코드 : 1010098951</li>
                                     </ul>
                                     <div className="price">
-                                        <span className='real-price'>79,000원</span>
-                                        <span className='sale-price'>63,000</span>
+                                        <span className='real-price'>{shoes.가격}</span>
+                                        <span className='sale-price'>{shoes.할인율==0? shoes.가격 : shoes.가격 * shoes.할인율}</span>
                                         <span className='won'>원</span>
-                                        <span className='discount-per'>[20%]</span>
+                                        <span className='discount-per'>{`[${shoes.할인율*100}%]`}</span>
                                         <img src="./img/detail/mypage_icon_tooltip_discount.png" alt="" />
                                     </div>
                                 </div>
