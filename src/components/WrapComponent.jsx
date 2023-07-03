@@ -36,7 +36,20 @@ export default function WrapComponent(){
       localStorage.getItem('NEW BALANCE') === 'true' ? true : false
     );
 
+    //men,women,kids
+    const [running1, setRunning1] = React.useState(
+        localStorage.getItem('런닝화M') === 'true' ? true : false
+    );
+    const [running2, setRunning2] = React.useState(
+        localStorage.getItem('런닝화W') === 'true' ? true : false
+    );
+    const [running3, setRunning3] = React.useState(
+        localStorage.getItem('런닝화K') === 'true' ? true : false
+    );
+
     React.useEffect(()=>{
+
+        //브랜드
         if(selectButton==='ADIDAS'){
             setAdidas(true);
 
@@ -78,6 +91,41 @@ export default function WrapComponent(){
             setVans(false);  
         }
 
+        // 남성, 여성, 아동
+        else if(selectButton==='런닝화M'){
+            setRunning1(true);
+
+            setRunning2(false);
+            setRunning3(false);
+            setNewbalance(false);  
+            setAdidas(false);
+            setNike(false);   
+            setConverse(false); 
+            setVans(false);  
+        }
+        else if(selectButton==='런닝화W'){
+            setRunning2(true);
+
+            setRunning1(false);
+            setRunning3(false);
+            setNewbalance(false);  
+            setAdidas(false);
+            setNike(false);   
+            setConverse(false); 
+            setVans(false);  
+        }
+        else if(selectButton==='런닝화K'){
+            setRunning3(true);
+
+            setRunning1(false);
+            setRunning2(false);
+            setNewbalance(false);  
+            setAdidas(false);
+            setNike(false);   
+            setConverse(false); 
+            setVans(false);  
+        }
+
     },[selectButton])
 
     React.useEffect(() => {
@@ -86,7 +134,12 @@ export default function WrapComponent(){
         localStorage.setItem('CONVERSE', converse);
         localStorage.setItem('VANS', vans);
         localStorage.setItem('NEW BALANCE', newbalance);
-    }, [adidas, nike, converse, vans, newbalance]);
+
+        //남성,여성, 아동
+        localStorage.setItem('런닝화M', running1);
+        localStorage.setItem('런닝화W', running2);
+        localStorage.setItem('런닝화K', running3);
+    }, [adidas, nike, converse, vans, newbalance, running1, running2, running3 ]);
 
 
     // 상품클릭 시 ProductDetail화면으로 이동
@@ -139,7 +192,7 @@ export default function WrapComponent(){
                         <Route index element={<IntroComponent/>}/>
                         <Route path='/INTRO' element={<IntroComponent />}/>                        
                         <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} />}/>
-                        <Route path='/PRODUCT' element={<ProductComponent setViewProductDetail={setViewProductDetail} />}/>
+                        <Route path='/PRODUCT' element={<ProductComponent running={running1}  setViewProductDetail={setViewProductDetail} />}/>
                         <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent/>}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/CART' element={<CartComponent/>}/>

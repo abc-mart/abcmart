@@ -34,6 +34,10 @@ input, button, label {
   cursor: pointer;
 }
 
+input[type=text] {
+  cursor: auto;
+}
+
 a {
   color: #626262;
   text-decoration: none;

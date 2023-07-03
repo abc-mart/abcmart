@@ -577,13 +577,24 @@
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content {
   display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 520px;
+  overflow-y: auto;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content::-webkit-scrollbar {
+  width: 5px;
+}
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content dl {
   padding: 8px 30px 10px 30px;
   width: 25%;
   border-left: 1px solid #ededed;
 }
-#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content dl:first-child {
+#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content dl:nth-child(4n+1) {
   border: 0;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content dl dt {
@@ -591,20 +602,17 @@
   padding: 0 0 20px 0;
   margin: 0 0 25px 0;
   border-bottom: 2px solid #000;
-}
-#header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content dl dt a {
   font-size: 18px;
   color: #000;
-  font-weight: 600;
+  font-weight: 700;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content dl dd {
   width: 100%;
   padding: 0 0 20px 0;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content dl dd a {
-  font-size: 15px;
-  color: #666;
-  font-weight: 600;
+  font-size: 14px;
+  color: #333;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .left .content dl dd a:hover {
   color: #ee1c25;
@@ -613,7 +621,7 @@
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .right {
   width: 300px;
-  padding: 10px 0 0 0;
+  padding: 10px 0 0 30px;
 }
 #header .wrap .container .gap .content .box2 .box2-container .box2_1 ul .mwk-inner .mwk-inner-container .right a {
   display: block;
