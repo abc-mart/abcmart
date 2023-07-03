@@ -144,21 +144,22 @@ export default function WrapComponent(){
 
     // 상품클릭 시 ProductDetail화면으로 이동
     const [productDetail, setProductDetail] = React.useState({
-        key: 'PRODUCTDETAILKEY',
+        d_key: 'PRODUCTDETAILKEY',
         sign: false,
         getProductDetail : []
     });
 
     // 비구조화
-    const {key, sign, getProductDetail} = productDetail;
+    const {d_key, sign, getProductDetail} = productDetail;
 
     const setViewProductDetail=(value)=>{
         let arr = [];
+        console.log('value  ' +value);
+        if(localStorage.getItem(d_key)!==null){
 
-        if(localStorage.getItem(key)!==null){
-            arr = JSON.parse(localStorage.getItem(key));
+            arr = JSON.parse(localStorage.getItem(d_key));
             arr = [value, ...arr]
-            localStorage.setItem(key, JSON.stringify(arr));
+            localStorage.setItem(d_key, JSON.stringify(arr));
             setProductDetail({
                 ...productDetail,
                 sign: !sign,
@@ -167,16 +168,15 @@ export default function WrapComponent(){
         }
         else{
             arr = [value]
-            localStorage.setItem(key, JSON.stringify(arr));
+            localStorage.setItem(d_key, JSON.stringify(arr));
             setProductDetail({
                 ...productDetail,
                 sign: !sign,
                 getProductDetail: arr
             });
         }
-
+      
     }
-
 
 
 
