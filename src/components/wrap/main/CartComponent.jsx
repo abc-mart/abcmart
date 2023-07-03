@@ -1,115 +1,121 @@
+/* eslint-disable no-restricted-globals */
 import React from 'react';
 import './scss/cart.scss';
 
 export default function CartComponent(){
 
-    // const [isDelete, setIsDelete] = React.useState(false);
-    // const [delCode, setDelCode] = React.useState('');
-    // const [isConfirm, setIsConfirm] = React.useState(false);
-    // const [isButtonSUB, setIsButtonSUB] = React.useState(false);
-    // const [isLogin, setLogin] = React.useState(true);
-    // const [cart, setCart] = React.useState([]);
-    // const [arr1, setArr1] = React.useState([]);
-    // const [arr2, setArr2] = React.useState([]);
-    // const [arr3, setArr3] = React.useState([]);
-    // const [isCheckAll, setIsCheckAll] = React.useState(false);
-    // const [isSelectDel, setIsSelectDel] = React.useState(false);
-    // const [checkAll, setCheckAll] = React.useState([]);
-    // const [check, setCheck] = React.useState([]);
+    const [isDelete, setIsDelete] = React.useState(false);
+    const [delCode, setDelCode] = React.useState('');
+    const [isConfirm, setIsConfirm] = React.useState(false);
+    const [isButtonSUB, setIsButtonSUB] = React.useState(false);
+    const [isLogin, setLogin] = React.useState(true);
+    const [cart, setCart] = React.useState([]);
+    const [arr1, setArr1] = React.useState([]);
+    const [arr2, setArr2] = React.useState([]);
+    const [arr3, setArr3] = React.useState([]);
+    const [isCheckAll, setIsCheckAll] = React.useState(false);
+    const [isSelectDel, setIsSelectDel] = React.useState(false);
+    const [checkAll, setCheckAll] = React.useState([]);
+    const [check, setCheck] = React.useState([]);
+
+    const onClickKeepShopping=(e)=>{
+        e.preventDefault();
+        history.go(-1);
+    }
     
    
-    // React.useEffect(()=>{
-    //     setIsCheckAll(true);
-    //     setCheck(checkAll);
-    // },[checkAll]);
+    React.useEffect(()=>{
+        setIsCheckAll(true);
+        setCheck(checkAll);
+    },[checkAll]);
 
-    // const onClickSelectDelete=(e)=>{
-    //     e.preventDefault();
-    //     setIsConfirm(true);
-    // }
+    const onClickSelectDelete=(e)=>{
+        e.preventDefault();
+        if(!confirm('삭제 하시겠습니까?'));
+    }
 
 
 
-    // // 체크 올 버튼
-    // const onClickCheckAll=(e)=>{
-    //     e.preventDefault();
-    //     if(isCheckAll===false){
-    //         setIsCheckAll(true);
-    //         setCheck(checkAll);
-    //     }
-    //     else{
-    //         setIsCheckAll(false);
-    //         setCheck([]);
-    //     }
-    // }
+    // 전체선택 버튼
+    const onClickCheckAll=(e)=>{
+        e.preventDefault();
+        if(isCheckAll===false){
+            setIsCheckAll(true);
+            setCheck(checkAll);
+        }
+        else{
+            setIsCheckAll(false);
+            setCheck([]);
+        }
+    }
 
-    // const  onChangeCheck=(e)=>{
-    //     let imsi = [];    
-    //     if( e.target.checked===true ){                
-    //         setCheck([...check, e.target.value]);       
-    //     }
-    //     else if( e.target.checked===false ){         
-    //         imsi = check.filter((item)=>item !== e.target.value);
-    //         setCheck(imsi);
-    //     } 
+    const  onChangeCheck=(e)=>{
+        let imsi = [];    
+        if( e.target.checked===true ){                
+            setCheck([...check, e.target.value]);       
+        }
+        else if( e.target.checked===false ){         
+            imsi = check.filter((item)=>item !== e.target.value);
+            setCheck(imsi);
+        } 
         
 
-    // }
+    }
 
-    // React.useEffect(()=>{
+    React.useEffect(()=>{
 
-    //     if( check.length===cart.length ){
-    //         setIsCheckAll(true);
-    //     }
-    //     else{
-    //         setIsCheckAll(false);
-    //     }
+        if( check.length===cart.length ){
+            setIsCheckAll(true);
+        }
+        else{
+            setIsCheckAll(false);
+        }
 
-    //     if( check.length > 0 ){
-    //         setIsSelectDel(true);
-    //     }
-    //     else{
-    //         setIsSelectDel(false);
-    //     }
+        if( check.length > 0 ){
+            setIsSelectDel(true);
+        }
+        else{
+            setIsSelectDel(false);
+        }
 
 
-    // },[cart.length, check]);
+    },[cart.length, check]);
 
-    // const [state, setState] = React.useState({
-    //     총상품금액: 0,    //  누계금액
-    //     상품할인금액: 0, // 누계금액
-    //     배송비: 0,      // 결정금액 
-    //     결재예정금액: 0  // 결정금액
-    // });
+    const [state, setState] = React.useState({
+        총결제금액: 0,
+        상품할인금액: 0,
+        배송비: 0,
+        결제예정금액: 0
+    });
 
-    // const {총상품금액,상품할인금액,배송비,결재예정금액} = state;
+    const {총결제금액,상품할인금액,배송비,결제예정금액} = state;
 
-    // const onClickSUB=(e, record)=>{
-    //     e.preventDefault();
-    //     console.log( record );
-    //     const result = cart.map((item)=>{
-    //         return( 
-    //             item.product_code===record.product_code ? ({...item, 수량: (item.수량 >= 2 ? item.수량-1 : 1), 총상품금액: Math.round((item.수량 >= 2 ? item.수량-1 : 1)*(item.정가*(1-item.할인율))) }) : ({...item})
-    //         )
-    //     });
+    const onClickSUB=(e, record)=>{
+        e.preventDefault();
+        console.log( record );
+        const result = cart.map((item)=>{
+            return( 
+                item.product_code===record.product_code ? ({...item, 수량: (item.수량 >= 2 ? item.수량-1 : 1), 총결제금액: Math.round((item.수량 >= 2 ? item.수량-1 : 1)*(item.정가*(1-item.할인율))) }) : ({...item})
+            )
+        });
 
-    //     setCart(result);
-    //     localStorage.setItem('ABCMARTCART', JSON.stringify(result));
-    // }
+        setCart(result);
+        localStorage.setItem('ABCMARTCART', JSON.stringify(result));
+    }
     
-    // const onClickADD=(e, record)=>{
-    //     e.preventDefault();
-    //     console.log( record );
-    //     const result = cart.map((item)=>{
-    //         return( 
-    //             item.product_code===record.product_code ? ({...item, 수량: (item.수량+1), 총상품금액: Math.round((item.수량+1)*(item.정가*(1-item.할인율))) }) : ({...item})
-    //         )
-    //     });
+    const onClickADD=(e, record)=>{
+        e.preventDefault();
+        console.log( record );
+        const result = cart.map((item)=>{
+            return( 
+                item.product_code===record.product_code ? ({...item, 수량: (item.수량+1), 총결제금액: Math.round((item.수량+1)*(item.정가*(1-item.할인율))) }) : ({...item})
+            )
+        });
 
-    //     setCart(result);
+        setCart(result);
 
-    //     localStorage.setItem('ABCMARTCART', JSON.stringify(result));
-    // }
+        localStorage.setItem('ABCMARTCART', JSON.stringify(result));
+    }
 
     // const onClickDel=(e, record)=>{
 
@@ -121,31 +127,6 @@ export default function CartComponent(){
     // React.useEffect(()=>{
     //     isDelete && setIsConfirm(true);
     // },[delCode, isDelete]);
-
-    // const onClickConfirmModalClose=(e, value)=>{
-    //     e.preventDefault();
-    //     let result='';
-
-    //     if(value==='확인'){          
-
-    //         if(isSelectDel===true){
-    //             result = cart.filter((item)=> !check.includes(item.제품코드) )
-    //         }
-    //         else{
-    //             result = cart.filter((item)=>item.제품코드!==delCode)
-    //         }
-
-    //         setCheck([]);
-    //         setCart( result );
-    //         localStorage.setItem('ABCMARTCART',  JSON.stringify(result));
-    //         initMethod();           
-    //     }
-    //     setDelCode('');
-    //     setIsConfirm(false);
-    //     setIsDelete(false);
-
-
-    // }
 
     // const initMethod=()=>{
         
@@ -194,25 +175,25 @@ export default function CartComponent(){
 
     // React.useEffect(()=>{
       
-    //     let 총상품금액 = 0;
+    //     let 총결제금액 = 0;
     //     let 상품할인금액 = 0;
     //     let 배송비 = 0;
-    //     let 결재예정금액 = 0;
+    //     let 결제예정금액 = 0;
 
     //     cart.map((item, idx)=>{
-    //         if(item.수량!==undefined && item.총상품금액!==undefined){
-    //             총상품금액 += Number(item.총상품금액);
+    //         if(item.수량!==undefined && item.총결제금액!==undefined){
+    //             총결제금액 += Number(item.총결제금액);
     //             상품할인금액 += Math.round(Number(item.정가)*Number(item.할인율));
-    //             배송비 = ((총상품금액-상품할인금액) < 40000 ? 3000 : 0);
-    //             결재예정금액 = (총상품금액-상품할인금액)+배송비
+    //             배송비 = ((총결제금액-상품할인금액) < 40000 ? 3000 : 0);
+    //             결제예정금액 = (총결제금액-상품할인금액)+배송비
     //         }
     //     });
 
     //     setState({
-    //         총상품금액: 총상품금액,
+    //         총결제금액: 총결제금액,
     //         상품할인금액: 상품할인금액,
     //         배송비: 배송비,
-    //         결재예정금액: 결재예정금액
+    //         결제예정금액: 결제예정금액
     //     })
 
     // },[cart]);
@@ -233,7 +214,7 @@ export default function CartComponent(){
                     <div className="delivery-category">
                         <ul>
                             <li className='on'><a href="!#">일반배송 <span>(4)</span></a></li>
-                            <li><a href="!#">아트배송 <span>(0)</span></a></li>
+                            {/* <li><a href="!#">아트배송 <span>(0)</span></a></li> */}
                         </ul>
                     </div>
                     <div className="content">
@@ -264,13 +245,13 @@ export default function CartComponent(){
                                 <div className="cart-container">
                                     <table>
                                         <tbody>
-                                            {/* {
+                                            {
                                                 cart.map((item, idx)=>{
                                                     return(
                                                         <tr key={idx}>
                                                             <td className='col1'>
                                                                 <span className='select-btn'>
-                                                                    <input type="checkbox"  id='select'/>
+                                                                    <input type="checkbox"  id='select' value={item.product_code}/>
                                                                     <label htmlFor='select'></label>
                                                                 </span>
                                                             </td>
@@ -278,12 +259,12 @@ export default function CartComponent(){
                                                                 <div className="product-box">
                                                                     <figure>
                                                                         <a href="!#">
-                                                                            <img src="./img/intro/06103_1679297266326.jpg" alt="" />
+                                                                            <img src={item.이미지} alt="" />
                                                                         </a>
                                                                     </figure>
                                                                     <div className="information">
                                                                         <h3>
-                                                                            컨버스
+                                                                            {item.제조사}
                                                                             <span className='icon-box'>
                                                                                 <i className='pickup'></i>
                                                                                 <i className='art-delivery'></i>
@@ -303,9 +284,9 @@ export default function CartComponent(){
                                                             </td>
                                                             <td className='col3'>
                                                                 <span>
-                                                                    <a className='sub-btn' href="!#"><em></em></a>
+                                                                    <a onClick={onClickSUB} className={`sub-btn ${item.수량===1?' on':''}`} href="!#"><em></em></a>
                                                                     <input type="number" />
-                                                                    <a className='add-btn' href="!#"><em></em></a>
+                                                                    <a onClick={onClickADD} className='add-btn' href="!#"><em></em></a>
                                                                 </span>
                                                                 <button>변경</button>
                                                             </td>
@@ -319,8 +300,8 @@ export default function CartComponent(){
                                                             </td>
                                                             <td className='col5'>
                                                                 <p>
-                                                                    <s className='cost-price'>59,000<em>원</em></s>
-                                                                    <strong className='discount-price'>53,100<em>원</em></strong>
+                                                                    {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
+                                                                    {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
                                                                     <span></span>
                                                                 </p>
                                                                 <button>쿠폰적용</button>
@@ -332,16 +313,16 @@ export default function CartComponent(){
                                                         </tr>
                                                     )
                                                 })
-                                            } */}
+                                            }
                                         </tbody>
 
                                     </table>
                                 </div>
                                 <div className="cart-footer">
                                     <div className="cart-btn-box">
-                                        <button className='select-delete-btn'>선택 삭제</button>
-                                        <button className='change-delivery-btn'>배송변경</button>
-                                        <button className='end-delete-btn'>품절/판매종료 삭제</button>
+                                        <button className='select-delete-btn' onClick={onClickSelectDelete}>선택 삭제</button>
+                                        {/* <button className='change-delivery-btn'>배송변경</button> */}
+                                        {/* <button className='end-delete-btn'>품절/판매종료 삭제</button> */}
                                     </div>
                                     <p>비로그인 상태에서 장바구니에 담긴 상품은 저장되지 않습니다.</p>
                                 </div>
@@ -404,7 +385,7 @@ export default function CartComponent(){
                                 </table>
                             </div>
                             <div className="main-button-box">
-                                <button className='keep-shopping'>계속 쇼핑하기</button>
+                                <button onClick={onClickKeepShopping} className='keep-shopping'>계속 쇼핑하기</button>
                                 <button className='select-product-order'>일반배송 선택상품 주문하기</button>
                                 <button className='all-product-order'>일반배송 전체상품 주문하기</button>
                             </div>
