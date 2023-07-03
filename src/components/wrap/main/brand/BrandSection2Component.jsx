@@ -149,8 +149,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         아디다스GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -174,7 +174,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -243,8 +243,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         나이키ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -268,7 +268,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -311,8 +311,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         나이키GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -336,7 +336,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -405,8 +405,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         컨버스ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -430,7 +430,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -473,8 +473,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         컨버스GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -498,7 +498,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -567,8 +567,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         반스ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -592,7 +592,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -635,8 +635,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         반스GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -660,7 +660,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -729,8 +729,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         뉴발란스ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-red'>{idx+1}</span>
@@ -754,7 +754,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>
@@ -797,8 +797,8 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         뉴발란스GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx}>
-                                                        <Link to='/PRODUCTDETAIL'>
+                                                    <li key={idx} d_key={idx}>
+                                                        <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
                                                                 <span className='rank-green'>{idx+1}</span>
@@ -822,7 +822,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                                                     {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </a>
                                                         <div className="inner-box">
                                                             <div className="inner-row1">
                                                                 <dl>

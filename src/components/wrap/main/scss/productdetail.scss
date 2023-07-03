@@ -41,7 +41,10 @@
                             width: 580px;
                             .big-img{
                                 padding: 0 0 10px 0;
-                                img{}
+                                img{
+                                    width: 590px;
+                                    height: 590px;
+                                }
                             }
                             .small-img-box{
                                 display: flex;
