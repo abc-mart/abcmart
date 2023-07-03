@@ -6,12 +6,56 @@ export default function Section1Component({d_key}){
 
     const [isCart, setIsCart] = React.useState(false);
     const [isCartOk, setIsCartOk] = React.useState(false);
+
+    const [cnt, setCnt] = React.useState(1);
     const [state, setState] = React.useState({
         cartKey:'ABCMARTCART',
         shoes:{}
     });
 
     const {shoes, cartKey} = state;
+
+
+    const onClickSize=(e, shoes)=>{
+        e.preventDefault();
+
+    }
+
+
+
+    React.useEffect(()=>{
+        setState({
+            ...state,
+            shoes : {
+                ...state,shoes,
+                수량: cnt,
+                총결제금액: Math.round(cnt*(shoes.가격-(shoes.가격 * shoes.할인율)))
+            }
+        })
+    },[cnt]);
+
+    const onClickMinus=(e)=>{
+        e.preventDefault();   
+        if(cnt>1){
+            setCnt(cnt-1);
+        }
+        else{
+            setCnt(1);
+        }
+    }
+
+    const onClickPlus=(e)=>{
+        e.preventDefault();
+        if(cnt>=1){
+            setCnt(cnt+1);
+        }   
+    }
+
+    const onClickX=(e)=>{
+        e.preventDefault();    
+    }
+
+
 
     React.useEffect(()=>{
         console.log(d_key);        
@@ -22,7 +66,9 @@ export default function Section1Component({d_key}){
                 shoes: result[0]
             })
         }
-    },[])
+    },[cnt])
+
+
 
     const onClickCart=(e)=>{
         e.preventDefault();
@@ -143,10 +189,10 @@ export default function Section1Component({d_key}){
                                         <li>상품코드 : 1010098951</li>
                                     </ul>
                                     <div className="price">
-                                        <span className='real-price'>{shoes.가격}</span>
+                                        <span className='real-price'>{shoes.할인율==0? '':shoes.가격}</span>
                                         <span className='sale-price'>{shoes.할인율==0? shoes.가격 : shoes.가격-(shoes.가격 * shoes.할인율)}</span>
                                         <span className='won'>원</span>
-                                        <span className='discount-per'>{`[${shoes.할인율*100}%]`}</span>
+                                        <span className='discount-per'>{shoes.할인율==0?'':`[${shoes.할인율*100}%]`}</span>
                                         <img src="./img/detail/mypage_icon_tooltip_discount.png" alt="" />
                                     </div>
                                 </div>
@@ -178,7 +224,7 @@ export default function Section1Component({d_key}){
                                                 <label><input type="radio" name='delivery' id='delivery'/><a href="!#"><img src="./img/detail/comm_art_delivery.png" alt="" /><img src="./img/detail/mypage_icon_tooltip_claim_black.png" alt="" /></a></label>                                                
                                                                                                 
                                                 <select name="" id="">
-                                                    <option disabled selected value="">배송지주소를 선택해주세요</option>
+                                                    <option disabled defaultValue >배송지주소를 선택해주세요</option>
                                                     <option value="예비">예비</option>
                                                     <option value="예비">예비</option>
                                                 </select>
@@ -191,25 +237,25 @@ export default function Section1Component({d_key}){
                                                 <a href="!#">매장별 재고확인<img src="./img/detail/" alt="" /></a>
                                             </div>
                                             <div className="size">
-                                                <a href="!#">220</a>
-                                                <a href="!#">230</a>
-                                                <a href="!#">240</a>
-                                                <a href="!#">250</a>
-                                                <a href="!#">260</a>
-                                                <a href="!#">270</a>
-                                                <a href="!#">280</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>220</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>230</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>240</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>250</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>260</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>270</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>280</a>
                                             </div>
                                         </li>
                                         <li>
                                             <span>관련용품 추가구매</span>
                                             <select name="chuga" id="">
-                                                <option value="" disabled selected>선택</option>
-                                                <option value="">인솔(키높이,남성)</option>
-                                                <option value="">컵 인솔(일반)</option>
-                                                <option value="">샴푸 (신발 클리너)</option>
-                                                <option value="">키위 프레쉬 포스 (신발 냄새 제거제)</option>
-                                                <option value="">인솔(키높이,남성)</option>
-                                                <option value="">컵 인솔(일반)</option>
+                                                <option disabled  defaultValue="default">선택</option>
+                                                <option value="인솔(키높이,남성)">인솔(키높이,남성)</option>
+                                                <option value="컵 인솔(일반)">컵 인솔(일반)</option>
+                                                <option value="샴푸 (신발 클리너)">샴푸 (신발 클리너)</option>
+                                                <option value="키위 프레쉬 포스 (신발 냄새 제거제)">키위 프레쉬 포스 (신발 냄새 제거제)</option>
+                                                <option value="인솔(키높이,남성)">인솔(키높이,남성)</option>
+                                                <option value="컵 인솔(일반)">컵 인솔(일반)</option>
                                             </select>
                                         </li>                                    
                                     </ul>
@@ -220,18 +266,18 @@ export default function Section1Component({d_key}){
                                         <span>230</span>
                                         <div className='ea-price'>
                                             <div className="number">
-                                                <a href="!#">-</a>
-                                                <div className="count">1</div>
-                                                <a href="!#">+</a>
+                                                <a href="!#" onClick={onClickMinus}>-</a>
+                                                <div className="count">{cnt}</div>
+                                                <a href="!#" onClick={onClickPlus}>+</a>
                                             </div>
-                                            <span>63,000 <i>원</i></span>
-                                            <a href="!#"><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                            <span>{Math.round(cnt*(shoes.가격-(shoes.가격 * shoes.할인율)))} <i>원</i></span>
+                                            <a href="!#" onClick={onClickX}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="total-price">
                                     <span className='total-txt'>총 결제금액</span>
-                                    <span className='money'>63,000 <i>원</i></span>
+                                    <span className='money'>{Math.round(cnt*(shoes.가격-(shoes.가격 * shoes.할인율)))} <i>원</i></span>
                                 </div>
                                 <div className="button-box">
                                     <button onClick={onClickCart}>장바구니</button>

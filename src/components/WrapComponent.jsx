@@ -191,9 +191,9 @@ export default function WrapComponent(){
                     <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} />}>
                         <Route index element={<IntroComponent/>}/>
                         <Route path='/INTRO' element={<IntroComponent />}/>                        
-                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} />}/>
-                        <Route path='/PRODUCT' element={<ProductComponent running={running1}  setViewProductDetail={setViewProductDetail} />}/>
-                        <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent/>}/>
+                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} d_key={d_key} />}/>
+                        <Route path='/PRODUCT' element={<ProductComponent running={running1}  setViewProductDetail={setViewProductDetail} d_key={d_key}/>}/>
+                        <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent d_key={d_key}/>}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/CART' element={<CartComponent/>}/>
                         <Route path='/LOGIN' element={<LoginComponent/>}/>
