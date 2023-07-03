@@ -1,13 +1,17 @@
+/* eslint-disable no-restricted-globals */
 import React from 'react';
 import '../scss/productdetail.scss';
 
 export default function Section1Component({d_key}){
 
+    const [isCart, setIsCart] = React.useState(false);
+    const [isCartOk, setIsCartOk] = React.useState(false);
     const [state, setState] = React.useState({
+        cartKey:'ABCMARTCART',
         shoes:{}
     });
 
-    const {shoes} = state;
+    const {shoes, cartKey} = state;
 
     React.useEffect(()=>{
         console.log(d_key);        
@@ -19,6 +23,46 @@ export default function Section1Component({d_key}){
             })
         }
     },[])
+
+    const onClickCart=(e)=>{
+        e.preventDefault();
+        if(isCart===false){
+            setState({
+                shoes:{
+                    ...state.shoes,
+                    cnt:1,
+                    총결제금액:Math.round(1*(shoes.가격*(1-shoes.할인율)))
+                }
+            })
+            if(confirm('장바구니로 이동하시겠습니까?')){
+                location.href="/CART";
+            }
+            else{
+                return false;
+            }
+        }
+        setIsCart(false);
+    }
+
+
+    React.useEffect(()=>{
+
+        let arr = [];
+
+        if(isCartOk===true){
+            setIsCartOk(false);
+            if(localStorage.getItem(cartKey)!==null){
+                arr = JSON.parse(localStorage.getItem(cartKey));
+                arr = [shoes, ...arr]
+                localStorage.setItem(cartKey, JSON.stringify(arr));
+            }
+            else{
+                arr = [shoes]
+                localStorage.setItem(cartKey, JSON.stringify(arr));
+            }
+        }
+
+    },[isCartOk]);
 
     return (
         
@@ -190,7 +234,7 @@ export default function Section1Component({d_key}){
                                     <span className='money'>63,000 <i>원</i></span>
                                 </div>
                                 <div className="button-box">
-                                    <button>장바구니</button>
+                                    <button onClick={onClickCart}>장바구니</button>
                                     <button>바로구매</button>
                                 </div>
                             </div>
