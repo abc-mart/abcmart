@@ -12,6 +12,8 @@ import LoginComponent from './wrap/main/LoginComponent';
 import ProductComponent from './wrap/main/ProductComponent';
 import ServiceComponent from './wrap/main/ServiceComponent';
 import MypageComponent from './wrap/main/MypageComponent';
+import SignupaComponent from './wrap/main/SignupaComponent';
+import SignupbComponent from './wrap/main/SignupbComponent';
 
 
 
@@ -144,22 +146,22 @@ export default function WrapComponent(){
 
     // 상품클릭 시 ProductDetail화면으로 이동
     const [productDetail, setProductDetail] = React.useState({
-        d_key: 'PRODUCTDETAILKEY',
+        dkey: 'PRODUCTDETAILKEY',
         sign: false,
         getProductDetail : []
     });
 
     // 비구조화
-    const {d_key, sign, getProductDetail} = productDetail;
+    const {dkey, sign, getProductDetail} = productDetail;
 
     const setViewProductDetail=(value)=>{
         let arr = [];
         console.log('value  ' +value);
-        if(localStorage.getItem(d_key)!==null){
+        if(localStorage.getItem(dkey)!==null){
 
-            arr = JSON.parse(localStorage.getItem(d_key));
+            arr = JSON.parse(localStorage.getItem(dkey));
             arr = [value, ...arr]
-            localStorage.setItem(d_key, JSON.stringify(arr));
+            localStorage.setItem(dkey, JSON.stringify(arr));
             setProductDetail({
                 ...productDetail,
                 sign: !sign,
@@ -168,7 +170,7 @@ export default function WrapComponent(){
         }
         else{
             arr = [value]
-            localStorage.setItem(d_key, JSON.stringify(arr));
+            localStorage.setItem(dkey, JSON.stringify(arr));
             setProductDetail({
                 ...productDetail,
                 sign: !sign,
@@ -191,12 +193,14 @@ export default function WrapComponent(){
                     <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} />}>
                         <Route index element={<IntroComponent/>}/>
                         <Route path='/INTRO' element={<IntroComponent />}/>                        
-                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} d_key={d_key} />}/>
-                        <Route path='/PRODUCT' element={<ProductComponent running1={running1} running2={running2} running3={running3} setViewProductDetail={setViewProductDetail} d_key={d_key}/>}/>
-                        <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent d_key={d_key}/>}/>
+                        <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} dkey={dkey} />}/>
+                        <Route path='/PRODUCT' element={<ProductComponent running={running1}  setViewProductDetail={setViewProductDetail} dkey={dkey}/>}/>
+                        <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent dkey={dkey}/>}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/CART' element={<CartComponent/>}/>
                         <Route path='/LOGIN' element={<LoginComponent/>}/>
+                        <Route path='/SIGNUPA' element={<SignupaComponent/>}/>
+                        <Route path='/SIGNUPB' element={<SignupbComponent/>}/>
                         <Route path='/MYPAGE' element={<MypageComponent/>}/>
                         <Route path='SERVICE' element={<ServiceComponent/>}/>
 

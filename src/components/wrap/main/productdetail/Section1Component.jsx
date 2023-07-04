@@ -2,26 +2,28 @@
 import React from 'react';
 import '../scss/productdetail.scss';
 
-export default function Section1Component({d_key}){
+export default function Section1Component({dkey}){
 
     const [isCart, setIsCart] = React.useState(false);
     const [isCartOk, setIsCartOk] = React.useState(false);
 
-    const [cnt, setCnt] = React.useState(1);
+    const [cnt, setCnt] = React.useState([0, 0, 0, 0, 0, 0, 0]);
+
     const [state, setState] = React.useState({
         cartKey:'ABCMARTCART',
         shoes:{}
     });
 
     const {shoes, cartKey} = state;
+    // console.log(cartKey); 
 
-
-    const onClickSize=(e, shoes)=>{
-        e.preventDefault();
-
-    }
-
-
+    let size220 = Math.round(cnt[0]*(shoes.가격-(shoes.가격 * shoes.할인율)));
+    let size230 = Math.round(cnt[1]*(shoes.가격-(shoes.가격 * shoes.할인율)));
+    let size240 = Math.round(cnt[2]*(shoes.가격-(shoes.가격 * shoes.할인율)));
+    let size250 = Math.round(cnt[3]*(shoes.가격-(shoes.가격 * shoes.할인율)));
+    let size260 = Math.round(cnt[4]*(shoes.가격-(shoes.가격 * shoes.할인율)));
+    let size270 = Math.round(cnt[5]*(shoes.가격-(shoes.가격 * shoes.할인율)));
+    let size280 = Math.round(cnt[6]*(shoes.가격-(shoes.가격 * shoes.할인율)));
 
     React.useEffect(()=>{
         setState({
@@ -34,33 +36,64 @@ export default function Section1Component({d_key}){
         })
     },[cnt]);
 
-    const onClickMinus=(e)=>{
+    const onClickMinus=(e, n)=>{
         e.preventDefault();   
-        if(cnt>1){
-            setCnt(cnt-1);
+        if(cnt[n]>1){
+            cnt[n] = (cnt[n]-1);
         }
         else{
-            setCnt(1);
+            cnt[n] = 1;
         }
+        setCnt([...cnt]);
     }
 
-    const onClickPlus=(e)=>{
+    const onClickPlus=(e, n)=>{
         e.preventDefault();
-        if(cnt>=1){
-            setCnt(cnt+1);
+        if(cnt[n]>=1){
+            cnt[n]= cnt[n]+1;
         }   
+        setCnt([...cnt]);
     }
 
-    const onClickX=(e)=>{
-        e.preventDefault();    
+
+    // 사이즈박스 출력 및 삭제
+
+    const [isSizeShow, setIsSizeShow] = React.useState([false, false, false, false, false, false, false]);
+    
+
+    const onClickSize=(e, n)=>{
+        e.preventDefault();
+        if(isSizeShow[n] === false){
+            isSizeShow[n]=true;
+        }
+        setIsSizeShow([...isSizeShow]);
+
+        if(cnt[n]>=0){
+            cnt[n] = 1;
+        }
+        setCnt([...cnt]);
+    }
+
+    const onClickX=(e, n)=>{
+        e.preventDefault(); 
+        if(isSizeShow[n] === true){
+            isSizeShow[n]=false;
+        }
+        setIsSizeShow([...isSizeShow]);  
+        
+        if(cnt[n]>=1){
+            cnt[n] = 0;
+        }
+        setCnt([...cnt]);
+                     
     }
 
 
 
     React.useEffect(()=>{
-        console.log(d_key);        
-        if(localStorage.getItem(d_key) !== null){
-            let result = JSON.parse(localStorage.getItem(d_key));
+                
+        if(localStorage.getItem(dkey) !== null){
+            let result = JSON.parse(localStorage.getItem(dkey));
             setState({
                 ...state,
                 shoes: result[0]
@@ -88,6 +121,7 @@ export default function Section1Component({d_key}){
             }
         }
         setIsCart(false);
+        setIsCartOk(true);
     }
 
 
@@ -189,8 +223,8 @@ export default function Section1Component({d_key}){
                                         <li>상품코드 : 1010098951</li>
                                     </ul>
                                     <div className="price">
-                                        <span className='real-price'>{shoes.할인율===0? '':shoes.가격}</span>
-                                        <span className='sale-price'>{shoes.할인율===0? shoes.가격 : (shoes.가격-(shoes.가격*shoes.할인율))}</span>
+                                        <span className='real-price'>{shoes.할인율==0? '':shoes.가격}</span>
+                                        <span className='sale-price'>{shoes.할인율==0? shoes.가격.toLocaleString() : (shoes.가격-(shoes.가격 * shoes.할인율)).toLocaleString()}</span>
                                         <span className='won'>원</span>
                                         <span className='discount-per'>{shoes.할인율===0?'':`[${shoes.할인율*100}%]`}</span>
                                         <img src="./img/detail/mypage_icon_tooltip_discount.png" alt="" />
@@ -224,9 +258,8 @@ export default function Section1Component({d_key}){
                                                 <label><input type="radio" name='delivery' id='delivery'/><a href="!#"><img src="./img/detail/comm_art_delivery.png" alt="" /><img src="./img/detail/mypage_icon_tooltip_claim_black.png" alt="" /></a></label>                                                
                                                                                                 
                                                 <select name="" id="">
-                                                    <option disabled defaultValue >배송지주소를 선택해주세요</option>
-                                                    <option value="예비">예비</option>
-                                                    <option value="예비">예비</option>
+                                                    <option defaultValue >배송지주소를 선택해주세요</option>
+                                                    <option value="예비">준비중입니다</option>                                                    
                                                 </select>
                                                 
                                             </div>
@@ -237,13 +270,13 @@ export default function Section1Component({d_key}){
                                                 <a href="!#">매장별 재고확인<img src="./img/detail/" alt="" /></a>
                                             </div>
                                             <div className="size">
-                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>220</a>
-                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>230</a>
-                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>240</a>
-                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>250</a>
-                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>260</a>
-                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>270</a>
-                                                <a href="!#" onClick={(e)=>onClickSize(e, shoes)}>280</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, 0)}>220</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, 1)}>230</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, 2)}>240</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, 3)}>250</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, 4)}>260</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, 5)}>270</a>
+                                                <a href="!#" onClick={(e)=>onClickSize(e, 6)}>280</a>
                                             </div>
                                         </li>
                                         <li>
@@ -262,22 +295,94 @@ export default function Section1Component({d_key}){
 
                                 </div>
                                 <div className="choice">
-                                    <div className="choice-product">
+                                    <div className={`choice-product${isSizeShow[0]?' on':''}`}>
+                                        <span>220</span>
+                                        <div className='ea-price'>
+                                            <div className="number">
+                                                <a href="!#" onClick={(e)=>onClickMinus(e, 0)}>-</a>
+                                                <div className="count">{cnt[0]}</div>
+                                                <a href="!#" onClick={(e)=>onClickPlus(e, 0)}>+</a>
+                                            </div>
+                                            <span>{size220.toLocaleString()} <i>원</i></span>
+                                            <a href="!#" onClick={(e)=>onClickX(e, 0)}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <div className={`choice-product${isSizeShow[1]?' on':''}`}>
                                         <span>230</span>
                                         <div className='ea-price'>
                                             <div className="number">
-                                                <a href="!#" onClick={onClickMinus}>-</a>
-                                                <div className="count">{cnt}</div>
-                                                <a href="!#" onClick={onClickPlus}>+</a>
+                                                <a href="!#" onClick={(e)=>onClickMinus(e, 1)}>-</a>
+                                                <div className="count">{cnt[1]}</div>
+                                                <a href="!#" onClick={(e)=>onClickPlus(e, 1)}>+</a>
                                             </div>
-                                            <span>{Math.round(cnt*(shoes.가격-(shoes.가격 * shoes.할인율)))} <i>원</i></span>
-                                            <a href="!#" onClick={onClickX}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                            <span>{size230.toLocaleString()} <i>원</i></span>
+                                            <a href="!#" onClick={(e)=>onClickX(e, 1)}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <div className={`choice-product${isSizeShow[2]?' on':''}`}>
+                                        <span>240</span>
+                                        <div className='ea-price'>
+                                            <div className="number">
+                                                <a href="!#" onClick={(e)=>onClickMinus(e, 2)}>-</a>
+                                                <div className="count">{cnt[2]}</div>
+                                                <a href="!#" onClick={(e)=>onClickPlus(e, 2)}>+</a>
+                                            </div>
+                                            <span>{size240.toLocaleString()} <i>원</i></span>
+                                            <a href="!#" onClick={(e)=>onClickX(e, 2)}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <div className={`choice-product${isSizeShow[3]?' on':''}`}>
+                                        <span>250</span>
+                                        <div className='ea-price'>
+                                            <div className="number">
+                                                <a href="!#" onClick={(e)=>onClickMinus(e, 3)}>-</a>
+                                                <div className="count">{cnt[3]}</div>
+                                                <a href="!#" onClick={(e)=>onClickPlus(e, 3)}>+</a>
+                                            </div>
+                                            <span>{size250.toLocaleString()} <i>원</i></span>
+                                            <a href="!#" onClick={(e)=>onClickX(e, 3)}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <div className={`choice-product${isSizeShow[4]?' on':''}`}>
+                                        <span>260</span>
+                                        <div className='ea-price'>
+                                            <div className="number">
+                                                <a href="!#" onClick={(e)=>onClickMinus(e, 4)}>-</a>
+                                                <div className="count">{cnt[4]}</div>
+                                                <a href="!#" onClick={(e)=>onClickPlus(e, 4)}>+</a>
+                                            </div>
+                                            <span>{size260.toLocaleString()} <i>원</i></span>
+                                            <a href="!#" onClick={(e)=>onClickX(e, 4)}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <div className={`choice-product${isSizeShow[5]?' on':''}`}>
+                                        <span>270</span>
+                                        <div className='ea-price'>
+                                            <div className="number">
+                                                <a href="!#" onClick={(e)=>onClickMinus(e, 5)}>-</a>
+                                                <div className="count">{cnt[5]}</div>
+                                                <a href="!#" onClick={(e)=>onClickPlus(e, 5)}>+</a>
+                                            </div>
+                                            <span>{size270.toLocaleString()} <i>원</i></span>
+                                            <a href="!#" onClick={(e)=>onClickX(e, 5)}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <div className={`choice-product${isSizeShow[6]?' on':''}`}>
+                                        <span>280</span>
+                                        <div className='ea-price'>
+                                            <div className="number">
+                                                <a href="!#" onClick={(e)=>onClickMinus(e, 6)}>-</a>
+                                                <div className="count">{cnt[6]}</div>
+                                                <a href="!#" onClick={(e)=>onClickPlus(e, 6)}>+</a>
+                                            </div>
+                                            <span>{size280.toLocaleString()} <i>원</i></span>
+                                            <a href="!#" onClick={(e)=>onClickX(e, 6)}><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="total-price">
                                     <span className='total-txt'>총 결제금액</span>
-                                    <span className='money'>{Math.round(cnt*(shoes.가격-(shoes.가격 * shoes.할인율)))} <i>원</i></span>
+                                    <span className='money'>{(size220+size230+size240+size250+size260+size270+size280).toLocaleString()}<i>원</i></span>
                                 </div>
                                 <div className="button-box">
                                     <button onClick={onClickCart}>장바구니</button>
