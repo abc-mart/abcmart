@@ -134,11 +134,11 @@ export default function Section1Component({dkey}){
             if(localStorage.getItem(cartKey)!==null){
                 arr = JSON.parse(localStorage.getItem(cartKey));
                 arr = [shoes, ...arr]
-                localStorage.setItem(cartKey, JSON.stringify(arr));
+                localStorage.setItem('ABCMARTCART', JSON.stringify(arr));
             }
             else{
                 arr = [shoes]
-                localStorage.setItem(cartKey, JSON.stringify(arr));
+                localStorage.setItem('ABCMARTCART', JSON.stringify(arr));
             }
         }
 
