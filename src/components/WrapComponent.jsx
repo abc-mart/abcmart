@@ -14,6 +14,7 @@ import ServiceComponent from './wrap/main/ServiceComponent';
 import MypageComponent from './wrap/main/MypageComponent';
 import SignupaComponent from './wrap/main/SignupaComponent';
 import SignupbComponent from './wrap/main/SignupbComponent';
+import KidsComponent from './wrap/main/KidsComponent';
 
 
 
@@ -202,7 +203,9 @@ export default function WrapComponent(){
                         <Route path='/SIGNUPA' element={<SignupaComponent/>}/>
                         <Route path='/SIGNUPB' element={<SignupbComponent/>}/>
                         <Route path='/MYPAGE' element={<MypageComponent/>}/>
-                        <Route path='SERVICE' element={<ServiceComponent/>}/>
+                        <Route path='/SERVICE' element={<ServiceComponent/>}/>
+                        <Route path='/KIDS' element={<KidsComponent/>}/>
+                        
                         <Route path='/*' element={<NotFoundComponent/>}/>
                         
                     </Route>

@@ -971,7 +971,7 @@ export default function HeaderComponent({setSelectButton}){
                                 <div className="box2_2">
                                     <ul>
                                         <li><a href="/EVENT">기획전</a></li>
-                                        <li><a href="!#">KIDS마트</a></li>
+                                        <li><Link to="/KIDS">KIDS마트</Link></li>
                                         <li><a href="!#">ONLY ABC</a></li>
                                         <li><a href="!#">이벤트/쿠폰</a></li>
                                     </ul>
