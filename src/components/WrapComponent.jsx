@@ -12,6 +12,7 @@ import LoginComponent from './wrap/main/LoginComponent';
 import ProductComponent from './wrap/main/ProductComponent';
 import ServiceComponent from './wrap/main/ServiceComponent';
 import MypageComponent from './wrap/main/MypageComponent';
+import TopCookieComponent from './wrap/TopCookieComponent';
 import SignupaComponent from './wrap/main/SignupaComponent';
 import SignupbComponent from './wrap/main/SignupbComponent';
 import KidsComponent from './wrap/main/KidsComponent';
@@ -182,13 +183,66 @@ export default function WrapComponent(){
     }
 
 
+    // 탑쿠키
+    const [topCookie, setTopCookie] = React.useState({
+        key: 'TOPCOOKIE',
+        isTopCookie: true
+    })
 
+    const topCookieClose=(value, expires)=>{
+        setTopCookie({
+            ...topCookie,
+            isTopCookie: false
+        })
+        setCookieMethod(value, expires);
+    }
 
+    const setCookieMethod=(value, expires)=>{
+        let today = new Date();
+        today.setDate(today.getDate() + expires);
+        document.cookie = `${topCookie.key}=${value}; path=/; expires=${today.toUTCString()};`;
+    }
+
+    const getCookieMethod=()=>{
+        if(document.cookie==='') return;
+
+        try{
+            const result = document.cookie.split(';');
+
+            let cookie = [];
+            result.map((item, idx)=>{
+                cookie[idx] = {
+                    key: item.split('=')[0].trim(),
+                    value: item.split('=')[1].trim()
+                }
+            });
+
+            cookie.map((item)=>{
+                if(item.key.includes(topCookie.key)===true && item.value.includes('yes')===true){
+                    setTopCookie({
+                        ...topCookie,
+                        isTopCookie:false
+                    })
+                    return;
+                }
+            })
+        }
+        catch(e){
+            console.log('쿠키X',e);
+        }
+    }
+
+    React.useEffect(()=>{
+        getCookieMethod();
+    },[topCookie.isTopCookie]);
 
 
 
     return (
         <div id='wrap'>
+            {
+                topCookie.isTopCookie && <TopCookieComponent topCookieClose={topCookieClose}/>
+            }        
             <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Routes>                    
                     <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} />}>
