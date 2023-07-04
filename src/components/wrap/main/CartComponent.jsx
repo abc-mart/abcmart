@@ -2,95 +2,25 @@
 import React from 'react';
 import './scss/cart.scss';
 
-export default function CartComponent({cartKey}){
+export default function CartComponent(){
 
-    const [isDelete, setIsDelete] = React.useState(false);
-    const [delCode, setDelCode] = React.useState('');
-    const [isConfirm, setIsConfirm] = React.useState(false);
-    const [isButtonSUB, setIsButtonSUB] = React.useState(false);
-    const [isLogin, setLogin] = React.useState(true);
     const [cart, setCart] = React.useState([]);
-    const [isCheckAll, setIsCheckAll] = React.useState(false);
     const [isSelectDel, setIsSelectDel] = React.useState(false);
-    const [checkAll, setCheckAll] = React.useState([]);
-    const [check, setCheck] = React.useState([]);
 
     const onClickKeepShopping=(e)=>{
         e.preventDefault();
         history.go(-1);
     }
-    
-   
-    // React.useEffect(()=>{
-    //     setIsCheckAll(true);
-    //     setCheck(checkAll);
-    // },[checkAll]);
 
-    // const onClickSelectDelete=(e)=>{
-    //     e.preventDefault();
-    //     if(confirm('삭제 하시겠습니까?')){
-    //         setIsSelectDel(true);
-    //     }
-    //     else{
-    //         return false;
-    //     }
-    // }
-
-
-
-    // 전체선택 버튼
-    // const onClickCheckAll=(e)=>{
-    //     e.preventDefault();
-    //     if(isCheckAll===false){
-    //         setIsCheckAll(true);
-    //         setCheck(checkAll);
-    //     }
-    //     else{
-    //         setIsCheckAll(false);
-    //         setCheck([]);
-    //     }
-    // }
-
-    // const  onChangeCheck=(e)=>{
-    //     let arr = [];    
-    //     if( e.target.checked===true ){                
-    //         setCheck([...check, e.target.value]);       
-    //     }
-    //     else if( e.target.checked===false ){         
-    //         arr = check.filter((item)=>item !== e.target.value);
-    //         setCheck(arr);
-    //     } 
-        
-
-    // }
-
-    // React.useEffect(()=>{
-
-    //     if( check.length===cart.length ){
-    //         setIsCheckAll(true);
-    //     }
-    //     else{
-    //         setIsCheckAll(false);
-    //     }
-
-    //     if( check.length > 0 ){
-    //         setIsSelectDel(true);
-    //     }
-    //     else{
-    //         setIsSelectDel(false);
-    //     }
-
-
-    // },[cart.length, check]);
-
-    // const [state, setState] = React.useState({
-    //     총결제금액: 0,
-    //     상품할인금액: 0,
-    //     배송비: 0,
-    //     결제예정금액: 0
-    // });
-
-    // const {총결제금액,상품할인금액,배송비,결제예정금액} = state;
+    const onClickSelectDelete=(e)=>{
+        e.preventDefault();
+        if(confirm('삭제 하시겠습니까?')){
+            setIsSelectDel(true);
+        }
+        else{
+            return false;
+        }
+    }
 
     const onClickSUB=(e, record)=>{
         e.preventDefault();
@@ -102,7 +32,7 @@ export default function CartComponent({cartKey}){
         });
 
         setCart(result);
-        localStorage.setItem(cartKey, JSON.stringify(result));
+        localStorage.setItem('ABCMARTCART', JSON.stringify(result));
     }
     
     const onClickADD=(e, record)=>{
@@ -116,19 +46,13 @@ export default function CartComponent({cartKey}){
 
         setCart(result);
 
-        localStorage.setItem(cartKey, JSON.stringify(result));
+        localStorage.setItem('ABCMARTCART', JSON.stringify(result));
     }
-
-    // const onClickDel=(e, record)=>{
-    //     e.preventDefault();
-    //     setIsDelete(true);
-    //     setDelCode(record.제품코드);
-    // }
 
     const initMethod=()=>{
         
-        if( localStorage.getItem(cartKey)!==null ){
-            let result = JSON.parse(localStorage.getItem(cartKey));
+        if( localStorage.getItem('ABCMARTCART')!==null ){
+            let result = JSON.parse(localStorage.getItem('ABCMARTCART'));
     
             setCart(result);
             setIsSelectDel(false);
@@ -139,30 +63,7 @@ export default function CartComponent({cartKey}){
         initMethod();
     },[]);
 
-    // React.useEffect(()=>{
-      
-    //     let 총결제금액 = 0;
-    //     let 상품할인금액 = 0;
-    //     let 배송비 = 0;
-    //     let 결제예정금액 = 0;
 
-    //     cart.map((item, idx)=>{
-    //         if(item.cnt!==undefined && item.총결제금액!==undefined){
-    //             총결제금액 += Number(item.총결제금액);
-    //             상품할인금액 += Math.round(Number(item.가격)*Number(item.할인율));
-    //             배송비 = ((총결제금액-상품할인금액) < 40000 ? 3000 : 0);
-    //             결제예정금액 = (총결제금액-상품할인금액)+배송비
-    //         }
-    //     });
-
-    //     setState({
-    //         총결제금액: 총결제금액,
-    //         상품할인금액: 상품할인금액,
-    //         배송비: 배송비,
-    //         결제예정금액: 결제예정금액
-    //     })
-
-    // },[cart]);
 
 
     return (
@@ -287,7 +188,7 @@ export default function CartComponent({cartKey}){
                                 </div>
                                 <div className="cart-footer">
                                     <div className="cart-btn-box">
-                                        {/* <button className='select-delete-btn' onClick={onClickSelectDelete}>선택 삭제</button> */}
+                                        <button className='select-delete-btn' onClick={onClickSelectDelete}>선택 삭제</button>
                                         <button className='change-delivery-btn'>배송변경</button>
                                         <button className='end-delete-btn'>품절/판매종료 삭제</button>
                                     </div>

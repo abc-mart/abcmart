@@ -146,8 +146,8 @@ export default function Section1Component({dkey}){
 
 
     React.useEffect(()=>{
-        if(localStorage.getItem(cartKey)!==null){
-            let arr = JSON.parse(localStorage.getItem(cartKey));
+        if(localStorage.getItem('ABCMARTCART')!==null){
+            let arr = JSON.parse(localStorage.getItem('ABCMARTCART'));
         }
         // wrapcomponent에서 수량증가함수 가져오기
     },[]);
