@@ -86,7 +86,7 @@ export default function BrandComponent({adidas, nike, converse, vans, newbalance
                 abcChange={abcChange} grandChange={grandChange} abcGrand={abcGrand}
                 setViewProductDetail={setViewProductDetail} dkey={dkey}
             />
-            <BrandSection3Component 
+            <BrandSection3Component
                 nike={nike} 나이키ABC={state.나이키ABC} 나이키GRAND={state.나이키GRAND} 
                 adidas={adidas} 아디다스ABC={state.아디다스ABC} 아디다스GRAND={state.아디다스GRAND} 
                 converse={converse}  컨버스ABC={state.컨버스ABC} 컨버스GRAND={state.컨버스GRAND} 
