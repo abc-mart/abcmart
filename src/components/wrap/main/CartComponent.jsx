@@ -4,98 +4,30 @@ import './scss/cart.scss';
 
 export default function CartComponent(){
 
-    const [isDelete, setIsDelete] = React.useState(false);
-    const [delCode, setDelCode] = React.useState('');
-    const [isConfirm, setIsConfirm] = React.useState(false);
-    const [isButtonSUB, setIsButtonSUB] = React.useState(false);
-    const [isLogin, setLogin] = React.useState(true);
     const [cart, setCart] = React.useState([]);
-    const [arr1, setArr1] = React.useState([]);
-    const [arr2, setArr2] = React.useState([]);
-    const [arr3, setArr3] = React.useState([]);
-    const [isCheckAll, setIsCheckAll] = React.useState(false);
     const [isSelectDel, setIsSelectDel] = React.useState(false);
-    const [checkAll, setCheckAll] = React.useState([]);
-    const [check, setCheck] = React.useState([]);
 
     const onClickKeepShopping=(e)=>{
         e.preventDefault();
         history.go(-1);
     }
-    
-   
-    React.useEffect(()=>{
-        setIsCheckAll(true);
-        setCheck(checkAll);
-    },[checkAll]);
 
     const onClickSelectDelete=(e)=>{
         e.preventDefault();
-        if(!confirm('삭제 하시겠습니까?'));
-    }
-
-
-
-    // 전체선택 버튼
-    const onClickCheckAll=(e)=>{
-        e.preventDefault();
-        if(isCheckAll===false){
-            setIsCheckAll(true);
-            setCheck(checkAll);
-        }
-        else{
-            setIsCheckAll(false);
-            setCheck([]);
-        }
-    }
-
-    const  onChangeCheck=(e)=>{
-        let imsi = [];    
-        if( e.target.checked===true ){                
-            setCheck([...check, e.target.value]);       
-        }
-        else if( e.target.checked===false ){         
-            imsi = check.filter((item)=>item !== e.target.value);
-            setCheck(imsi);
-        } 
-        
-
-    }
-
-    React.useEffect(()=>{
-
-        if( check.length===cart.length ){
-            setIsCheckAll(true);
-        }
-        else{
-            setIsCheckAll(false);
-        }
-
-        if( check.length > 0 ){
+        if(confirm('삭제 하시겠습니까?')){
             setIsSelectDel(true);
         }
         else{
-            setIsSelectDel(false);
+            return false;
         }
-
-
-    },[cart.length, check]);
-
-    const [state, setState] = React.useState({
-        총결제금액: 0,
-        상품할인금액: 0,
-        배송비: 0,
-        결제예정금액: 0
-    });
-
-    const {총결제금액,상품할인금액,배송비,결제예정금액} = state;
+    }
 
     const onClickSUB=(e, record)=>{
         e.preventDefault();
         console.log( record );
         const result = cart.map((item)=>{
             return( 
-                item.product_code===record.product_code ? ({...item, 수량: (item.수량 >= 2 ? item.수량-1 : 1), 총결제금액: Math.round((item.수량 >= 2 ? item.수량-1 : 1)*(item.정가*(1-item.할인율))) }) : ({...item})
+                item.product_code===record.product_code ? ({...item, cnt: (item.cnt >= 2 ? item.cnt-1 : 1), 총결제금액: Math.round((item.cnt >= 2 ? item.cnt-1 : 1)*(item.가격*(1-item.할인율))) }) : ({...item})
             )
         });
 
@@ -108,7 +40,7 @@ export default function CartComponent(){
         console.log( record );
         const result = cart.map((item)=>{
             return( 
-                item.product_code===record.product_code ? ({...item, 수량: (item.수량+1), 총결제금액: Math.round((item.수량+1)*(item.정가*(1-item.할인율))) }) : ({...item})
+                item.product_code===record.product_code ? ({...item, cnt: (item.cnt+1), 총결제금액: Math.round((item.cnt+1)*(item.가격*(1-item.할인율))) }) : ({...item})
             )
         });
 
@@ -117,86 +49,21 @@ export default function CartComponent(){
         localStorage.setItem('ABCMARTCART', JSON.stringify(result));
     }
 
-    // const onClickDel=(e, record)=>{
-
-    //     e.preventDefault();
-    //     setIsDelete(true);
-    //     setDelCode(record.제품코드);
-    // }
-
-    // React.useEffect(()=>{
-    //     isDelete && setIsConfirm(true);
-    // },[delCode, isDelete]);
-
-    // const initMethod=()=>{
+    const initMethod=()=>{
         
-    //     if( localStorage.getItem('ABCMARTCART')!==null ){
-    //         let result = JSON.parse(localStorage.getItem('ABCMARTCART'));
-            
-    //         result.sort((a,b)=>{                
-    //             if(a.보관방법  >  b.보관방법) return  1;
-    //             if(a.보관방법  <  b.보관방법) return -1;
-    //             if(a.보관방법 === b.보관방법) return  0;
-    //         });
+        if( localStorage.getItem('ABCMARTCART')!==null ){
+            let result = JSON.parse(localStorage.getItem('ABCMARTCART'));
+    
+            setCart(result);
+            setIsSelectDel(false);
+        }
+    }
 
-            
-    //         setCart(result);
-    //         setIsSelectDel(false);
-    //         let arr1 =[];
-    //         let arr2 =[];
-    //         let arr3 =[];
-            
-    //         let imsi = [];
-    //         result.map((item, idx)=>{
-                
-    //             imsi = [...imsi, item.제품코드];
+    React.useEffect(()=>{
+        initMethod();
+    },[]);
 
-    //             if( item.보관방법 === '냉장' ){
-    //                 arr1 = [...arr1, item];
-    //             }                
-    //             else if( item.보관방법 === '냉동' ){
-    //                 arr2 = [...arr2, item];
-    //             }                
-    //             else if( item.보관방법 === '상온' ){
-    //                 arr3 = [...arr3, item];
-    //             }                
-    //         });
 
-    //         setCheckAll(imsi);
-    //         setArr1(arr1)
-    //         setArr2(arr2)
-    //         setArr3(arr3)
-    //     }
-    // }
-
-    // React.useEffect(()=>{
-    //     initMethod();
-    // },[]);
-
-    // React.useEffect(()=>{
-      
-    //     let 총결제금액 = 0;
-    //     let 상품할인금액 = 0;
-    //     let 배송비 = 0;
-    //     let 결제예정금액 = 0;
-
-    //     cart.map((item, idx)=>{
-    //         if(item.수량!==undefined && item.총결제금액!==undefined){
-    //             총결제금액 += Number(item.총결제금액);
-    //             상품할인금액 += Math.round(Number(item.정가)*Number(item.할인율));
-    //             배송비 = ((총결제금액-상품할인금액) < 40000 ? 3000 : 0);
-    //             결제예정금액 = (총결제금액-상품할인금액)+배송비
-    //         }
-    //     });
-
-    //     setState({
-    //         총결제금액: 총결제금액,
-    //         상품할인금액: 상품할인금액,
-    //         배송비: 배송비,
-    //         결제예정금액: 결제예정금액
-    //     })
-
-    // },[cart]);
 
 
     return (
@@ -248,10 +115,10 @@ export default function CartComponent(){
                                             {
                                                 cart.map((item, idx)=>{
                                                     return(
-                                                        <tr key={idx}>
+                                                        <tr >
                                                             <td className='col1'>
                                                                 <span className='select-btn'>
-                                                                    <input type="checkbox"  id='select' value={item.product_code}/>
+                                                                    <input type="checkbox"  id='select'/>
                                                                     <label htmlFor='select'></label>
                                                                 </span>
                                                             </td>
@@ -271,7 +138,7 @@ export default function CartComponent(){
                                                                             </span>
                                                                         </h3>
                                                                         <a href="!#">
-                                                                            CT AS Core 
+                                                                            {item.제품명}
                                                                             <br />
                                                                             Black
                                                                         </a>
@@ -284,8 +151,8 @@ export default function CartComponent(){
                                                             </td>
                                                             <td className='col3'>
                                                                 <span>
-                                                                    <a onClick={onClickSUB} className={`sub-btn ${item.수량===1?' on':''}`} href="!#"><em></em></a>
-                                                                    <input type="number" />
+                                                                    <a onClick={onClickSUB} className={`sub-btn ${item.cnt===1?' on':''}`} href="!#"><em></em></a>
+                                                                    <input type="number" value={item.cnt}/>
                                                                     <a onClick={onClickADD} className='add-btn' href="!#"><em></em></a>
                                                                 </span>
                                                                 <button>변경</button>
@@ -300,8 +167,9 @@ export default function CartComponent(){
                                                             </td>
                                                             <td className='col5'>
                                                                 <p>
-                                                                    {item.cost_price===""?'':<s className='cost-price'>{item.cost_price}<em>원</em></s>}
-                                                                    {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>}
+                                                                    <s className='cost-price'>{item.가격}<em>원</em></s>
+                                                                    {/* {item.discount_price===""?'':<strong className='discount-price'>{item.discount_price}<em>원</em></strong>} */}
+                                                                    <strong className='discount-price'>{item.할인율===0? item.가격 : item.가격-(item.가격 * item.할인율)}<em>원</em></strong>
                                                                     <span></span>
                                                                 </p>
                                                                 <button>쿠폰적용</button>
@@ -321,8 +189,8 @@ export default function CartComponent(){
                                 <div className="cart-footer">
                                     <div className="cart-btn-box">
                                         <button className='select-delete-btn' onClick={onClickSelectDelete}>선택 삭제</button>
-                                        {/* <button className='change-delivery-btn'>배송변경</button> */}
-                                        {/* <button className='end-delete-btn'>품절/판매종료 삭제</button> */}
+                                        <button className='change-delivery-btn'>배송변경</button>
+                                        <button className='end-delete-btn'>품절/판매종료 삭제</button>
                                     </div>
                                     <p>비로그인 상태에서 장바구니에 담긴 상품은 저장되지 않습니다.</p>
                                 </div>

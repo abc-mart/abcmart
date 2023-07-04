@@ -125,12 +125,12 @@ export default function HeaderComponent({setSelectButton}){
                                                 <div className="h6">LOGOUT</div>
                                             </li>
                                         </a>
-                                        <a href="!#" className="a2">
+                                        <Link to="/SIGNUPA" className="a2">
                                             <li className="box3_ul_li2">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
                                                 <div className="h6">JOIN</div>
                                             </li>
-                                        </a>
+                                        </Link>
                                         <Link to="/MYPAGE" className="a2">
                                             <li className="box3_ul_li2">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
