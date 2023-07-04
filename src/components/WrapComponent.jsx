@@ -12,6 +12,8 @@ import LoginComponent from './wrap/main/LoginComponent';
 import ProductComponent from './wrap/main/ProductComponent';
 import ServiceComponent from './wrap/main/ServiceComponent';
 import MypageComponent from './wrap/main/MypageComponent';
+import SignupaComponent from './wrap/main/SignupaComponent';
+import SignupbComponent from './wrap/main/SignupbComponent';
 
 
 
@@ -197,6 +199,8 @@ export default function WrapComponent(){
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/CART' element={<CartComponent/>}/>
                         <Route path='/LOGIN' element={<LoginComponent/>}/>
+                        <Route path='/SIGNUPA' element={<SignupaComponent/>}/>
+                        <Route path='/SIGNUPB' element={<SignupbComponent/>}/>
                         <Route path='/MYPAGE' element={<MypageComponent/>}/>
                         <Route path='SERVICE' element={<ServiceComponent/>}/>
 
