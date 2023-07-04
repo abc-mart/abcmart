@@ -58,7 +58,7 @@ export default function Section1Component({d_key}){
 
 
     React.useEffect(()=>{
-        console.log(d_key);        
+        // console.log(d_key);        
         if(localStorage.getItem(d_key) !== null){
             let result = JSON.parse(localStorage.getItem(d_key));
             setState({
@@ -80,14 +80,15 @@ export default function Section1Component({d_key}){
                     총결제금액:Math.round(1*(shoes.가격*(1-shoes.할인율)))
                 }
             })
-            if(confirm('장바구니로 이동하시겠습니까?')){
-                location.href="/CART";
-            }
-            else{
-                return false;
-            }
+            // if(confirm('장바구니로 이동하시겠습니까?')){
+            //     location.href="/CART";
+            // }
+            // else{
+            //     return false;
+            // }
         }
         setIsCart(false);
+        setIsCartOk(true);
     }
 
 
@@ -109,6 +110,14 @@ export default function Section1Component({d_key}){
         }
 
     },[isCartOk]);
+
+
+    React.useEffect(()=>{
+        if(localStorage.getItem(cartKey)!==null){
+            let arr = JSON.parse(localStorage.getItem(cartKey));
+        }
+        // wrapcomponent에서 수량증가함수 가져오기
+    },[]);
 
     return (
         
@@ -189,10 +198,10 @@ export default function Section1Component({d_key}){
                                         <li>상품코드 : 1010098951</li>
                                     </ul>
                                     <div className="price">
-                                        <span className='real-price'>{shoes.할인율==0? '':shoes.가격}</span>
-                                        <span className='sale-price'>{shoes.할인율==0? shoes.가격 : shoes.가격-(shoes.가격 * shoes.할인율)}</span>
+                                        <span className='real-price'>{shoes.할인율===0? '':shoes.가격}</span>
+                                        <span className='sale-price'>{shoes.할인율===0? shoes.가격 : shoes.가격-(shoes.가격*shoes.할인율)||''}</span>
                                         <span className='won'>원</span>
-                                        <span className='discount-per'>{shoes.할인율==0?'':`[${shoes.할인율*100}%]`}</span>
+                                        <span className='discount-per'>{shoes.할인율===0?'':`[${shoes.할인율*100}%]`}</span>
                                         <img src="./img/detail/mypage_icon_tooltip_discount.png" alt="" />
                                     </div>
                                 </div>
