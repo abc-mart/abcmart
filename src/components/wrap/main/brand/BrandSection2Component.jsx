@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function BrandSection2Component({abcChange, grandChange, abcGrand, adidas, 아디다스ABC, 아디다스GRAND, nike,  나이키ABC, 나이키GRAND, converse, 컨버스ABC, 컨버스GRAND, vans, 반스ABC, 반스GRAND, newbalance, 뉴발란스ABC, 뉴발란스GRAND, setViewProductDetail, d_key }) {
+export default function BrandSection2Component({abcChange, grandChange, abcGrand, adidas, 아디다스ABC, 아디다스GRAND, nike,  나이키ABC, 나이키GRAND, converse, 컨버스ABC, 컨버스GRAND, vans, 반스ABC, 반스GRAND, newbalance, 뉴발란스ABC, 뉴발란스GRAND, setViewProductDetail, dkey }) {
     
     React.useEffect(()=>{
         const navBtn = $('#brandSection2 .nav-btn');
@@ -81,7 +81,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         아디다스ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -149,7 +149,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         아디다스GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -243,7 +243,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         나이키ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -311,7 +311,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         나이키GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -405,7 +405,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         컨버스ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -473,7 +473,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         컨버스GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -567,7 +567,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         반스ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -635,7 +635,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         반스GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -729,7 +729,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         뉴발란스ABC.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />
@@ -797,7 +797,7 @@ export default function BrandSection2Component({abcChange, grandChange, abcGrand
                                         뉴발란스GRAND.map((item,idx)=>{
                                             if(idx<=4){
                                                 return(
-                                                    <li key={idx} d_key={idx}>
+                                                    <li key={idx} dkey={idx}>
                                                         <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                             <div className="img-box">
                                                                 <img src={item.이미지} alt="" />

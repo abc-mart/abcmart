@@ -3,7 +3,7 @@ import './scss/brandSection3.scss'
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
-export default function BrandSection3Component({abcGrand, adidas, 아디다스ABC, 아디다스GRAND, nike, 나이키ABC, 나이키GRAND,  converse, 컨버스ABC, 컨버스GRAND, vans, 반스ABC, 반스GRAND, newbalance, 뉴발란스ABC, 뉴발란스GRAND, setViewProductDetail, d_key}) {
+export default function BrandSection3Component({abcGrand, adidas, 아디다스ABC, 아디다스GRAND, nike, 나이키ABC, 나이키GRAND,  converse, 컨버스ABC, 컨버스GRAND, vans, 반스ABC, 반스GRAND, newbalance, 뉴발란스ABC, 뉴발란스GRAND, setViewProductDetail, dkey}) {
 
     //좌측박스 토글
     const [filter, setFilter] = React.useState({'카테고리':true});
@@ -744,7 +744,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     { (sortAbcAdidas).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx}>
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx}>
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -838,7 +838,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortAbcAdidas.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -940,7 +940,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandcAdidas.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1033,7 +1033,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandcAdidas.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1140,7 +1140,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     { (sortAbcNike).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1234,7 +1234,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortAbcNike.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1336,7 +1336,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandNike.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1429,7 +1429,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandNike.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1536,7 +1536,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     { (sortAbcConverse).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1630,7 +1630,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortAbcConverse.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1732,7 +1732,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandConverse.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1825,7 +1825,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandConverse.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -1932,7 +1932,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     { (sortAbcVans).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -2026,7 +2026,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortAbcVans.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -2128,7 +2128,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandVans.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -2221,7 +2221,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandVans.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -2328,7 +2328,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     { (sortAbcNewbalance).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -2422,7 +2422,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortAbcNewbalance.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -2524,7 +2524,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandNewbalance.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
@@ -2617,7 +2617,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
                                                     {sortGrandNewbalance.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                            <li className={`${zoom?'on':''}`} key={idx} dkey={idx} >
                                                                 <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
