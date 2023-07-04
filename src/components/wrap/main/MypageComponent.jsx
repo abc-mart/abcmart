@@ -6,6 +6,7 @@ import MySizeComponent from './mypage/MySizeComponent';
 import PrivacyComponent from './mypage/PrivacyComponent';
 import PasswordComponent from './mypage/PasswordComponent';
 import WithdrawalComponent from './mypage/WithdrawalComponent';
+import MypageModalComponent from './mypage/modal/MypageModalComponent';
 function MypageComponent(props) {
     const [menu, setMenu]=React.useState('마이페이지');
 
@@ -13,7 +14,45 @@ function MypageComponent(props) {
         setMenu(value);
     }
 
-    
+    const[modalOpen, setModalOpen]=React.useState(false);
+    const onClickModal =()=>{
+        setModalOpen(true);
+    }
+
+    const modalClose=()=>{
+        setModalOpen(false)
+    }
+
+    const [image, setImage] = React.useState('');
+
+    const onChangeImg = (e) => {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        setImage(reader.result);
+      };
+  
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    };
+
+
+    const onClickSave=()=>{
+        alert('저장 되었습니다.');
+        modalClose();
+        localStorage.setItem('profile',image);
+    }
+
+    React.useEffect(()=>{
+        const saveProfile = localStorage.getItem('profile');
+        if(saveProfile){
+            setImage(saveProfile)
+        }
+    },[])
+
+    const img = localStorage.getItem('profile');
 
     return (
         <main id='mypage'>
@@ -79,7 +118,9 @@ function MypageComponent(props) {
                             <div className="summary">
                                 <div className="profile-box">
                                     <div className='img-box'>
-                                        <button></button>
+                                    {img && <img src={img} alt="" /> }                                    
+                                        <button onClick={onClickModal}></button>
+                                        {modalOpen && <MypageModalComponent modalClose={modalClose} onChangeImg={onChangeImg} onClickSave={onClickSave} image={image} setImage={setImage}/>}
                                     </div>
                                 </div>
                                 <div className="grade-box">

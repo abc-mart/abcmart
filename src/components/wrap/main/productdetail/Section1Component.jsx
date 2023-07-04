@@ -189,10 +189,10 @@ export default function Section1Component({d_key}){
                                         <li>상품코드 : 1010098951</li>
                                     </ul>
                                     <div className="price">
-                                        <span className='real-price'>{shoes.할인율==0? '':shoes.가격}</span>
-                                        <span className='sale-price'>{shoes.할인율==0? shoes.가격 : shoes.가격-(shoes.가격 * shoes.할인율)}</span>
+                                        <span className='real-price'>{shoes.할인율===0? '':shoes.가격}</span>
+                                        <span className='sale-price'>{shoes.할인율===0? shoes.가격 : (shoes.가격-(shoes.가격*shoes.할인율))}</span>
                                         <span className='won'>원</span>
-                                        <span className='discount-per'>{shoes.할인율==0?'':`[${shoes.할인율*100}%]`}</span>
+                                        <span className='discount-per'>{shoes.할인율===0?'':`[${shoes.할인율*100}%]`}</span>
                                         <img src="./img/detail/mypage_icon_tooltip_discount.png" alt="" />
                                     </div>
                                 </div>

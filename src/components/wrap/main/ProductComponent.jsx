@@ -4,7 +4,7 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function ProductComponent({running1, running2, running3}) {
+export default function ProductComponent({running1, running2, running3, setViewProductDetail, d_key}) {
 
     const[abcGrand, setAbcGrand]=React.useState(true);
 
@@ -276,6 +276,29 @@ export default function ProductComponent({running1, running2, running3}) {
         setSortAbcSports(arrSportsAbc);
         setSortGrandSports(arrSportsGrand);
     },[state.스포츠ABC, state.스포츠GRAND, running1,running2,running3, delivery, pickup])
+
+    const onClickProductDetailList=(e, item)=>{
+        e.preventDefault();
+
+        let obj = {
+            이미지: `${item.이미지}`,
+            카테고리: item.카테고리,
+            제조사: item.제조사,
+            제품명: item.제품명,
+            가격: item.가격,
+            할인율: item.할인율,
+            뱃지1: item.뱃지1,
+            뱃지2: item.뱃지2,
+            뱃지3: item.뱃지3,
+            뱃지4: item.뱃지4,
+            추천: item.추천,
+            배경: item.배경,
+        }
+   
+        console.log(item);
+        setViewProductDetail(obj);
+       window.location.pathname='/PRODUCTDETAIL';
+    }
 
     return (
         <main id='product'>
@@ -586,8 +609,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     { (sortAbcSports).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <Link to='/PRODUCTDETAIL'>
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -611,7 +634,7 @@ export default function ProductComponent({running1, running2, running3}) {
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </Link>
+                                                                </a>
                                                                 
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
@@ -680,8 +703,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     {sortAbcSports.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -839,8 +862,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     { (sortGrandSports).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <Link to='/PRODUCTDETAIL'>
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -864,7 +887,7 @@ export default function ProductComponent({running1, running2, running3}) {
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </Link>
+                                                                </a>
                                                                 
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
@@ -933,8 +956,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     {sortGrandSports.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1097,8 +1120,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     { (sortAbcSports).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <Link to='/PRODUCTDETAIL'>
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1122,7 +1145,7 @@ export default function ProductComponent({running1, running2, running3}) {
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </Link>
+                                                                </a>
                                                                 
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
@@ -1191,8 +1214,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     {sortAbcSports.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1350,8 +1373,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     { (sortGrandSports).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <Link to='/PRODUCTDETAIL'>
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1375,7 +1398,7 @@ export default function ProductComponent({running1, running2, running3}) {
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </Link>
+                                                                </a>
                                                                 
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
@@ -1444,8 +1467,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     {sortGrandSports.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1608,8 +1631,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     { (sortAbcSports).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <Link to='/PRODUCTDETAIL'>
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1633,7 +1656,7 @@ export default function ProductComponent({running1, running2, running3}) {
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </Link>
+                                                                </a>
                                                                 
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
@@ -1702,8 +1725,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     {sortAbcSports.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1861,8 +1884,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     { (sortGrandSports).map((item,idx)=>{
                                                         if( Math.ceil((idx+1)/list) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <Link to='/PRODUCTDETAIL'>
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
@@ -1886,7 +1909,7 @@ export default function ProductComponent({running1, running2, running3}) {
                                                                                 {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
                                                                         </div>
                                                                     </div>
-                                                                </Link>
+                                                                </a>
                                                                 
                                                                 <div className="inner-box">
                                                                         <div className="inner-row1">
@@ -1955,8 +1978,8 @@ export default function ProductComponent({running1, running2, running3}) {
                                                     {sortGrandSports.map((item,idx)=>{                                                
                                                         if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
                                                         return(
-                                                            <li className={`${zoom?'on':''}`} key={idx} >
-                                                                <a href="!#">
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
                                                                     <div className="img-box">
                                                                         <img src={item.이미지} alt="" />
                                                                         <span><img src={item.추천} alt="" /></span>
