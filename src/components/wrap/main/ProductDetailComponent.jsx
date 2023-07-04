@@ -14,6 +14,8 @@ export default function ProductDetailComponent({dkey}){
     //     window.scrollTo(0, 0);
     // },[])
 
+    
+
 
     return (
         <div id='ProductDetail'>

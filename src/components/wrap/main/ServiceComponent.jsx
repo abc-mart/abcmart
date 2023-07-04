@@ -10,6 +10,10 @@ export default function ServiceComponent(props) {
         setMenu(value);
     }
 
+    const sss=()=>{
+        window.scrollTo(0, 0)
+    }
+
     return (
         <main id='service'>
             <div className="container">
@@ -48,7 +52,7 @@ export default function ServiceComponent(props) {
                                             09:00~12:00 <br />13:00~18:00
                                         </li>
                                     </ul>
-                                    <p>(주말,공휴일 휴무)</p>
+                                    <p onClick={sss}>(주말,공휴일 휴무)</p>
                                 </div>                                
                             </div>
                         </div>
