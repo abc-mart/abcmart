@@ -1,69 +1,93 @@
-/* eslint-disable no-restricted-globals */
 import React from 'react';
 import './scss/cart.scss';
 
 export default function CartComponent(){
 
     const [cart, setCart] = React.useState([]);
+    // 모두선택 배열 => 장바구니에 들어온 모든 리스트 목록 저장
+    const [checkAll, setCheckAll] = React.useState([]);
+    const [check, setCheck] = React.useState([]);
+    const [isCheckAll, setIsCheckAll] = React.useState(false);
     const [isSelectDel, setIsSelectDel] = React.useState(false);
 
-    const onClickKeepShopping=(e)=>{
+    React.useEffect(()=>{
+
+        setIsCheckAll(true);
+        setCheck(checkAll);  // 제품코드 모두 저장
+
+    },[checkAll]);
+
+    const onClickCheckAll=(e)=>{
         e.preventDefault();
-        history.go(-1);
+        if(isCheckAll===false){  // 모두 체크 선택
+            setIsCheckAll(true);
+            setCheck(checkAll);  // 제품코드 모두 저장
+        }
+        else{  // 모두 체크 선택 해제
+            setIsCheckAll(false);
+            setCheck([]);  // 제품코드 모두 삭제
+        }
     }
 
-    const onClickSelectDelete=(e)=>{
-        e.preventDefault();
-        if(confirm('삭제 하시겠습니까?')){
+    // 개별 체크 체크박스
+    const onChangeCheck=(e)=>{
+
+        let imsi = [];
+
+        if(e.target.checked===true){
+            setCheck([...check, e.target.value]);  // 추가
+        }
+        else if(e.target.checked===false){  // 선택취소 삭제
+            imsi = check.filter((item)=>item!==e.target.value);  // 제품코드 값만 들어있다.
+            setCheck(imsi);
+        }
+
+    }
+
+    
+    React.useEffect(()=>{
+
+        // 전체 선택 체크
+        if(check.length===cart.length){
+            setIsCheckAll(true);
+        }
+        else{
+            setIsCheckAll(false);
+        }
+
+        // 선택 삭제 버튼 true, false
+        if(check.length>0){
             setIsSelectDel(true);
         }
         else{
-            return false;
+            setIsSelectDel(false);
         }
-    }
 
-    const onClickSUB=(e, record)=>{
-        e.preventDefault();
-        console.log( record );
-        const result = cart.map((item)=>{
-            return( 
-                item.product_code===record.product_code ? ({...item, cnt: (item.cnt >= 2 ? item.cnt-1 : 1), 총결제금액: Math.round((item.cnt >= 2 ? item.cnt-1 : 1)*(item.가격*(1-item.할인율))) }) : ({...item})
-            )
-        });
+    },[cart.length, check]);
 
-        setCart(result);
-        localStorage.setItem('ABCMARTCART', JSON.stringify(result));
-    }
-    
-    const onClickADD=(e, record)=>{
-        e.preventDefault();
-        console.log( record );
-        const result = cart.map((item)=>{
-            return( 
-                item.product_code===record.product_code ? ({...item, cnt: (item.cnt+1), 총결제금액: Math.round((item.cnt+1)*(item.가격*(1-item.할인율))) }) : ({...item})
-            )
-        });
-
-        setCart(result);
-
-        localStorage.setItem('ABCMARTCART', JSON.stringify(result));
-    }
 
     const initMethod=()=>{
-        
-        if( localStorage.getItem('ABCMARTCART')!==null ){
+        if(localStorage.getItem('ABCMARTCART')!==null){
             let result = JSON.parse(localStorage.getItem('ABCMARTCART'));
-    
+
             setCart(result);
-            setIsSelectDel(false);
+
+            // console.log(result);
+            // 임시 배열변수에 제품코드 저장
+            let imsi = [];
+            result.map((item, idx)=>{
+                imsi = [...imsi, item.제품코드];  // imsi[] 에 제품코드 저장
+            });
+
+            // 장바구니에 있는 모든 리스트 목록 저장
+            // 임시배열변수에 저장된 배열값을 모두 checkAll[] 에 저장한다.
+            setCheckAll(imsi);
         }
     }
 
     React.useEffect(()=>{
         initMethod();
     },[]);
-
-
 
 
     return (
@@ -92,7 +116,7 @@ export default function CartComponent(){
                         <div className="cart-box">
                             <div className="cart-top-box">
                                 <span className='all-select-btn'>
-                                    <input type="checkbox" id='allSelect'/>
+                                    <input type="checkbox" id='allSelect' onClick={onClickCheckAll} checked={check.length===cart.length?true:false} className={`all-select${isCheckAll?' on':''}`}/>
                                     <label htmlFor="allSelect">전체선택</label>
                                 </span>
                                 <div className="right-box">
@@ -115,10 +139,10 @@ export default function CartComponent(){
                                             {
                                                 cart.map((item, idx)=>{
                                                     return(
-                                                        <tr >
+                                                        <tr key={idx}>
                                                             <td className='col1'>
                                                                 <span className='select-btn'>
-                                                                    <input type="checkbox"  id='select'/>
+                                                                    <input onChange={onChangeCheck} checked={check.includes(item.product_code)} type="checkbox" name='chk' id='chk1' value={item.product_code}/>
                                                                     <label htmlFor='select'></label>
                                                                 </span>
                                                             </td>
@@ -151,9 +175,9 @@ export default function CartComponent(){
                                                             </td>
                                                             <td className='col3'>
                                                                 <span>
-                                                                    <a onClick={onClickSUB} className={`sub-btn ${item.cnt===1?' on':''}`} href="!#"><em></em></a>
-                                                                    <input type="number" value={item.cnt}/>
-                                                                    <a onClick={onClickADD} className='add-btn' href="!#"><em></em></a>
+                                                                    <a className='sub-btn' href="!#"><em></em></a>
+                                                                    <input type="number"/>
+                                                                    <a className='add-btn' href="!#"><em></em></a>
                                                                 </span>
                                                                 <button>변경</button>
                                                             </td>
@@ -188,7 +212,7 @@ export default function CartComponent(){
                                 </div>
                                 <div className="cart-footer">
                                     <div className="cart-btn-box">
-                                        <button className='select-delete-btn' onClick={onClickSelectDelete}>선택 삭제</button>
+                                        <button className={`select-delete-btn`}>선택 삭제</button>
                                         <button className='change-delivery-btn'>배송변경</button>
                                         <button className='end-delete-btn'>품절/판매종료 삭제</button>
                                     </div>
@@ -253,7 +277,7 @@ export default function CartComponent(){
                                 </table>
                             </div>
                             <div className="main-button-box">
-                                <button onClick={onClickKeepShopping} className='keep-shopping'>계속 쇼핑하기</button>
+                                <button className='keep-shopping'>계속 쇼핑하기</button>
                                 <button className='select-product-order'>일반배송 선택상품 주문하기</button>
                                 <button className='all-product-order'>일반배송 전체상품 주문하기</button>
                             </div>
