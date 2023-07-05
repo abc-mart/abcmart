@@ -22,7 +22,8 @@
                         width: 100%;
                         display: flex;
                         justify-content: center;
-                        li{                            
+                        li{   
+                            position: relative;                         
                             a{
                                 display: flex;
                                 align-items: center;
@@ -32,21 +33,33 @@
                                 color: #ccc;                             
                                 font-size: 20px;
                                 font-weight: 700;
-                                &.on{
-                                    &:nth-child(1){
-                                        
-                                            color: #DE0F1A;
-                                        
-                                        
-                                    }
-                                    &:nth-child(2){
-                                        
-                                            color: #85C55B;
-                                                                           
-                                    }
-                                }
-                                
                             }
+                             &:nth-child(1){
+                                &.on{
+                                    a{
+                                        color: #DE0F1A;
+                                    } 
+                                }       
+                            }
+                            &:nth-child(2){
+                                &.on{
+                                    a{
+                                        color: #85C55B;
+                                    } 
+                                }                                  
+                            }
+                            &:nth-child(1){
+                                &::before{
+                                    content: "";
+                                    display: block;
+                                    position: absolute;
+                                    top: 23px;
+                                    right: 0;
+                                    width: 1px;
+                                    height: 22px;
+                                    background: #EEE;
+                                }
+                            }                            
                         }
                     }
                 }
@@ -58,6 +71,7 @@
                         display: flex;
                         justify-content: center;
                         li{
+                            position: relative;
                             a{
                                 display: flex;
                                 align-items: center;
@@ -65,10 +79,75 @@
                                 width: 115px;
                                 height: 60px;
                             }
+                            &::before{
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                top: 20px;
+                                right: 0;
+                                width: 1px;
+                                height: 20px;
+                                background: #EEE;
+                            }
+                            &:last-child{
+                                &::before{
+                                    display: none;
+                                }
+                                
+                            }
+                        }
+                    }
+                    
+                }
+                .slide-box{
+                    width: 100%;
+                    position: relative;
+                    .slide-view{
+                        width: 100%;
+                        overflow: hidden;
+                        .slide-wrap{
+                            position: relative;
+                            width: 300%;    
+                            display: flex;   
+                            margin-left: -100%;            
+                            .slide{
+                                width: 100%;
+                                
+                                a{
+                                    img{
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .btn-box{
+                        position: absolute;
+                        bottom: 40px;
+                        right: 40px;
+                        width: 130px;
+                        height: 50px;
+                        display: flex;
+                        border-radius: 40px;
+                        background: #fff;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 15px 20px;
+                        a{
+                            display: flex;
+                            align-items: center;
+                            width: 8px;
+                            height: 12px;
+                            img{
+                                width: 100%;
+                            }
+                        }
+                        span{
+                            font-size: 16px;
+                            color: #000;
                         }
                     }
                 }
-                .slide-box{}
                 .list-category{
                     margin: 80px 0 0 0;
                     ul{
@@ -80,6 +159,7 @@
                             border-radius: 50%;
                             overflow: hidden;
                             background: #E84D25;
+                            margin: 0 10px;
                             a{
                                 display: flex;
                                 justify-content: center;
@@ -101,11 +181,27 @@
                 }
                 .special-brand{
                     width: 1000px;
-                    margin: 80px auto;
+                    margin: 80px auto 160px auto;
                     .special-brand-title{
                         margin: 0 0 40px 0;
-                        figure{}
-                        span{}
+                        display: flex;
+                        align-items: center;
+                        figure{
+                            width: 332px;
+                            img{
+                                width: 100%;
+                            }
+                        }
+                        span{
+                            display: block;
+                            margin-left: 20px;
+                            padding-top: 15px;
+                            height: auto;
+                            color: #000;
+                            font-size: 16px;
+                            font-weight: 500;
+                            line-height: 1.4;
+                        }
                     }
                     ul{
                         display: flex;
@@ -158,6 +254,8 @@
                                 }
                             }
                             .txt-box{
+                                margin: 20px 0 0 0;
+                                text-align: center;
                                 h4{}
                             }
                         }

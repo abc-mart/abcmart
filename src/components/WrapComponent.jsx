@@ -16,6 +16,7 @@ import TopCookieComponent from './wrap/TopCookieComponent';
 import SignupaComponent from './wrap/main/SignupaComponent';
 import SignupbComponent from './wrap/main/SignupbComponent';
 import KidsComponent from './wrap/main/KidsComponent';
+import OnlyAbcComponent from './wrap/main/OnlyAbcComponent';
 
 
 
@@ -259,6 +260,8 @@ export default function WrapComponent(){
                         <Route path='/MYPAGE' element={<MypageComponent/>}/>
                         <Route path='/SERVICE' element={<ServiceComponent/>}/>
                         <Route path='/KIDS' element={<KidsComponent/>}/>
+                        <Route path='/ONLY' element={<OnlyAbcComponent/>}/>
+                        
                         
                         <Route path='/*' element={<NotFoundComponent/>}/>
                         
