@@ -15,18 +15,157 @@
                     .title{
                         width: 100%;
                         text-align: center;
-                        margin: 0 0 32px 0;
+                        margin: 0 0 38px 0;
                         h1{
                             text-align: center;
-                            color: #000;
-                            font-family: "Montserrat";
+                            color: #000;                            
                             font-size: 32px;
-                            font-weight: 700;
+                            font-weight: 700;                            
                         }
                     }
                 }
                 .substance{
-                    
+                    width: 100%;                    
+                    form{
+                        .box1{
+                            .box11{
+                                h4{
+                                    font-size: 22px;                                    
+                                    font-weight: 500;
+                                    color: #000;
+                                    padding: 0 0 16px 0;
+                                }
+                            }
+                            .box12{
+                                border-top: 2px solid #000;
+                                ul{
+                                    padding: 0 0 60px 0;
+                                    &:nth-child(1),                                          
+                                    &:nth-child(5){
+                                        border-bottom: 1px solid #aaa;
+                                    }
+                                    li{
+                                        height: 70px;
+                                        line-height: 70px;
+                                        border-bottom: 1px solid #d5d5d5;
+                                        padding: 0 0 0 20px;
+                                        font-size: 15px;
+                                        color: #000;
+                                        &:first-child{
+                                        font-size: 16px;
+                                        font-weight: 500;
+                                        color: #000;  
+                                          
+                                        }
+                                        input{
+                                            width: 20px;
+                                            height: 20px;
+                                            margin: 0 10px 0 0;
+                                            appearance: none;
+                                            border: 1px solid #aaa;
+                                            transition: all 0.5s; 
+                                            &:hover{
+                                                border: 1px solid #000;
+                                            }
+                                        }
+                                        input[type='checkbox']:checked{
+                                            background: url(../../../../../public/img/signup/chk_icon_checked.png);
+                                            background-size: cover;
+                                            
+                                        }
+                                        
+                                        span{
+                                            display: inline-block;
+                                            font-weight: 400;
+                                            color: #ee1c25;
+                                            transform: translateY(-2px);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .box2{
+                            .box21{
+                                h4{
+                                    font-size: 22px;                                    
+                                    font-weight: 500;
+                                    color: #000;
+                                    padding: 0 0 16px 0;
+                                }                                
+                            }
+                            .box22{
+                                border-top: 2px solid #000;
+                                ul{
+                                    padding: 50px 20px 63px 20px;
+                                    li{
+                                        display: flex;
+                                        height: 54px;
+                                        .colTitle{
+                                            width: 130px;
+                                            line-height: 54px;
+                                            font-size: 15px;
+                                            font-weight: 500;
+                                            color: #333;
+                                            i{
+                                                display: inline-block;
+                                                width: 4px;
+                                                height: 4px;
+                                                background: #ee1c25;
+                                                border-radius: 25px;
+                                                margin: 0 0 13px 3px;
+                                            }
+                                        }
+                                        input{
+                                            width: 630px;
+                                            height: 44px;
+                                            line-height: 54px;
+                                            padding: 0 0 0 10px;
+                                            border: 0;
+                                            border-bottom: 1px solid #d5d5d5;
+                                            &::placeholder{
+                                                font-family: 'Noto Sans KR';
+                                                font-size: 15px;                                                
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .box3{
+
+                        }
+                        .box4{
+                            .btn-box{
+                                width: 410px;
+                                margin: 0 auto;
+                                button{
+                                    width: 200px;
+                                    height: 60px;
+                                    border: 0;
+                                    &:nth-child(1){
+                                        background: #a5a5a5;
+                                        font-size: 16px;
+                                        font-weight: 500;
+                                        font-family: 'NoTo Sans KR';
+                                        color: #fff;
+                                        margin-right: 10px;
+                                        transition: all 0.3s;
+                                        &:hover{
+                                            background: #000;
+                                        }
+                                    }
+                                    &:nth-child(2){
+                                        background: #000;
+                                        font-size: 16px;
+                                        font-weight: 500;
+                                        font-family: 'NoTo Sans KR';
+                                        color: #fff;
+                                    }                                
+                                }
+                            }
+
+                        }
+                    }
                 }
             }
         }
