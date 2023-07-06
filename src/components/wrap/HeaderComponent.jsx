@@ -7,9 +7,6 @@ export default function HeaderComponent({setSelectButton}){
     const [isShow, setIsShow] = React.useState('');
     const onMouseEnterShow=(value)=>{
         setIsShow(value);
-        // if(isShow==='SALE'){
-        //     setIsShow('');
-        // }
     }
     const onMouseLeaveShow=(e)=>{
         setIsShow('');
@@ -147,8 +144,8 @@ export default function HeaderComponent({setSelectButton}){
                                     <div className="search_box">
                                         <label htmlFor="search" onClick={onClickSearch}><input value={inputValue} onChange={onChangeValue} type="text" id='search' placeholder='아디다스 키즈 페스티벌 ★ 최대 50% 할인에 10% 추가 할인'/></label>
                                         <div className="icon-box">
-                                            <Link to="/" className="a1"><img src="./img/headereventfooter/comm_header_icon_smart.png" alt=''/></Link>
-                                            <Link to="/" className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></Link>
+                                            <a href="http://localhost:3000/INTRO" className="a1"><img src="./img/headereventfooter/comm_header_icon_smart.png" alt=''/></a>
+                                            <a href="http://localhost:3000/INTRO" className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></a>
                                         </div>                                        
                                     </div>
                                     <div className={`search_box_inner ${search?'on':''}`}>
