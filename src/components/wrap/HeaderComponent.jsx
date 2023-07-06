@@ -7,6 +7,9 @@ export default function HeaderComponent({setSelectButton}){
     const [isShow, setIsShow] = React.useState('');
     const onMouseEnterShow=(value)=>{
         setIsShow(value);
+        // if(isShow==='SALE'){
+        //     setIsShow('');
+        // }
     }
     const onMouseLeaveShow=(e)=>{
         setIsShow('');
@@ -229,7 +232,7 @@ export default function HeaderComponent({setSelectButton}){
                                         <li className={`MEN ${isShow==='MEN'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('MEN')}><button>MEN</button></li>
                                         <li className={`WOMEN ${isShow==='WOMEN'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('WOMEN')}><button>WOMEN</button></li>
                                         <li className={`KIDS ${isShow==='KIDS'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('KIDS')}><button>KIDS</button></li>
-                                        <li className="SALE"><Link to='/PRODUCT' onClick={()=>onClickSelect('SALE')}>SALE</Link></li>
+                                        <li className="SALE"><Link to='/PRODUCT' onMouseEnter={()=>onMouseEnterShow('SALE')} onClick={()=>onClickSelect('SALE')}>SALE</Link></li>
                                     </ul>
                                     <ul  >
                                         <li className={`brand-inner ${isShow==='BRAND'?' on':''}`} >
@@ -1035,7 +1038,7 @@ export default function HeaderComponent({setSelectButton}){
                                             </div>
                                         </li>
                                     </ul>
-                                    <div className={`back ${isShow!==''?' on':''}`}></div>
+                                    <div className={`back ${isShow!=='' && isShow!=='SALE'?' on':''}`}></div>
                                 </div>
                                 <div className="box2_2">
                                     <ul>
