@@ -43,9 +43,9 @@ export default function EventComponent(){
                                             </div>
                                         </div>
                                         <div className="block">
-                                            <a className="pbox"><img src="./img/event/3rd_big.jpg"/></a>
+                                            <a  className="pbox"><img src="./img/event/3rd_big.jpg"/></a>
                                             <div className="tbox"><a>놓치면 품절! 초특가 세일</a></div>
-                                            <div className="sbox"><img src="./img/headereventfooter/prod_sale_period_bg.png"/><span>2023-06-24 ~ 2023-06-29</span></div>
+                                            <div className="sbox"><img src="./img/headereventfooter/prod_sale_period_bg.png" /><span>2023-06-24 ~ 2023-06-29</span></div>
                                             <div className="dbox">
                                                 <div className="pic3-box">
                                                     <img src="./img/event/3rd_1.jpg"/>
@@ -69,7 +69,7 @@ export default function EventComponent(){
                                             </div>
                                         </div>
                                         <div className="block">
-                                            <a className="pbox"><img src="./img/event/5th_big.jpg"/></a>
+                                            <a  className="pbox"><img src="./img/event/5th_big.jpg"/></a>
                                             <div className="tbox"><a>가벼운 클래식 레더 슈즈 스텝스 최대 45% 할인</a></div>
                                             <div className="sbox"><img src="./img/headereventfooter/prod_sale_period_bg.png"/><span>2023-06-24 ~ 2023-06-29</span></div>
                                             <div className="dbox">

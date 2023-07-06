@@ -107,8 +107,39 @@ export default function HeaderComponent({setSelectButton}){
                                 <div className="box1_2">
                                     <div className="search_box">
                                         <input type="text" placeholder='아디다스 키즈 페스티벌 ★ 최대 50% 할인에 10% 추가 할인'/>
-                                        <a href="!#" className="a1"><img src="./img/headereventfooter/comm_header_icon_smart.png" alt=''/></a>
-                                        <a href="!#" className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></a>
+                                        <div className="icon-box">
+                                            <a href="!#" className="a1"><img src="./img/headereventfooter/comm_header_icon_smart.png" alt=''/></a>
+                                            <a href="!#" className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></a>
+                                        </div>                                        
+                                    </div>
+                                    <div className="search_box_inner">
+                                        <div className="inner left">
+                                            <h2>최근 검색어</h2>
+                                            <p>최근 검색어가 없습니다.</p>
+                                        </div>
+                                        <div className="inner center">
+                                            <h2>인기 검색어</h2>
+                                            <ul>
+                                                <li><span>01</span><h3>아디다스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>02</span><h3>나이키</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>03</span><h3>컨버스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>04</span><h3>뉴발란스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>05</span><h3>반스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>06</span><h3>크록스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>07</span><h3>샌들</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>08</span><h3>로퍼</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>09</span><h3>운동화</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                                <li><span>10</span><h3>캐주얼</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></li>
+                                            </ul>
+                                        </div>
+                                        <div className="inner right">
+                                            <h2>추천 검색어</h2>
+                                            <p>NIKE SPORTS</p>
+                                            <p>ADIDAS SANDAL</p>
+                                            <p>NEW BALANCE RUNNING</p>
+                                            <p>VANS CAUSAL</p>
+                                        </div>
+                                        <button><img src="./img/headereventfooter/comm_icon_btn_search_layer_close.png" alt="" /></button>
                                     </div>
                                 </div>
                                 <div className="box1_3">
@@ -160,7 +191,7 @@ export default function HeaderComponent({setSelectButton}){
                                         <li className={`MEN ${isShow==='MEN'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('MEN')}><button>MEN</button></li>
                                         <li className={`WOMEN ${isShow==='WOMEN'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('WOMEN')}><button>WOMEN</button></li>
                                         <li className={`KIDS ${isShow==='KIDS'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('KIDS')}><button>KIDS</button></li>
-                                        <li className="SALE"><a href="!#">SALE</a></li>
+                                        <li className="SALE"><Link to='/PRODUCT' onClick={()=>onClickSelect('SALE')}>SALE</Link></li>
                                     </ul>
                                     <ul  >
                                         <li className={`brand-inner ${isShow==='BRAND'?' on':''}`} >

@@ -1,5 +1,6 @@
 import React from 'react';
 import './main/scss/topcookie.scss';
+import { Link } from 'react-router-dom';
 
 export default function TopCookieComponent({topCookieClose}){
 
@@ -11,8 +12,8 @@ export default function TopCookieComponent({topCookieClose}){
     return (
         <div id='topCookie'>
             <div className="container">
-                <img src="./img/cookie/1681192539922.jpg" alt="" />
-                <a onClick={onClickTopCookieClose} href="!#">
+              <a className='banner' href="http://localhost:3000/EVENTSUB"><img src="./img/cookie/1681192539922.jpg" alt="" /></a>
+                <a className='close' onClick={onClickTopCookieClose} href="!#">
                     
                 </a>
             </div>
