@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function NoticeComponent(props) {
+export default function NoticeComponent({setMenu}) {
+    const [islogin, setIslogin] =React.useState(true);
+
+
+    const onClickWrite =(value)=>{
+        setMenu(value);
+    }
     return (
         <>
         <div className='sub-title'>
@@ -56,10 +62,9 @@ export default function NoticeComponent(props) {
                         <td>크록스 제품 발송 안내</td>
                         <td>2023.06.12</td>
                     </tr> 
-                </tbody>
-                    
-                    
+                </tbody>    
             </table>
+            {islogin && <button onClick={()=>onClickWrite('글쓰기')}>글쓰기</button>}
         </div>
         </>
     );
