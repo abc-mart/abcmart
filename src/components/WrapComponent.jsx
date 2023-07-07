@@ -17,6 +17,8 @@ import SignupaComponent from './wrap/main/SignupaComponent';
 import SignupbComponent from './wrap/main/SignupbComponent';
 import KidsComponent from './wrap/main/KidsComponent';
 import OnlyAbcComponent from './wrap/main/OnlyAbcComponent';
+import CouponComponent from './wrap/main/CouponComponent';
+import EventSubComponent from './wrap/main/event/EventSubComponent';
 
 
 
@@ -63,6 +65,10 @@ export default function WrapComponent(){
         localStorage.getItem('런닝화K') === 'true' ? true : false
     );
 
+    const [sale, setSale] = React.useState(
+        localStorage.getItem('SALE') === 'true' ? true : false
+    );
+
     React.useEffect(()=>{
 
         //브랜드
@@ -72,7 +78,11 @@ export default function WrapComponent(){
             setNike(false);   
             setConverse(false); 
             setVans(false);  
-            setNewbalance(false);       
+            setNewbalance(false);   
+            setSale(false)  
+            setRunning3(false);
+            setRunning1(false);
+            setRunning2(false);  
         }
         else if(selectButton==='NIKE'){
             setNike(true);  
@@ -81,6 +91,10 @@ export default function WrapComponent(){
             setConverse(false); 
             setVans(false);  
             setNewbalance(false); 
+            setSale(false)
+            setRunning3(false);
+            setRunning1(false);
+            setRunning2(false);
         }
         else if(selectButton==='CONVERSE'){
             setConverse(true);
@@ -89,6 +103,10 @@ export default function WrapComponent(){
             setNike(false);   
             setVans(false);  
             setNewbalance(false); 
+            setSale(false)
+            setRunning3(false);
+            setRunning1(false);
+            setRunning2(false);
         }
         else if(selectButton==='VANS'){
             setVans(true);     
@@ -97,6 +115,10 @@ export default function WrapComponent(){
             setNike(false);   
             setConverse(false);
             setNewbalance(false); 
+            setSale(false)
+            setRunning3(false);
+            setRunning1(false);
+            setRunning2(false);
         }
         else if(selectButton==='NEW BALANCE'){
             setNewbalance(true);  
@@ -105,6 +127,10 @@ export default function WrapComponent(){
             setNike(false);   
             setConverse(false); 
             setVans(false);  
+            setSale(false)
+            setRunning3(false);
+            setRunning1(false);
+            setRunning2(false);
         }
 
         // 남성, 여성, 아동
@@ -118,6 +144,7 @@ export default function WrapComponent(){
             setNike(false);   
             setConverse(false); 
             setVans(false);  
+            setSale(false)
         }
         else if(selectButton==='런닝화W'){
             setRunning2(true);
@@ -129,10 +156,24 @@ export default function WrapComponent(){
             setNike(false);   
             setConverse(false); 
             setVans(false);  
+            setSale(false)
         }
         else if(selectButton==='런닝화K'){
             setRunning3(true);
 
+            setRunning1(false);
+            setRunning2(false);
+            setNewbalance(false);  
+            setAdidas(false);
+            setNike(false);   
+            setConverse(false); 
+            setVans(false);  
+            setSale(false)
+        }
+        else if(selectButton==='SALE'){
+            setSale(true)
+
+            setRunning3(false);
             setRunning1(false);
             setRunning2(false);
             setNewbalance(false);  
@@ -155,7 +196,9 @@ export default function WrapComponent(){
         localStorage.setItem('런닝화M', running1);
         localStorage.setItem('런닝화W', running2);
         localStorage.setItem('런닝화K', running3);
-    }, [adidas, nike, converse, vans, newbalance, running1, running2, running3 ]);
+
+        localStorage.setItem('SALE', sale);
+    }, [adidas, nike, converse, vans, newbalance, running1, running2, running3, sale ]);
 
 
     // 상품클릭 시 ProductDetail화면으로 이동
@@ -262,9 +305,10 @@ export default function WrapComponent(){
                         <Route index element={<IntroComponent/>}/>
                         <Route path='/INTRO' element={<IntroComponent />}/>                        
                         <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} dkey={dkey} />}/>
-                        <Route path='/PRODUCT' element={<ProductComponent running1={running1} running2={running2} running3={running3} setViewProductDetail={setViewProductDetail} dkey={dkey}/>}/>
+                        <Route path='/PRODUCT' element={<ProductComponent sale={sale} running1={running1} running2={running2} running3={running3} setViewProductDetail={setViewProductDetail} dkey={dkey}/>}/>
                         <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent dkey={dkey} cartCountNumber={cartCountNumber} cartKey={cartKey} />}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
+                        <Route path='/EVENTSUB' element={<EventSubComponent/>}/>                        
                         <Route path='/CART' element={<CartComponent cartKey={cartKey} />}/>
                         <Route path='/LOGIN' element={<LoginComponent/>}/>
                         <Route path='/SIGNUPA' element={<SignupaComponent/>}/>
@@ -273,6 +317,8 @@ export default function WrapComponent(){
                         <Route path='/SERVICE' element={<ServiceComponent/>}/>
                         <Route path='/KIDS' element={<KidsComponent/>}/>
                         <Route path='/ONLY' element={<OnlyAbcComponent/>}/>
+                        <Route path='/COUPON' element={<CouponComponent/>}/>
+                        
                         
                         
                         <Route path='/*' element={<NotFoundComponent/>}/>

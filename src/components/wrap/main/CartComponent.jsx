@@ -4,12 +4,10 @@ import './scss/cart.scss';
 
 export default function CartComponent({cartKey}){
 
-    const [isLogin, setIsLogin] = React.useState(true);
     const [cart, setCart] = React.useState([]);
 
     // 장바구니 집계
     const [state, setState] = React.useState({
-        포인트: 0,
         주문금액: 0,
         상품금액: 0,
         추가배송비: 0,
@@ -20,9 +18,9 @@ export default function CartComponent({cartKey}){
         예상적립포인트: 0
     });
 
-    const {포인트, 주문금액, 상품금액, 추가배송비, 총할인금액, 상품할인, 프로모션, 결제예정금액, 예상적립포인트} = state;
+    const {주문금액, 상품금액, 추가배송비, 총할인금액, 상품할인, 프로모션, 결제예정금액, 예상적립포인트} = state;
 
-    // 수량감소 카운트 => 1행 데이터 레코드
+    // 수량감소 카운트
     const onClickSub=(e, record)=>{
         e.preventDefault();
         // console.log(record);
@@ -35,7 +33,7 @@ export default function CartComponent({cartKey}){
         localStorage.setItem('ABCMARTCART', JSON.stringify(result));
     }
 
-    // 수량증가 카운트 => 1행 데이터 레코드
+    // 수량증가 카운트
     const onClickAdd=(e, record)=>{
         e.preventDefault();
         // console.log(record);
@@ -55,6 +53,7 @@ export default function CartComponent({cartKey}){
             const result = cart.filter((item)=>item.product_code!==record.product_code);
             setCart(result);
             localStorage.setItem('ABCMARTCART', JSON.stringify(result));
+            initMethod();
         }
         else{
             return false;
@@ -65,7 +64,6 @@ export default function CartComponent({cartKey}){
     // 카트가 들어오면 계산
     React.useEffect(()=>{
 
-        let 포인트 = 0;
         let 주문금액 = 0;
         let 상품금액 = 0;
         let 추가배송비 = 0;
@@ -77,7 +75,6 @@ export default function CartComponent({cartKey}){
 
         cart.map((item, idx)=>{
             if(item.수량!==undefined && item.총결제금액!==undefined){
-                포인트 = Math.round((item.총결제금액)*0.01);
                 주문금액 = state.상품금액+state.추가배송비;
                 상품금액 += (item.가격*item.수량);
                 추가배송비 = ((상품금액-상품할인) < 20000 ? 2500 : 0);
@@ -85,13 +82,12 @@ export default function CartComponent({cartKey}){
                 상품할인 += Math.round(item.가격*item.할인율);
                 프로모션 = 0;
                 결제예정금액 = 주문금액-총할인금액;
-                예상적립포인트 += 포인트;
+                예상적립포인트 += Math.round((item.총결제금액)*0.01);
             }
         });
 
         setState({
             ...state,
-            포인트: 포인트,
             주문금액: 주문금액,
             상품금액: 상품금액,
             추가배송비: 추가배송비,
@@ -104,19 +100,25 @@ export default function CartComponent({cartKey}){
         
     },[cart]);
 
+
+    const initMethod=()=>{
+        if(localStorage.getItem('ABCMARTCART')!==null){
+            let result = JSON.parse(localStorage.getItem('ABCMARTCART'));
+            // console.log(result);
+
+            setCart(result);
+
+            result.map((item, idx)=>{
+                // console.log(idx, item)
+            });
+        }
+    }
+
+
     // 장바구니(CART) 가져오기
-    // React.useEffect(()=>{
-    //     if(localStorage.getItem('ABCMARTCART')!==null){
-    //         let result = JSON.parse(localStorage.getItem('ABCMARTCART'));
-    //         // console.log(result);
-
-    //         setCart(result);
-
-    //         result.map((item, idx)=>{
-    //             // console.log(idx, item)
-    //         });
-    //     }
-    // },[]);
+    React.useEffect(()=>{
+        initMethod();
+    },[]);
 
 
 
