@@ -153,7 +153,7 @@
                     }
                     .notice-content{
                         margin: 14px 0 0 0;
-                        
+                        text-align: right;
                         table{
                             width: 100%;
                             border-collapse: collapse;
@@ -175,7 +175,137 @@
                                         text-align: left;
                                     }
                                 }
+                            }                            
+                        }
+                        button{
+                            margin: 100px 0 0 0;
+                            width: 150px;
+                            height: 60px;
+                            background: #555;
+                            color: #fff;
+                            transition: all 0.3s;
+                            border: 0;
+                            font-size: 16px;
+                            font-weight: 700;
+                            &:hover{
+                                background: #000;
                             }
+                        }
+                    }
+                    .write-content{
+                        form{
+                            ul{
+                                padding: 30px 20px;
+                                margin: 16px 0 50px 0;
+                                border-top: 2px solid #000;
+                                border-bottom: 1px solid #b5b5b5;
+                                li{
+                                    margin: 0 0 11px 0;
+                                    position: relative;
+                                    label{       
+                                        color: #333;                                 
+                                        font-size: 15px;
+                                        font-weight: 700;
+                                        display: flex;
+                                        span{
+                                            display: flex;
+                                            align-items: center;
+                                            width: 130px;
+                                            height: 40px;
+                                        }
+                                        input[type='text']{
+                                            position: absolute;
+                                            left: 0;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            width: 810px;
+                                            height: 40px;
+                                            margin: 0 0 0 130px;
+                                            padding: 0 11px;
+                                            border: 1px solid #d5d5d5;
+                                        }
+                                        textarea{
+                                            position: absolute;
+                                            left: 0;
+                                            top: 0;
+                                            width: 810px;
+                                            height: 300px;
+                                            margin: 0 0 0 130px;
+                                            resize: none;
+                                            padding: 11px;
+                                            border: 1px solid #d5d5d5;
+                                        }
+                                        input[type='file']{
+                                            width: 0;
+                                        }                                       
+                                    }
+                                    .file-add{
+                                        color: #333;                                 
+                                        font-size: 15px;
+                                        font-weight: 700;
+                                        display: flex;
+                                        span{
+                                            display: flex;
+                                            align-items: center;
+                                            width: 130px;
+                                            height: 40px;
+                                        }
+                                        .img-add{
+                                            position: relative;
+                                            label{
+                                                margin:  0 6px 0 0;
+                                                figure{
+                                                   
+                                                    display: block;
+                                                    width: 78px;
+                                                    height: 78px;
+                                                    background: #f8f8f8 url(../../../../../public/img/service/file_img_icon_plus.png)no-repeat 50% 50%;
+                                                    border: 1px solid #e5e5e5;
+                                                    img{
+                                                        width: 100%;
+                                                        height: 100%;
+                                                    }
+                                                    
+                                                }
+                                            } 
+                                            span{
+                                                position: absolute;
+                                                display: block;
+                                                width: 20px;
+                                                height: 20px;
+                                                top: 0;
+                                                right: 6px;
+                                                border: 1px solid #e5e5e5;
+                                                background: #fff url(../../../../../public/img/service/file_img_icon_remove.png)no-repeat 50% 50%;
+                                            } 
+                                        }
+                                        
+                                    }
+                                    &:nth-child(2){
+                                        height: 300px;
+                                    }
+                                }
+                            }
+                            .btn-box{
+                                width: 100%;
+                                text-align: center;
+                                button{
+                                    width: 200px;
+                                    height: 60px;
+                                    border: 0;
+                                    background: #a5a5a5;
+                                    color: #fff;
+                                    transition: all 0.3s;
+                                    &:hover{
+                                        background-color: #111;
+                                    }
+                                    &:nth-child(2){
+                                        background-color: #111;
+                                        margin: 0 0 0 10px;
+                                    }
+                                }
+                            }
+                            
                         }
                     }
                     .faq-content{                        
