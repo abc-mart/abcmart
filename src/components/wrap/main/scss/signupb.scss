@@ -97,6 +97,12 @@
                                 border-top: 2px solid #000;
                                 ul{
                                     padding: 50px 20px 63px 20px;
+                                    p{
+                                        display: none;
+                                        &.on{
+                                            display: block;
+                                        }
+                                    }
                                     li{
                                         display: flex;
                                         height: 54px;
