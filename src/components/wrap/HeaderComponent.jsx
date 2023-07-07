@@ -1,9 +1,19 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
+import './scss/header.scss';
 import $ from 'jquery';
 
-export default function HeaderComponent({setSelectButton}){
+export default function HeaderComponent({setSelectButton, cartCount, cartCountNumber, cartKey}){
+
+    React.useEffect(()=>{
+        if(localStorage.getItem(cartKey)!==null){
+            let arr = JSON.parse(localStorage.getItem(cartKey));
+            cartCountNumber(arr.length);
+        }
+    },[]);
+
+
     const [isShow, setIsShow] = React.useState('');
     const onMouseEnterShow=(value)=>{
         setIsShow(value);
@@ -210,6 +220,7 @@ export default function HeaderComponent({setSelectButton}){
                                             <li className="box3_ul_li3">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
                                                 <div className="h6">CART</div>
+                                                <span className='cart-badge'>{cartCount}</span>
                                             </li>
                                         </Link>
                                         <Link to="/SERVICE" className="a4">

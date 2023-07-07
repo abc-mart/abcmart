@@ -8,7 +8,7 @@ import Section4Component from './productdetail/Section4Component';
 import Section5Component from './productdetail/Section5Component';
 import Section6Component from './productdetail/Section6Component';
 
-export default function ProductDetailComponent({dkey}){
+export default function ProductDetailComponent({dkey, cartKey, cartCountNumber}){
 
     // React.useEffect(()=>{
     //     window.scrollTo(0, 0);
@@ -20,7 +20,7 @@ export default function ProductDetailComponent({dkey}){
     return (
         <div id='ProductDetail'>
 
-            <Section1Component dkey={dkey}/>
+            <Section1Component dkey={dkey} cartKey={cartKey} cartCountNumber={cartCountNumber}/>
             <Section2Component dkey={dkey}/>
             <Section3Component/>
             <Section4Component/>
