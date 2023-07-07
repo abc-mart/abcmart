@@ -22,6 +22,17 @@ import OnlyAbcComponent from './wrap/main/OnlyAbcComponent';
 
 export default function WrapComponent(){
 
+    // 장바구니 수량 카운트 상태변수
+    const [cartCount, setCartCount] = React.useState(0);
+
+
+    // 장바구니 수량 카운트 상태 변수를 전달하는 함수
+    const cartCountNumber=(num)=>{
+        setCartCount(num);
+    }
+
+
+    
     const [selectButton, setSelectButton ]= React.useState(null);
     
     //브랜드
@@ -151,11 +162,12 @@ export default function WrapComponent(){
     const [productDetail, setProductDetail] = React.useState({
         dkey: 'PRODUCTDETAILKEY',
         sign: false,
-        getProductDetail : []
+        getProductDetail : [],
+        cartKey:'ABCMARTCART',
     });
 
     // 비구조화
-    const {dkey, sign, getProductDetail} = productDetail;
+    const {dkey, sign, getProductDetail, cartKey} = productDetail;
 
     const setViewProductDetail=(value)=>{
         let arr = [];
@@ -246,14 +258,14 @@ export default function WrapComponent(){
             }        
             <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Routes>                    
-                    <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} />}>
+                    <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} cartCount={cartCount} cartCountNumber={cartCountNumber} cartKey={cartKey} />}>
                         <Route index element={<IntroComponent/>}/>
                         <Route path='/INTRO' element={<IntroComponent />}/>                        
                         <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} dkey={dkey} />}/>
                         <Route path='/PRODUCT' element={<ProductComponent running1={running1} running2={running2} running3={running3} setViewProductDetail={setViewProductDetail} dkey={dkey}/>}/>
-                        <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent dkey={dkey}/>}/>
+                        <Route path='/PRODUCTDETAIL' element={<ProductDetailComponent dkey={dkey} cartCountNumber={cartCountNumber} cartKey={cartKey} />}/>
                         <Route path='/EVENT' element={<EventComponent/>}/>
-                        <Route path='/CART' element={<CartComponent/>}/>
+                        <Route path='/CART' element={<CartComponent cartKey={cartKey} />}/>
                         <Route path='/LOGIN' element={<LoginComponent/>}/>
                         <Route path='/SIGNUPA' element={<SignupaComponent/>}/>
                         <Route path='/SIGNUPB' element={<SignupbComponent/>}/>

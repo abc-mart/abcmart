@@ -281,7 +281,8 @@ export default function ProductComponent({running1, running2, running3, setViewP
         e.preventDefault();
 
         let obj = {
-            이미지: `${item.이미지}`,
+            상품코드: item.product_code,
+            이미지: item.이미지,
             카테고리: item.카테고리,
             제조사: item.제조사,
             제품명: item.제품명,
@@ -297,7 +298,7 @@ export default function ProductComponent({running1, running2, running3, setViewP
    
         console.log(item);
         setViewProductDetail(obj);
-       window.location.pathname='/PRODUCTDETAIL';
+        window.location.pathname='/PRODUCTDETAIL';
     }
 
     return (

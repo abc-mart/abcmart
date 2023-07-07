@@ -129,7 +129,8 @@
 								}
 								a .box3_ul_li3 {
 									text-align: center;		
-									display: inline-block;						
+									display: inline-block;	
+									position: relative;					
 									figure{
 										display: inline-block;
 										width: 25px;
@@ -144,6 +145,21 @@
 									.h6 {
 										margin: 3px 0 0 0;
 										font-size: 10px;
+									}
+									.cart-badge{
+										position: absolute;
+										bottom: 13px;
+										right: -5px;
+										display: inline-block;
+										min-width: 16px;
+										height: 16px;
+										background: #ee1c25;
+										color: #fff;
+										font-family: 'Montserrat';
+										text-align: center;
+										font-size: 12px;
+										font-weight: 500;
+										line-height: 16px;
 									}
 								}
 								.a4 {
@@ -454,11 +470,11 @@
 																		appearance: none;
 																		width: 17px;
 																		height: 13px;
-																		background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 0 0;
+																		background: url(../../../../public/img/brand/btn_icon_prod_favorite.png) no-repeat 0 0;
 																		background-size: 34px 13px;												
 																		
 																		&:checked{
-																			background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 100% 0;
+																			background: url(../../../../public/img/brand/btn_icon_prod_favorite.png) no-repeat 100% 0;
 																			background-size: 34px 13px;	
 																		}
 																	}
@@ -484,11 +500,11 @@
 														width: 200px;
 														height: 50px;
 														margin: 0 0 10px 0;
-														background: url(../img//brand/btn_channel_art2.png)no-repeat 50% 50%;
+														background: url(../../../../public/img//brand/btn_channel_art2.png)no-repeat 50% 50%;
 														background-size: cover;
 														border: 0;
 														&:nth-child(3){
-															background-image: url(../img//brand/btn_channel_gs2.png);
+															background-image: url(../../../../public/img//brand/btn_channel_gs2.png);
 														}
 													}
 													>a{
@@ -544,11 +560,11 @@
 																	appearance: none;
 																	width: 17px;
 																	height: 13px;
-																	background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 0 0;
+																	background: url(../../../../public/img/brand/btn_icon_prod_favorite.png) no-repeat 0 0;
 																	background-size: 34px 13px;												
 																	
 																	&:checked{
-																		background: url(../img/brand/btn_icon_prod_favorite.png) no-repeat 100% 0;
+																		background: url(../../../../public/img/brand/btn_icon_prod_favorite.png) no-repeat 100% 0;
 																		background-size: 34px 13px;	
 																	}
 																}

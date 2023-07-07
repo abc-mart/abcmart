@@ -426,17 +426,14 @@
                             .choice{
                                 width: 100%;                                
                                 .choice-product{
-                                    display: none;
-                                    &.on{
-                                        display: flex;
-                                        justify-content: space-between;
-                                        align-items: center;
-                                        height: 70px;
-                                        padding: 0 20px;                                    
-                                        border-top: 1px solid #ccc;
-                                        border-bottom: 1px solid #999;
-                                        background: #f8f8f8;
-                                    }
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    height: 70px;
+                                    padding: 0 20px;                                    
+                                    border-top: 1px solid #ccc;
+                                    border-bottom: 1px solid #999;
+                                    background: #f8f8f8;
                                     span{}
                                     .ea-price{
                                         display: flex;
