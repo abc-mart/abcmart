@@ -2,9 +2,10 @@ import React from 'react';
 import './scss/service.scss';
 import NoticeComponent from './service/NoticeComponent';
 import FaqComponent from './service/FaqComponent';
+import WriteComponent from './service/notice/WriteComponent';
 
 export default function ServiceComponent(props) {
-    const [menu, setMenu]=React.useState('FAQ');
+    const [menu, setMenu]=React.useState('공지사항');
 
     const onClickMenu=(value)=>{
         setMenu(value);
@@ -13,6 +14,7 @@ export default function ServiceComponent(props) {
     const sss=()=>{
         window.scrollTo(0, 0)
     }
+
 
     return (
         <main id='service'>
@@ -34,8 +36,8 @@ export default function ServiceComponent(props) {
                         <div className="left">
                             <div className="row1">
                                 <ul>
-                                    <li><button onClick={()=>onClickMenu('FAQ')} className={`${menu==='FAQ'?'on':''}`} >FAQ</button></li>
-                                    <li><button onClick={()=>onClickMenu('공지사항')} className={`${menu==='공지사항'?'on':''}`} >공지사항</button></li>
+                                <li><button onClick={()=>onClickMenu('공지사항')} className={`${menu==='공지사항'?'on':''}`} >공지사항</button></li>
+                                    <li><button onClick={()=>onClickMenu('FAQ')} className={`${menu==='FAQ'?'on':''}`} >FAQ</button></li>                                    
                                     <li><button onClick={()=>onClickMenu('매장 찾기')} className={`${menu==='매장 찾기'?'on':''}`} >매장 찾기</button></li>
                                     <li><button onClick={()=>onClickMenu('1:1상담')} className={`${menu==='1:1상담'?'on':''}`}>1:1상담</button></li>
                                     <li><button onClick={()=>onClickMenu('고객의 소리')} className={`${menu==='고객의 소리'?'on':''}`} >고객의 소리</button></li>
@@ -58,7 +60,8 @@ export default function ServiceComponent(props) {
                         </div>
                         <div className="right">
                             {menu==='FAQ' && <FaqComponent/>}
-                            {menu==='공지사항' && <NoticeComponent/>}
+                            {menu==='공지사항' && <NoticeComponent setMenu={setMenu}/>}
+                            {menu==='글쓰기' && <WriteComponent/>}
                         </div>
                     </div>                    
                 </div>

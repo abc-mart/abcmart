@@ -4,6 +4,9 @@ import CouponSection2Component from './coupon/CouponSection2Component';
 import CouponSection3Component from './coupon/CouponSection3Component';
 
 export default function CouponComponent(){
+     React.useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[])
     return (
         <main id="coupon">
             <CouponSection1Component/>
