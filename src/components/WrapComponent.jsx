@@ -305,7 +305,7 @@ export default function WrapComponent(){
                         <Route path='/SERVICE' element={<ServiceComponent/>}/>
                         <Route path='/KIDS' element={<KidsComponent/>}/>
                         <Route path='/ONLY' element={<OnlyAbcComponent/>}/>
-                        <Route path='/COUPON' element={<CouponComponent/>}/>
+                        <Route path='/COUPON' element={<CouponComponent/>}/>                  
                         
                         
                         

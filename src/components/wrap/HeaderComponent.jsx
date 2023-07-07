@@ -95,7 +95,7 @@ export default function HeaderComponent({setSelectButton}){
     const [search, setSearch]=React.useState(false);
 
     const onClickSearch =()=>{
-        setSearch(true);
+        setSearch(on=>!on);
     }
 
     const onClickClose=()=>{
@@ -126,6 +126,28 @@ export default function HeaderComponent({setSelectButton}){
         setInputValue(value);
         setSearch(false);
     }
+
+    const onClickPath=(e)=>{
+        e.preventDefault();
+
+        if(inputValue==='아디다스'){
+            setSelectButton('ADIDAS');
+        }
+        else if(inputValue==='나이키'){
+            setSelectButton('NIKE');
+        }
+        else if(inputValue==='컨버스'){
+            setSelectButton('CONVERSE');
+        }
+        else if(inputValue==='뉴발란스'){
+            setSelectButton('NEW BALANCE');
+        }
+        else if(inputValue==='반스'){
+            setSelectButton('VANS');
+        }
+        
+        window.location.pathname='/BRAND';
+    }
     
     return (
         <>
@@ -142,10 +164,10 @@ export default function HeaderComponent({setSelectButton}){
                                 </div>
                                 <div className="box1_2">
                                     <div className="search_box">
-                                        <label htmlFor="search" onClick={onClickSearch}><input value={inputValue} onChange={onChangeValue} type="text" id='search' placeholder='아디다스 키즈 페스티벌 ★ 최대 50% 할인에 10% 추가 할인'/></label>
+                                        <label htmlFor="search" onClick={onClickSearch}><input value={inputValue} onChange={onChangeValue} type="text" id='search' placeholder='아디다스 키즈 페스티벌 ★ 최대 50% 할인에 10% 추가 할인' autoComplete='off'/></label>
                                         <div className="icon-box">
                                             <a href="http://localhost:3000/INTRO" className="a1"><img src="./img/headereventfooter/comm_header_icon_smart.png" alt=''/></a>
-                                            <a href="http://localhost:3000/INTRO" className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></a>
+                                            <a onClick={onClickPath} href='!#' className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></a>
                                         </div>                                        
                                     </div>
                                     <div className={`search_box_inner ${search?'on':''}`}>
