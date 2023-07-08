@@ -1,45 +1,75 @@
 import React from 'react';
-import axios from 'axios';
 
-export default function NoticeComponent({setMenu}) {
+export default function NoticeComponent({sortNotice, setItem,setMenu, setIndex}) {
     const [islogin, setIslogin] =React.useState(true);
 
     
-
-
     const onClickWrite =(value)=>{
         setMenu(value);
     }
 
-    const [state, setState] = React.useState({
-        notice: []
-    });
+    const onClickDetail=(e, item, index)=>{
+        e.preventDefault();
+        setMenu('글보기');
+        setItem(item);
+        setIndex(index);
+    }
+
+
+     //페이지 버튼
+
+    //목록개수
+    const [list] = React.useState(9);  
+
+    //페이지번호
+    const [pageNumber, setPageNumber] = React.useState(1); 
+    //버튼개수
+    const [groupPage] = React.useState(5); 
+    const [cnt, setCnt] = React.useState(1); 
+
+    //그룹 시작끝 번호
+    const [startNum, setStartNum] = React.useState(); 
+    const [endtNum, setEndtNum] = React.useState(); 
+
+    //  페이지번호 클릭 이벤트
+    const onClickPageNum=(e, num)=>{
+        e.preventDefault();
+        setPageNumber(num);
+
+        // window.scrollTo({
+        //     top:200
+        // })
+
+    }
+
+    // 그룹페이지 클릭  다음카운트
+    const onClickNextGroup=(e)=>{
+        e.preventDefault();
+        setCnt(cnt+1);
+    }
+
+    // 그룹페이지 클릭  이전카운트
+    const onClickPrevGroup=(e)=>{
+        e.preventDefault();
+        setCnt(cnt-1);
+    }
+
+    // 그룹 시작번호 설정
     React.useEffect(()=>{
-        axios({
-            url:'./data/service/notice.json',
-            method:'GET'
-        })
-        .then((res)=>{
-            if(res.status===200){
-                setState({
-                    ...state,
-                    notice:res.data.notice
-                })
-            }
-        })
-        .catch()
-    },[])
+        setStartNum( (cnt-1)*groupPage );
+    },[cnt, groupPage]);
+
+    // 그룹 끝번호 설정
+    React.useEffect(()=>{
+        setEndtNum( startNum + groupPage );
+    },[startNum, groupPage]);
     
-    const [sortNotice, setSrotNotice]=React.useState(state.notice);
-
+    // 버튼클릭시 그룹의 첫페이지로 설정
     React.useEffect(()=>{
-        let arrNotice = [...state.notice];
-        if(state.notice){
-            arrNotice.sort((a, b) => b.번호 - a.번호);
-        }
+        setPageNumber(startNum+1);
+    },[endtNum, startNum]);
 
-        setSrotNotice(arrNotice);
-    },[])
+    
 
     return (
         <>
@@ -58,18 +88,42 @@ export default function NoticeComponent({setMenu}) {
                 <tbody> 
                     {
                         sortNotice.map((item,idx)=>{
-                            return(
+                            if( Math.ceil((idx+1)/list) === pageNumber ){
+                            return(                                
                                 <tr key={idx}>
-                                    <td>{item.번호}</td>
-                                    <td>{item.제목}</td>
+                                    {isNaN(item.번호)? <td><img src={item.번호} alt="" /></td>:<td>{item.번호}</td>}
+                                    <td><a onClick={(e)=>onClickDetail(e, item, idx)} href="!#">{item.제목}</a></td>
                                     <td>{item.작성일}</td>
                                 </tr>  
                             )
+                            }
                         })
                     }
                                    
                 </tbody>    
             </table>
+            <div className="page-button-box">
+                <div className="prev-btn-box">
+                    { cnt > 1 && <a  href="!#"  className="prev-btn" onClick={onClickPrevGroup}><img src="./img/service/select_icon_arrow.png" alt="" /></a> }
+                </div>                                
+                <div className='num-btn-box'>
+                {
+                (()=>{
+                        let arr = []; 
+                        for(let i=startNum; i<endtNum; i++){                                    
+                            if(i<Math.ceil(sortNotice.length/list)){ // 100/6
+                                arr = [...arr,  <a key={i} data-key={`num${i}`}  className={pageNumber===(i+1)?'on':null}  href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> ]
+                                
+                            }
+                        }
+                        return  arr                                                                      
+                })() 
+                }                        
+                </div>
+                <div className="next-btn-box">
+                    {cnt < Math.ceil(sortNotice.length/list/groupPage) && <a href="!#" className="next-btn"  onClick={onClickNextGroup}><img src="./img/service/select_icon_arrow.png" alt="" /></a>}
+                </div> 
+            </div>
             {islogin && <button onClick={()=>onClickWrite('글쓰기')}>글쓰기</button>}
         </div>
         </>

@@ -1,10 +1,8 @@
 import React from 'react';
 
-export default function WriteComponent(props) {
+export default function WriteComponent({setMenu}) {
 
     const [image1, setImage1] = React.useState('');
-    const [image2, setImage2] = React.useState('');
-    const [image3, setImage3] = React.useState('');
 
     const onChangeImg = (e, setImage) => {
       const file = e.target.files[0];
@@ -70,7 +68,7 @@ export default function WriteComponent(props) {
                     </li>
                 </ul>
                 <div className="btn-box">
-                    <button>취소</button>
+                    <button onClick={()=>setMenu('공지사항')}>취소</button>
                     <button>등록</button>
                 </div>
             </form>
