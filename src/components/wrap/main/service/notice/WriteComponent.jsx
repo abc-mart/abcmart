@@ -65,33 +65,6 @@ export default function WriteComponent(props) {
                                 </label>
                                 {image1 && <span onClick={()=>onClickDel(setImage1)}></span>}
                             </div>
-                            {image1 && 
-                            <div className='img-add'>
-                                <label htmlFor="fileAdd2">
-                                    <input type="file" id='fileAdd2' accept="image/*" onChange={(e)=>onChangeImg(e,setImage2)}/>
-                                    <figure>
-                                        {image2 &&                                          
-                                                <img src={image2} alt="" />                                             
-                                        }
-                                    </figure>
-                                </label>
-                                {image2 && <span onClick={()=>onClickDel(setImage2)}></span>}
-                            </div>
-                            }
-                            {image2 && 
-                            <div className='img-add'>
-                                <label htmlFor="fileAdd3">
-                                    <input type="file" id='fileAdd3' accept="image/*" onChange={(e)=>onChangeImg(e,setImage3)}/>
-                                    <figure>
-                                        {image3 &&
-                                                <img src={image3} alt="" /> 
-                                            
-                                        }
-                                    </figure>
-                                </label>
-                                {image3 && <span onClick={()=>onClickDel(setImage3)}></span>}
-                            </div>
-                            }
                         </div>
                         
                     </li>
