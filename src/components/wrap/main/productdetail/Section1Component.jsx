@@ -6,8 +6,9 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
 
     const [isCart, setIsCart] = React.useState(false);
     const [isCartOk, setIsCartOk] = React.useState(false);
-
     const [cnt, setCnt] = React.useState(1);
+    const [isSizeShow, setIsSizeShow] = React.useState(false);
+    const [size, setSize] = React.useState();
 
     const [state, setState] = React.useState({
         shoes:{}
@@ -22,10 +23,11 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
             shoes : {
                 ...state.shoes,
                 수량: cnt,
+                사이즈: size,
                 총결제금액: Math.round(cnt*(shoes.가격*(1-shoes.할인율)))
             }
         })
-    },[cnt]);
+    },[cnt, size]);
 
     const onClickMinus=(e)=>{
         e.preventDefault();   
@@ -38,6 +40,14 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
         e.preventDefault();
         setCnt(cnt+1);        
         setIsCart(true);
+    }
+
+
+    const onClickSize=(e)=>{
+        e.preventDefault();
+        setSize(e.target.text);
+        console.log(e.target.text);
+        setIsSizeShow(true);
     }
 
 
@@ -58,13 +68,15 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
 
     const onClickCart=(e)=>{
         e.preventDefault();
+
         if(isCart===false){
             setState({
                 ...state,
                 shoes:{
                     ...state.shoes,
                     수량: 1,
-                    총결제금액: Math.round(cnt*(shoes.가격*(1-shoes.할인율)))
+                    사이즈: size,
+                    총결제금액: Math.round(1*(shoes.가격*(1-shoes.할인율)))
                 }
             })
         }
@@ -78,18 +90,24 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
 
         let arr = [];
         if(isCartOk===true){
-            setIsCartOk(false);
-            if(localStorage.getItem(cartKey)!==null){
-                arr = JSON.parse(localStorage.getItem(cartKey));
-                
-                arr = [shoes, ...arr]
-                localStorage.setItem('ABCMARTCART', JSON.stringify(arr));
+
+            if(localStorage.getItem(cartKey)===null){
+                arr = [shoes];
             }
             else{
-                arr = [shoes]
-                localStorage.setItem('ABCMARTCART', JSON.stringify(arr));
+                arr = JSON.parse(localStorage.getItem(cartKey));
+                
+                // 중복 데이터 확인
+                const result = arr.map((item)=>(item.상품코드&&item.사이즈)===(shoes.상품코드&&shoes.사이즈) ? true : false);
+                arr.map((item)=>(item.상품코드&&item.사이즈) === (shoes.상품코드&&shoes.사이즈) ? {...item, 수량: item.수량+=shoes.수량, 총결제금액 : item.총결제금액+=shoes.총결제금액 } : item);
+                if( result.includes(true)!==true ){
+                    arr = [shoes, ...arr];
+                }
             }
+            localStorage.setItem('ABCMARTCART', JSON.stringify(arr));
+            setIsCartOk(false);
             cartCountNumber(arr.length);
+            setCnt(1);
         }
 
     },[isCartOk]);
@@ -231,13 +249,13 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
                                                 <a href="!#">매장별 재고확인<img src="./img/detail/" alt="" /></a>
                                             </div>
                                             <div className="size">
-                                                <a href="!#">220</a>
-                                                <a href="!#">230</a>
-                                                <a href="!#">240</a>
-                                                <a href="!#">250</a>
-                                                <a href="!#">260</a>
-                                                <a href="!#">270</a>
-                                                <a href="!#">280</a>
+                                                <a onClick={onClickSize} href="!#" >220</a>
+                                                <a onClick={onClickSize} href="!#" >230</a>
+                                                <a onClick={onClickSize} href="!#" >240</a>
+                                                <a onClick={onClickSize} href="!#" >250</a>
+                                                <a onClick={onClickSize} href="!#" >260</a>
+                                                <a onClick={onClickSize} href="!#" >270</a>
+                                                <a onClick={onClickSize} href="!#" >280</a>
                                             </div>
                                         </li>
                                         <li>
@@ -256,8 +274,8 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
 
                                 </div>
                                 <div className="choice">
-                                    <div className='choice-product'>
-                                        <span>220</span>
+                                    <div className={`choice-product ${isSizeShow?' on':''}`}>
+                                        <span>{size}</span>
                                         <div className='ea-price'>
                                             <div className="number">
                                                 <a href="!#" onClick={onClickMinus}>-</a>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './main/scss/topcookie.scss';
+import './scss/topcookie.scss';
 import { Link } from 'react-router-dom';
 
 export default function TopCookieComponent({topCookieClose}){
