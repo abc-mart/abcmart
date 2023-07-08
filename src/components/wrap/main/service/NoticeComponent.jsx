@@ -1,12 +1,46 @@
 import React from 'react';
+import axios from 'axios';
 
 export default function NoticeComponent({setMenu}) {
     const [islogin, setIslogin] =React.useState(true);
+
+    
 
 
     const onClickWrite =(value)=>{
         setMenu(value);
     }
+
+    const [state, setState] = React.useState({
+        notice: []
+    });
+    React.useEffect(()=>{
+        axios({
+            url:'./data/service/notice.json',
+            method:'GET'
+        })
+        .then((res)=>{
+            if(res.status===200){
+                setState({
+                    ...state,
+                    notice:res.data.notice
+                })
+            }
+        })
+        .catch()
+    },[])
+    
+    const [sortNotice, setSrotNotice]=React.useState(state.notice);
+
+    React.useEffect(()=>{
+        let arrNotice = [...state.notice];
+        if(state.notice){
+            arrNotice.sort((a, b) => b.번호 - a.번호);
+        }
+
+        setSrotNotice(arrNotice);
+    },[])
+
     return (
         <>
         <div className='sub-title'>
@@ -22,46 +56,18 @@ export default function NoticeComponent({setMenu}) {
                     </tr>
                 </thead>
                 <tbody> 
-                    <tr>
-                        <td>59</td>
-                        <td>개인정보처리방침 개정 안내</td>
-                        <td>2023.06.22</td>
-                    </tr>                    
-                    <tr>
-                        <td>59</td>
-                        <td>크록스 제품 발송 안내</td>
-                        <td>2023.06.12</td>
-                    </tr>                    
-                    <tr>
-                        <td>59</td>
-                        <td>크록스 제품 발송 안내</td>
-                        <td>2023.06.12</td>
-                    </tr>                    
-                    <tr>
-                        <td>59</td>
-                        <td>크록스 제품 발송 안내</td>
-                        <td>2023.06.12</td>
-                    </tr>                    
-                    <tr>
-                        <td>59</td>
-                        <td>크록스 제품 발송 안내</td>
-                        <td>2023.06.12</td>
-                    </tr>                    
-                    <tr>
-                        <td>59</td>
-                        <td>크록스 제품 발송 안내</td>
-                        <td>2023.06.12</td>
-                    </tr>                    
-                    <tr>
-                        <td>59</td>
-                        <td>크록스 제품 발송 안내</td>
-                        <td>2023.06.12</td>
-                    </tr>                    
-                    <tr>
-                        <td>59</td>
-                        <td>크록스 제품 발송 안내</td>
-                        <td>2023.06.12</td>
-                    </tr> 
+                    {
+                        sortNotice.map((item,idx)=>{
+                            return(
+                                <tr key={idx}>
+                                    <td>{item.번호}</td>
+                                    <td>{item.제목}</td>
+                                    <td>{item.작성일}</td>
+                                </tr>  
+                            )
+                        })
+                    }
+                                   
                 </tbody>    
             </table>
             {islogin && <button onClick={()=>onClickWrite('글쓰기')}>글쓰기</button>}
