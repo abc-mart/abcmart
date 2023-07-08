@@ -4,7 +4,6 @@ import axios from "axios";
 import "./scss/signupb.scss";
 
 export default function SignupbComponent(){
-<<<<<<< HEAD
 
     const [unfold, setUnfold] = React.useState(false);
 
@@ -21,7 +20,6 @@ export default function SignupbComponent(){
     
 
 
-=======
     const [state, setState] = useState({
         nm: "",
         isNmError: false,
@@ -110,7 +108,6 @@ export default function SignupbComponent(){
     const onChangePh =(e)=>{
 
     }
->>>>>>> abdb89ed82ab6d5db637504f8f8cac89b10e9033
     return(
         <div id="signupb">
             <div id="wrap">
@@ -500,14 +497,6 @@ export default function SignupbComponent(){
                                         <div className="box21"><h4>회원정보</h4></div>
                                         <div className="box22">
                                             <ul>
-<<<<<<< HEAD
-                                                <li><div className="colTitle">이름<i></i></div><input type="text" name='nm' placeholder='한글, 영문, 숫자만 입력해주세요'/></li>                                                                                               
-                                                <li><div className="colTitle">아이디<i></i></div><input type="text" name='id' placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/></li>
-                                                <li><div className="colTitle">비밀번호<i></i></div><input type="text" name='pw' placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/></li>
-                                                <li><div className="colTitle">비밀번호 확인<i></i></div><input type="text" name='pc' placeholder='비밀번호를 재입력해 주세요.'/></li>
-                                                <li><div className="colTitle">이메일<i></i></div><input type="text" name='em' placeholder='이메일 주소를 입력해 주세요.'/></li>
-                                                <li><div className="colTitle">휴대폰 번호</div><input type="text" name='ph' placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/></li>
-=======
                                                 <li><div className="colTitle">이름<i></i></div><input type="text" id="Nm" name='nm' onChange={onChangeNm} value={state.nm} placeholder='한글, 영문, 숫자만 입력해주세요'/></li>
                                                 <p className={state.isNmError?'on':''}>에러메세지</p>
                                                 <li><div className="colTitle">아이디<i></i></div><input type="text" id="Id" name='id' onChange={onChangeId} value={state.id} placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/></li>
@@ -515,7 +504,6 @@ export default function SignupbComponent(){
                                                 <li><div className="colTitle">비밀번호 확인<i></i></div><input type="text" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
                                                 <li><div className="colTitle">이메일<i></i></div><input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/></li>
                                                 <li><div className="colTitle">휴대폰 번호</div><input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/></li>
->>>>>>> abdb89ed82ab6d5db637504f8f8cac89b10e9033
                                             </ul>
                                         </div>
                                     </div>
