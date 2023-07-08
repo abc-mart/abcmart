@@ -4,24 +4,48 @@ import axios from "axios";
 import "./scss/signupb.scss";
 
 export default function SignupbComponent(){
-<<<<<<< HEAD
 
-    const [unfold, setUnfold] = React.useState(false);
+    const [unfold1, setUnfold1] = React.useState(false);
+    const [unfold2, setUnfold2] = React.useState(false);
+    const [unfold3, setUnfold3] = React.useState(false);
 
-    const onClickFold=(e)=>{
+    const onClickFold1=(e)=>{
         e.preventDefault();
-        if(unfold === true){
-            setUnfold(false);
+        if(unfold1 === false){
+            setUnfold1(true);
         }
         else{
-            setUnfold(true);
-        }        
+            setUnfold1(false);
+        }            
+        setUnfold2(false);
+        setUnfold3(false);
+    }
+    const onClickFold2=(e)=>{
+        e.preventDefault();
+        if(unfold2 === false){
+            setUnfold2(true);
+        }
+        else{
+            setUnfold2(false);
+        }  
+        setUnfold1(false);        
+        setUnfold3(false);       
+    }
+    const onClickFold3=(e)=>{
+        e.preventDefault();
+        if(unfold3 === false){
+            setUnfold3(true);
+        }
+        else{
+            setUnfold3(false);
+        }  
+        setUnfold1(false);
+        setUnfold2(false);     
     }
 
     
 
 
-=======
     const [state, setState] = useState({
         nm: "",
         isNmError: false,
@@ -110,7 +134,6 @@ export default function SignupbComponent(){
     const onChangePh =(e)=>{
 
     }
->>>>>>> abdb89ed82ab6d5db637504f8f8cac89b10e9033
     return(
         <div id="signupb">
             <div id="wrap">
@@ -126,9 +149,15 @@ export default function SignupbComponent(){
                                         <div className="box11"><h4>약관동의</h4></div>
                                         <div className="box12">
                                             <ul>
-                                                <li><div className="clause-title"><label><input type="checkbox"/>전체 약관에 동의합니다.</label></div></li>
-                                                <li><div className="clause-title" onClick={onClickFold}><label><input type="checkbox"/><span>[필수] </span>사이트 이용약관</label><i className={unfold?' on':''}></i></div>
-                                                    <div className={`clause-content ${unfold?' on':''}`}>
+                                                <li>
+                                                    <div className="clause-title"></div>
+                                                    <label><input type="checkbox"/>전체 약관에 동의합니다.</label>
+                                                </li>
+
+                                                <li>
+                                                    <div className="clause-title" onClick={onClickFold1}></div>
+                                                    <label><input type="checkbox"/><span>[필수] </span>사이트 이용약관</label><i className={unfold1?' on':''}></i>
+                                                    <div className={`clause-content ${unfold1?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
                                                         <h5>제2조 (정의)</h5>
@@ -248,8 +277,9 @@ export default function SignupbComponent(){
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li><div className="clause-title"><label><input type="checkbox"/><span>[필수] </span>전자상거래 이용약관</label><i></i></div>
-                                                    <div className='clause-content'>
+                                                <li><div className="clause-title" onClick={onClickFold2}></div>
+                                                    <label><input type="checkbox"/><span>[필수] </span>전자상거래 이용약관</label><i className={unfold2?' on':''}></i>
+                                                    <div className={`clause-content ${unfold2?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
                                                         <h5>제2조 (정의)</h5>
@@ -369,8 +399,9 @@ export default function SignupbComponent(){
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li><div className="clause-title"><label><input type="checkbox"/><span>[필수] </span>개인정보 수집 및 이용 동의</label><i></i></div>
-                                                    <div className='clause-content'>
+                                                <li><div className="clause-title" onClick={onClickFold3}></div>
+                                                <label><input type="checkbox"/><span>[필수] </span>개인정보 수집 및 이용 동의</label><i className={unfold3?' on':''}></i>
+                                                    <div className={`clause-content ${unfold3?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
                                                         <h5>제2조 (정의)</h5>
@@ -490,8 +521,8 @@ export default function SignupbComponent(){
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li><div className="clause-title"><label><input type="checkbox"/><span>[필수] </span>만 14세 이상입니다.</label><i></i></div>
-
+                                                <li><div className="clause-title"></div>
+                                                <label><input type="checkbox"/><span>[필수] </span>만 14세 이상입니다.</label>
                                                 </li>
                                             </ul>
                                         </div>
@@ -500,14 +531,6 @@ export default function SignupbComponent(){
                                         <div className="box21"><h4>회원정보</h4></div>
                                         <div className="box22">
                                             <ul>
-<<<<<<< HEAD
-                                                <li><div className="colTitle">이름<i></i></div><input type="text" name='nm' placeholder='한글, 영문, 숫자만 입력해주세요'/></li>                                                                                               
-                                                <li><div className="colTitle">아이디<i></i></div><input type="text" name='id' placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/></li>
-                                                <li><div className="colTitle">비밀번호<i></i></div><input type="text" name='pw' placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/></li>
-                                                <li><div className="colTitle">비밀번호 확인<i></i></div><input type="text" name='pc' placeholder='비밀번호를 재입력해 주세요.'/></li>
-                                                <li><div className="colTitle">이메일<i></i></div><input type="text" name='em' placeholder='이메일 주소를 입력해 주세요.'/></li>
-                                                <li><div className="colTitle">휴대폰 번호</div><input type="text" name='ph' placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/></li>
-=======
                                                 <li><div className="colTitle">이름<i></i></div><input type="text" id="Nm" name='nm' onChange={onChangeNm} value={state.nm} placeholder='한글, 영문, 숫자만 입력해주세요'/></li>
                                                 <p className={state.isNmError?'on':''}>에러메세지</p>
                                                 <li><div className="colTitle">아이디<i></i></div><input type="text" id="Id" name='id' onChange={onChangeId} value={state.id} placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/></li>
@@ -515,7 +538,6 @@ export default function SignupbComponent(){
                                                 <li><div className="colTitle">비밀번호 확인<i></i></div><input type="text" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
                                                 <li><div className="colTitle">이메일<i></i></div><input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/></li>
                                                 <li><div className="colTitle">휴대폰 번호</div><input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/></li>
->>>>>>> abdb89ed82ab6d5db637504f8f8cac89b10e9033
                                             </ul>
                                         </div>
                                     </div>
