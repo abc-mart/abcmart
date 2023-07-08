@@ -1,10 +1,8 @@
 import React from 'react';
 
-export default function WriteComponent(props) {
+export default function WriteComponent({setMenu}) {
 
     const [image1, setImage1] = React.useState('');
-    const [image2, setImage2] = React.useState('');
-    const [image3, setImage3] = React.useState('');
 
     const onChangeImg = (e, setImage) => {
       const file = e.target.files[0];
@@ -65,39 +63,12 @@ export default function WriteComponent(props) {
                                 </label>
                                 {image1 && <span onClick={()=>onClickDel(setImage1)}></span>}
                             </div>
-                            {image1 && 
-                            <div className='img-add'>
-                                <label htmlFor="fileAdd2">
-                                    <input type="file" id='fileAdd2' accept="image/*" onChange={(e)=>onChangeImg(e,setImage2)}/>
-                                    <figure>
-                                        {image2 &&                                          
-                                                <img src={image2} alt="" />                                             
-                                        }
-                                    </figure>
-                                </label>
-                                {image2 && <span onClick={()=>onClickDel(setImage2)}></span>}
-                            </div>
-                            }
-                            {image2 && 
-                            <div className='img-add'>
-                                <label htmlFor="fileAdd3">
-                                    <input type="file" id='fileAdd3' accept="image/*" onChange={(e)=>onChangeImg(e,setImage3)}/>
-                                    <figure>
-                                        {image3 &&
-                                                <img src={image3} alt="" /> 
-                                            
-                                        }
-                                    </figure>
-                                </label>
-                                {image3 && <span onClick={()=>onClickDel(setImage3)}></span>}
-                            </div>
-                            }
                         </div>
                         
                     </li>
                 </ul>
                 <div className="btn-box">
-                    <button>취소</button>
+                    <button onClick={()=>setMenu('공지사항')}>취소</button>
                     <button>등록</button>
                 </div>
             </form>

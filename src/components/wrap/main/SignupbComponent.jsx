@@ -5,16 +5,42 @@ import "./scss/signupb.scss";
 
 export default function SignupbComponent(){
 
-    const [unfold, setUnfold] = React.useState(false);
+    const [unfold1, setUnfold1] = React.useState(false);
+    const [unfold2, setUnfold2] = React.useState(false);
+    const [unfold3, setUnfold3] = React.useState(false);
 
-    const onClickFold=(e)=>{
+    const onClickFold1=(e)=>{
         e.preventDefault();
-        if(unfold === true){
-            setUnfold(false);
+        if(unfold1 === false){
+            setUnfold1(true);
         }
         else{
-            setUnfold(true);
-        }        
+            setUnfold1(false);
+        }            
+        setUnfold2(false);
+        setUnfold3(false);
+    }
+    const onClickFold2=(e)=>{
+        e.preventDefault();
+        if(unfold2 === false){
+            setUnfold2(true);
+        }
+        else{
+            setUnfold2(false);
+        }  
+        setUnfold1(false);        
+        setUnfold3(false);       
+    }
+    const onClickFold3=(e)=>{
+        e.preventDefault();
+        if(unfold3 === false){
+            setUnfold3(true);
+        }
+        else{
+            setUnfold3(false);
+        }  
+        setUnfold1(false);
+        setUnfold2(false);     
     }
 
     
@@ -123,9 +149,15 @@ export default function SignupbComponent(){
                                         <div className="box11"><h4>약관동의</h4></div>
                                         <div className="box12">
                                             <ul>
-                                                <li><div className="clause-title"><label><input type="checkbox"/>전체 약관에 동의합니다.</label></div></li>
-                                                <li><div className="clause-title" onClick={onClickFold}><label><input type="checkbox"/><span>[필수] </span>사이트 이용약관</label><i className={unfold?' on':''}></i></div>
-                                                    <div className={`clause-content ${unfold?' on':''}`}>
+                                                <li>
+                                                    <div className="clause-title"></div>
+                                                    <label><input type="checkbox"/>전체 약관에 동의합니다.</label>
+                                                </li>
+
+                                                <li>
+                                                    <div className="clause-title" onClick={onClickFold1}></div>
+                                                    <label><input type="checkbox"/><span>[필수] </span>사이트 이용약관</label><i className={unfold1?' on':''}></i>
+                                                    <div className={`clause-content ${unfold1?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
                                                         <h5>제2조 (정의)</h5>
@@ -245,8 +277,9 @@ export default function SignupbComponent(){
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li><div className="clause-title"><label><input type="checkbox"/><span>[필수] </span>전자상거래 이용약관</label><i></i></div>
-                                                    <div className='clause-content'>
+                                                <li><div className="clause-title" onClick={onClickFold2}></div>
+                                                    <label><input type="checkbox"/><span>[필수] </span>전자상거래 이용약관</label><i className={unfold2?' on':''}></i>
+                                                    <div className={`clause-content ${unfold2?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
                                                         <h5>제2조 (정의)</h5>
@@ -366,8 +399,9 @@ export default function SignupbComponent(){
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li><div className="clause-title"><label><input type="checkbox"/><span>[필수] </span>개인정보 수집 및 이용 동의</label><i></i></div>
-                                                    <div className='clause-content'>
+                                                <li><div className="clause-title" onClick={onClickFold3}></div>
+                                                <label><input type="checkbox"/><span>[필수] </span>개인정보 수집 및 이용 동의</label><i className={unfold3?' on':''}></i>
+                                                    <div className={`clause-content ${unfold3?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
                                                         <h5>제2조 (정의)</h5>
@@ -487,8 +521,8 @@ export default function SignupbComponent(){
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li><div className="clause-title"><label><input type="checkbox"/><span>[필수] </span>만 14세 이상입니다.</label><i></i></div>
-
+                                                <li><div className="clause-title"></div>
+                                                <label><input type="checkbox"/><span>[필수] </span>만 14세 이상입니다.</label>
                                                 </li>
                                             </ul>
                                         </div>

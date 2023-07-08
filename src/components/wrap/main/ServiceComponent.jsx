@@ -3,17 +3,38 @@ import './scss/service.scss';
 import NoticeComponent from './service/NoticeComponent';
 import FaqComponent from './service/FaqComponent';
 import WriteComponent from './service/notice/WriteComponent';
+import DetailComponent from './service/notice/DetailComponent';
+import axios from 'axios';
 
 export default function ServiceComponent(props) {
     const [menu, setMenu]=React.useState('공지사항');
+    const [item, setItem] = React.useState([]);
+    const [index, setIndex]=React.useState(0);
 
     const onClickMenu=(value)=>{
         setMenu(value);
     }
 
-    const sss=()=>{
-        window.scrollTo(0, 0)
-    }
+    const [state, setState] = React.useState({
+        notice: []
+    });
+    React.useEffect(()=>{
+        axios({
+            url:'./data/service/notice.json',
+            method:'GET'
+        })
+        .then((res)=>{
+            if(res.status===200){
+                setState({
+                    ...state,
+                    notice:res.data.notice
+                })
+            }
+        })
+        .catch()
+    },[])
+
+    const sortNotice=[...state.notice].sort((a, b) => b.번호 - a.번호);
 
 
     return (
@@ -54,14 +75,16 @@ export default function ServiceComponent(props) {
                                             09:00~12:00 <br />13:00~18:00
                                         </li>
                                     </ul>
-                                    <p onClick={sss}>(주말,공휴일 휴무)</p>
+                                    <p>(주말,공휴일 휴무)</p>
                                 </div>                                
                             </div>
                         </div>
                         <div className="right">
                             {menu==='FAQ' && <FaqComponent/>}
-                            {menu==='공지사항' && <NoticeComponent setMenu={setMenu}/>}
-                            {menu==='글쓰기' && <WriteComponent/>}
+                            {menu==='공지사항' && <NoticeComponent sortNotice={sortNotice} setItem={setItem}setMenu={setMenu} setIndex={setIndex}/>}
+                            {menu==='글쓰기' && <WriteComponent setMenu={setMenu}/>}
+                            {menu==='글보기' && <DetailComponent sortNotice={sortNotice} item={item} setMenu={setMenu} index={index}/>}
+                            
                         </div>
                     </div>                    
                 </div>
