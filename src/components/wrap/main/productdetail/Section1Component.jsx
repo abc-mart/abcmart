@@ -46,7 +46,6 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
     const onClickSize=(e)=>{
         e.preventDefault();
         setSize(e.target.text);
-        console.log(e.target.text);
         setIsSizeShow(true);
     }
 

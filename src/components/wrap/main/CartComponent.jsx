@@ -12,16 +12,8 @@ export default function CartComponent(){
     const [isPickUp, setIspickUp] = React.useState(false);
     const [isRecentView, setIsRecentView] = React.useState(false);
     const [isOptionModal, setIsOptionModal] = React.useState(false);
-
-    const onClickOptionChange=(e)=>{
-        e.preventDefault();
-        if(isOptionModal===true){
-            setIsOptionModal(false);
-        }
-        else{
-            setIsOptionModal(true);
-        }
-    }
+    const [optionChange, setOptionChange] = React.useState([]);
+    const [optionSelect, setOptionSelect] = React.useState();
 
     const onClickRecentView=(e)=>{
         e.preventDefault();
@@ -228,6 +220,33 @@ export default function CartComponent(){
 
 
 
+    const onClickOptionChange=(e, record)=>{
+        e.preventDefault();
+        if(isOptionModal===true){
+            setIsOptionModal(false);
+        }
+        else{
+            const result = cart.filter((item)=>(item.상품코드&&item.사이즈)===(record.상품코드&&record.사이즈));
+            console.log(result);
+            setOptionChange(result);
+            setIsOptionModal(true);
+        }
+    }
+
+    const onChangeSelect=(e)=>{
+        setOptionSelect(e.target.value);
+    }
+
+
+    const onClickOptChangeSave=(e)=>{
+        e.preventDefault();
+        onChangeSelect();
+        setCart(optionSelect);
+        localStorage.setItem('ABCMARTCART', JSON.stringify(optionSelect));
+        initMethod();
+        setIsOptionModal(false);
+    }
+
 
     return (
         <>
@@ -315,7 +334,7 @@ export default function CartComponent(){
                                                                                             </a>
                                                                                             <p>
                                                                                                 <span>{item.사이즈}</span>
-                                                                                                <button onClick={onClickOptionChange}>옵션변경</button>
+                                                                                                <button onClick={(e)=>onClickOptionChange(e, item)}>옵션변경</button>
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -489,13 +508,50 @@ export default function CartComponent(){
                 isOptionModal &&
                     <div id='optionChangeModal'>
                         <div className="option-container">
-                            <div className="option-gap">
-                                <div className="option-title">
-                                    <h2>옵션변경</h2>
-                                    <button onClick={onClickOptionChange}><span></span></button>
-                                </div>
-                                <div className="option-content"></div>
-                            </div>
+                            {
+                                optionChange.map((item, idx)=>{
+                                    return(
+                                        <div className="option-gap" key={idx}>
+                                            <div className="option-title">
+                                                <h2>옵션변경</h2>
+                                                <button onClick={(e)=>onClickOptionChange(e, item)}><span></span></button>
+                                            </div>
+                                            <div className="option-content">
+                                                <div className='inner-box'>
+                                                    <div className="product-box">
+                                                        <figure>
+                                                            <img src={item.이미지} alt="" />
+                                                        </figure>
+                                                        <div className="information">
+                                                            <h3>{item.제조사}</h3>
+                                                            <p>{item.제품명}</p>
+                                                            <span>{item.사이즈}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="size-box">
+                                                        <span>사이즈</span>
+                                                        <div className="select-box">
+                                                            <select onChange={onChangeSelect} name="size-menu" id="sizeMenu">
+                                                                <option value="선택하세요." disabled>선택하세요.</option>
+                                                                <option value="220">220</option>
+                                                                <option value="230">230</option>
+                                                                <option value="240">240</option>
+                                                                <option value="250">250</option>
+                                                                <option value="260">260</option>
+                                                                <option value="270">270</option>
+                                                                <option value="280">280</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="option-button-box">
+                                                    <button onClick={(e)=>onClickOptChangeSave(e, item)}>확인</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
             }
