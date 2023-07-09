@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function NoticeComponent({sortNotice, setItem,setMenu, setIndex}) {
-    const [islogin, setIslogin] =React.useState(true);
+export default function NoticeComponent({notice, islogin, sortNotice, setItem,setMenu, setIndex}) {
+    
 
     
     const onClickWrite =(value)=>{
@@ -10,16 +10,17 @@ export default function NoticeComponent({sortNotice, setItem,setMenu, setIndex})
 
     const onClickDetail=(e, item, index)=>{
         e.preventDefault();
-        setMenu('글보기');
+        
         setItem(item);
         setIndex(index);
+        setMenu('글보기');
     }
 
 
      //페이지 버튼
 
     //목록개수
-    const [list] = React.useState(9);  
+    const [list] = React.useState(8);  
 
     //페이지번호
     const [pageNumber, setPageNumber] = React.useState(1); 
@@ -69,7 +70,10 @@ export default function NoticeComponent({sortNotice, setItem,setMenu, setIndex})
         setPageNumber(startNum+1);
     },[endtNum, startNum]);
 
-    
+    const onClickFixed=(e)=>{
+        e.preventDefault();
+        setMenu('고정');
+    }
 
     return (
         <>
@@ -86,14 +90,22 @@ export default function NoticeComponent({sortNotice, setItem,setMenu, setIndex})
                     </tr>
                 </thead>
                 <tbody> 
+                    
+                        <tr>
+                            <td><img src="./img/service/common_icon_bbs_notice.png" alt="" /></td>
+                            <td><a onClick={(e)=>onClickFixed(e,'글보기')} href="!#">개인정보처리방침 개정 안내</a></td>
+                            <td>2023.06.22</td>
+                        </tr>
+                   
+                    
                     {
-                        sortNotice.map((item,idx)=>{
+                        notice.map((item,idx)=>{
                             if( Math.ceil((idx+1)/list) === pageNumber ){
                             return(                                
                                 <tr key={idx}>
                                     {isNaN(item.번호)? <td><img src={item.번호} alt="" /></td>:<td>{item.번호}</td>}
                                     <td><a onClick={(e)=>onClickDetail(e, item, idx)} href="!#">{item.제목}</a></td>
-                                    <td>{item.작성일}</td>
+                                    <td>{item.작성일.substring(0, 10).replace(/-/g, '.')}</td>
                                 </tr>  
                             )
                             }
@@ -111,7 +123,7 @@ export default function NoticeComponent({sortNotice, setItem,setMenu, setIndex})
                 (()=>{
                         let arr = []; 
                         for(let i=startNum; i<endtNum; i++){                                    
-                            if(i<Math.ceil(sortNotice.length/list)){ // 100/6
+                            if(i<Math.ceil(notice.length/list)){ // 100/6
                                 arr = [...arr,  <a key={i} data-key={`num${i}`}  className={pageNumber===(i+1)?'on':null}  href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> ]
                                 
                             }
@@ -121,7 +133,7 @@ export default function NoticeComponent({sortNotice, setItem,setMenu, setIndex})
                 }                        
                 </div>
                 <div className="next-btn-box">
-                    {cnt < Math.ceil(sortNotice.length/list/groupPage) && <a href="!#" className="next-btn"  onClick={onClickNextGroup}><img src="./img/service/select_icon_arrow.png" alt="" /></a>}
+                    {cnt < Math.ceil(notice.length/list/groupPage) && <a href="!#" className="next-btn"  onClick={onClickNextGroup}><img src="./img/service/select_icon_arrow.png" alt="" /></a>}
                 </div> 
             </div>
             {islogin && <button onClick={()=>onClickWrite('글쓰기')}>글쓰기</button>}

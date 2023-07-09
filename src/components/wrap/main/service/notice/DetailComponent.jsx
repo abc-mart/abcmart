@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DetailComponent({sortNotice, item, setMenu, index}) {
+export default function DetailComponent({notice, islogin, item, setMenu, index}) {
 
     const [currentIndex, setCurrentIndex] = React.useState(index);
     const [currentItem, setCurrentItem] = React.useState(item);
@@ -9,30 +9,31 @@ export default function DetailComponent({sortNotice, item, setMenu, index}) {
 
     
     
-
+    //이전페이지, 다음페이지
     React.useEffect(() => {
         const prevIndex = currentIndex - 1 >= 0 ? currentIndex - 1 : null;
         const nextIndex =
-          currentIndex + 1 < sortNotice.length ? currentIndex + 1 : null;
-        setPrevPage(prevIndex !== null ? sortNotice[prevIndex] : null);
-        setNextPage(nextIndex !== null ? sortNotice[nextIndex] : null);
-    }, [currentIndex, sortNotice]);
+          currentIndex + 1 < notice.length ? currentIndex + 1 : null;
+        setPrevPage(prevIndex !== null ? notice[prevIndex] : null);
+        setNextPage(nextIndex !== null ? notice[nextIndex] : null);
+    }, [currentIndex, notice]);
 
+    
     const onClickPrev = (e) => {
         e.preventDefault();
         const prevIndex = currentIndex - 1;
         if (prevIndex >= 0) {
           setCurrentIndex(prevIndex);
-          setCurrentItem(sortNotice[prevIndex]);
+          setCurrentItem(notice[prevIndex]);
         }
       };
 
       const onClickNext = (e) => {
         e.preventDefault();
         const nextIndex = currentIndex + 1;
-        if (nextIndex < sortNotice.length) {
+        if (nextIndex < notice.length) {
           setCurrentIndex(nextIndex);
-          setCurrentItem(sortNotice[nextIndex]);
+          setCurrentItem(notice[nextIndex]);
         }
       };
 
@@ -87,8 +88,8 @@ export default function DetailComponent({sortNotice, item, setMenu, index}) {
                         </div>
                     </div>
                     <div className="btn-box">
-                        <button onClick={()=>setMenu('공지사항')}>목록</button>
-                        <button>수정</button>
+                        {islogin && <button onClick={()=>setMenu('수정')}>수정</button>}
+                        <button onClick={()=>setMenu('공지사항')}>목록</button>                        
                     </div>
                 </div>
         

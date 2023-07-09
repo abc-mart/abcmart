@@ -1,8 +1,58 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function WriteComponent({setMenu}) {
+export default function UpdateComponent({islogin, item, setMenu, setItem}) {
+    
 
+    // 수정시 입력
+    const onChangeSubject=(e)=>{
+        setItem((prevItem) => ({
+            ...prevItem,
+            제목: e.target.value
+        }));
+    };
+
+    
+    // 수정시 입력
+    const onChangeContents=(e)=>{
+        setItem((prevItem) => ({
+            ...prevItem,
+            내용: e.target.value
+        }));
+        
+    };
+
+    const onSubmitWrite=(e)=>{
+        e.preventDefault();
+        // axios() 
+        axios({
+            url:`/bbs/updateAction.jsp?bbsId=${item.번호}`,
+            method: 'POST',
+            data:{},
+            params: {
+                "subject": item.제목,
+                "content": item.내용
+            }
+            
+        })
+        .then((res)=>{
+    
+            
+            
+            console.log( res );
+            console.log( res.data );
+
+            // window.location.pathname='/SERVICE';
+            setMenu('글보기');
+
+        })
+        .catch((err)=>{
+            console.log(`AXIOS 실패! ${err} `)
+        });
+
+    }
+
+    //이미지
     const [image1, setImage1] = React.useState('');
 
     const onChangeImg = (e, setImage) => {
@@ -26,56 +76,6 @@ export default function WriteComponent({setMenu}) {
     React.useEffect(()=>{
         window.scrollTo(0, 200);
     },[])
-
-
-    const [state, setState] = React.useState({
-        subject:'',
-        content:''
-        
-    });
-    const {subject, content} = state;
-
-   
-
-    const onChangeSubject=(e)=>{
-        setState({
-            ...state,
-            subject: e.target.value,
-        })
-    }
-    const onChangeContents=(e)=>{
-        setState({
-            ...state,
-            content: e.target.value,
-        })
-    }
-
-    const onSubmitWrite=(e)=>{
-        e.preventDefault();
-       
-        axios({
-            url:'/bbs/writeAction.jsp',
-            method: 'POST',
-            data:{},
-            params: {
-                "subject": subject,
-                "content": content
-            }
-        })
-        .then((res)=>{
-    
-    
-            console.log( res );
-            console.log( res.data );
-            window.location.pathname='/SERVICE';
-        
-
-        })
-        .catch((err)=>{
-            console.log(`AXIOS 실패! ${err} `)
-        });   
-                 
-    }
    
     return (        
         <>
@@ -83,30 +83,30 @@ export default function WriteComponent({setMenu}) {
             <h2>공지사항</h2>
         </div>
         <div className="write-content">
-            <form  onSubmit={onSubmitWrite}>
+            <form onSubmit={onSubmitWrite}>
                 <ul>
                     <li>
-                        <label htmlFor="">
+                        <label htmlFor="subject">
                             <span>제목</span>
                             <input 
-                                    onChange={onChangeSubject}
-                                    type="text" 
-                                    name='subject' 
-                                    id='subject' 
-                                    value={subject} 
-                                    placeholder='제목을 입력해 주세요' 
-                                    />
+                                onChange={onChangeSubject}
+                                type="text" 
+                                name='subject' 
+                                id='subject' 
+                                value={item.제목}
+                                placeholder='제목을 입력해 주세요' 
+                                />
                         </label>
                     </li>
                     <li>
-                        <label htmlFor="">
+                        <label htmlFor="content">
                             <span>내용</span>
                             <textarea 
                                     onChange={onChangeContents}
                                     name="content" 
                                     id="content"  
                                     placeholder='내용을 입력해 주세요' 
-                                    value={content}
+                                    value={item.내용}
                                     ></textarea>
                         </label>
                     </li>
@@ -133,7 +133,7 @@ export default function WriteComponent({setMenu}) {
                 </ul>
                 <div className="btn-box">
                     <button onClick={()=>setMenu('공지사항')}>취소</button>
-                    <button>등록</button>
+                    <button type='submit'>수정</button>
                 </div>
             </form>
         </div>

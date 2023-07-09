@@ -5,8 +5,10 @@ import FaqComponent from './service/FaqComponent';
 import WriteComponent from './service/notice/WriteComponent';
 import DetailComponent from './service/notice/DetailComponent';
 import axios from 'axios';
+import UpdateComponent from './service/notice/UpdateComponent';
+import FixedComponent from './service/notice/FixedComponent';
 
-export default function ServiceComponent(props) {
+export default function ServiceComponent({islogin}) {
     const [menu, setMenu]=React.useState('공지사항');
     const [item, setItem] = React.useState([]);
     const [index, setIndex]=React.useState(0);
@@ -15,26 +17,51 @@ export default function ServiceComponent(props) {
         setMenu(value);
     }
 
-    const [state, setState] = React.useState({
-        notice: []
-    });
+    // const [state, setState] = React.useState({
+    //     게시판: []
+    // });
+    // React.useEffect(()=>{
+    //     axios({
+    //         url:'./data/service/notice.json',
+    //         method:'GET'
+    //     })
+    //     .then((res)=>{
+    //         if(res.status===200){
+    //             setState({
+    //                 ...state,
+    //                 게시판:res.data.notice
+    //             })
+    //         }
+    //     })
+    //     .catch()
+    // },[])
+
+    // const sortNotice=[...state.게시판].sort((a, b) => b.번호 - a.번호);
+
+    const [notice, setNotice] = React.useState([]);
+
     React.useEffect(()=>{
+
         axios({
-            url:'./data/service/notice.json',
+            url:'/bbs/bbsNoticeJSON.jsp',
             method:'GET'
         })
         .then((res)=>{
-            if(res.status===200){
-                setState({
-                    ...state,
-                    notice:res.data.notice
-                })
-            }
-        })
-        .catch()
-    },[])
+            setNotice(res.data);
+            setNotice(res.data.공지사항);
 
-    const sortNotice=[...state.notice].sort((a, b) => b.번호 - a.번호);
+            console.log( res.data )
+            console.log( res.data.공지사항 )
+            
+        })
+        .catch((err)=>{
+            console.log( err );
+        });
+
+    },[]);
+
+
+
 
 
     return (
@@ -57,7 +84,7 @@ export default function ServiceComponent(props) {
                         <div className="left">
                             <div className="row1">
                                 <ul>
-                                <li><button onClick={()=>onClickMenu('공지사항')} className={`${menu==='공지사항'?'on':''}`} >공지사항</button></li>
+                                <li><button onClick={()=>onClickMenu('공지사항')} className={`${(menu==='공지사항' || menu==='글보기' || menu==='글쓰기' || menu==='고정')?'on':''}`} >공지사항</button></li>
                                     <li><button onClick={()=>onClickMenu('FAQ')} className={`${menu==='FAQ'?'on':''}`} >FAQ</button></li>                                    
                                     <li><button onClick={()=>onClickMenu('매장 찾기')} className={`${menu==='매장 찾기'?'on':''}`} >매장 찾기</button></li>
                                     <li><button onClick={()=>onClickMenu('1:1상담')} className={`${menu==='1:1상담'?'on':''}`}>1:1상담</button></li>
@@ -81,10 +108,17 @@ export default function ServiceComponent(props) {
                         </div>
                         <div className="right">
                             {menu==='FAQ' && <FaqComponent/>}
-                            {menu==='공지사항' && <NoticeComponent sortNotice={sortNotice} setItem={setItem}setMenu={setMenu} setIndex={setIndex}/>}
+
+                            {menu==='공지사항' && <NoticeComponent islogin={islogin} notice={notice} setItem={setItem}setMenu={setMenu} setIndex={setIndex}/>}
+                            {menu==='고정' && <FixedComponent setMenu={setMenu}/>}
                             {menu==='글쓰기' && <WriteComponent setMenu={setMenu}/>}
-                            {menu==='글보기' && <DetailComponent sortNotice={sortNotice} item={item} setMenu={setMenu} index={index}/>}
-                            
+                            {menu==='글보기' && <DetailComponent islogin={islogin} notice={notice} item={item} setMenu={setMenu} index={index}/>}
+                            {menu==='수정' && <UpdateComponent  item={item} setMenu={setMenu} setItem={setItem} index={index}/>}
+
+                            {/* {menu==='공지사항' && <NoticeComponent islogin={islogin} sortNotice={sortNotice} setItem={setItem}setMenu={setMenu} setIndex={setIndex}/>}
+                            {menu==='글쓰기' && <WriteComponent setMenu={setMenu}/>}
+                            {menu==='글보기' && <DetailComponent islogin={islogin} sortNotice={sortNotice} item={item} setMenu={setMenu} index={index}/>}
+                            {menu==='수정' && <UpdateComponent  item={item} setMenu={setMenu} setItem={setItem} index={index}/>} */}
                         </div>
                     </div>                    
                 </div>

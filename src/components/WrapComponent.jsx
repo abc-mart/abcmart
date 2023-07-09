@@ -24,6 +24,8 @@ import EventSubComponent from './wrap/main/event/EventSubComponent';
 
 export default function WrapComponent(){
 
+    const [islogin, setIslogin] =React.useState(true);
+
     const [cartCount, setCartCount] = React.useState(0);
 
     const cartCountNumber=(num)=>{
@@ -310,7 +312,7 @@ export default function WrapComponent(){
                         <Route path='/SIGNUPA' element={<SignupaComponent/>}/>
                         <Route path='/SIGNUPB' element={<SignupbComponent/>}/>
                         <Route path='/MYPAGE' element={<MypageComponent/>}/>
-                        <Route path='/SERVICE' element={<ServiceComponent/>}/>
+                        <Route path='/SERVICE' element={<ServiceComponent islogin={islogin}/>}/>
                         <Route path='/KIDS' element={<KidsComponent/>}/>
                         <Route path='/ONLY' element={<OnlyAbcComponent/>}/>
                         <Route path='/COUPON' element={<CouponComponent/>}/>                  

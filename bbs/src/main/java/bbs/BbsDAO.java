@@ -12,7 +12,7 @@ public class BbsDAO {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private int totalRecords=0;
-	private int viewList=3;
+	private int viewList=1000;
 	
 	public BbsDAO() {
 		try {

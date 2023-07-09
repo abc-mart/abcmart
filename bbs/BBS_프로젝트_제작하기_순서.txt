@@ -11,7 +11,7 @@ create table user (
 
 INSERT INTO user (userId,userPw,userName,userEmail)
 VALUES 
-("moonjong", "moon1234", "문선종", "moonseonjong@naver.com"),
+("keromian", "keromian1234", "김인수", "kcg94@naver.com"),
 ("leeshooshin", "lee1234", "이순신", "leeshooshin@naver.com"),
 ("gaja", "gaja1234", "방랑자", "gaja@naver.com"),
 ("love", "love999", "차분희", "love@naver.com"),
@@ -21,6 +21,17 @@ VALUES
 
 
 - notice 또는 bbs 또는 board 테이블
+
+create table bbs (
+    bbsId int NOT NULL,
+    userId      VARCHAR(16) NOT NULL,
+    subject      VARCHAR(30) NOT NULL,
+    content    VARCHAR(4096) NOT NULL,
+    writeDate   DATETIME,
+    deleteOk   int,
+    hit   int,
+    PRIMARY KEY(bbsId)
+);
 
 [2] 프로젝트 생성
 - 톰켓서버연동
