@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
+import './scss/header.scss';
+import $ from 'jquery';
 
-export default function HeaderComponent({setSelectButton}){
+export default function HeaderComponent({setSelectButton, cartCount, cartCountNumber, cartKey}){
+
+    React.useEffect(()=>{
+        if(localStorage.getItem(cartKey)!==null){
+            let arr = JSON.parse(localStorage.getItem(cartKey));
+            cartCountNumber(arr.length);
+        }
+    },[]);
+
+
     const [isShow, setIsShow] = React.useState('');
     const onMouseEnterShow=(value)=>{
         setIsShow(value);
@@ -14,6 +25,8 @@ export default function HeaderComponent({setSelectButton}){
     const onClickSelect=(value)=>{
         setSelectButton(value);
         setIsShow('');
+
+        
     }
 
 
@@ -89,7 +102,62 @@ export default function HeaderComponent({setSelectButton}){
         .catch()
     },[])
     
-    
+    const [search, setSearch]=React.useState(false);
+
+    const onClickSearch =()=>{
+        setSearch(on=>!on);
+    }
+
+    const onClickClose=()=>{
+        setSearch(false);
+    }
+
+    React.useEffect(()=>{
+        const searchBox = $('.search_box, .search_box_inner');
+        
+        $(document).on({
+            click(e){
+                if( !searchBox.is(e.target) && !searchBox.has(e.target).length){
+                    setSearch(false);
+                }
+            }
+        })
+    })
+
+    const [inputValue, setInputValue] = React.useState('');
+      
+    const onChangeValue = (e) => {
+      setInputValue(e.target.value);
+      
+    };
+        
+    const onClickValue=(e,value)=>{
+        e.preventDefault();
+        setInputValue(value);
+        setSearch(false);
+    }
+
+    const onClickPath=(e)=>{
+        e.preventDefault();
+
+        if(inputValue==='아디다스'){
+            setSelectButton('ADIDAS');
+        }
+        else if(inputValue==='나이키'){
+            setSelectButton('NIKE');
+        }
+        else if(inputValue==='컨버스'){
+            setSelectButton('CONVERSE');
+        }
+        else if(inputValue==='뉴발란스'){
+            setSelectButton('NEW BALANCE');
+        }
+        else if(inputValue==='반스'){
+            setSelectButton('VANS');
+        }
+        
+        window.location.pathname='/BRAND';
+    }
     
     return (
         <>
@@ -106,9 +174,42 @@ export default function HeaderComponent({setSelectButton}){
                                 </div>
                                 <div className="box1_2">
                                     <div className="search_box">
-                                        <input type="text" placeholder='아디다스 키즈 페스티벌 ★ 최대 50% 할인에 10% 추가 할인'/>
-                                        <a href="!#" className="a1"><img src="./img/headereventfooter/comm_header_icon_smart.png" alt=''/></a>
-                                        <a href="!#" className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></a>
+                                        <label htmlFor="search" onClick={onClickSearch}><input value={inputValue} onChange={onChangeValue} type="text" id='search' placeholder='아디다스 키즈 페스티벌 ★ 최대 50% 할인에 10% 추가 할인' autoComplete='off'/></label>
+                                        <div className="icon-box">
+                                            <a href="http://localhost:3000/INTRO" className="a1"><img src="./img/headereventfooter/comm_header_icon_smart.png" alt=''/></a>
+                                            <a onClick={onClickPath} href='!#' className="a2"><img src="./img/headereventfooter/comm_header_icon_search.png" alt=''/></a>
+                                        </div>                                        
+                                    </div>
+                                    <div className={`search_box_inner ${search?'on':''}`}>
+                                        <div className="inner-gap">
+                                            <div className="inner left">
+                                                <h2>최근 검색어</h2>
+                                                <p>최근 검색어가 없습니다.</p>
+                                            </div>
+                                            <div className="inner center">
+                                                <h2>인기 검색어</h2>
+                                                <ul>
+                                                    <li><a onClick={(e)=>onClickValue(e,'아디다스')} href="!#"><span>01</span><h3>아디다스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'나이키')} href="!#"><span>02</span><h3>나이키</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'컨버스')} href="!#"><span>03</span><h3>컨버스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'뉴발란스')} href="!#"><span>04</span><h3>뉴발란스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'반스')} href="!#"><span>05</span><h3>반스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'크록스')} href="!#"><span>06</span><h3>크록스</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'샌들')} href="!#"><span>07</span><h3>샌들</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'로퍼')} href="!#"><span>08</span><h3>로퍼</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'운동화')} href="!#"><span>09</span><h3>운동화</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                    <li><a onClick={(e)=>onClickValue(e,'캐주얼')} href="!#"><span>10</span><h3>캐주얼</h3><i><img src="./img/headereventfooter/comm_icon_keyword_rank.png" alt="" /></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div className="inner right">
+                                                <h2>추천 검색어</h2>
+                                                <p>NIKE SPORTS</p>
+                                                <p>ADIDAS SANDAL</p>
+                                                <p>NEW BALANCE RUNNING</p>
+                                                <p>VANS CAUSAL</p>
+                                            </div>
+                                            <button onClick={onClickClose}><img src="./img/headereventfooter/comm_icon_btn_search_layer_close.png" alt="" /></button>
+                                        </div>                                        
                                     </div>
                                 </div>
                                 <div className="box1_3">
@@ -141,6 +242,7 @@ export default function HeaderComponent({setSelectButton}){
                                             <li className="box3_ul_li3">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
                                                 <div className="h6">CART</div>
+                                                <span className='cart-badge'>{cartCount}</span>
                                             </li>
                                         </Link>
                                         <Link to="/SERVICE" className="a4">
@@ -160,7 +262,7 @@ export default function HeaderComponent({setSelectButton}){
                                         <li className={`MEN ${isShow==='MEN'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('MEN')}><button>MEN</button></li>
                                         <li className={`WOMEN ${isShow==='WOMEN'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('WOMEN')}><button>WOMEN</button></li>
                                         <li className={`KIDS ${isShow==='KIDS'?' on':''}`} onMouseEnter={()=>onMouseEnterShow('KIDS')}><button>KIDS</button></li>
-                                        <li className="SALE"><a href="!#">SALE</a></li>
+                                        <li className="SALE"><Link to='/PRODUCT' onMouseEnter={()=>onMouseEnterShow('SALE')} onClick={()=>onClickSelect('SALE')}>SALE</Link></li>
                                     </ul>
                                     <ul  >
                                         <li className={`brand-inner ${isShow==='BRAND'?' on':''}`} >
@@ -966,7 +1068,7 @@ export default function HeaderComponent({setSelectButton}){
                                             </div>
                                         </li>
                                     </ul>
-                                    <div className={`back ${isShow!==''?' on':''}`}></div>
+                                    <div className={`back ${isShow!=='' && isShow!=='SALE'?' on':''}`}></div>
                                 </div>
                                 <div className="box2_2">
                                     <ul>

@@ -4,7 +4,7 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function ProductComponent({running1, running2, running3, setViewProductDetail, d_key}) {
+export default function ProductComponent({sale, running1, running2, running3, setViewProductDetail, d_key}) {
 
     const[abcGrand, setAbcGrand]=React.useState(true);
 
@@ -22,7 +22,7 @@ export default function ProductComponent({running1, running2, running3, setViewP
         else{
             setAbcGrand(true);
         }
-    },[running1, running2, running3])
+    },[running1, running2, running3, sale])
 
     //줌인 줌아웃 
     const [zoom, setZoom] = React.useState(false);
@@ -271,17 +271,34 @@ export default function ProductComponent({running1, running2, running3, setViewP
                 arrSportsGrand = arrSportsGrand.filter(item => item.뱃지2 !== "")
             }
         }
+        else if(sale){
+            arrSportsAbc = arrSportsAbc.filter(item => item.할인율 !==0 )
+            arrSportsGrand = arrSportsGrand.filter(item => item.할인율 !== 0)
+            if(delivery && pickup){
+                arrSportsAbc = arrSportsAbc.filter(item => item.뱃지2 !=="" && item.뱃지3 !== "")
+                arrSportsGrand = arrSportsGrand.filter(item => item.뱃지2 !=="" && item.뱃지3 !== "")
+            }
+            else if(delivery){
+                arrSportsAbc = arrSportsAbc.filter(item => item.뱃지3 !== "")
+                arrSportsGrand = arrSportsGrand.filter(item => item.뱃지3 !== "")
+            }
+            else if(pickup){
+                arrSportsAbc = arrSportsAbc.filter(item => item.뱃지2 !== "")
+                arrSportsGrand = arrSportsGrand.filter(item => item.뱃지2 !== "")
+            }
+        }
         
 
         setSortAbcSports(arrSportsAbc);
         setSortGrandSports(arrSportsGrand);
-    },[state.스포츠ABC, state.스포츠GRAND, running1,running2,running3, delivery, pickup])
+    },[state.스포츠ABC, state.스포츠GRAND, running1,running2,running3, sale, delivery, pickup])
 
     const onClickProductDetailList=(e, item)=>{
         e.preventDefault();
 
         let obj = {
-            이미지: `${item.이미지}`,
+            상품코드: item.product_code,
+            이미지: item.이미지,
             카테고리: item.카테고리,
             제조사: item.제조사,
             제품명: item.제품명,
@@ -1830,6 +1847,513 @@ export default function ProductComponent({running1, running2, running3, setViewP
                                     </div>
                                     <div className="row2">
                                         <h1>런닝화</h1>
+                                    </div>
+                                </div>
+                                <div className="content">
+                                    <div className="abc-grand">
+                                        <button onClick={abcChange} className={`${abcGrand?'on':''}`}><figure><img src="./img/brand/bg_channel_sel.png" alt="" /></figure>({sortAbcSports.length})</button>
+                                        <button onClick={grandChange} className={`${abcGrand?'':'on'}`}><figure><img src="./img/brand/bg_channel_sel.png" alt="" /></figure>({sortGrandSports.length})</button>
+                                    </div>
+                                    <div className="sortbar">
+                                        <ul>
+                                            <li>
+                                                <label htmlFor="delivery"><input onChange={onChangeOrder} id='delivery' type="checkbox" value={'delivery'} checked={delivery}/><img src="./img/brand/filter_chk_art_delivery.png" alt="" /></label>
+                                                <label htmlFor="pickup"><input onChange={onChangeOrder} id='pickup' type="checkbox" value={'pickup'} checked={pickup}/>매장픽업</label>
+                                                
+                                            </li>
+                                            <li>
+                                                <div className="select-box">
+                                                    <input onClick={onClickBox} type="text"  value={sort} readOnly/>
+                                                    <span className={`${sortBox?'on':''}`}><img src="./img/brand/select_icon_arrow_down.png" alt="" /></span>
+                                                    <dl className={`${sortBox?'on':''}`}>
+                                                        <dd className={`${sort==='신상품순'?'on':''}`} onClick={()=>onClickSort('신상품순')}>신상품순</dd>
+                                                        <dd className={`${sort==='낮은가격순'?'on':''}`} onClick={()=>onClickSort('낮은가격순')}>낮은가격순</dd>
+                                                        <dd className={`${sort==='높은가격순'?'on':''}`} onClick={()=>onClickSort('높은가격순')}>높은가격순</dd>
+                                                        <dd className={`${sort==='할인율 높은순'?'on':''}`} onClick={()=>onClickSort('할인율 높은순')}>할인율 상품순</dd>
+                                                        <dd className={`${sort==='베스트상품순'?'on':''}`} onClick={()=>onClickSort('베스트상품순')}>베스트상품순</dd>                                                
+                                                        <dd className={`${sort==='상품평순'?'on':''}`} onClick={()=>onClickSort('상품평순')}>상품평순</dd>
+                                                    </dl>
+                                                </div>
+                                                <div className="radio-box">
+                                                    <input title='3열 보기' onChange={onChangeZoom} type="radio" name='zoom' className='zoomOut' checked={!zoom} value={'zoomOut'}/>
+                                                    <input title='2열 보기' onChange={onChangeZoom} type="radio" name='zoom' className='zoomIn'  checked={zoom} value={'zoomIn'}/>
+                                                </div>                                        
+                                            </li>
+                                        </ul>
+                                    </div>                            
+                                    <div className={`sortbar-inner ${delivery||pickup?'on':''}`}>
+                                        <ul>
+                                            <li>
+                                                {delivery &&<button className='inner-btn1'onClick={onClickDeliveryDel}>아트배송<img src="./img/brand/btn_icon_filter_icon_del.png" alt="" /></button>}
+                                                {pickup &&<button className='inner-btn1'onClick={onClickPickupDel}>매장픽업<img src="./img/brand/btn_icon_filter_icon_del.png" alt="" /></button>}
+                                            </li>
+                                            <li>{(delivery||pickup) && <button className='inner-btn2'onClick={onClickAllDel}><img src="./img/brand/btn_icon_filter_icon_reset.png" alt="" />전체삭제</button>}</li>
+                                        </ul>
+                                    </div>
+                                    <div className="products">
+                                    <>
+                                        {
+                                            !zoom?
+                                            (
+                                                <>
+                                                <p>총 <strong>{sortGrandSports.length}</strong>개의 상품이 있습니다.</p>
+                                                <ul>                                            
+                                                    { (sortGrandSports).map((item,idx)=>{
+                                                        if( Math.ceil((idx+1)/list) === pageNumber ){
+                                                        return(
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
+                                                                    <div className="img-box">
+                                                                        <img src={item.이미지} alt="" />
+                                                                        <span><img src={item.추천} alt="" /></span>
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <h3>{item.제조사}</h3>
+                                                                        <h4>{item.제품명}</h4>
+                                                                        <h2>                                                                
+                                                                            {(item.할인율)===0 && <>{(item.가격).toLocaleString()}<em>원</em></>} 
+                                                                            {(item.할인율)!==0 && 
+                                                                            <>
+                                                                            <i>{(item.가격).toLocaleString()}</i>
+                                                                            <strong>{(Math.round((item.가격)*(1-item.할인율)/1000)*1000).toLocaleString()}<em>원[{Math.round(item.할인율*100)}%]</em></strong>
+                                                                            </>
+                                                                            }
+                                                                        </h2>
+                                                                        <div className="badge-box">
+                                                                                {(item.뱃지1) && <span><img src={item.뱃지1} alt="" /></span>}
+                                                                                {(item.뱃지2) &&<span><img src={item.뱃지2} alt="" /></span>}
+                                                                                {(item.뱃지3) &&<span><img src={item.뱃지3} alt="" /></span>}
+                                                                                {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                
+                                                                <div className="inner-box">
+                                                                        <div className="inner-row1">
+                                                                            <dl>
+                                                                                <dd>220</dd>
+                                                                                <dd>225</dd>
+                                                                                <dd>230</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                        <div className="inner-row2">
+                                                                            <div className="inner-left">
+                                                                                <input type="checkbox" />
+                                                                                <input type="checkbox" />
+                                                                                <input type="checkbox" />                                                                    
+                                                                            </div>
+                                                                            <div className="inner-right">
+                                                                                <button>바로구매</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            </li>
+                                                        )
+                                                        }
+                                                    })}
+                                                </ul>
+                                                <div className="page-button-box">
+                                                    <div className="prev-btn-box">
+                                                        { cnt > 1 && <a  href="!#"  className="prev-btn" onClick={onClickPrevGroup}>&lt;</a> }
+                                                    </div>                                
+                                                    <div className='num-btn-box'>
+                                                    {
+                                                    (()=>{
+                                                            let arr = [];  // 페이지번호와 a 태그 모두 저장된 배열변수
+                                                            for(let i=startNum; i<endtNum; i++){                                    
+                                                                if(i<Math.ceil(sortGrandSports.length/list)){ // 100/6
+                                                                    arr = [...arr,  <a key={i} data-key={`num${i}`}  className={pageNumber===(i+1)?'on':null}  href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> ]
+                                                                    // arr.push( <a href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> );
+                                                                }
+                                                            }
+                                                            return  arr                                                                      
+                                                    })() 
+                                                    }                        
+                                                    </div>
+                                                    <div className="next-btn-box">
+                                                        {cnt < Math.ceil(sortGrandSports.length/list/groupPage) && <a href="!#" className="next-btn"  onClick={onClickNextGroup}>&gt;</a>}
+                                                    </div> 
+                                                </div>
+                                                </>
+                                            )
+                                        :
+                                            (
+                                                <>
+                                                <p>총 <strong>{sortGrandSports.length}</strong>개의 상품이 있습니다.</p>
+                                                <ul>                                            
+                                                    {sortGrandSports.map((item,idx)=>{                                                
+                                                        if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
+                                                        return(
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
+                                                                    <div className="img-box">
+                                                                        <img src={item.이미지} alt="" />
+                                                                        <span><img src={item.추천} alt="" /></span>
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <h3>{item.제조사}</h3>
+                                                                        <h4>{item.제품명}</h4>
+                                                                        <h2>
+                                                                            {(item.할인율)===0 && <>{(item.가격).toLocaleString()}<em>원</em></>}
+                                                                            {(item.할인율)!==0 &&
+                                                                            <>
+                                                                            <i>{(item.가격).toLocaleString()}</i>
+                                                                            <strong>{(Math.round((item.가격)*(1-item.할인율)/1000)*1000).toLocaleString()}<em>원[{Math.round(item.할인율*100)}%]</em></strong>
+                                                                            </>
+                                                                            }
+                                                                        </h2>
+                                                                        <div className="badge-box">
+                                                                                {(item.뱃지1) && <span><img src={item.뱃지1} alt="" /></span>}
+                                                                                {(item.뱃지2) &&<span><img src={item.뱃지2} alt="" /></span>}
+                                                                                {(item.뱃지3) &&<span><img src={item.뱃지3} alt="" /></span>}
+                                                                                {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <div className="inner-box">
+                                                                        <div className="inner-row1">
+                                                                            <dl>
+                                                                                <dd>220</dd>
+                                                                                <dd>225</dd>
+                                                                                <dd>230</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                        <div className="inner-row2">
+                                                                            <div className="inner-left">
+                                                                                <input type="checkbox" />
+                                                                                <input type="checkbox" />
+                                                                                <input type="checkbox" />                                                                    
+                                                                            </div>
+                                                                            <div className="inner-right">
+                                                                                <button>바로구매</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            </li>
+                                                        )
+                                                        }
+                                                    })}
+                                                </ul>
+                                                <div className="page-button-box">
+                                                    <div className="prev-btn-box">
+                                                        { cnt > 1 && <a  href="!#"  className="prev-btn" onClick={onClickPrevGroup}>&lt;</a> }
+                                                    </div>                                
+                                                    <div className='num-btn-box'>
+                                                    {
+                                                    (()=>{
+                                                            let arr = [];  // 페이지번호와 a 태그 모두 저장된 배열변수
+                                                            for(let i=startNum; i<endtNum; i++){                                    
+                                                                if(i<Math.ceil(sortGrandSports.length/zoomInList)){ // 100/6
+                                                                    arr = [...arr,  <a key={i} data-key={`num${i}`}  className={pageNumber===(i+1)?'on':null}  href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> ]
+                                                                    // arr.push( <a href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> );
+                                                                }
+                                                            }
+                                                            return  arr                                                                      
+                                                    })() 
+                                                    }                        
+                                                    </div>
+                                                    <div className="next-btn-box">
+                                                        {cnt < Math.ceil(sortGrandSports.length/zoomInList/groupPage) && <a href="!#" className="next-btn"  onClick={onClickNextGroup}>&gt;</a>}
+                                                    </div> 
+                                                </div>
+                                                </>
+                                            )
+                                        }  
+                                        </> 
+                                    </div>
+                                </div>
+                            </div> 
+                            )
+                        }
+                        </>
+                    }                                       
+                    {sale &&
+                        <>
+                        {abcGrand?
+                            (
+                            <div className="right">
+                                <div className="title">
+                                    <div className="row1">
+                                        <ul>
+                                            <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">HOME</a></li>
+                                            <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">SALE</a></li>
+                                        </ul>
+                                    </div>
+                                    <div className="row2">
+                                        <h1>SALE</h1>
+                                    </div>
+                                </div>
+                                <div className="content">
+                                    <div className="abc-grand">
+                                        <button onClick={abcChange} className={`${abcGrand?'on':''}`}><figure><img src="./img/brand/bg_channel_sel.png" alt="" /></figure>({sortAbcSports.length})</button>
+                                        <button onClick={grandChange} className={`${abcGrand?'':'on'}`}><figure><img src="./img/brand/bg_channel_sel.png" alt="" /></figure>({sortGrandSports.length})</button>
+                                    </div>
+                                    <div className="sortbar">
+                                        <ul>
+                                            <li>
+                                                <label htmlFor="delivery"><input onChange={onChangeOrder} id='delivery' type="checkbox" value={'delivery'} checked={delivery}/><img src="./img/brand/filter_chk_art_delivery.png" alt="" /></label>
+                                                <label htmlFor="pickup"><input onChange={onChangeOrder} id='pickup' type="checkbox" value={'pickup'} checked={pickup}/>매장픽업</label>
+                                                
+                                            </li>
+                                            <li>
+                                                <div className="select-box">
+                                                    <input onClick={onClickBox} type="text"  value={sort} readOnly/>
+                                                    <span className={`${sortBox?'on':''}`}><img src="./img/brand/select_icon_arrow_down.png" alt="" /></span>
+                                                    <dl className={`${sortBox?'on':''}`}>
+                                                        <dd className={`${sort==='신상품순'?'on':''}`} onClick={()=>onClickSort('신상품순')}>신상품순</dd>
+                                                        <dd className={`${sort==='낮은가격순'?'on':''}`} onClick={()=>onClickSort('낮은가격순')}>낮은가격순</dd>
+                                                        <dd className={`${sort==='높은가격순'?'on':''}`} onClick={()=>onClickSort('높은가격순')}>높은가격순</dd>
+                                                        <dd className={`${sort==='할인율 높은순'?'on':''}`} onClick={()=>onClickSort('할인율 높은순')}>할인율 상품순</dd>
+                                                        <dd className={`${sort==='베스트상품순'?'on':''}`} onClick={()=>onClickSort('베스트상품순')}>베스트상품순</dd>                                                
+                                                        <dd className={`${sort==='상품평순'?'on':''}`} onClick={()=>onClickSort('상품평순')}>상품평순</dd>
+                                                    </dl>
+                                                </div>
+                                                <div className="radio-box">
+                                                    <input title='3열 보기' onChange={onChangeZoom} type="radio" name='zoom' className='zoomOut' checked={!zoom} value={'zoomOut'}/>
+                                                    <input title='2열 보기' onChange={onChangeZoom} type="radio" name='zoom' className='zoomIn'  checked={zoom} value={'zoomIn'}/>
+                                                </div>                                        
+                                            </li>
+                                        </ul>
+                                    </div>                            
+                                    <div className={`sortbar-inner ${delivery||pickup?'on':''}`}>
+                                        <ul>
+                                            <li>
+                                                {delivery &&<button className='inner-btn1'onClick={onClickDeliveryDel}>아트배송<img src="./img/brand/btn_icon_filter_icon_del.png" alt="" /></button>}
+                                                {pickup &&<button className='inner-btn1'onClick={onClickPickupDel}>매장픽업<img src="./img/brand/btn_icon_filter_icon_del.png" alt="" /></button>}
+                                            </li>
+                                            <li>{(delivery||pickup) && <button className='inner-btn2'onClick={onClickAllDel}><img src="./img/brand/btn_icon_filter_icon_reset.png" alt="" />전체삭제</button>}</li>
+                                        </ul>
+                                    </div>
+                                    <div className="products">
+                                    <>
+                                        {
+                                            !zoom?
+                                            (
+                                                <>
+                                                <p>총 <strong>{sortAbcSports.length}</strong>개의 상품이 있습니다.</p>
+                                                <ul>                                            
+                                                    { (sortAbcSports).map((item,idx)=>{
+                                                        if( Math.ceil((idx+1)/list) === pageNumber ){
+                                                        return(
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
+                                                                    <div className="img-box">
+                                                                        <img src={item.이미지} alt="" />
+                                                                        <span><img src={item.추천} alt="" /></span>
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <h3>{item.제조사}</h3>
+                                                                        <h4>{item.제품명}</h4>
+                                                                        <h2>                                                                
+                                                                            {(item.할인율)===0 && <>{(item.가격).toLocaleString()}<em>원</em></>} 
+                                                                            {(item.할인율)!==0 && 
+                                                                            <>
+                                                                            <i>{(item.가격).toLocaleString()}</i>
+                                                                            <strong>{(Math.round((item.가격)*(1-item.할인율)/1000)*1000).toLocaleString()}<em>원[{Math.round(item.할인율*100)}%]</em></strong>
+                                                                            </>
+                                                                            }
+                                                                        </h2>
+                                                                        <div className="badge-box">
+                                                                                {(item.뱃지1) && <span><img src={item.뱃지1} alt="" /></span>}
+                                                                                {(item.뱃지2) &&<span><img src={item.뱃지2} alt="" /></span>}
+                                                                                {(item.뱃지3) &&<span><img src={item.뱃지3} alt="" /></span>}
+                                                                                {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                
+                                                                <div className="inner-box">
+                                                                        <div className="inner-row1">
+                                                                            <dl>
+                                                                                <dd>220</dd>
+                                                                                <dd>225</dd>
+                                                                                <dd>230</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                        <div className="inner-row2">
+                                                                            <div className="inner-left">
+                                                                                <input type="checkbox" />
+                                                                                <input type="checkbox" />
+                                                                                <input type="checkbox" />                                                                    
+                                                                            </div>
+                                                                            <div className="inner-right">
+                                                                                <button>바로구매</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            </li>
+                                                        )
+                                                        }
+                                                    })}
+                                                </ul>
+                                                <div className="page-button-box">
+                                                    <div className="prev-btn-box">
+                                                        { cnt > 1 && <a  href="!#"  className="prev-btn" onClick={onClickPrevGroup}>&lt;</a> }
+                                                    </div>                                
+                                                    <div className='num-btn-box'>
+                                                    {
+                                                    (()=>{
+                                                            let arr = [];  // 페이지번호와 a 태그 모두 저장된 배열변수
+                                                            for(let i=startNum; i<endtNum; i++){                                    
+                                                                if(i<Math.ceil(sortAbcSports.length/list)){ // 100/6
+                                                                    arr = [...arr,  <a key={i} data-key={`num${i}`}  className={pageNumber===(i+1)?'on':null}  href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> ]
+                                                                    // arr.push( <a href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> );
+                                                                }
+                                                            }
+                                                            return  arr                                                                      
+                                                    })() 
+                                                    }                        
+                                                    </div>
+                                                    <div className="next-btn-box">
+                                                        {cnt < Math.ceil(sortAbcSports.length/list/groupPage) && <a href="!#" className="next-btn"  onClick={onClickNextGroup}>&gt;</a>}
+                                                    </div> 
+                                                </div>
+                                                </>
+                                            )
+                                        :
+                                            (
+                                                <>
+                                                <p>총 <strong>{sortAbcSports.length}</strong>개의 상품이 있습니다.</p>
+                                                <ul>                                            
+                                                    {sortAbcSports.map((item,idx)=>{                                                
+                                                        if( Math.ceil((idx+1)/zoomInList) === pageNumber ){
+                                                        return(
+                                                            <li className={`${zoom?'on':''}`} key={idx} d_key={idx} >
+                                                                <a href='!#' onClick={(e)=>onClickProductDetailList(e, item)}>
+                                                                    <div className="img-box">
+                                                                        <img src={item.이미지} alt="" />
+                                                                        <span><img src={item.추천} alt="" /></span>
+                                                                    </div>
+                                                                    <div className="info-box">
+                                                                        <h3>{item.제조사}</h3>
+                                                                        <h4>{item.제품명}</h4>
+                                                                        <h2>
+                                                                            {(item.할인율)===0 && <>{(item.가격).toLocaleString()}<em>원</em></>}
+                                                                            {(item.할인율)!==0 &&
+                                                                            <>
+                                                                            <i>{(item.가격).toLocaleString()}</i>
+                                                                            <strong>{(Math.round((item.가격)*(1-item.할인율)/1000)*1000).toLocaleString()}<em>원[{Math.round(item.할인율*100)}%]</em></strong>
+                                                                            </>
+                                                                            }
+                                                                        </h2>
+                                                                        <div className="badge-box">
+                                                                                {(item.뱃지1) && <span><img src={item.뱃지1} alt="" /></span>}
+                                                                                {(item.뱃지2) &&<span><img src={item.뱃지2} alt="" /></span>}
+                                                                                {(item.뱃지3) &&<span><img src={item.뱃지3} alt="" /></span>}
+                                                                                {(item.뱃지4) &&<span><img src={item.뱃지4} alt="" /></span>}
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <div className="inner-box">
+                                                                        <div className="inner-row1">
+                                                                            <dl>
+                                                                                <dd>220</dd>
+                                                                                <dd>225</dd>
+                                                                                <dd>230</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                                <dd>240</dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                        <div className="inner-row2">
+                                                                            <div className="inner-left">
+                                                                                <input type="checkbox" />
+                                                                                <input type="checkbox" />
+                                                                                <input type="checkbox" />                                                                    
+                                                                            </div>
+                                                                            <div className="inner-right">
+                                                                                <button>바로구매</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            </li>
+                                                        )
+                                                        }
+                                                    })}
+                                                </ul>
+                                                <div className="page-button-box">
+                                                    <div className="prev-btn-box">
+                                                        { cnt > 1 && <a  href="!#"  className="prev-btn" onClick={onClickPrevGroup}>&lt;</a> }
+                                                    </div>                                
+                                                    <div className='num-btn-box'>
+                                                    {
+                                                    (()=>{
+                                                            let arr = [];  // 페이지번호와 a 태그 모두 저장된 배열변수
+                                                            for(let i=startNum; i<endtNum; i++){                                    
+                                                                if(i<Math.ceil(sortAbcSports.length/zoomInList)){ // 100/6
+                                                                    arr = [...arr,  <a key={i} data-key={`num${i}`}  className={pageNumber===(i+1)?'on':null}  href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> ]
+                                                                    // arr.push( <a href="!#" onClick={(e)=>onClickPageNum(e, (i+1))}>{i+1}</a> );
+                                                                }
+                                                            }
+                                                            return  arr                                                                      
+                                                    })() 
+                                                    }                        
+                                                    </div>
+                                                    <div className="next-btn-box">
+                                                        {cnt < Math.ceil(sortAbcSports.length/zoomInList/groupPage) && <a href="!#" className="next-btn"  onClick={onClickNextGroup}>&gt;</a>}
+                                                    </div> 
+                                                </div>
+                                                </>
+                                            )
+                                        }  
+                                        </> 
+                                    </div>
+                                </div>
+                            </div> 
+                            )
+                        :
+                            (
+                            <div className="right">
+                                <div className="title">
+                                    <div className="row1">
+                                        <ul>
+                                            <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">HOME</a></li>
+                                            <li><span><img src="./img/brand/comm_breadcrumb_icon_ots.png" alt="" /></span><a href="!#">SALE</a></li>
+                                        </ul>
+                                    </div>
+                                    <div className="row2">
+                                        <h1>SALE</h1>
                                     </div>
                                 </div>
                                 <div className="content">
