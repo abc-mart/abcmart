@@ -42,8 +42,8 @@ export default function UpdateComponent({islogin, item, setMenu, setItem}) {
             console.log( res );
             console.log( res.data );
 
-            // window.location.pathname='/SERVICE';
-            setMenu('글보기');
+            window.location.pathname='/SERVICE';
+            // setMenu('글보기');
 
         })
         .catch((err)=>{

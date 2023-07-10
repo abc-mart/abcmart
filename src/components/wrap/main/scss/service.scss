@@ -180,9 +180,12 @@
                                     }
                                     &:nth-child(2){
                                         text-align: left;
-                                        width: 784px;
+                                        width: 663px;
                                     }
                                     &:nth-child(3){
+                                        width: 121px;
+                                    }
+                                    &:nth-child(4){
                                         width: 121px;
                                     }
                                 }
@@ -395,6 +398,12 @@
                                 li{
                                     font-size: 20px;
                                     color: #000;
+                                    display: flex;
+                                    i{
+                                        display: flex;
+                                        align-items: center;
+                                        margin: 0 10px;
+                                    }
                                     
                                     &:nth-child(2){
                                         font-size: 15px;
@@ -476,22 +485,33 @@
                                 width: 100%;
                                 display: flex;
                                 align-items: center;
-                                justify-content: center;
+                                justify-content: space-between;
+                                
                                 button{
                                     width: 160px;
                                     height: 60px;
                                     border: 0;
-                                    background: #333;
-                                    color: #fff;
+                                    background: #fff;
+                                    color: #333;
                                     transition: all 0.3s;
                                     font-size: 16px;
                                     font-weight: 700;
-                                    &:nth-child(1){
-                                        background-color: #555;
-                                        margin: 0 15px 0 0;
-                                    }
+                                    border: 1px solid #333;
                                     &:hover{
                                         background-color: #000;
+                                        color: #fff;
+                                    }
+                                }
+                                .left-btn{
+                                    button{
+                                        &:nth-child(1){
+                                            margin-right: 10px;
+                                        }
+                                    }
+                                }
+                                .right-btn{
+                                    button{
+                                        background: #333;
                                         color: #fff;
                                     }
                                 }
