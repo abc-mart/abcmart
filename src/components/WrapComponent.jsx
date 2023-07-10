@@ -13,6 +13,7 @@ import ProductComponent from './wrap/main/ProductComponent';
 import ServiceComponent from './wrap/main/ServiceComponent';
 import MypageComponent from './wrap/main/MypageComponent';
 import TopCookieComponent from './wrap/TopCookieComponent';
+import CookieComponent from './wrap/CookieComponent';
 import SignupaComponent from './wrap/main/SignupaComponent';
 import SignupbComponent from './wrap/main/SignupbComponent';
 import KidsComponent from './wrap/main/KidsComponent';
@@ -237,10 +238,15 @@ export default function WrapComponent(){
     }
 
 
-    // 탑쿠키
+    // 쿠키
     const [topCookie, setTopCookie] = React.useState({
         key: 'TOPCOOKIE',
         isTopCookie: true
+    })
+
+    const [saleCookie, setSaleCookie] = React.useState({
+        key: 'COOKIE',
+        isCookie: true
     })
 
     const topCookieClose=(value, expires)=>{
@@ -251,10 +257,24 @@ export default function WrapComponent(){
         setCookieMethod(value, expires);
     }
 
+    const CookieClose=(value, expires)=>{
+        setSaleCookie({
+            ...saleCookie,
+            isCookie: false
+        })
+        setCookieMethod2(value, expires);
+    }
+
     const setCookieMethod=(value, expires)=>{
         let today = new Date();
         today.setDate(today.getDate() + expires);
         document.cookie = `${topCookie.key}=${value}; path=/; expires=${today.toUTCString()};`;
+    }
+
+    const setCookieMethod2=(value, expires)=>{
+        let today = new Date();
+        today.setDate(today.getDate() + expires);
+        document.cookie = `${saleCookie.key}=${value}; path=/; expires=${today.toUTCString()};`;
     }
 
     const getCookieMethod=()=>{
@@ -282,7 +302,36 @@ export default function WrapComponent(){
             })
         }
         catch(e){
-            console.log('쿠키X',e);
+            console.log('상단쿠키X',e);
+        }
+    }
+
+    const getCookieMethod2=()=>{
+        if(document.cookie==='') return;
+
+        try{
+            const result = document.cookie.split(';');
+
+            let cookie = [];
+            result.map((item, idx)=>{
+                cookie[idx] = {
+                    key: item.split('=')[0].trim(),
+                    value: item.split('=')[1].trim()
+                }
+            });
+
+            cookie.map((item)=>{
+                if(item.key.includes(saleCookie.key)===true && item.value.includes('yes')===true){
+                    setSaleCookie({
+                        ...cookie,
+                        isCookie:false
+                    })
+                    return;
+                }
+            })
+        }
+        catch(e){
+            console.log('중간쿠키X',e);
         }
     }
 
@@ -290,13 +339,19 @@ export default function WrapComponent(){
         getCookieMethod();
     },[topCookie.isTopCookie]);
 
+    React.useEffect(()=>{
+        getCookieMethod2();
+    },[saleCookie.isCookie]);
 
 
     return (
         <div id='wrap'>
             {
-                topCookie.isTopCookie && <TopCookieComponent topCookieClose={topCookieClose}/>
+                topCookie.isTopCookie && <TopCookieComponent topCookieClose={topCookieClose}/>                
             }        
+            {
+                saleCookie.isCookie && <CookieComponent CookieClose={CookieClose}/>
+            }
             <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Routes>                    
                     <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} cartCount={cartCount} cartCountNumber={cartCountNumber} cartKey={cartKey} />}>
