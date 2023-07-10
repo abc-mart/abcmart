@@ -86,6 +86,7 @@ export default function NoticeComponent({notice, islogin, sortNotice, setItem,se
                     <tr>
                         <th>번호</th>
                         <th>제목</th>
+                        <th>작성자</th>
                         <th>작성일</th>
                     </tr>
                 </thead>
@@ -94,6 +95,7 @@ export default function NoticeComponent({notice, islogin, sortNotice, setItem,se
                         <tr>
                             <td><img src="./img/service/common_icon_bbs_notice.png" alt="" /></td>
                             <td><a onClick={(e)=>onClickFixed(e,'글보기')} href="!#">개인정보처리방침 개정 안내</a></td>
+                            <td>공지사항</td>
                             <td>2023.06.22</td>
                         </tr>
                    
@@ -105,6 +107,7 @@ export default function NoticeComponent({notice, islogin, sortNotice, setItem,se
                                 <tr key={idx}>
                                     {isNaN(item.번호)? <td><img src={item.번호} alt="" /></td>:<td>{item.번호}</td>}
                                     <td><a onClick={(e)=>onClickDetail(e, item, idx)} href="!#">{item.제목}</a></td>
+                                    <td>{item.작성자}</td>
                                     <td>{item.작성일.substring(0, 10).replace(/-/g, '.')}</td>
                                 </tr>  
                             )

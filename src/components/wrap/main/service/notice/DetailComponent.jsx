@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default function DetailComponent({notice, islogin, item, setMenu, index}) {
 
@@ -44,6 +45,35 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
     React.useEffect(()=>{
         window.scrollTo(0, 200);
     },[])
+
+    const onClickDel =(e)=>{
+        e.preventDefault();
+        // axios() 
+        axios({
+            url:`/bbs/deleteAction.jsp?bbsId=${item.번호}`,
+            method: 'POST',
+            data:{},
+            params: {
+                "subject": item.제목,
+                "content": item.내용
+            }
+            
+        })
+        .then((res)=>{
+    
+            
+            
+            console.log( res );
+            console.log( res.data );
+
+            window.location.pathname='/SERVICE';
+            // setMenu('글보기');
+
+        })
+        .catch((err)=>{
+            console.log(`AXIOS 실패! ${err} `)
+        });
+    }
     
     return (
         <>
@@ -55,7 +85,7 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
                     <div className="content-head">
                         <ul>
                             <li>{currentItem.제목}</li>
-                            <li>{currentItem.작성일}</li>
+                            <li>{currentItem.작성자}<i>|</i>{currentItem.작성일.substring(0, 10).replace(/-/g, '.')}</li>
                         </ul>
                     </div>
                     <div className="content-main">
@@ -71,7 +101,7 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
                                     "이전페이지 없음"
                                 )}
                                 </li>
-                                <li>{prevPage ? prevPage.작성일 : ""}</li>
+                                <li>{prevPage ? prevPage.작성일.substring(0, 10).replace(/-/g, '.') : ""}</li>
                             </ul>
                         </div>
                         <div className="row row2">
@@ -83,13 +113,23 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
                                     "다음페이지 없음"
                                 )}
                                 </li>
-                                <li>{nextPage ? nextPage.작성일 : ""}</li>
+                                <li>{nextPage ? nextPage.작성일.substring(0, 10).replace(/-/g, '.') : ""}</li>
                             </ul>
                         </div>
                     </div>
                     <div className="btn-box">
-                        {islogin && <button onClick={()=>setMenu('수정')}>수정</button>}
-                        <button onClick={()=>setMenu('공지사항')}>목록</button>                        
+                    {islogin && 
+                        <div className="left-btn">
+                            <button onClick={()=>setMenu('수정')}>수정</button>
+                            <button onClick={onClickDel}>삭제</button>  
+                        </div>
+                    }
+                        <div className="right-btn">
+                            <button onClick={()=>setMenu('공지사항')}>목록</button> 
+                        </div>
+                        
+
+                                                                     
                     </div>
                 </div>
         
