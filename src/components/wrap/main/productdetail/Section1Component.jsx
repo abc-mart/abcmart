@@ -50,6 +50,12 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
     }
 
 
+    const onClickDelete=(e)=>{
+        e.preventDefault();
+        setIsSizeShow(false);
+    }
+
+
 
 
     React.useEffect(()=>{
@@ -282,7 +288,7 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
                                                 <a href="!#" onClick={onClickPlus}>+</a>
                                             </div>
                                             <span>{(Math.round(cnt*(shoes.가격-(shoes.가격 * shoes.할인율)))).toLocaleString('ko-KR')} <i>원</i></span>
-                                            <a href="!#"><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
+                                            <a onClick={onClickDelete} href="!#"><img src="./img/detail/btn_icon_delete.png" alt="" /></a>
                                         </div>
                                     </div>
                                 </div>
