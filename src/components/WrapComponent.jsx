@@ -77,11 +77,7 @@ export default function WrapComponent(){
             setNike(false);   
             setConverse(false); 
             setVans(false);  
-            setNewbalance(false);   
-            setSale(false)  
-            setRunning3(false);
-            setRunning1(false);
-            setRunning2(false);  
+            setNewbalance(false); 
         }
         else if(selectButton==='NIKE'){
             setNike(true);  
@@ -90,10 +86,6 @@ export default function WrapComponent(){
             setConverse(false); 
             setVans(false);  
             setNewbalance(false); 
-            setSale(false)
-            setRunning3(false);
-            setRunning1(false);
-            setRunning2(false);
         }
         else if(selectButton==='CONVERSE'){
             setConverse(true);
@@ -102,10 +94,6 @@ export default function WrapComponent(){
             setNike(false);   
             setVans(false);  
             setNewbalance(false); 
-            setSale(false)
-            setRunning3(false);
-            setRunning1(false);
-            setRunning2(false);
         }
         else if(selectButton==='VANS'){
             setVans(true);     
@@ -114,10 +102,6 @@ export default function WrapComponent(){
             setNike(false);   
             setConverse(false);
             setNewbalance(false); 
-            setSale(false)
-            setRunning3(false);
-            setRunning1(false);
-            setRunning2(false);
         }
         else if(selectButton==='NEW BALANCE'){
             setNewbalance(true);  
@@ -125,11 +109,7 @@ export default function WrapComponent(){
             setAdidas(false);
             setNike(false);   
             setConverse(false); 
-            setVans(false);  
-            setSale(false)
-            setRunning3(false);
-            setRunning1(false);
-            setRunning2(false);
+            setVans(false); 
         }
 
         // 남성, 여성, 아동
@@ -138,35 +118,20 @@ export default function WrapComponent(){
 
             setRunning2(false);
             setRunning3(false);
-            setNewbalance(false);  
-            setAdidas(false);
-            setNike(false);   
-            setConverse(false); 
-            setVans(false);  
             setSale(false)
         }
         else if(selectButton==='런닝화W'){
             setRunning2(true);
 
             setRunning1(false);
-            setRunning3(false);
-            setNewbalance(false);  
-            setAdidas(false);
-            setNike(false);   
-            setConverse(false); 
-            setVans(false);  
+            setRunning3(false); 
             setSale(false)
         }
         else if(selectButton==='런닝화K'){
             setRunning3(true);
 
             setRunning1(false);
-            setRunning2(false);
-            setNewbalance(false);  
-            setAdidas(false);
-            setNike(false);   
-            setConverse(false); 
-            setVans(false);  
+            setRunning2(false); 
             setSale(false)
         }
         else if(selectButton==='SALE'){
@@ -175,11 +140,6 @@ export default function WrapComponent(){
             setRunning3(false);
             setRunning1(false);
             setRunning2(false);
-            setNewbalance(false);  
-            setAdidas(false);
-            setNike(false);   
-            setConverse(false); 
-            setVans(false);  
         }
 
     },[selectButton])

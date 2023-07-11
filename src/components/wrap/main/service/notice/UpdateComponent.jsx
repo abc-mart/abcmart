@@ -24,7 +24,13 @@ export default function UpdateComponent({islogin, item, setMenu, setItem}) {
 
     const onSubmitWrite=(e)=>{
         e.preventDefault();
-        // axios() 
+        
+
+        const confirmed = window.confirm('정말로 수정하시겠습니까?');
+        if (!confirmed) {
+            return; // 
+        }
+
         axios({
             url:`/bbs/updateAction.jsp?bbsId=${item.번호}`,
             method: 'POST',
@@ -42,8 +48,10 @@ export default function UpdateComponent({islogin, item, setMenu, setItem}) {
             console.log( res );
             console.log( res.data );
 
-            window.location.pathname='/SERVICE';
-            // setMenu('글보기');
+            // window.location.pathname='/SERVICE';
+            
+            setMenu('글보기');
+            
 
         })
         .catch((err)=>{

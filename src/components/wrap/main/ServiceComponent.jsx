@@ -14,7 +14,9 @@ export default function ServiceComponent({islogin}) {
     const [index, setIndex]=React.useState(0);
 
     const onClickMenu=(value)=>{
+        
         setMenu(value);
+        
     }
 
     // const [state, setState] = React.useState({
@@ -84,7 +86,7 @@ export default function ServiceComponent({islogin}) {
                         <div className="left">
                             <div className="row1">
                                 <ul>
-                                <li><button onClick={()=>onClickMenu('공지사항')} className={`${(menu==='공지사항' || menu==='글보기' || menu==='글쓰기' || menu==='고정')?'on':''}`} >공지사항</button></li>
+                                <li><button onClick={()=>onClickMenu('공지사항')} className={`${(menu==='공지사항' || menu==='글보기' || menu==='글쓰기' || menu==='수정' || menu==='고정')?'on':''}`} >공지사항</button></li>
                                     <li><button onClick={()=>onClickMenu('FAQ')} className={`${menu==='FAQ'?'on':''}`} >FAQ</button></li>                                    
                                     <li><button onClick={()=>onClickMenu('매장 찾기')} className={`${menu==='매장 찾기'?'on':''}`} >매장 찾기</button></li>
                                     <li><button onClick={()=>onClickMenu('1:1상담')} className={`${menu==='1:1상담'?'on':''}`}>1:1상담</button></li>

@@ -95,6 +95,7 @@ export default function WriteComponent({setMenu}) {
                                     id='subject' 
                                     value={subject} 
                                     placeholder='제목을 입력해 주세요' 
+                                    autoComplete='off'
                                     />
                         </label>
                     </li>

@@ -38,7 +38,9 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
         }
       };
 
-
+    const onClickNotice=()=>{
+        window.location.pathname='/SERVICE'
+    }
    
 
     //페이지 로딩시 스크롤값 변경
@@ -48,7 +50,13 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
 
     const onClickDel =(e)=>{
         e.preventDefault();
-        // axios() 
+        
+        
+        const confirmed = window.confirm('정말로 삭제하시겠습니까?');
+        if (!confirmed) {
+            return; // 
+        }
+
         axios({
             url:`/bbs/deleteAction.jsp?bbsId=${item.번호}`,
             method: 'POST',
@@ -125,7 +133,7 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
                         </div>
                     }
                         <div className="right-btn">
-                            <button onClick={()=>setMenu('공지사항')}>목록</button> 
+                            <button onClick={onClickNotice}>목록</button> 
                         </div>
                         
 

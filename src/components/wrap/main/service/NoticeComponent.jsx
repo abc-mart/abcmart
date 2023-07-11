@@ -13,7 +13,7 @@ export default function NoticeComponent({notice, islogin, sortNotice, setItem,se
         
         setItem(item);
         setIndex(index);
-        setMenu('글보기');
+        setMenu('글보기'); 
     }
 
 
