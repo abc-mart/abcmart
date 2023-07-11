@@ -13,7 +13,8 @@ export default function CartComponent(){
     const [isRecentView, setIsRecentView] = React.useState(false);
     const [isOptionModal, setIsOptionModal] = React.useState(false);
     const [optionChange, setOptionChange] = React.useState([]);
-    const [optionSelect, setOptionSelect] = React.useState('');
+    const [optionSelect, setOptionSelect] = React.useState();
+    const [isOptSelectOpen, setIsOptSelectOpen] = React.useState(false);
 
     const onClickRecentView=(e)=>{
         e.preventDefault();
@@ -220,32 +221,44 @@ export default function CartComponent(){
 
 
 
-    const onClickOptionChange=(e, record)=>{
+    const onClickOptionChangeBtn=(e, record)=>{
         e.preventDefault();
         if(isOptionModal===true){
             setIsOptionModal(false);
         }
         else{
             const result = cart.filter((item)=>(item.상품코드&&item.사이즈)===(record.상품코드&&record.사이즈));
-            console.log(result);
+            // console.log(result);
             setOptionChange(result);
             setIsOptionModal(true);
         }
     }
 
-    const onChangeSelect=(e)=>{
-        setOptionSelect(e.target.value);
-        console.log(e.target.value);
+
+    const onClickOptSelectBtn=(e)=>{
+        e.preventDefault();
+        if(isOptSelectOpen===true){
+            setIsOptSelectOpen(false);
+        }
+        else{
+            setIsOptSelectOpen(true);
+        }
     }
 
+    const onClickChangeSize=(e)=>{
+        e.preventDefault();
+        // setOptionSelect(e.target.text);
+        // console.log(e.target.text);
+        // setIsOptSelectOpen(false);
+    }
 
     const onClickOptChangeSave=(e)=>{
         e.preventDefault();
-        setIsOptionModal(false);
-        onChangeSelect();
-        setCart(optionSelect);
-        localStorage.setItem('ABCMARTCART', JSON.stringify(optionSelect));
-        initMethod();
+        // localStorage.setItem('ABCMARTCART', JSON.stringify(optionSelect));
+        // setOptionChange(optionSelect);
+        // setCart(optionChange);
+        // setIsOptionModal(false);
+        // initMethod();
     }
 
 
@@ -335,7 +348,7 @@ export default function CartComponent(){
                                                                                             </a>
                                                                                             <p>
                                                                                                 <span>{item.사이즈}</span>
-                                                                                                <button onClick={(e)=>onClickOptionChange(e, item)}>옵션변경</button>
+                                                                                                <button onClick={(e)=>onClickOptionChangeBtn(e, item)}>옵션변경</button>
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -515,7 +528,7 @@ export default function CartComponent(){
                                         <div className="option-gap" key={idx}>
                                             <div className="option-title">
                                                 <h2>옵션변경</h2>
-                                                <button onClick={(e)=>onClickOptionChange(e, item)}><span></span></button>
+                                                <button onClick={(e)=>onClickOptionChangeBtn(e, item)}><span></span></button>
                                             </div>
                                             <div className="option-content">
                                                 <div className='inner-box'>
@@ -531,17 +544,23 @@ export default function CartComponent(){
                                                     </div>
                                                     <div className="size-box">
                                                         <span>사이즈</span>
-                                                        <div className="select-box">
-                                                            <select onChange={onChangeSelect} name="size-menu" id="sizeMenu">
-                                                                <option value="선택하세요." disabled>선택하세요.</option>
-                                                                <option value="220">220</option>
-                                                                <option value="230">230</option>
-                                                                <option value="240">240</option>
-                                                                <option value="250">250</option>
-                                                                <option value="260">260</option>
-                                                                <option value="270">270</option>
-                                                                <option value="280">280</option>
-                                                            </select>
+                                                        <div className="select-size-box">
+                                                            <div onClick={onClickOptSelectBtn} className={`select-box ${isOptSelectOpen?' on':''}`}>
+                                                                <span className='selected'>{optionSelect}</span>
+                                                                <span className='select-arrow'></span>
+                                                            </div>
+                                                            <div className={`select-size ${isOptSelectOpen?' on':''}`}>
+                                                                <ul>
+                                                                    <li><a onClick={onClickChangeSize} href="!#" value={0}>선택하세요</a></li>
+                                                                    <li><a onClick={onClickChangeSize} href="!#" value={220}>220</a></li>
+                                                                    <li><a onClick={onClickChangeSize} href="!#" value={230}>230</a></li>
+                                                                    <li><a onClick={onClickChangeSize} href="!#" value={240}>240</a></li>
+                                                                    <li><a onClick={onClickChangeSize} href="!#" value={250}>250</a></li>
+                                                                    <li><a onClick={onClickChangeSize} href="!#" value={260}>260</a></li>
+                                                                    <li><a onClick={onClickChangeSize} href="!#" value={270}>270</a></li>
+                                                                    <li><a onClick={onClickChangeSize} href="!#" value={280}>280</a></li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -559,3 +578,16 @@ export default function CartComponent(){
         </>
     );
 };
+
+
+
+{/* <select onChange={onChangeSelect} name="size-menu" id="sizeMenu">
+<option value="선택하세요." disabled>선택하세요.</option>
+<option value="220">220</option>
+<option value="230">230</option>
+<option value="240">240</option>
+<option value="250">250</option>
+<option value="260">260</option>
+<option value="270">270</option>
+<option value="280">280</option>
+</select> */}
