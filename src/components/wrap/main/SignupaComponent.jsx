@@ -14,7 +14,7 @@ export default function SignupaComponent(){
                             </div>
                             <div className="substance">
                                 <div className="box1">
-                                    <div className="box11"><img src="./img/signup/member_icon_join_bg.png"/></div>
+                                    <div className="box11"><span></span></div>
                                     <div className="box12"><div className='box121'>온라인회원 가입</div><span className='box122'>신규 가입 즉시 <strong>5,000원</strong> 할인 쿠폰 지급!</span></div>
                                     <div className="box13"><Link to="/SIGNUPB" className="a2"><img src="./img/signup/member_icon_join_btn_arrow.png"/></Link></div>
                                 </div>

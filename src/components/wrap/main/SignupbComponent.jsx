@@ -68,6 +68,7 @@ export default function SignupbComponent(){
         isIaError: false,
         isIaMsg: ""
     });
+
     //1. 이름 입력상자 온체인지 이벤트
     const onChangeNm =(e)=>{
         const { value } = e.target;
@@ -80,7 +81,7 @@ export default function SignupbComponent(){
 
         if(value === ""){
             isNmError = true;
-            isNmMsg = "이름 입력할까요?";
+            isNmMsg = "이름을 입력해주세요.";
         }else{
             isNmError = false;
             isNmMsg = "";
@@ -531,13 +532,54 @@ export default function SignupbComponent(){
                                         <div className="box21"><h4>회원정보</h4></div>
                                         <div className="box22">
                                             <ul>
-                                                <li><div className="colTitle">이름<i></i></div><input type="text" id="Nm" name='nm' onChange={onChangeNm} value={state.nm} placeholder='한글, 영문, 숫자만 입력해주세요'/></li>
-                                                <p className={state.isNmError?'on':''}>에러메세지</p>
-                                                <li><div className="colTitle">아이디<i></i></div><input type="text" id="Id" name='id' onChange={onChangeId} value={state.id} placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/></li>
-                                                <li><div className="colTitle">비밀번호<i></i></div><input type="text" id="Pw" name='pw' onChange={onChangePw} value={state.pw} placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/></li>
-                                                <li><div className="colTitle">비밀번호 확인<i></i></div><input type="text" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
-                                                <li><div className="colTitle">이메일<i></i></div><input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/></li>
-                                                <li><div className="colTitle">휴대폰 번호</div><input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/></li>
+                                                <li>
+                                                    <div className="colTitle">이름<i></i></div>
+                                                    <input type="text" id="Nm" name='nm' onChange={onChangeNm} value={state.nm} placeholder='한글, 영문, 숫자만 입력해주세요'/>
+                                                </li>
+                                                <p className={state.isNmError?'on':''}>{state.isIdMsg}</p>
+                                                <li>
+                                                    <div className="colTitle">아이디<i></i></div>
+                                                    <input type="text" id="Id" name='id' onChange={onChangeId} value={state.id} placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/>
+                                                </li>
+                                                <p className={state.isIdError?'on':''}>{state.isIdMsg}</p>
+                                                <li>
+                                                    <div className="colTitle">비밀번호<i></i></div>
+                                                    <input type="text" id="Pw" name='pw' onChange={onChangePw} value={state.pw} placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/>
+                                                </li>
+                                                <p className={state.isPw1Error?'on':''}>{state.isIdMsg}</p>
+                                                <li>
+                                                    <div className="colTitle">비밀번호 확인<i></i></div>
+                                                    <input type="text" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/>
+                                                </li>
+                                                <p className={state.isPw2Error?'on':''}>{state.isIdMsg}</p>
+                                                <li>
+                                                    <div className="colTitle">이메일<i></i></div>
+                                                    <input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/>
+                                                    <select name="email_back" id="emailBack">
+                                                        <option value="">직접입력</option>
+                                                        <option value="dreamwiz.com">dreamwiz.com</option>
+                                                        <option value="empas.com">empas.com</option>
+                                                        <option value="freechal.com">freechal.com</option>
+                                                        <option value="gmail.com">gmail.com</option>
+                                                        <option value="hanmail.net">hanmail.net</option>
+                                                        <option value="hanmir.com">hanmir.com</option>
+                                                        <option value="hotmail.com">hotmail.com</option>
+                                                        <option value="korea.com">korea.com</option>
+                                                        <option value="lycos.co.kr">lycos.co.kr</option>
+                                                        <option value="nate.com">nate.com</option>
+                                                        <option value="naver.com">naver.com</option>
+                                                        <option value="paran.com">paran.com</option>
+                                                        <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                                    </select>
+                                                    <button>인증번호 요청</button>
+                                                </li>
+                                                <p className={state.isEmError?'on':''}>{state.isIdMsg}</p>
+                                                <li>
+                                                    <div className="colTitle">휴대폰 번호</div>
+                                                    <input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/>
+                                                    <button>인증번호 요청</button>
+                                                </li>
+                                                <p className={state.isPhError?'on':''}>{state.isIdMsg}</p>
                                             </ul>
                                         </div>
                                     </div>

@@ -188,6 +188,9 @@
                                     padding: 50px 20px 63px 20px;
                                     p{
                                         display: none;
+                                        font-size: 14px;
+                                        color: #ee1c25;
+                                        padding: 0 0 10px 140px;
                                         &.on{
                                             display: block;
                                         }
@@ -195,6 +198,16 @@
                                     li{
                                         display: flex;
                                         height: 54px;
+                                        &:nth-child(9){
+                                            input{
+                                                width: 287px;
+                                            }
+                                        }
+                                        &:nth-child(11){
+                                            input{
+                                                width: 480px;
+                                            }
+                                        }
                                         .colTitle{
                                             width: 130px;
                                             line-height: 54px;
@@ -220,6 +233,39 @@
                                             &::placeholder{
                                                 font-family: 'Noto Sans KR';
                                                 font-size: 15px;                                                
+                                            }
+                                        }
+                                        select{
+                                            width: 183px;
+                                            height: 44px;
+                                            margin: 0 0 0 10px;
+                                            border: 1px solid #d5d5d5;
+                                            padding: 0 0 0 10px;
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                            font-family: 'Noto Sans KR', 'sans-serif';
+                                            color: #666;
+                                            outline: none;
+                                            option{
+                                                color: #b5b5b5;
+                                                &:hover{
+                                                    background: #b5b5b5;
+                                                    color: #000;
+                                                }
+                                            }
+                                        }
+                                        button{
+                                            width: 140px;
+                                            height: 44px;
+                                            margin: 0 0 0 10px;
+                                            border: 1px solid #000;
+                                            background: #fff;
+                                            color: #000;
+                                            font-size: 14px;
+                                            font-weight: 600;
+                                            transition: all 0.3s;
+                                            &:hover{
+                                                background: #eee;
                                             }
                                         }
                                     }
