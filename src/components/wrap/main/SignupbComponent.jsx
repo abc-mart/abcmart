@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./scss/signupb.scss";
+import $ from 'jquery';
 
 export default function SignupbComponent(){
 
@@ -13,8 +12,7 @@ export default function SignupbComponent(){
         e.preventDefault();
         if(unfold1 === false){
             setUnfold1(true);
-        }
-        else{
+        }else{
             setUnfold1(false);
         }            
         setUnfold2(false);
@@ -24,8 +22,7 @@ export default function SignupbComponent(){
         e.preventDefault();
         if(unfold2 === false){
             setUnfold2(true);
-        }
-        else{
+        }else{
             setUnfold2(false);
         }  
         setUnfold1(false);        
@@ -35,16 +32,12 @@ export default function SignupbComponent(){
         e.preventDefault();
         if(unfold3 === false){
             setUnfold3(true);
-        }
-        else{
+        }else{
             setUnfold3(false);
         }  
         setUnfold1(false);
         setUnfold2(false);     
     }
-
-    
-
 
     const [state, setState] = useState({
         nm: "",
@@ -54,10 +47,10 @@ export default function SignupbComponent(){
         isIdError: false,
         isIdMsg: "",
         pw: "",
-        isPw1Error: false,
-        isPw1Msg: "",
-        isPw2Error: false,
-        isPw2Msg: "",
+        isPwError: false,
+        isPwMsg: "",
+        isPcError: false,
+        isPcMsg: "",
         em: "",
         isEmError: false,
         isEmMsg: "",
@@ -68,8 +61,7 @@ export default function SignupbComponent(){
         isIaError: false,
         isIaMsg: ""
     });
-
-    //1. 이름 입력상자 온체인지 이벤트
+    // 1. 이름
     const onChangeNm =(e)=>{
         const { value } = e.target;
         let nm = '';
@@ -81,7 +73,7 @@ export default function SignupbComponent(){
 
         if(value === ""){
             isNmError = true;
-            isNmMsg = "이름을 입력해주세요.";
+            isNmMsg = "이름 입력할까요?";
         }else{
             isNmError = false;
             isNmMsg = "";
@@ -93,7 +85,7 @@ export default function SignupbComponent(){
             nm: nm
         });
     };
-
+    // 2. 아이디
     const onChangeId =(e)=>{
         const { value } = e.target;
         let id = '';
@@ -111,8 +103,7 @@ export default function SignupbComponent(){
         if(regExp1.test(value)===true || regExp2.test(value)===false  || regExp3.test(value)===true || regExp4.test(value)===false  ||  regExp5.test(value)===true ){
             isIdError = true;
             isIdMsg = '영문으로 시작하는 6~20자 영문(소문자), 숫자만 사용 가능합니다.';
-        }
-        else{
+        }else{
             isIdError = false;
             isIdMsg = '';
         }
@@ -123,18 +114,193 @@ export default function SignupbComponent(){
             id: id
         })
     }
+    // 3. 비밀번호
     const onChangePw =(e)=>{
+        const { value } = e.target;
+        let pw = '';
+        let isPwError = false;
+        let isPwMsg = '';
 
+        const regExp1 = /[`~!@#$%^&*()\-_=+[{\]}\\|;:'",<.>/?\s]/g;
+        const regExp2 = /^(.){10,20}$/g;
+        const regExp3 = /[가-힣ㄱ-ㅎㅏ-ㅣ]/g;
+        const regExp4 = /[A-Za-z]+[0-9]*/g;
+        const regExp5 = /\s/g;
+        pw = value.replace(regExp3, '');
+
+        if(regExp1.test(value)===false || regExp2.test(value)===false || regExp3.test(value)===true || regExp4.test(value)===false || regExp5.test(value)===true ){
+            isPwError = true;
+            isPwMsg = '비밀번호는 영문, 숫자, 특수문자를 구성하여 공백없이 10글자 이상 20글자 이하이어야 합니다.';
+        }else{
+            isPwError = false;
+            isPwMsg = '';
+        }
+
+        setState({
+            ...state,
+            isPwError : isPwError,
+            isPwMsg: isPwMsg,
+            pw: value
+        })
     }
+    // 4. 비밀번호 체크
     const onChangePc =(e)=>{
+        const { value } = e.target;
+        let pc = '';
+        let isPcError = false;
+        let isPcMsg = '';
 
+        const regExp1 = /[`~!@#$%^&*()\-_=+[{\]}\\|;:'",<.>/?\s]/g;
+        const regExp2 = /^(.){10,20}$/g;
+        const regExp3 = /[가-힣ㄱ-ㅎㅏ-ㅣ]/g;
+        const regExp4 = /[A-Za-z]+[0-9]*/g;
+        const regExp5 = /\s/g;
+        pc = value.replace(regExp3, '');
+
+        if(regExp1.test(value)===false || regExp2.test(value)===false || regExp3.test(value)===true){
+            isPcError = true;
+            isPcMsg = '8~12자의 영문, 숫자, 특수문자 중 2가지 이상으로만 가능합니다.';
+        }else if(value !== state.pw){
+            isPcError = true;
+            isPcMsg = '비밀번호가 일치하지 않습니다. 다시 입력해주세요.';
+        }else{
+            isPcError = false;
+            isPcMsg = '';
+        }
+
+        setState({
+            ...state,
+            isPcError: isPcError,
+            isPcMsg: isPcMsg,
+            pc: pc
+        })
     }
+    // 5. 이메일
     const onChangeEm =(e)=>{
+        const { value } = e.target;
+        let em = '';
+        let isEmError = false;
+        let isEmMsg = '';
+        const regExp1 = /^[a-z0-9]*@[a-z0-9]+\.[a-z]{2,3}$/gi;
 
+        if(regExp1.test(value)===false){
+            isEmError = true;
+            isEmMsg = '이메일 주소 양식에 맞게 작성해주세요.';
+        }else{
+            isEmError = false;
+            isEmMsg = '';
+        }
+
+        setState({
+            ...state,
+            isEmError: isEmError,
+            isEmMsg: isEmMsg,
+            em: value
+        })
     }
+    // 6. 폰번호
     const onChangePh =(e)=>{
+        const {value} = e.target;
+        let ph = '';
+        let isPhError = false;
+        let isPhMsg = '';
 
+        const regExp1 = /[^\d]/g;
+        const regExp2 = /^(.){11}$/g;
+        const regExp3 = /^010[0-9]{4}[0-9]{4}$/g;
+        ph = value.replace(regExp1, '');
+
+        if(regExp2.test(value)===false || regExp3.test(value)===false){
+            isPhError = true;
+            isPhMsg = '점유인증을 하여 휴대폰 번호를 등록해주세요. 등록한 번호는 로그인 이후 변경 가능합니다.';
+        }else{
+            isPhError = false;
+            isPhMsg = ''
+        }
+        setState({
+            ...state,
+            isPhError: isPhError,
+            isPhMsg: isPhMsg,
+            ph: ph
+        })
     }
+
+    // 가입완료 버튼 이벤트
+    const onSubmitSignupEvent=(e)=>{        
+        e.preventDefault();
+
+        //미입력 시= 동작할 수 없음
+        if(state.nm=== ''){
+            setState({
+                ...state,
+                isConfirmModal: true,
+                confirmMsg: '이름을 입력해주세요'                
+            })
+        }
+        else if(state.id=== ''){
+            setState({
+                ...state,
+                isConfirmModal: true,
+                confirmMsg: '아이디를 입력해주세요'                
+            })
+        }
+        else if(state.pw=== ''){
+            setState({
+                ...state,
+                isConfirmModal: true,
+                confirmMsg: '비밀번호를 입력해주세요'                
+            })
+        }
+        else if(state.pc=== ''){
+            setState({
+                ...state,
+                isConfirmModal: true,
+                confirmMsg: '비밀번호확인을 입력해주세요'                
+            })
+        }
+        else if(state.pw !== state.pc){
+            setState({
+                ...state,
+                isConfirmModal: true,
+                confirmMsg: '비밀번호가 일치하지 않습니다.'                
+            })
+        }
+        else if(state.em=== ''){
+            setState({
+                ...state,
+                isConfirmModal: true,
+                confirmMsg: '이메일을 입력해주세요'                
+            })
+        }
+        else if(state.ph=== ''){
+            setState({
+                ...state,
+                isConfirmModal: true,
+                confirmMsg: '휴대폰번호를 입력해주세요'                
+            })
+        }
+        const formData = {
+            "nm": state.nm,
+            "id": state.id,
+            "pw": state.pw,
+            "em": state.em,
+            "ph": state.ph          
+        }
+        $.ajax({
+            url: '/JSP/abc/signup_action.jsp',
+            type: 'POST',
+            data: formData,
+            success(res){
+                console.log('AJAX 성공');
+                console.log(res);
+                window.location.pathname = '/LOGIN';
+            },
+            error(err){
+                console.log('AJAX 실패 : ' + err);
+            }
+        })
+    }
+
     return(
         <div id="signupb">
             <div id="wrap">
@@ -145,7 +311,7 @@ export default function SignupbComponent(){
                                 <h1>온라인 회원가입</h1>
                             </div>
                             <div className="substance">
-                                <form action="" method='post'>
+                                <form method='post'>
                                     <div className="box1">
                                         <div className="box11"><h4>약관동의</h4></div>
                                         <div className="box12">
@@ -154,7 +320,6 @@ export default function SignupbComponent(){
                                                     <div className="clause-title"></div>
                                                     <label><input type="checkbox"/>전체 약관에 동의합니다.</label>
                                                 </li>
-
                                                 <li>
                                                     <div className="clause-title" onClick={onClickFold1}></div>
                                                     <label><input type="checkbox"/><span>[필수] </span>사이트 이용약관</label><i className={unfold1?' on':''}></i>
@@ -522,8 +687,9 @@ export default function SignupbComponent(){
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li><div className="clause-title"></div>
-                                                <label><input type="checkbox"/><span>[필수] </span>만 14세 이상입니다.</label>
+                                                <li>
+                                                    <div className="clause-title"></div>
+                                                    <label><input type="checkbox"/><span>[필수] </span>만 14세 이상입니다.</label>
                                                 </li>
                                             </ul>
                                         </div>
@@ -532,64 +698,25 @@ export default function SignupbComponent(){
                                         <div className="box21"><h4>회원정보</h4></div>
                                         <div className="box22">
                                             <ul>
-                                                <li>
-                                                    <div className="colTitle">이름<i></i></div>
-                                                    <input type="text" id="Nm" name='nm' onChange={onChangeNm} value={state.nm} placeholder='한글, 영문, 숫자만 입력해주세요'/>
-                                                </li>
-                                                <p className={state.isNmError?'on':''}>{state.isIdMsg}</p>
-                                                <li>
-                                                    <div className="colTitle">아이디<i></i></div>
-                                                    <input type="text" id="Id" name='id' onChange={onChangeId} value={state.id} placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/>
-                                                </li>
+                                                <li><div className="colTitle">이름<i></i></div><input type="text" id="Nm" name='nm' onChange={onChangeNm} value={state.nm} placeholder='한글, 영문, 숫자만 입력해주세요'/></li>
+                                                <p className={state.isNmError?'on':''}>{state.isNmMsg}</p>
+                                                <li><div className="colTitle">아이디<i></i></div><input type="text" id="Id" name='id' onChange={onChangeId} value={state.id} placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/></li>
                                                 <p className={state.isIdError?'on':''}>{state.isIdMsg}</p>
-                                                <li>
-                                                    <div className="colTitle">비밀번호<i></i></div>
-                                                    <input type="text" id="Pw" name='pw' onChange={onChangePw} value={state.pw} placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/>
-                                                </li>
-                                                <p className={state.isPw1Error?'on':''}>{state.isIdMsg}</p>
-                                                <li>
-                                                    <div className="colTitle">비밀번호 확인<i></i></div>
-                                                    <input type="text" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/>
-                                                </li>
-                                                <p className={state.isPw2Error?'on':''}>{state.isIdMsg}</p>
-                                                <li>
-                                                    <div className="colTitle">이메일<i></i></div>
-                                                    <input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/>
-                                                    <select name="email_back" id="emailBack">
-                                                        <option value="">직접입력</option>
-                                                        <option value="dreamwiz.com">dreamwiz.com</option>
-                                                        <option value="empas.com">empas.com</option>
-                                                        <option value="freechal.com">freechal.com</option>
-                                                        <option value="gmail.com">gmail.com</option>
-                                                        <option value="hanmail.net">hanmail.net</option>
-                                                        <option value="hanmir.com">hanmir.com</option>
-                                                        <option value="hotmail.com">hotmail.com</option>
-                                                        <option value="korea.com">korea.com</option>
-                                                        <option value="lycos.co.kr">lycos.co.kr</option>
-                                                        <option value="nate.com">nate.com</option>
-                                                        <option value="naver.com">naver.com</option>
-                                                        <option value="paran.com">paran.com</option>
-                                                        <option value="yahoo.co.kr">yahoo.co.kr</option>
-                                                    </select>
-                                                    <button>인증번호 요청</button>
-                                                </li>
-                                                <p className={state.isEmError?'on':''}>{state.isIdMsg}</p>
-                                                <li>
-                                                    <div className="colTitle">휴대폰 번호</div>
-                                                    <input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/>
-                                                    <button>인증번호 요청</button>
-                                                </li>
-                                                <p className={state.isPhError?'on':''}>{state.isIdMsg}</p>
+                                                <li><div className="colTitle">비밀번호<i></i></div><input type="text" id="Pw" name='pw' onChange={onChangePw} value={state.pw} placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/></li>
+                                                <p className={state.isPwError?'on':''}>{state.isPwMsg}</p>
+                                                <li><div className="colTitle">비밀번호 확인<i></i></div><input type="text" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
+                                                <p className={state.isPcError?'on':''}>{state.isPcMsg}</p>
+                                                <li><div className="colTitle">이메일<i></i></div><input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/></li>
+                                                <p className={state.isEmError?'on':''}>{state.isEmMsg}</p>
+                                                <li><div className="colTitle">휴대폰 번호</div><input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/></li>
+                                                <p className={state.isPhError?'on':''}>{state.isPhMsg}</p>
                                             </ul>
                                         </div>
-                                    </div>
-                                    <div className="box3">
-
                                     </div>
                                     <div className="box4">
                                         <div className="btn-box">
                                             <button>취소</button>
-                                            <button type='submit'>회원가입</button>
+                                            <button type='submit' onClick={onSubmitSignupEvent}>회원가입</button>
                                         </div>
                                     </div>
                                 </form>
