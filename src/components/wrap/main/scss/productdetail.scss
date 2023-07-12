@@ -407,6 +407,9 @@
                                                 &:hover{
                                                     border: 1px solid #000;
                                                 }
+                                                &:focus{
+                                                    border: 1px solid #000;
+                                                }
                                             }
                                         }
                                         select{

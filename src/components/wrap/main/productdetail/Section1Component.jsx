@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import React from 'react';
 import '../scss/productdetail.scss';
 
@@ -239,7 +238,7 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
                                             <span>배송방법</span>
                                             <div className="how-del">
                                                 <label><input type="radio" name='delivery' id='delivery'/><span>일반배송 (무료배송)</span></label>
-                                                <label><input type="radio" name='delivery' id='delivery'/><a href="!#"><img src="./img/detail/comm_art_delivery.png" alt="" /><img src="./img/detail/mypage_icon_tooltip_claim_black.png" alt="" /></a></label>                                                
+                                                <label><input type="radio" name='delivery' id='delivery' disabled/><a href="!#"><img src="./img/detail/comm_art_delivery.png" alt="" /><img src="./img/detail/mypage_icon_tooltip_claim_black.png" alt="" /></a></label>                                                
                                                                                                 
                                                 <select name="" id="">
                                                     <option defaultValue >배송지주소를 선택해주세요</option>

@@ -7,7 +7,7 @@ export default function Section7Component(){
 
     const [state, setState] = React.useState({
         plusPick: [],
-        n: 0
+        n7: 0
     });
 
     React.useEffect(()=>{
@@ -21,7 +21,7 @@ export default function Section7Component(){
                 setState({
                     ...state,
                     plusPick: res.data.plus_pick,
-                    n: res.data.plus_pick.length-8
+                    n7: res.data.plus_pick.length-8
                 });
             }
         })
@@ -38,7 +38,7 @@ export default function Section7Component(){
         let cnt = 0;
         let setId = 0;
 
-        // $slideWrap.css({width: `${100 * ((state.n+8)/3.5)}%`});
+        // $slideWrap.css({width: `${100 * ((state.n7+8)/3.5)}%`});
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-565 * cnt}px`}, 600, function(){

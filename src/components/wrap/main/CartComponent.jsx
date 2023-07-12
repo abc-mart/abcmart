@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import React from 'react';
 import './scss/cart.scss';
 
@@ -28,8 +27,8 @@ export default function CartComponent(){
 
     const onClickKeepShopping=(e)=>{
         e.preventDefault();
-        if(confirm('메인페이지로 이동하시겠습니까?')){
-            location.href="/INTRO";
+        if(window.confirm('메인페이지로 이동하시겠습니까?')){
+            window.location.href="/INTRO";
         }
         else{
             return false;
@@ -90,7 +89,7 @@ export default function CartComponent(){
     const onClickDel=(e, record)=>{
         e.preventDefault();
         // console.log(record);
-        if(confirm('삭제하시겠습니까?')){
+        if(window.confirm('삭제하시겠습니까?')){
             const result = cart.filter((item)=>(item.상품코드&&item.사이즈)!==(record.상품코드&&record.사이즈));
             setCart(result);
             localStorage.setItem('ABCMARTCART', JSON.stringify(result));
@@ -247,18 +246,18 @@ export default function CartComponent(){
 
     const onClickChangeSize=(e)=>{
         e.preventDefault();
-        // setOptionSelect(e.target.text);
+        setOptionSelect(e.target.text);
         // console.log(e.target.text);
-        // setIsOptSelectOpen(false);
+        setIsOptSelectOpen(false);
     }
 
     const onClickOptChangeSave=(e)=>{
         e.preventDefault();
-        // localStorage.setItem('ABCMARTCART', JSON.stringify(optionSelect));
-        // setOptionChange(optionSelect);
-        // setCart(optionChange);
-        // setIsOptionModal(false);
-        // initMethod();
+        setOptionChange(...optionSelect);
+        localStorage.setItem('ABCMARTCART', JSON.stringify(optionSelect));
+        setCart([...cart, optionChange]);
+        setIsOptionModal(false);
+        initMethod();
     }
 
 

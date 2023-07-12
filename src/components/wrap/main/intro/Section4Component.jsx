@@ -7,7 +7,7 @@ export default function Section4Component(){
 
     const [state, setState] = React.useState({
         eventSlide: [],
-        n: 0
+        n4: 0
     });
     React.useEffect(()=>{
 
@@ -20,7 +20,7 @@ export default function Section4Component(){
                 setState({
                     ...state,
                     eventSlide: res.data.event_slide,
-                    n: res.data.event_slide.length-10
+                    n4: res.data.event_slide.length-10
                 });
             }
         })
@@ -37,12 +37,12 @@ export default function Section4Component(){
         let cnt = 0;
         let setId = 0;
 
-        // $slideWrap.css({width: `${407 * (state.n+10)}px` });
+        $slideWrap.css({width: `${407 * (state.n4+10)}px` });
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-407 * cnt}px`}, 600, function(){
-                if(cnt>9) {cnt=0;}
-                if(cnt<0) {cnt=9;}
+                if(cnt>=state.n4) {cnt=0;}
+                if(cnt<0) {cnt=state.n4-1;}
                 $slideWrap.stop().animate({left: `${-407 * cnt}px`}, 0);
             });
         }
@@ -63,7 +63,7 @@ export default function Section4Component(){
         }
         autoTimer();
 
-    },[]);
+    },[state.n4]);
 
 
     return (

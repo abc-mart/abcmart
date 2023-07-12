@@ -7,7 +7,7 @@ export default function Section2Component(){
 
     const [state, setState] = React.useState({
         hotDeal: [],
-        n: 0
+        n2: 0
     });
 
     React.useEffect(()=>{
@@ -21,7 +21,7 @@ export default function Section2Component(){
                 setState({
                     ...state,
                     hotDeal: res.data.hot_deal,
-                    n: res.data.hot_deal.length-6
+                    n2: res.data.hot_deal.length-6
                 });
             }
         })
@@ -40,12 +40,12 @@ export default function Section2Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${305 * (state.n+6)}px` });
+        $slideWrap.css({width: `${305 * (state.n2+6)}px` });
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-306 * cnt}px`}, 600, function(){
-                if(cnt>=state.n) cnt=0;
-                if(cnt<0) cnt=state.n-1;
+                if(cnt>=state.n2) cnt=0;
+                if(cnt<0) cnt=state.n2-1;
                 $slideWrap.stop().animate({left: `${-306 * cnt}px`}, 0);
             });
         }
@@ -76,7 +76,7 @@ export default function Section2Component(){
             }
         });
 
-    },[state.n]);
+    },[state.n2]);
 
 
     React.useEffect(()=>{
@@ -92,8 +92,6 @@ export default function Section2Component(){
             let eH = Math.floor(end/(60*60*1000)%24);
             let eM = Math.floor(end/(60*1000)%60);
             let eS = Math.floor(end/1000%60);
-
-            // $('.sale-period').text(`${start.getFullYear()}.${start.getMonth()}.${start.getDate()} ~ `);
 
             if(now >= start){
                 clearInterval(setId);
@@ -116,7 +114,7 @@ export default function Section2Component(){
 
         setId = setInterval(saleTimer, 1000);
 
-    },[]);
+    },[state.n2]);
 
 
     return (

@@ -34,22 +34,21 @@
                         opacity: 0.4;
                         position: relative;
                         &::after{
-                            // margin: 0 0 0 -35px;
                             position: absolute;
                             bottom: -7px;
-                            left: 50%;
+                            left: 35%;
                             content: '';
-                            width: 0;
+                            width: 20px;
                             height: 4px;
                             background: transparent;
                             transition: all 0.3s;
+                            transform: scale(0);
                         }
                         &.on{
                             font-weight: 600;
                             opacity: 1;
                             &::after{
-                                left: 40%;
-                                width: 20px;
+                                transform: scale(1);
                                 background: #fff;
                             }
                         }
