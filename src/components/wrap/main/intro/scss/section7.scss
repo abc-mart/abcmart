@@ -54,13 +54,13 @@
                         width: 100%;
                         overflow: hidden;
                         .slide-wrap{
-                            width: 585px * 27;
+                            width: 30% * 27;
                             display: flex;
-                            margin: 0 0 0 ((-565px * 4) + 100px);
+                            margin: 0 0 0 ((-30% * 4) + 5%);
                             position: relative;
                             .slide{
-                                width: 545px;
-                                margin: 0 20px 0 0;
+                                width: 30%;
+                                padding: 0 20px 0 0;
                                 border: 0;
                                 >div{
                                     display: flex;
@@ -70,7 +70,9 @@
                                     }
                                     figure{
                                         width: 270px;
+                                        cursor: pointer;
                                         a{
+                                            pointer-events: none;
                                             img{
                                                 width: 100%;
                                             }

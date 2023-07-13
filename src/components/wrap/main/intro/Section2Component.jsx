@@ -83,7 +83,7 @@ export default function Section2Component(){
         let setId=0;
 
         function saleTimer(){
-            let start = new Date('2023-06-30 24:00:00');
+            let start = new Date('2023-07-17 24:00:00');
             let now = new Date();
             start.setHours(start.getHours());
             let end = start - now;
@@ -168,9 +168,9 @@ export default function Section2Component(){
                                                             </div>
                                                             <div className="sale-period-box">
                                                                 <span className="sale-period">
-                                                                    23.06.27 09:00 ~
+                                                                    23.07.11 09:00 ~
                                                                     <br />
-                                                                    23.06.30 08:59
+                                                                    23.07.17 24:00
                                                                 </span>
                                                                 <span className="rest-product-count">
                                                                     <span className='rest-product-count-value'>30</span>개 남음

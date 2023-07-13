@@ -4,10 +4,11 @@ import axios from 'axios';
 import './scss/section10.scss';
 
 export default function Section10Component(){
-
+    
+    const count = React.useRef(0);
     const [state, setState] = React.useState({
         abcPlus: [],
-        n: 0
+        n10: 0
     });
 
     React.useEffect(()=>{
@@ -21,8 +22,9 @@ export default function Section10Component(){
                 setState({
                     ...state,
                     abcPlus: res.data.abc_plus,
-                    n: res.data.abc_plus.length-14
+                    n10: res.data.abc_plus.length
                 });
+                count.current = res.data.abc_plus.length;
             }
         })
         .catch((err)=>{
@@ -32,57 +34,63 @@ export default function Section10Component(){
     },[]);
 
     React.useEffect(()=>{
+        let t = 0;
+        if(state.n10>0){
+            if(t===0){
+                t=1;
+                const $slideWrap = $(`#section10 .slide-wrap`);
+                const $prevBtn = $(`#section10 .prev-btn`);
+                const $nextBtn = $(`#section10 .next-btn`);
+                
+                let cnt = 0;
+                let setId = 0;
 
-        const $slideWrap = $(`#section10 .slide-wrap`);
-        const $prevBtn = $(`#section10 .prev-btn`);
-        const $nextBtn = $(`#section10 .next-btn`);
-        
-        let cnt = 0;
-        let setId = 0;
+                $slideWrap.css({width: `${16 * count.current}%` });
 
-        // $slideWrap.css({width: `${100 * ((state.n+14/7))}%`});
+                function mainSlide(){
+                    $slideWrap.stop().animate({left: `${-16 * cnt}%`}, 600, function(){
+                        if(cnt>=20) cnt=0;
+                        if(cnt<0) cnt=20;
+                        $slideWrap.stop().animate({left: `${-16 * cnt}%`}, 0);
+                    });
+                }
 
-        function mainSlide(){
-            $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 600, function(){
-                if(cnt>19) cnt=0;
-                if(cnt<0) cnt=19;
-                $slideWrap.stop().animate({left: `${-305 * cnt}px`}, 0);
-            });
-        }
+                function prevCount(){
+                    cnt--;
+                    mainSlide();
+                }
 
-        function prevCount(){
-            cnt--;
-            mainSlide();
-        }
+                function nextCount(){
+                    cnt++;
+                    mainSlide();
+                }
 
-        function nextCount(){
-            cnt++;
-            mainSlide();
-        }
+                function autoTimer(){
+                    clearInterval(setId);
+                    setId = setInterval(nextCount, 3000);
+                }
+                autoTimer();
 
-        function autoTimer(){
-            clearInterval(setId);
-            setId = setInterval(nextCount, 3000);
-        }
-        autoTimer();
+                $prevBtn.on({
+                    click(e){
+                        e.preventDefault();
+                        prevCount();
+                        clearInterval(setId);
+                    }
+                });
 
-        $prevBtn.on({
-            click(e){
-                e.preventDefault();
-                prevCount();
-                clearInterval(setId);
+                $nextBtn.on({
+                    click(e){
+                        e.preventDefault();
+                        nextCount();
+                        clearInterval(setId);
+                    }
+                });
             }
-        });
+        }
 
-        $nextBtn.on({
-            click(e){
-                e.preventDefault();
-                nextCount();
-                clearInterval(setId);
-            }
-        });
+    },[state.n10]);
 
-    },[]);
 
     
     return (
@@ -101,14 +109,14 @@ export default function Section10Component(){
                                         state.abcPlus.map((item, idx)=>{
                                             return(
                                                 <li className="slide slide1" key={idx}>
-                                                    <a href="!#">
-                                                        <figure>
+                                                    <figure>
+                                                        <a href="!#">
                                                             <img src={item.src} alt="" />
-                                                        </figure>
+                                                        </a>
                                                         <span>
-                                                            {item.title}
+                                                            <pre>{item.title}</pre>
                                                         </span>
-                                                    </a>
+                                                    </figure>
                                                 </li>
                                             )
                                         })

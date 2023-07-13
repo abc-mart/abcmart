@@ -5,6 +5,7 @@ import './scss/section7.scss';
 
 export default function Section7Component(){
 
+    const count = React.useRef(0);
     const [state, setState] = React.useState({
         plusPick: [],
         n7: 0
@@ -21,8 +22,9 @@ export default function Section7Component(){
                 setState({
                     ...state,
                     plusPick: res.data.plus_pick,
-                    n7: res.data.plus_pick.length-8
+                    n7: res.data.plus_pick.length
                 });
+                count.current = res.data.plus_pick.length;
             }
         })
         .catch((err)=>{
@@ -32,39 +34,44 @@ export default function Section7Component(){
     },[]);
 
     React.useEffect(()=>{
+        let t = 0;
+        if(state.n7>0){
+            if(t===0){
+                t=1;
+                const $slideWrap = $(`#section7 .slide-wrap`);
+                
+                let cnt = 0;
+                let setId = 0;
 
-        const $slideWrap = $(`#section7 .slide-wrap`);
-        
-        let cnt = 0;
-        let setId = 0;
+                $slideWrap.css({width: `${30 * count.current}%` });
 
-        // $slideWrap.css({width: `${100 * ((state.n7+8)/3.5)}%`});
+                function mainSlide(){
+                    $slideWrap.stop().animate({left: `${-30 * cnt}%`}, 600, function(){
+                        if(cnt>=19) cnt=0;
+                        if(cnt<0) cnt=19;
+                        $slideWrap.stop().animate({left: `${-30 * cnt}%`}, 0);
+                    });
+                }
 
-        function mainSlide(){
-            $slideWrap.stop().animate({left: `${-565 * cnt}px`}, 600, function(){
-                if(cnt>18) cnt=0;
-                if(cnt<0) cnt=18;
-                $slideWrap.stop().animate({left: `${-565 * cnt}px`}, 0);
-            });
+                function prevCount(){
+                    cnt--;
+                    mainSlide();
+                }
+
+                function nextCount(){
+                    cnt++;
+                    mainSlide();
+                }
+
+                function autoTimer(){
+                    clearInterval(setId);
+                    setId = setInterval(nextCount, 3000);
+                }
+                autoTimer();
+            }
         }
 
-        function prevCount(){
-            cnt--;
-            mainSlide();
-        }
-
-        function nextCount(){
-            cnt++;
-            mainSlide();
-        }
-
-        function autoTimer(){
-            clearInterval(setId);
-            setId = setInterval(nextCount, 3000);
-        }
-        autoTimer();
-
-    },[]);
+    },[state.n7]);
 
 
     return (

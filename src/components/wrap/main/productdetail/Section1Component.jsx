@@ -105,7 +105,6 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
 
         let arr = [];
         if(isCartOk===true){
-
             if(localStorage.getItem(cartKey)===null){
                 arr = [shoes];
             }
@@ -187,6 +186,9 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
     const onMouseLeaveHide=(e)=>{
         setPricebox(false);
     }
+
+    
+
 
 
     return (
