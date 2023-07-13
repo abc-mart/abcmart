@@ -8,6 +8,7 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
     const [cnt, setCnt] = React.useState(1);
     const [isSizeShow, setIsSizeShow] = React.useState(false);
     const [size, setSize] = React.useState();
+    const [hearton, setHearton] = React.useState(false);
 
     const [state, setState] = React.useState({
         shoes:{}
@@ -88,6 +89,16 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
         setIsCartOk(true);
     }
 
+    // 하트 색깔변경
+    const onClickHeart=(e)=>{
+        e.preventDefault();
+        if(hearton===true){
+            setHearton(false);
+        }
+        else{
+            setHearton(true);
+        }
+    }
 
 
     React.useEffect(()=>{
@@ -125,6 +136,57 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
         }
     },[]);
 
+    const onClickFB=(e)=>{
+        e.preventDefault();
+        window.open('https://www.facebook.com/login.php?', '_black', 'width=400,height=300');
+    }
+    const onClickTW=(e)=>{
+        e.preventDefault();
+        window.open('https://twitter.com/i/flow/login', '_black', 'width=400,height=300');
+    }
+    const onClickKAS=(e)=>{
+        e.preventDefault();
+        window.open('https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fstory.kakao.com%252Fs%252Foauth%26state%3Da092fccaf7ebf%26through_account%3Dtrue%26client_id%3D2a8b2aa0dc2c4e9121bbd4b9bdb70bc1#login', '_black', 'width=400,height=300');
+    }
+    const onClickBAND=(e)=>{
+        e.preventDefault();
+        window.open('https://auth.band.us/login_page?', '_black', 'width=400,height=300');
+    }
+    const onClickLINE=(e)=>{
+        e.preventDefault();
+        window.open('https://access.line.me/oauth2/v2.1/login?returnUri=%2Foauth2%2Fv2.1%2Fauthorize%2Fconsent%3Fresponse_type%3Dcode%26client_id%3D1446101138%26state%3Dad9fe7d0549f3aead1436fff36eb59%26redirect_uri%3Dhttps%253A%252F%252Fsocial-plugins.line.me%252Flineit%252FloginCallback%253FreturnUrl%253Dhttps%25253A%25252F%25252Fsocial-plugins.line.me%25252Flineit%25252Fshare%25253Ftitle%25253D%252526url%25253Dhttps%25253A%25252F%25252Fabcmart.a-rt.com%25252Fproduct%25252Fnew%25253FprdtNo%25253D1010077951%252526text%25253D%252525EC%25252595%2525258C%252525ED%2525258C%2525258C%252525EB%252525B0%25252594%252525EC%2525259A%252525B4%252525EC%2525258A%252525A4%25252520%252525EC%2525258A%252525AC%252525EB%2525259D%252525BC%252525EC%2525259D%252525B4%252525EB%25252593%2525259C%252525C2%252525A0ALPHABOUNCE%25252520SLIDE%25252520-%25252520%252525EC%25252595%25252584%252525EB%25252594%25252594%252525EB%2525258B%252525A4%252525EC%2525258A%252525A4%26scope%3Dopenid%2Bprofile%2Bfriends%2Bgroups%2Btimeline.post%2Bmessage.write&loginChannelId=1446101138&loginState=4LkLzsbiAlOIQsGMg6HrUX#/', '_black', 'width=400,height=300');
+    }
+    const onClickKAKAO=(e)=>{
+        e.preventDefault();
+        window.open('https://accounts.kakao.com/login/?continue=https%3A%2F%2Fsharer.kakao.com%2Fpicker%2Flink%3Fapp_key%3D37a5f1c0800263af5caff15913323d7c%26short_key%3D43456ee1-bc6d-431b-a690-52a92dc49430#login', '_black', 'width=400,height=300');
+    }
+    const onClickURL= async (e)=>{
+        e.preventDefault();
+        const url = 'https://abcmart.a-rt.com/product/new?prdtNo=1010077951';
+
+        try{
+            await navigator.clipboard.writeText(url);
+            alert('복사되었습니다.');
+        }catch(err){
+            console.error('URL 복사 실패:', err);
+        }
+                
+    }
+
+    const onClickArt=(e)=>{
+        e.preventDefault();
+
+    }
+
+    const [pricebox, setPricebox] = React.useState(false);
+
+    const onMouseEnterShow=(e)=>{
+        setPricebox(true);
+    }
+
+    const onMouseLeaveHide=(e)=>{
+        setPricebox(false);
+    }
 
 
     return (
@@ -187,15 +249,28 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
                                         <div className="brand-name">
                                             <div className="abcm">
                                                 <span>ABC-MART</span>
-                                                <a href="!#">{shoes.제조사}&ensp;&nbsp;</a>
+                                                <a href={`http://localhost:3000/BRAND?${shoes.제조사}`}>{shoes.제조사}&ensp;&nbsp;</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="heart-url">
                                         <img src="./img/detail/prod_icon_store_16.png" alt="" />
                                         <p>매장픽업 가능</p>
-                                        <a href="!#"><img src="./img/detail/whiteheart.png" alt="" /></a>
-                                        <a href="!#"><img src="./img/detail/btn_icon_share.png" alt="" /></a>
+                                        <a onClick={onClickHeart} href="!#"><span className={hearton?'on':''}></span></a>
+                                        <a href="!#">
+                                            <img src="./img/detail/btn_icon_share.png" alt="" />
+                                            <div className="sns-box">
+                                                <div className="link-box">
+                                                    <a href="!#" onClick={onClickFB} className='facebook'></a>
+                                                    <a href="!#" onClick={onClickTW} className='tweeter'></a>
+                                                    <a href="!#" onClick={onClickKAS} className='kakaostory'></a>
+                                                    <a href="!#" onClick={onClickBAND} className='band'></a>
+                                                    <a href="!#" onClick={onClickLINE} className='line'></a>
+                                                    <a href="!#" onClick={onClickKAKAO} className='kakao'></a>
+                                                    <a href="!#" onClick={onClickURL} className='URL'>URL</a>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div className="txt">
@@ -210,12 +285,31 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
                                         <span className='sale-price'>{(shoes.할인율===0? shoes.가격 : shoes.가격-(shoes.가격 * shoes.할인율)).toLocaleString('ko-KR')}</span>
                                         <span className='won'>원</span>
                                         <span className='discount-per'>{shoes.할인율===0?'':`[${shoes.할인율*100}%]`}</span>
-                                        <img src="./img/detail/mypage_icon_tooltip_discount.png" alt="" />
+                                        <img onMouseEnter={onMouseEnterShow} onMouseLeave={onMouseLeaveHide} className={shoes.할인율===0?'':'on'} src="./img/detail/mypage_icon_tooltip_discount.png" alt="" />
+                                        <div onMouseEnter={onMouseEnterShow} onMouseLeave={onMouseLeaveHide} className={`mostsaleboss${pricebox?' on':''}`}>
+                                            <div className="mostsale">
+                                                <div className="regular">
+                                                    <span>정상가</span>
+                                                    <span>{shoes.가격}원</span>
+                                                </div>
+                                                <div className="discounted">
+                                                    <span>할인가</span>
+                                                    <span>{`-${shoes.가격 * shoes.할인율}원`}</span>
+                                                </div>
+                                                <div className="discount-result">
+                                                    <span>회원 최대혜택가</span>
+                                                    <span>{shoes.가격-(shoes.가격 * shoes.할인율)}<i>원</i></span>
+                                                </div>
+                                                <p className="maybe">* 모든 혜택이 적용된 금액으로, 실제 결제금액과는 차이가 있을 수 있습니다.</p>
+                                                <span className='triangle'></span>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div className="style-color">
                                     <span>스타일컬러</span>
-                                    <a href="!#"><img src="./img/detail/stylecolor.jpg" alt="" /></a>
+                                    <a href="!#"><img src={shoes.이미지} alt="" /></a>
                                 </div>
                                 <div className="delivery-size">
                                     <ul>
@@ -237,20 +331,18 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
                                         <li>
                                             <span>배송방법</span>
                                             <div className="how-del">
-                                                <label><input type="radio" name='delivery' id='delivery'/><span>일반배송 (무료배송)</span></label>
-                                                <label><input type="radio" name='delivery' id='delivery' disabled/><a href="!#"><img src="./img/detail/comm_art_delivery.png" alt="" /><img src="./img/detail/mypage_icon_tooltip_claim_black.png" alt="" /></a></label>                                                
+                                                <label><input type="radio" name='delivery' id='delivery' checked/><span>일반배송 (무료배송)</span></label>
+                                                <label><input type="radio" name='delivery' id='delivery' disabled/><a onClick={onClickArt} href="!#"><img src="./img/detail/comm_art_delivery.png" alt="" /><img src="./img/detail/mypage_icon_tooltip_claim_black.png" alt="" /></a></label>                                                
                                                                                                 
                                                 <select name="" id="">
-                                                    <option defaultValue >배송지주소를 선택해주세요</option>
-                                                    <option value="예비">준비중입니다</option>                                                    
+                                                    <option defaultValue >준비중입니다</option>                                                                                                      
                                                 </select>
                                                 
                                             </div>
                                         </li>
                                         <li>
                                             <div className="size-txt">
-                                                <span>사이즈</span>
-                                                <a href="!#">매장별 재고확인<img src="./img/detail/" alt="" /></a>
+                                                <span>사이즈</span>                                                
                                             </div>
                                             <div className="size">
                                                 <a onClick={onClickSize} href="!#" >220</a>
