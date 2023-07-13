@@ -16,14 +16,14 @@
                         width: 100%;
                         overflow: hidden;
                         .slide-wrap{
-                            width: 407px * 20;
-                            margin: 0 0 0 ((-407px * 5) - 50px);
+                            width: 22% * 20;
+                            margin: 0 0 0 calc((-22% * 5) - 50px);
                             position: relative;
                             display: flex;
                             .slide{
-                                width: 386px;
+                                width: 22%;
                                 height: 320px;
-                                margin: 0 21px 0 0;
+                                padding: 0 21px 0 0;
                                 position: relative;
                                 a{
                                     img{

@@ -68,8 +68,10 @@
                     }
                     li{
                         width: 224px;
+                        cursor: pointer;
                         a{
                             margin: 0 20px 0 0;
+                            pointer-events: none;
                             figure{
                                 position: relative;
                                 img{
@@ -108,8 +110,8 @@
                                     .cost-price{
                                         color: #999;
                                         font-size: 14px;
+                                        vertical-align: bottom;
                                         em{
-                                            vertical-align: text-bottom;
                                         }
                                     }
                                     .discount-price{
@@ -125,10 +127,10 @@
                                     .discount-rate{
                                         margin: 0 0 0 2px;
                                         color: #ee1c25;
-                                        vertical-align: middle;
+                                        vertical-align: bottom;
                                         font-size: 14px;
                                         em{
-                                            vertical-align: text-top;
+                                            vertical-align: top;
                                         }
                                     }
                                 }

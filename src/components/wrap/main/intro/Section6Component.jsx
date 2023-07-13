@@ -48,7 +48,7 @@ export default function Section6Component(){
                                                 </figure>
                                                 <div className='information-box'>
                                                     <p>{item.title}</p>
-                                                    <h3>{item.info}</h3>
+                                                    <h3><pre>{item.info}</pre></h3>
                                                 </div>
                                             </a>
                                         </li>

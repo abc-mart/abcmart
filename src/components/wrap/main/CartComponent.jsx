@@ -101,7 +101,6 @@ export default function CartComponent(){
     }
 
 
-    // 카트가 들어오면 계산
     React.useEffect(()=>{
 
         let 상품금액 = 0;
@@ -159,7 +158,7 @@ export default function CartComponent(){
     }
 
 
-    // 장바구니(CART) 가져오기
+    // 장바구니 가져오기
     React.useEffect(()=>{
         initMethod();
     },[]);
@@ -203,7 +202,7 @@ export default function CartComponent(){
         alert('삭제되었습니다.');
     }
 
-    // 선택 삭제 버튼 true false
+    // 선택 삭제 버튼
     React.useEffect(()=>{
         if(check.length>0){
             setIsSelectDel(true);
@@ -219,7 +218,7 @@ export default function CartComponent(){
     },[checkAll]);
 
 
-
+    // 옵션변경 버튼 클릭해서 모달창 열기
     const onClickOptionChangeBtn=(e, record)=>{
         e.preventDefault();
         if(isOptionModal===true){
@@ -233,31 +232,11 @@ export default function CartComponent(){
         }
     }
 
-
-    const onClickOptSelectBtn=(e)=>{
-        e.preventDefault();
-        if(isOptSelectOpen===true){
-            setIsOptSelectOpen(false);
-        }
-        else{
-            setIsOptSelectOpen(true);
-        }
-    }
-
-    const onClickChangeSize=(e)=>{
-        e.preventDefault();
-        setOptionSelect(e.target.text);
-        // console.log(e.target.text);
-        setIsOptSelectOpen(false);
-    }
-
+    
+    // 옵션변경 모달창 확인 버튼 클릭
     const onClickOptChangeSave=(e)=>{
         e.preventDefault();
-        setOptionChange(...optionSelect);
-        localStorage.setItem('ABCMARTCART', JSON.stringify(optionSelect));
-        setCart([...cart, optionChange]);
         setIsOptionModal(false);
-        initMethod();
     }
 
 
@@ -340,7 +319,7 @@ export default function CartComponent(){
                                                                                                     <i className='art-delivery'></i>
                                                                                                 </span>
                                                                                             </h3>
-                                                                                            <a href="!#" >
+                                                                                            <a href="!#">
                                                                                                 {item.제품명}
                                                                                                 <br />
                                                                                                 Black
@@ -544,22 +523,16 @@ export default function CartComponent(){
                                                     <div className="size-box">
                                                         <span>사이즈</span>
                                                         <div className="select-size-box">
-                                                            <div onClick={onClickOptSelectBtn} className={`select-box ${isOptSelectOpen?' on':''}`}>
-                                                                <span className='selected'>{optionSelect}</span>
-                                                                <span className='select-arrow'></span>
-                                                            </div>
-                                                            <div className={`select-size ${isOptSelectOpen?' on':''}`}>
-                                                                <ul>
-                                                                    <li><a onClick={onClickChangeSize} href="!#" value={0}>선택하세요</a></li>
-                                                                    <li><a onClick={onClickChangeSize} href="!#" value={220}>220</a></li>
-                                                                    <li><a onClick={onClickChangeSize} href="!#" value={230}>230</a></li>
-                                                                    <li><a onClick={onClickChangeSize} href="!#" value={240}>240</a></li>
-                                                                    <li><a onClick={onClickChangeSize} href="!#" value={250}>250</a></li>
-                                                                    <li><a onClick={onClickChangeSize} href="!#" value={260}>260</a></li>
-                                                                    <li><a onClick={onClickChangeSize} href="!#" value={270}>270</a></li>
-                                                                    <li><a onClick={onClickChangeSize} href="!#" value={280}>280</a></li>
-                                                                </ul>
-                                                            </div>
+                                                            <select name="select" id="select">
+                                                                <option value="선택하세요">선택하세요</option>
+                                                                <option value="220">220</option>
+                                                                <option value="230">230</option>
+                                                                <option value="240">240</option>
+                                                                <option value="250">250</option>
+                                                                <option value="260">260</option>
+                                                                <option value="270">270</option>
+                                                                <option value="280">280</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -580,13 +553,20 @@ export default function CartComponent(){
 
 
 
-{/* <select onChange={onChangeSelect} name="size-menu" id="sizeMenu">
-<option value="선택하세요." disabled>선택하세요.</option>
-<option value="220">220</option>
-<option value="230">230</option>
-<option value="240">240</option>
-<option value="250">250</option>
-<option value="260">260</option>
-<option value="270">270</option>
-<option value="280">280</option>
-</select> */}
+
+{/* <div onClick={onClickOptSelectBtn} className={`select-box ${isOptSelectOpen?' on':''}`}>
+<span className='selected'>{optionSelect}</span>
+<span className='select-arrow'></span>
+</div>
+<div className={`select-size ${isOptSelectOpen?' on':''}`}>
+<ul>
+    <li><a onClick={onClickChangeSize} href="!#">선택하세요</a></li>
+    <li><a onClick={onClickChangeSize} href="!#">220</a></li>
+    <li><a onClick={onClickChangeSize} href="!#">230</a></li>
+    <li><a onClick={onClickChangeSize} href="!#">240</a></li>
+    <li><a onClick={onClickChangeSize} href="!#">250</a></li>
+    <li><a onClick={onClickChangeSize} href="!#">260</a></li>
+    <li><a onClick={onClickChangeSize} href="!#">270</a></li>
+    <li><a onClick={onClickChangeSize} href="!#">280</a></li>
+</ul>
+</div> */}
