@@ -12,9 +12,8 @@ export default function CartComponent(){
     const [isRecentView, setIsRecentView] = React.useState(false);
     const [isOptionModal, setIsOptionModal] = React.useState(false);
     const [optionChange, setOptionChange] = React.useState([]);
-    const [optionSelect, setOptionSelect] = React.useState();
-    const [isOptSelectOpen, setIsOptSelectOpen] = React.useState(false);
 
+    
     const onClickRecentView=(e)=>{
         e.preventDefault();
         if(isRecentView===true){
@@ -522,9 +521,9 @@ export default function CartComponent(){
                                                     </div>
                                                     <div className="size-box">
                                                         <span>사이즈</span>
-                                                        <div className="select-size-box">
-                                                            <select name="select" id="select">
-                                                                <option value="선택하세요">선택하세요</option>
+                                                        <div className="select-box">
+                                                            <select name="size-menu" id="sizeMenu" readOnly>
+                                                                <option value="선택하세요.">선택하세요.</option>
                                                                 <option value="220">220</option>
                                                                 <option value="230">230</option>
                                                                 <option value="240">240</option>
@@ -533,6 +532,7 @@ export default function CartComponent(){
                                                                 <option value="270">270</option>
                                                                 <option value="280">280</option>
                                                             </select>
+                                                            <span className='select-arrow'></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -550,23 +550,3 @@ export default function CartComponent(){
         </>
     );
 };
-
-
-
-
-{/* <div onClick={onClickOptSelectBtn} className={`select-box ${isOptSelectOpen?' on':''}`}>
-<span className='selected'>{optionSelect}</span>
-<span className='select-arrow'></span>
-</div>
-<div className={`select-size ${isOptSelectOpen?' on':''}`}>
-<ul>
-    <li><a onClick={onClickChangeSize} href="!#">선택하세요</a></li>
-    <li><a onClick={onClickChangeSize} href="!#">220</a></li>
-    <li><a onClick={onClickChangeSize} href="!#">230</a></li>
-    <li><a onClick={onClickChangeSize} href="!#">240</a></li>
-    <li><a onClick={onClickChangeSize} href="!#">250</a></li>
-    <li><a onClick={onClickChangeSize} href="!#">260</a></li>
-    <li><a onClick={onClickChangeSize} href="!#">270</a></li>
-    <li><a onClick={onClickChangeSize} href="!#">280</a></li>
-</ul>
-</div> */}
