@@ -18,7 +18,6 @@ export default function Section1Component(){
         })
         .then((res)=>{
             if(res.status===200){
-                // console.log(res.data.main_slide.length);
                 setState({
                     ...state,
                     slide: res.data.main_slide,
@@ -49,14 +48,14 @@ export default function Section1Component(){
         
         function mainNextSlide(){
             $slide.css({zIndex: 1, opacity:1});
-            $slide.eq(imsi!==null?imsi:(cnt===0? state.n-1:cnt-1)).css({zIndex: state.n-1});  // 현재슬라이드
-            $slide.eq(cnt).css({zIndex: state.n}).stop().animate({opacity:0}, 0).animate({opacity:1}, 600);  // 다음슬라이드
+            $slide.eq(imsi!==null?imsi:(cnt===0? state.n-1:cnt-1)).css({zIndex: state.n-1});
+            $slide.eq(cnt).css({zIndex: state.n}).stop().animate({opacity:0}, 0).animate({opacity:1}, 600);
             pageNumber();
         }
 
         function mainPrevSlide(){
             $slide.css({zIndex: 1, opacity:1});
-            $slide.eq(cnt).css({zIndex: state.n-1});  // 이전슬라이드
+            $slide.eq(cnt).css({zIndex: state.n-1});
             $slide.eq(imsi!==null?imsi:(cnt===state.n-1? 0:cnt+1)).css({zIndex: state.n}).stop().animate({opacity:1}, 0).animate({opacity:0}, 600);  // 현재슬라이드
             pageNumber();
         }
