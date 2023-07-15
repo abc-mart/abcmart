@@ -195,7 +195,7 @@
                             h3{
                                 display: flex;
                                 align-items: center;
-                                font-size: 22px;
+                                font-size: 20px;
                                 color: #000;
                                 strong{
                                     font-weight: 600;
@@ -637,12 +637,17 @@
                                 padding: 30px 20px;
                                 border-bottom: 1px solid #b5b5b5;
                                 label{
+                                    display: inline-flex;
+                                    align-items: center;
                                     font-size: 15px;
                                     color: #333;
                                     position: relative;
+                                    height: 40px;
+                                    width: auto;
                                     input{
+                                        position: absolute;
                                         cursor: auto;
-                                        margin: 0 0 0 70px;
+                                        margin: 0 0 0 120px;
                                         border: 0;
                                         padding: 0 11px;
                                         width: 350px;
@@ -656,13 +661,18 @@
                                     &::after{
                                             content: '';
                                             position: absolute;
-                                            left: 59px;
-                                            top: 5px;
+                                            right: -7px;
+                                            top: 15px;
                                             width: 4px;
                                             height: 4px;                                            
                                             border-radius: 50%;
                                             background: #ee1c25;                                            
                                         }
+                                }
+                            }
+                            ul{
+                                li{
+                                    margin: 0 0 10px 0;
                                 }
                             }
                             .btn-box{

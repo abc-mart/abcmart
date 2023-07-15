@@ -60,14 +60,14 @@
   overflow: hidden;
 }
 #section7 .container .gap .content .slide-container .slide-view .slide-wrap {
-  width: 15795px;
+  width: 810%;
   display: flex;
-  margin: 0 0 0 -2160px;
+  margin: 0 0 0 -115%;
   position: relative;
 }
 #section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
-  width: 545px;
-  margin: 0 20px 0 0;
+  width: 30%;
+  padding: 0 20px 0 0;
   border: 0;
 }
 #section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div {
@@ -79,6 +79,10 @@
 }
 #section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div figure {
   width: 270px;
+  cursor: pointer;
+}
+#section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div figure a {
+  pointer-events: none;
 }
 #section7 .container .gap .content .slide-container .slide-view .slide-wrap .slide > div figure a img {
   width: 100%;

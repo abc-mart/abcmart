@@ -8,7 +8,7 @@ import axios from 'axios';
 import UpdateComponent from './service/notice/UpdateComponent';
 import FixedComponent from './service/notice/FixedComponent';
 
-export default function ServiceComponent({islogin}) {
+export default function ServiceComponent({loginId}) {
     const [menu, setMenu]=React.useState('공지사항');
     const [item, setItem] = React.useState([]);
     const [index, setIndex]=React.useState(0);
@@ -114,10 +114,10 @@ export default function ServiceComponent({islogin}) {
                         <div className="right">
                             {menu==='FAQ' && <FaqComponent/>}
 
-                            {menu==='공지사항' && <NoticeComponent islogin={islogin} notice={notice} setItem={setItem}setMenu={setMenu} setIndex={setIndex}/>}
+                            {menu==='공지사항' && <NoticeComponent loginId={loginId} notice={notice} setItem={setItem}setMenu={setMenu} setIndex={setIndex}/>}
                             {menu==='고정' && <FixedComponent setMenu={setMenu}/>}
                             {menu==='글쓰기' && <WriteComponent setMenu={setMenu}/>}
-                            {menu==='글보기' && <DetailComponent islogin={islogin} notice={notice} item={item} setMenu={setMenu} index={index}/>}
+                            {menu==='글보기' && <DetailComponent loginId={loginId} notice={notice} item={item} setMenu={setMenu} index={index}/>}
                             {menu==='수정' && <UpdateComponent  item={item} setMenu={setMenu} setItem={setItem} index={index}/>}
 
                             {/* {menu==='공지사항' && <NoticeComponent islogin={islogin} sortNotice={sortNotice} setItem={setItem}setMenu={setMenu} setIndex={setIndex}/>}

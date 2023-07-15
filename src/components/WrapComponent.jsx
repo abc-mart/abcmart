@@ -24,8 +24,49 @@ import EventSubComponent from './wrap/main/event/EventSubComponent';
 
 
 export default function WrapComponent(){
+    
+    //로그인 정보 가지고 오기
+    const [loginId, setLoginId]=React.useState('');
+    const [photo, setPhoto]=React.useState('');
+    const [signin, setSigin] = React.useState({
+        signinKey: 'ABCUSERLOGIN',
+        userId:'',
+        expires:'',
+        photo:''
+    });
+    const {signinKey, userId, expires} = signin;
+    
+    React.useEffect(()=>{
+        // 로컬스토레이지 로그인 정보 가져오기
+        let result='';
+        if( localStorage.getItem(signinKey)!==null ){
+             result = JSON.parse(localStorage.getItem(signinKey)); 
+             if( new Date() > result.expires){
+                alert('만료일이 지났습니다. 로그아웃되었습니다.');
+                setSigin({
+                    ...signin,
+                    userId: '',
+                    expires: '',
+                    image:''
+                })
+                localStorage.removeItem(signinKey); // 로그인 정보 모두 삭제
+                window.location.pathname='/INTRO'
+             } 
+             else{
+                setSigin({
+                    ...signin,
+                    userId: result.userId,
+                    expires: result.expires,
+                    image:result.image
+                 })                 
+                setLoginId(signin.userId);
+                setPhoto(signin.photo)
+             }
+        }
+        
+    },[userId, expires, signinKey]);
 
-    const [islogin, setIslogin] =React.useState(true);
+
 
     const [cartCount, setCartCount] = React.useState(0);
 
@@ -314,7 +355,7 @@ export default function WrapComponent(){
             }
             <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Routes>                    
-                    <Route path='/' element={<HeaderComponent setSelectButton={setSelectButton} cartCount={cartCount} cartCountNumber={cartCountNumber} cartKey={cartKey} />}>
+                    <Route path='/' element={<HeaderComponent loginId={loginId} signinKey={signinKey} setSelectButton={setSelectButton} cartCount={cartCount} cartCountNumber={cartCountNumber} cartKey={cartKey} />}>
                         <Route index element={<IntroComponent/>}/>
                         <Route path='/INTRO' element={<IntroComponent />}/>                        
                         <Route path='/BRAND' element={<BrandComponent  adidas={adidas} nike={nike}  converse={converse}  vans={vans}  newbalance={newbalance} setViewProductDetail={setViewProductDetail} dkey={dkey} />}/>
@@ -323,11 +364,11 @@ export default function WrapComponent(){
                         <Route path='/EVENT' element={<EventComponent/>}/>
                         <Route path='/EVENTSUB' element={<EventSubComponent/>}/>                        
                         <Route path='/CART' element={<CartComponent cartKey={cartKey} />}/>
-                        <Route path='/LOGIN' element={<LoginComponent/>}/>
+                        <Route path='/LOGIN' element={<LoginComponent setSigin={setSigin}/>}/>
                         <Route path='/SIGNUPA' element={<SignupaComponent/>}/>
                         <Route path='/SIGNUPB' element={<SignupbComponent/>}/>
-                        <Route path='/MYPAGE' element={<MypageComponent/>}/>
-                        <Route path='/SERVICE' element={<ServiceComponent islogin={islogin}/>}/>
+                        <Route path='/MYPAGE' element={<MypageComponent loginId={loginId} signinKey={signinKey}/>}/>
+                        <Route path='/SERVICE' element={<ServiceComponent loginId={loginId} />}/>
                         <Route path='/KIDS' element={<KidsComponent/>}/>
                         <Route path='/ONLY' element={<OnlyAbcComponent/>}/>
                         <Route path='/COUPON' element={<CouponComponent/>}/>                  

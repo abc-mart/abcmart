@@ -12,6 +12,7 @@
 <jsp:setProperty name="UserDTO" property="userPw"/>
 <jsp:setProperty name="UserDTO" property="userName"/>
 <jsp:setProperty name="UserDTO" property="userEmail"/>
+<jsp:setProperty name="UserDTO" property="userPhone"/>
 
     
 <!DOCTYPE html>

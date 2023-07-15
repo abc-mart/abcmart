@@ -53,9 +53,11 @@
 }
 #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
   width: 224px;
+  cursor: pointer;
 }
 #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide a {
   margin: 0 20px 0 0;
+  pointer-events: none;
 }
 #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide a figure {
   position: relative;
@@ -97,9 +99,7 @@
 #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .cost-price {
   color: #999;
   font-size: 14px;
-}
-#section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .cost-price em {
-  vertical-align: text-bottom;
+  vertical-align: bottom;
 }
 #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-price {
   font-size: 20px;
@@ -114,11 +114,11 @@
 #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate {
   margin: 0 0 0 2px;
   color: #ee1c25;
-  vertical-align: middle;
+  vertical-align: bottom;
   font-size: 14px;
 }
 #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .price-box .discount-rate em {
-  vertical-align: text-top;
+  vertical-align: top;
 }
 #section3 .container .gap .content .slide-container .slide-view .slide-wrap .slide a .information-box .icon_box {
   display: inline-block;

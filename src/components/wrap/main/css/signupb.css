@@ -41,12 +41,9 @@
 #signupb #wrap .container .gap .substance form .box1 .box12 ul {
   padding: 0 0 60px 0;
 }
-#signupb #wrap .container .gap .substance form .box1 .box12 ul:nth-child(1), #signupb #wrap .container .gap .substance form .box1 .box12 ul:nth-child(5) {
-  border-bottom: 1px solid #aaa;
-}
 #signupb #wrap .container .gap .substance form .box1 .box12 ul li {
-  height: 70px;
-  line-height: 70px;
+  position: relative;
+  display: block;
   border-bottom: 1px solid #d5d5d5;
   padding: 0 0 0 20px;
   font-size: 15px;
@@ -56,8 +53,24 @@
   font-size: 16px;
   font-weight: 500;
   color: #000;
+  border-bottom: 1px solid #aaa;
 }
-#signupb #wrap .container .gap .substance form .box1 .box12 ul li input {
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li:nth-child(5) {
+  border-bottom: 1px solid #aaa;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-title {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-title label {
+  position: absolute;
+  display: block;
+  z-index: 2;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-title label input {
   width: 20px;
   height: 20px;
   margin: 0 10px 0 0;
@@ -67,18 +80,95 @@
   border: 1px solid #aaa;
   transition: all 0.5s;
 }
-#signupb #wrap .container .gap .substance form .box1 .box12 ul li input:hover {
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-title label input:hover {
   border: 1px solid #000;
 }
-#signupb #wrap .container .gap .substance form .box1 .box12 ul li input[type=checkbox]:checked {
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-title label input[type=checkbox]:checked {
   background: url(../../../../../public/img/signup/chk_icon_checked.png);
   background-size: cover;
 }
-#signupb #wrap .container .gap .substance form .box1 .box12 ul li span {
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-title label span {
   display: inline-block;
   font-weight: 400;
   color: #ee1c25;
   transform: translateY(-2px);
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-title i {
+  top: 33px;
+  right: 10px;
+  margin-top: -3px;
+  position: absolute;
+  display: inline-block;
+  width: 13px;
+  height: 7px;
+  background: url(../../../../../public/img/signup/fold_icon_arrow.png);
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-title i.on {
+  background: url(../../../../../public/img/signup/fold_icon_arrow.png) 0 100%;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li label {
+  position: absolute;
+  top: 33px;
+  left: 20px;
+  margin-top: -8px;
+  z-index: 2;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li label input {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px 0 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #aaa;
+  transition: all 0.5s;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li label input:hover {
+  border: 1px solid #000;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li label input[type=checkbox]:checked {
+  background: url(../../../../../public/img/signup/chk_icon_checked.png);
+  background-size: cover;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li label span {
+  display: inline-block;
+  font-weight: 400;
+  color: #ee1c25;
+  transform: translateY(-2px);
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li i {
+  top: 33px;
+  right: 10px;
+  margin-top: -3px;
+  position: absolute;
+  display: inline-block;
+  width: 13px;
+  height: 7px;
+  background: url(../../../../../public/img/signup/fold_icon_arrow.png);
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li i.on {
+  background: url(../../../../../public/img/signup/fold_icon_arrow.png) 0 100%;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-content {
+  width: 100%;
+  height: 200px;
+  overflow-y: scroll;
+  padding: 0 20px 0 0;
+  display: none;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-content.on {
+  display: block;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-content h5 {
+  font-size: 14px;
+  color: #000;
+  padding: 5px 0;
+}
+#signupb #wrap .container .gap .substance form .box1 .box12 ul li .clause-content p {
+  font-size: 13px;
+  color: #666;
+  line-height: 140%;
+  padding: 5px 0 20px 0;
 }
 #signupb #wrap .container .gap .substance form .box2 .box21 h4 {
   font-size: 22px;
@@ -92,9 +182,24 @@
 #signupb #wrap .container .gap .substance form .box2 .box22 ul {
   padding: 50px 20px 63px 20px;
 }
+#signupb #wrap .container .gap .substance form .box2 .box22 ul p {
+  display: none;
+  font-size: 14px;
+  color: #ee1c25;
+  padding: 0 0 10px 140px;
+}
+#signupb #wrap .container .gap .substance form .box2 .box22 ul p.on {
+  display: block;
+}
 #signupb #wrap .container .gap .substance form .box2 .box22 ul li {
   display: flex;
   height: 54px;
+}
+#signupb #wrap .container .gap .substance form .box2 .box22 ul li:nth-child(9) input {
+  width: 287px;
+}
+#signupb #wrap .container .gap .substance form .box2 .box22 ul li:nth-child(11) input {
+  width: 480px;
 }
 #signupb #wrap .container .gap .substance form .box2 .box22 ul li .colTitle {
   width: 130px;
@@ -126,6 +231,39 @@
 #signupb #wrap .container .gap .substance form .box2 .box22 ul li input::placeholder {
   font-family: "Noto Sans KR";
   font-size: 15px;
+}
+#signupb #wrap .container .gap .substance form .box2 .box22 ul li select {
+  width: 183px;
+  height: 44px;
+  margin: 0 0 0 10px;
+  border: 1px solid #d5d5d5;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Noto Sans KR", "sans-serif";
+  color: #666;
+  outline: none;
+}
+#signupb #wrap .container .gap .substance form .box2 .box22 ul li select option {
+  color: #b5b5b5;
+}
+#signupb #wrap .container .gap .substance form .box2 .box22 ul li select option:hover {
+  background: #b5b5b5;
+  color: #000;
+}
+#signupb #wrap .container .gap .substance form .box2 .box22 ul li button {
+  width: 140px;
+  height: 44px;
+  margin: 0 0 0 10px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+#signupb #wrap .container .gap .substance form .box2 .box22 ul li button:hover {
+  background: #eee;
 }
 #signupb #wrap .container .gap .substance form .box4 .btn-box {
   width: 410px;

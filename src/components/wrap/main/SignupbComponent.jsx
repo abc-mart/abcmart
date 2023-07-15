@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./scss/signupb.scss";
-import $ from 'jquery';
+import axios from "axios";
 
 export default function SignupbComponent(){
 
@@ -279,26 +279,52 @@ export default function SignupbComponent(){
                 confirmMsg: '휴대폰번호를 입력해주세요'                
             })
         }
-        const formData = {
-            "nm": state.nm,
-            "id": state.id,
-            "pw": state.pw,
-            "em": state.em,
-            "ph": state.ph          
-        }
-        $.ajax({
-            url: '/JSP/abc/signup_action.jsp',
-            type: 'POST',
-            data: formData,
-            success(res){
-                console.log('AJAX 성공');
-                console.log(res);
-                window.location.pathname = '/LOGIN';
-            },
-            error(err){
-                console.log('AJAX 실패 : ' + err);
+        // const formData = {
+        //     "nm": state.nm,
+        //     "id": state.id,
+        //     "pw": state.pw,
+        //     "em": state.em,
+        //     "ph": state.ph          
+        // }
+        // $.ajax({
+        //     url: '/bbs/signupAction',
+        //     type: 'POST',
+        //     data: formData,
+        //     success(res){
+        //         console.log('AJAX 성공');
+        //         console.log(res);
+        //         // window.location.pathname = '/LOGIN';
+        //     },
+        //     error(err){
+        //         console.log('AJAX 실패 : ' + err);
+        //     }
+        // })
+        axios({
+            url:'/bbs/signupAction.jsp',
+            method: 'POST',
+            data:{},
+            params: {
+                "userId": state.id,
+                "userPw": state.pw,
+                "userName": state.nm,
+                "userEmail": state.em,
+                "userPhone": state.ph
+
             }
         })
+        .then((res)=>{
+            console.log(state.id)
+            console.log( res );
+            console.log( res.data );
+            window.location.pathname='/INTRO';
+        
+
+        })
+        .catch((err)=>{
+            console.log(`AXIOS 실패! ${err} `)
+        }); 
+
+        
     }
 
     return(

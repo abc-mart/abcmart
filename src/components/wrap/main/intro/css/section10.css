@@ -40,29 +40,34 @@
   overflow: hidden;
 }
 #section10 .container .gap .content .slide-container .slide-view .slide-wrap {
-  width: 10370px;
+  width: 544%;
   display: flex;
   position: relative;
   z-index: 1;
-  margin: 0 0 0 -2085px;
+  margin: 0 0 0 calc(-112% + 50px);
 }
 #section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide {
-  margin: 0 20px 0 0;
+  padding: 0 20px 0 0;
 }
-#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide a {
+#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide figure {
   position: relative;
   display: block;
+  cursor: pointer;
 }
-#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide a figure img {
+#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide figure a {
+  pointer-events: none;
+}
+#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide figure a img {
   width: auto;
 }
-#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide a span {
+#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide figure span pre {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   font-size: 14px;
+  font-family: "Noto Sans KR";
   line-height: 22px;
   text-align: center;
   display: flex;
@@ -74,7 +79,7 @@
   opacity: 0;
   transition: all 0.23s;
 }
-#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide a span:hover {
+#section10 .container .gap .content .slide-container .slide-view .slide-wrap .slide figure span pre:hover {
   opacity: 1;
 }
 #section10 .container .gap .content button {

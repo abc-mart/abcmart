@@ -155,9 +155,11 @@
                         margin: 14px 0 0 0;
                         text-align: right;
                         position: relative;
+                        height: 700px;
                         table{
                             width: 100%;
                             border-collapse: collapse;
+                            margin: 0 0 20px 0;
                             tr{     
                                 text-align: center;                               
                                 th{
@@ -192,9 +194,7 @@
                             }                            
                         }
                         .page-button-box{
-                            position: absolute;
-                            bottom:70px;
-                            left: 30%;
+                            
                             height: 50px;
                             display: flex;
                             align-items: center;
@@ -251,7 +251,7 @@
                             }
                         }
                         button{
-                            margin: 100px 0 0 0;
+                            margin: -70px 0 0 0;
                             width: 150px;
                             height: 60px;
                             background: #555;

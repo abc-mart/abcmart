@@ -1,6 +1,11 @@
 import React from 'react';
+import axios from 'axios';
 
-export default function PrivacyComponent(props) {
+export default function PrivacyComponent({loginId}) {
+
+    
+
+   
     return (
         <>
         <div className='sub-title'>
@@ -9,10 +14,27 @@ export default function PrivacyComponent(props) {
         <div className="password-content">
             <form action="">
                 <div className="form-box">
-                    <label htmlFor="">비밀번호<input type="password" placeholder='비밀번호 입력해 주세요.'/></label>
+                    <ul>
+                        <li>
+                            <label htmlFor="">이름<input type="text" placeholder='비밀번호 입력해 주세요.' value={loginId}/></label>
+                        </li>
+                        <li>
+                            <label htmlFor="">아이디<input type="text" placeholder='비밀번호 입력해 주세요.' value={loginId}/></label>
+                        </li>
+                        <li>
+                            <label htmlFor="">이메일<input type="text" placeholder='비밀번호 입력해 주세요.'/></label>
+                        </li>
+                        <li>
+                            <label htmlFor="">휴대폰번호<input type="text" placeholder='비밀번호 입력해 주세요.'/></label>
+                        </li>
+                        <li>
+                            <label htmlFor="">비밀번호확인<input type="password" placeholder='비밀번호 입력해 주세요.'/></label>
+                        </li>
+                    </ul>
+                    
                 </div>
                 <div className="btn-box">
-                    <button>확인</button>
+                    <button>변경</button>
                 </div>
             </form>  
             <div className="caution">

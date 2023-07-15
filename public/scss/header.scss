@@ -30,7 +30,6 @@
 						}
 						.box1_2 {
 							position: relative;
-							width: 840px;
 							height: 97px;
 							display: flex;
 							.search_box {
@@ -38,7 +37,7 @@
 								height: 44px;
 								border-bottom: 2px solid black;
 								display: flex;
-								margin: 22px 110px 0 223px;
+								margin: 22px 100px 0 223px;
 								position: relative;
 								label{
 									width: 100%;
@@ -176,6 +175,8 @@
 							}
 						}
 						.box1_3 {
+							position: relative;
+							right: 25px;
 							width: 212px;
 							height: 97px;
 							display: flex;
