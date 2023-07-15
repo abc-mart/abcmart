@@ -24,7 +24,7 @@
         result.append("{\"번호\":" + list.get(i).getBbsId() + ",");
         result.append("\"제목\":\"" + list.get(i).getSubject() + "\",");
         result.append("\"작성자\":\"" + list.get(i).getUserId() + "\",");
-        result.append("\"내용\":\"" + list.get(i).getContent() + "\",");
+        result.append("\"내용\":\"" + list.get(i).getContent().replace("\n", "\\n") + "\",");
         
         if(i == list.size() - 1) {
             result.append("\"작성일\":\"" + list.get(i).getWriteDate() + "\"}");

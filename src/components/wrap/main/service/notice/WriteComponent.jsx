@@ -3,24 +3,7 @@ import axios from 'axios';
 
 export default function WriteComponent({setMenu}) {
 
-    const [image1, setImage1] = React.useState('');
-
-    const onChangeImg = (e, setImage) => {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-  
-      reader.onload = () => {
-        setImage(reader.result);
-      };
-  
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    };
-
-    const onClickDel=(setImage)=>{
-        setImage('');
-    }
+    
 
     
     React.useEffect(()=>{
@@ -110,26 +93,6 @@ export default function WriteComponent({setMenu}) {
                                     value={content}
                                     ></textarea>
                         </label>
-                    </li>
-                    <li>
-                        <div className='file-add'>
-                            <span>파일첨부</span>
-                            <div className='img-add'>
-                                <label htmlFor="fileAdd1">
-                                    <input type="file" id='fileAdd1' accept="image/*" onChange={(e)=>onChangeImg(e,setImage1)}/>
-                                    <figure>
-                                        {image1 &&
-                                           
-                                                <img src={image1} alt="" /> 
-                                          
-                                        }
-                                    </figure>
-                                
-                                </label>
-                                {image1 && <span onClick={()=>onClickDel(setImage1)}></span>}
-                            </div>
-                        </div>
-                        
                     </li>
                 </ul>
                 <div className="btn-box">

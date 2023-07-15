@@ -82,6 +82,7 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
             console.log(`AXIOS 실패! ${err} `)
         });
     }
+
     
     return (
         <>

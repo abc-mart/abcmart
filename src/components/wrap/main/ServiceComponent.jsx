@@ -49,11 +49,14 @@ export default function ServiceComponent({islogin}) {
             method:'GET'
         })
         .then((res)=>{
+            
             setNotice(res.data);
             setNotice(res.data.공지사항);
 
             console.log( res.data )
             console.log( res.data.공지사항 )
+            
+            
             
         })
         .catch((err)=>{

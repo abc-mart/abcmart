@@ -75,6 +75,7 @@ export default function NoticeComponent({notice, islogin, sortNotice, setItem,se
         setMenu('고정');
     }
 
+
     return (
         <>
         <div className='sub-title'>

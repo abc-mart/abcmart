@@ -1,5 +1,6 @@
 import React from 'react';
 import './scss/couponSection2.scss';
+import { Link } from 'react-router-dom';
 
 export default function CouponSection2Component(props) {
     const [event, setEvent]=React.useState(true)
@@ -73,13 +74,15 @@ export default function CouponSection2Component(props) {
                                     </div>
                                 </li>
                                 <li>
-                                    <div className="img-box">
-                                        <img src="./img/coupon/1676856564259.jpg" alt="" />
-                                    </div>
-                                    <div className="txt-box">
-                                        <h3>APP 설치하고 1만원 할인 받으세요.</h3>
-                                        <p>2023.07.01 ~ 2023.07.31</p>
-                                    </div>
+                                    <Link to="/EVENTSUB">
+                                        <div className="img-box">
+                                            <img src="./img/coupon/1676856564259.jpg" alt="" />
+                                        </div>
+                                        <div className="txt-box">
+                                            <h3>APP 설치하고 1만원 할인 받으세요.</h3>
+                                            <p>2023.07.01 ~ 2023.07.31</p>
+                                        </div>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
