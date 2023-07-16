@@ -12,8 +12,8 @@ export default function Section2Component(){
                         </div>
                     </div>
                     <div className="content">
-                        <span><img src="./img/detail/1686894468370.jpg" alt="" /></span>
-                        <p>이달의 월간슈즈 #스포츠 슈즈</p>
+                        <a href="/EVENT"><span><img src="./img/detail/1686894468370.jpg" alt="" /></span></a>
+                        <a href="/EVENT"><p>이달의 월간슈즈 #스포츠 슈즈</p></a>
                     </div>
                 </div>
             </div>

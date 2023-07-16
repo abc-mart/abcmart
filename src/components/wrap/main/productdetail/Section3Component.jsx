@@ -1,5 +1,6 @@
 import React from 'react';
 import '../scss/productdetail.scss';
+import $ from 'jquery';
 
 export default function Section3Component(){
 
@@ -25,10 +26,74 @@ export default function Section3Component(){
         window.scrollTo(0, 8537); 
     }
 
+    const [good, setGood] = React.useState(true);
+    const [best, setBest] = React.useState(false);
+    const [newproduct, setNewproduct] = React.useState(false);
+
+    const onClickSlideTap1=(e)=>{
+        e.preventDefault();
+        setGood(true);
+        setBest(false);
+        setNewproduct(false);
+    }
+
+    const onClickSlideTap2=(e)=>{
+        e.preventDefault();
+        setGood(false);
+        setBest(true);
+        setNewproduct(false);
+    }
+
+    const onClickSlideTap3=(e)=>{
+        e.preventDefault();
+        setGood(false);
+        setBest(false);
+        setNewproduct(true);
+    }
+
+    const [cnt, setCnt] = React.useState(0);
+
+    React.useEffect(()=>{
+        const $slideWrap1 = $('.slide-wrap1');
+
+        let cnt = 0;
+        let setId = 0;
+        let n = 14;
+
+        $slideWrap1.css({width: `${20 * n}%`});
+
+        function mainSlide(){
+            console.log(cnt);
+
+            $slideWrap1.stop().animate({left: `${-20*cnt}%`}, 600, function(){
+                if(cnt>13) cnt = 1;
+                if(cnt<=0) cnt= 1;
+                $slideWrap1.stop().animate({left: `${-20*cnt}%`}, 0)
+            });
+
+            setCnt(cnt);
+        }
+
+        function nextCount(){
+            cnt++;
+            mainSlide();
+        }
+
+        function prevCount(){
+            cnt--;
+            mainSlide();
+        }
+
+        function autoTimer(){
+            clearInterval(setId);
+            setId=setInterval(nextCount, 4000);
+        }
+        //autoTimer();
+        
 
 
 
-
+    })
 
 
 
@@ -110,69 +175,513 @@ export default function Section3Component(){
                     </div>
                     <div className="product-slide">
                         <div className="button-box">
-                            <a href="!#">관련 용품 추천</a>
-                            <a href="!#">휠라 BEST</a>
-                            <a href="!#">휠라 신상품</a>
+                            <a onClick={onClickSlideTap1} className={good?'on':''} href="!#">관련 용품 추천</a>
+                            <a onClick={onClickSlideTap2} className={best?'on':''} href="!#">휠라 BEST</a>
+                            <a onClick={onClickSlideTap3} className={newproduct?'on':''} href="!#">휠라 신상품</a>
                         </div>
-                        <div className="slide-box">
-                            <ul>
-                                <li className="slide 1">
-                                    <img src="./img/detail/S1.jpg" alt="" />
-                                    <h6>FILA</h6>
-                                    <p>FILA NEURON 5 NUCLEUS</p>
-                                    <div className='price-box'>
-                                        <span className='real-price'>99,000원</span>
-                                        <span className='sale-price'>49000</span>
-                                        <span className='won'>원</span>
-                                        <span className='discount-per'>[50%]</span>
-                                    </div>
-                                </li>
-                                <li className="slide 2">
-                                    <img src="./img/detail/S1.jpg" alt="" />
-                                    <h6>FILA</h6>
-                                    <p>FILA NEURON 5 NUCLEUS</p>
-                                    <div className='price-box'>
-                                        <span className='real-price'>99,000원</span>
-                                        <span className='sale-price'>49000</span>
-                                        <span className='won'>원</span>
-                                        <span className='discount-per'>[50%]</span>
-                                    </div>
-                                </li>
-                                <li className="slide 3">
-                                    <img src="./img/detail/S1.jpg" alt="" />
-                                    <h6>FILA</h6>
-                                    <p>FILA NEURON 5 NUCLEUS</p>
-                                    <div className='price-box'>
-                                        <span className='real-price'>99,000원</span>
-                                        <span className='sale-price'>49,000</span>
-                                        <span className='won'>원</span>
-                                        <span className='discount-per'>[50%]</span>
-                                    </div>
-                                </li>
-                                <li className="slide 4">
-                                    <img src="./img/detail/S1.jpg" alt="" />
-                                    <h6>FILA</h6>
-                                    <p>FILA NEURON 5 NUCLEUS</p>
-                                    <div className='price-box'>
-                                        <span className='real-price'>99,000원</span>
-                                        <span className='sale-price'>49,000</span>
-                                        <span className='won'>원</span>
-                                        <span className='discount-per'>[50%]</span>
-                                    </div>
-                                </li>
-                                <li className="slide 5">
-                                    <img src="./img/detail/S1.jpg" alt="" />
-                                    <h6>FILA</h6>
-                                    <p>FILA NEURON 5 NUCLEUS</p>
-                                    <div className='price-box'>
-                                        <span className='real-price'>99,000원</span>
-                                        <span className='sale-price'>49,000</span>
-                                        <span className='won'>원</span>
-                                        <span className='discount-per'>[50%]</span>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div className={`slide-box1${good?' on':''}`}>
+                            <div className="slide-view">
+                                <ul className='slide-wrap1'>
+                                    <li className="slide 6">
+                                        <img src="./img/detail/slide_good6.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>6인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>                                    
+                                    <li className="slide 1">
+                                        <img src="./img/detail/slide_good1.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>1인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 2">
+                                        <img src="./img/detail/slide_good2.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>2FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 3">
+                                        <img src="./img/detail/slide_good3.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 4">
+                                        <img src="./img/detail/slide_good4.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 5">
+                                        <img src="./img/detail/slide_good5.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 6">
+                                        <img src="./img/detail/slide_good6.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 1">
+                                        <img src="./img/detail/slide_good1.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>1인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 2">
+                                        <img src="./img/detail/slide_good2.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>2FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 3">
+                                        <img src="./img/detail/slide_good3.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 4">
+                                        <img src="./img/detail/slide_good4.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 5">
+                                        <img src="./img/detail/slide_good5.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 6">
+                                        <img src="./img/detail/slide_good6.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 1">
+                                        <img src="./img/detail/S1.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
+                        <div className={`slide-box2${best?' on':''}`}>
+                            <div className="slide-view">
+                                <ul className='slide-wrap2'>                                    
+                                    <li className="slide 1">
+                                        <img src="./img/detail/slide_best01.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>1인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 2">
+                                        <img src="./img/detail/slide_best02.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>2FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 3">
+                                        <img src="./img/detail/slide_best03.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 4">
+                                        <img src="./img/detail/slide_best04.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 5">
+                                        <img src="./img/detail/slide_best05.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 6">
+                                        <img src="./img/detail/slide_best06.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 7">
+                                        <img src="./img/detail/slide_best07.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 8">
+                                        <img src="./img/detail/slide_best08.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 9">
+                                        <img src="./img/detail/slide_best09.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 10">
+                                        <img src="./img/detail/slide_best10.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 11">
+                                        <img src="./img/detail/slide_best11.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 12">
+                                        <img src="./img/detail/slide_best12.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 13">
+                                        <img src="./img/detail/slide_best13.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 14">
+                                        <img src="./img/detail/slide_best14.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 15">
+                                        <img src="./img/detail/slide_best15.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className={`slide-box3${newproduct?' on':''}`}>
+                            <div className="slide-view">
+                                <ul className='slide-wrap3'>                                 
+                                    <li className="slide 1">
+                                        <img src="./img/detail/slide_new01.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>1인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 2">
+                                        <img src="./img/detail/slide_new02.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>2FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 3">
+                                        <img src="./img/detail/slide_new03.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 4">
+                                        <img src="./img/detail/slide_new04.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 5">
+                                        <img src="./img/detail/slide_new05.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 6">
+                                        <img src="./img/detail/slide_new06.jpg" alt="" />
+                                        <h6>FILA</h6>
+                                        <p>FILA NEURON 5 NUCLEUS</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>99,000원</span>
+                                            <span className='sale-price'>49,000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 7">
+                                        <img src="./img/detail/slide_new07.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 8">
+                                        <img src="./img/detail/slide_new08.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 9">
+                                        <img src="./img/detail/slide_new09.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 10">
+                                        <img src="./img/detail/slide_new10.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 11">
+                                        <img src="./img/detail/slide_new11.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 12">
+                                        <img src="./img/detail/slide_new12.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 13">
+                                        <img src="./img/detail/slide_new13.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 14">
+                                        <img src="./img/detail/slide_new14.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                    <li className="slide 15">
+                                        <img src="./img/detail/slide_new15.jpg" alt="" />
+                                        <h6>에이비씨마트</h6>
+                                        <p>인솔(키높이,남성)</p>
+                                        <div className='price-box'>
+                                            <span className='real-price'>8,000원</span>
+                                            <span className='sale-price'>49000</span>
+                                            <span className='won'>원</span>
+                                            <span className='discount-per'>[50%]</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -886,55 +886,194 @@
                             }
                         }
                     }
-                    .slide-box{
+                    .slide-box1{
                         padding: 30px 0 0 0;
-                        ul{
+                        position: relative;
+                        display: none;
+                        &.on{
+                            display: block;
+                        }
+                        .slide-view{
                             width: 100%;
-                            display: flex;
-                            .slide{
+                            overflow: hidden;
+                            .slide-wrap1{
+                                position: relative;
                                 width: 100%;
-                                img{
-                                    width: 220px;
-                                    height: 220px;
-                                }
-                                h6{
-                                    font-size: 15px;
-                                    font-weight: 600;
-                                    color: #000;
-                                    padding: 20px 0 0 0;
-                                }
-                                p{
-                                    font-size: 14px;
-                                    padding: 10px 0 0 0;
-                                }
-                                .price-box{
-                                    padding: 30px 0 0 0;
-                                    .real-price{
-                                        font-size: 14px;
-                                        color: #999;
-                                        text-decoration: line-through;
-                                        padding: 0 7px 0 0;
-                                    }
-                                    .sale-price{
-                                        font-size: 19px;
-                                        font-weight: 600;
-                                        color: #ee1c25;
-                                    }
-                                    .won{
-                                        font-size: 14px;                                    
-                                        color: #ee1c25;
-                                    }
-                                    .discount-per{
-                                        font-size: 14px;                                    
-                                        color: #ee1c25;
+                                display: flex;
+                                margin-left: -20%;
+                                .slide{
+                                    width: 100%;
+                                    margin: 0;                                    
+                                    img{
+                                        width: 220px;
+                                        height: 220px;
                                     }
                                     
+                                    > h6{
+                                        font-size: 15px;
+                                        font-weight: 600;
+                                        color: #000;
+                                        padding: 20px 0 0 0;
+                                    }
+                                    p{
+                                        font-size: 14px;
+                                        padding: 10px 0 0 0;
+                                    }
+                                    .price-box{
+                                        padding: 30px 0 0 0;
+                                        .real-price{
+                                            font-size: 14px;
+                                            color: #999;
+                                            text-decoration: line-through;
+                                            padding: 0 7px 0 0;
+                                        }
+                                        .sale-price{
+                                            font-size: 19px;
+                                            font-weight: 600;
+                                            color: #ee1c25;
+                                        }
+                                        .won{
+                                            font-size: 14px;                                    
+                                            color: #ee1c25;
+                                        }
+                                        .discount-per{
+                                            font-size: 14px;                                    
+                                            color: #ee1c25;
+                                        }
+                                        
+                                    }
+    
                                 }
-
+                                
                             }
-                            
                         }
+
                     }
+                    .slide-box2{
+                        padding: 30px 0 0 0;
+                        position: relative;
+                        display: none;
+                        &.on{
+                            display: block;
+                        }
+                        .slide-view{
+                            width: 100%;
+                            overflow: hidden;
+                            .slide-wrap2{
+                                position: relative;
+                                width: 100%;
+                                display: flex;
+                                margin-left: -20%;
+                                .slide{
+                                    width: 100%;  
+                                    margin: 0 20px 0 0;                                  
+                                    img{
+                                        width: 220px;
+                                        height: 220px;
+                                    }
+                                    h6{
+                                        font-size: 15px;
+                                        font-weight: 600;
+                                        color: #000;
+                                        padding: 20px 0 0 0;
+                                    }
+                                    p{
+                                        font-size: 14px;
+                                        padding: 10px 0 0 0;
+                                    }
+                                    .price-box{
+                                        padding: 30px 0 0 0;
+                                        .real-price{
+                                            font-size: 14px;
+                                            color: #999;
+                                            text-decoration: line-through;
+                                            padding: 0 7px 0 0;
+                                        }
+                                        .sale-price{
+                                            font-size: 19px;
+                                            font-weight: 600;
+                                            color: #ee1c25;
+                                        }
+                                        .won{
+                                            font-size: 14px;                                    
+                                            color: #ee1c25;
+                                        }
+                                        .discount-per{
+                                            font-size: 14px;                                    
+                                            color: #ee1c25;
+                                        }
+                                        
+                                    }
+    
+                                }
+                                
+                            }
+                        }
+
+                    }
+                    .slide-box3{
+                        padding: 30px 0 0 0;
+                        position: relative;
+                        display: none;
+                        &.on{
+                            display: block;
+                        }
+                        .slide-view{
+                            width: 100%;
+                            overflow: hidden;
+                            .slide-wrap3{
+                                position: relative;
+                                width: 100%;
+                                display: flex;
+                                margin-left: -20%;
+                                .slide{
+                                    width: 100%;  
+                                    margin: 0 20px 0 0;                                                                     
+                                    img{
+                                        width: 220px;
+                                        height: 220px;
+                                    }
+                                    h6{
+                                        font-size: 15px;
+                                        font-weight: 600;
+                                        color: #000;
+                                        padding: 20px 0 0 0;
+                                    }
+                                    p{
+                                        font-size: 14px;
+                                        padding: 10px 0 0 0;
+                                    }
+                                    .price-box{
+                                        padding: 30px 0 0 0;
+                                        .real-price{
+                                            font-size: 14px;
+                                            color: #999;
+                                            text-decoration: line-through;
+                                            padding: 0 7px 0 0;
+                                        }
+                                        .sale-price{
+                                            font-size: 19px;
+                                            font-weight: 600;
+                                            color: #ee1c25;
+                                        }
+                                        .won{
+                                            font-size: 14px;                                    
+                                            color: #ee1c25;
+                                        }
+                                        .discount-per{
+                                            font-size: 14px;                                    
+                                            color: #ee1c25;
+                                        }
+                                        
+                                    }
+    
+                                }
+                                
+                            }
+                        }
+
+                    }
+
                 }
             }
         }
