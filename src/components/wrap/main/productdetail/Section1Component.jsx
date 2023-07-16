@@ -73,7 +73,9 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
 
     const onClickCart=(e)=>{
         e.preventDefault();
-
+        if(window.confirm('상품이 장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?')){
+            window.location.href="/CART";
+        }
         if(isCart===false){
             setState({
                 ...state,
@@ -125,6 +127,10 @@ export default function Section1Component({dkey, cartKey, cartCountNumber}){
         }
 
     },[isCartOk]);
+
+    React.useEffect(()=>{
+
+    },[isCart]);
 
 
 
