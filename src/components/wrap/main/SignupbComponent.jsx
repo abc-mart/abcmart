@@ -316,7 +316,28 @@ export default function SignupbComponent(){
             console.log(state.id)
             console.log( res );
             console.log( res.data );
-            window.location.pathname='/INTRO';
+            // window.location.pathname='/INTRO';
+
+            if(res.status===200){
+                const result =res.data.result;
+                try {                    
+                    if( result === true ){
+                        alert('아이디, 비밀번호, 이름은 필수 입력사항 입니다.');                                                       
+                    }
+                    else if( result === -1 ){
+                        alert('가입오류 이미 존재하는 아이디 입니다.');                    
+                    }
+                    else{   
+                        alert('회원 가입이 완료되었습니다. 로그인 페이지로 이동합니다.');                      
+                        
+                        window.location.pathname='/LOGIN';                     
+    
+                    }
+                } catch (error) {
+                    console.log( error );
+                }
+            }
+    
         
 
         })
