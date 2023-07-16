@@ -9,19 +9,6 @@ create table user (
     PRIMARY KEY(userId)
 );
 
-INSERT INTO user (userId,userPw,userName,userEmail)
-VALUES 
-("keromian", "keromian1234", "김인수", "kcg94@naver.com"),
-("leeshooshin", "lee1234", "이순신", "leeshooshin@naver.com"),
-("gaja", "gaja1234", "방랑자", "gaja@naver.com"),
-("love", "love999", "차분희", "love@naver.com"),
-("jogook", "jo1234", "조찬희", "moonseonjong@naver.com"),
-("sunhee", "sun1234", "이선희", "moonseonjong@naver.com"),
-("hangjea", "hang1234", "황선호", "moonseonjong@naver.com")
-
-
-- notice 또는 bbs 또는 board 테이블
-
 create table bbs (
     bbsId int NOT NULL,
     userId      VARCHAR(16) NOT NULL,

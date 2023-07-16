@@ -20,6 +20,7 @@ import KidsComponent from './wrap/main/KidsComponent';
 import OnlyAbcComponent from './wrap/main/OnlyAbcComponent';
 import CouponComponent from './wrap/main/CouponComponent';
 import EventSubComponent from './wrap/main/event/EventSubComponent';
+import GoTopComponent from './wrap/GoTopComponent';
 
 
 
@@ -382,7 +383,7 @@ export default function WrapComponent(){
 
             </BrowserRouter>
             
-            
+            <GoTopComponent/>
             <FooterComponent/>
         </div>
     );

@@ -2,7 +2,47 @@ import React, { useEffect, useRef, useState } from "react";
 import "./scss/signupb.scss";
 import axios from "axios";
 
-export default function SignupbComponent(){
+export default function SignupbComponent({allAgree}){
+
+    const [dong, setDong] = React.useState(allAgree);
+
+    const onChangeAgreeAll=(e)=>{
+        let agree = [];
+
+        if(e.target.checked===true){
+            agree = dong.agreement
+        }
+        else{
+            agree = [];
+        }
+
+        setDong({
+            ...dong,
+            agree: agree
+        })
+
+    }
+
+    const onChangeAgreeEach=(e)=>{
+
+        if(e.target.checked===true){
+            setDong({
+                ...dong,
+                agree: [...dong.agree, e.target.value]
+            })
+        }
+        else{
+            let agree = [];
+
+            setDong({
+                ...dong,
+                agree: dong.agree.filter((item)=>item!==e.target.value)
+            })
+
+        }
+         
+    }
+
 
     const [unfold1, setUnfold1] = React.useState(false);
     const [unfold2, setUnfold2] = React.useState(false);
@@ -365,11 +405,30 @@ export default function SignupbComponent(){
                                             <ul>
                                                 <li>
                                                     <div className="clause-title"></div>
-                                                    <label><input type="checkbox"/>전체 약관에 동의합니다.</label>
+                                                    <label>
+                                                        <input 
+                                                            onChange={onChangeAgreeAll}
+                                                            type="checkbox"
+                                                            name="user_agree_all"
+                                                            id="userAgreeAll"
+                                                            value={'allOk'}
+                                                            checked={dong.agree.length===4}
+                                                        />
+                                                    전체 약관에 동의합니다.</label>
                                                 </li>
                                                 <li>
                                                     <div className="clause-title" onClick={onClickFold1}></div>
-                                                    <label><input type="checkbox"/><span>[필수] </span>사이트 이용약관</label><i className={unfold1?' on':''}></i>
+                                                    <label>
+                                                        <input 
+                                                            type="checkbox"
+                                                            name="site_agree"
+                                                            id="siteAgree"
+                                                            value={'site'}
+                                                            checked={dong.agree.includes('site')}
+                                                            onChange={onChangeAgreeEach}
+                                                        />
+                                                        <span>[필수] </span>사이트 이용약관
+                                                    </label><i className={unfold1?' on':''}></i>
                                                     <div className={`clause-content ${unfold1?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
@@ -491,7 +550,17 @@ export default function SignupbComponent(){
                                                     </div>
                                                 </li>
                                                 <li><div className="clause-title" onClick={onClickFold2}></div>
-                                                    <label><input type="checkbox"/><span>[필수] </span>전자상거래 이용약관</label><i className={unfold2?' on':''}></i>
+                                                    <label>
+                                                        <input 
+                                                            type="checkbox"
+                                                            name="e_commerce"
+                                                            id="eCommerce"
+                                                            value={'ecommerce'}
+                                                            checked={dong.agree.includes('ecommerce')}
+                                                            onChange={onChangeAgreeEach}
+                                                        />
+                                                        <span>[필수] </span>전자상거래 이용약관
+                                                    </label><i className={unfold2?' on':''}></i>
                                                     <div className={`clause-content ${unfold2?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
@@ -613,7 +682,17 @@ export default function SignupbComponent(){
                                                     </div>
                                                 </li>
                                                 <li><div className="clause-title" onClick={onClickFold3}></div>
-                                                <label><input type="checkbox"/><span>[필수] </span>개인정보 수집 및 이용 동의</label><i className={unfold3?' on':''}></i>
+                                                <label>
+                                                    <input 
+                                                        type="checkbox"
+                                                        name="personal_agree"
+                                                        id="personalAgree"
+                                                        value={'personal'}
+                                                        checked={dong.agree.includes('personal')}
+                                                        onChange={onChangeAgreeEach}
+                                                    />
+                                                    <span>[필수] </span>개인정보 수집 및 이용 동의
+                                                </label><i className={unfold3?' on':''}></i>
                                                     <div className={`clause-content ${unfold3?' on':''}`}>
                                                         <h5>제1조 (목적)</h5>
                                                         <p>이 약관은 (주)에이비씨마트코리아 회사(이하 "회사"라 함)가 운영하는 인터넷 관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 회사와 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.</p>
@@ -736,7 +815,16 @@ export default function SignupbComponent(){
                                                 </li>
                                                 <li>
                                                     <div className="clause-title"></div>
-                                                    <label><input type="checkbox"/><span>[필수] </span>만 14세 이상입니다.</label>
+                                                    <label>
+                                                        <input 
+                                                            type="checkbox"
+                                                            name="over_fourteen"
+                                                            id="overFourteen"
+                                                            value={'overfourteen'}
+                                                            checked={dong.agree.includes('overfourteen')}
+                                                            onChange={onChangeAgreeEach}
+                                                        />
+                                                        <span>[필수] </span>만 14세 이상입니다.</label>
                                                 </li>
                                             </ul>
                                         </div>
@@ -753,9 +841,32 @@ export default function SignupbComponent(){
                                                 <p className={state.isPwError?'on':''}>{state.isPwMsg}</p>
                                                 <li><div className="colTitle">비밀번호 확인<i></i></div><input type="password" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
                                                 <p className={state.isPcError?'on':''}>{state.isPcMsg}</p>
-                                                <li><div className="colTitle">이메일<i></i></div><input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/></li>
+                                                <li>
+                                                    <div className="colTitle">이메일<i></i></div>
+                                                    <input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/>
+                                                    <select name="email_back" id="emailBack">
+                                                        <option value="">직접입력</option>
+                                                        <option value="dreamwiz.com">dreamwiz.com</option>
+                                                        <option value="empas.com">empas.com</option>
+                                                        <option value="freechal.com">freechal.com</option>
+                                                        <option value="gmail.com">gmail.com</option>
+                                                        <option value="hanmail.net">hanmail.net</option>
+                                                        <option value="hanmir.com">hanmir.com</option>
+                                                        <option value="hotmail.com">hotmail.com</option>
+                                                        <option value="korea.com">korea.com</option>
+                                                        <option value="lycos.co.kr">lycos.co.kr</option>
+                                                        <option value="nate.com">nate.com</option>
+                                                        <option value="naver.com">naver.com</option>
+                                                        <option value="paran.com">paran.com</option>
+                                                        <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                                    </select>
+                                                </li>
                                                 <p className={state.isEmError?'on':''}>{state.isEmMsg}</p>
-                                                <li><div className="colTitle">휴대폰 번호</div><input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/></li>
+                                                <li>
+                                                    <div className="colTitle">휴대폰 번호</div>
+                                                    <input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/>
+                                                    <button>인증번호 요청</button>
+                                                </li>
                                                 <p className={state.isPhError?'on':''}>{state.isPhMsg}</p>
                                             </ul>
                                         </div>
@@ -775,3 +886,15 @@ export default function SignupbComponent(){
         </div>
     );
 };
+
+SignupbComponent.defaultProps={
+    allAgree:{
+        agreement:[
+            "site",
+            "ecommerce",
+            "personal",
+            "overfourteen"
+        ],
+        agree:[]
+    }
+}
