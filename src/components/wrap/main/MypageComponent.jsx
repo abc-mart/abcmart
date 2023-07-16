@@ -8,9 +8,16 @@ import PasswordComponent from './mypage/PasswordComponent';
 import WithdrawalComponent from './mypage/WithdrawalComponent';
 import MypageModalComponent from './mypage/modal/MypageModalComponent';
 import PrivacySubComponent from './mypage/privacy/PrivacySubComponent';
-function MypageComponent({loginId, signinKey}) {
+function MypageComponent({loginId, signinKey, cartCount, cartCountNumber, cartKey}) {
     const [menu, setMenu]=React.useState('마이페이지');
     const[userInfo, setUserInfo]= React.useState(null);
+
+    React.useEffect(()=>{
+        if(localStorage.getItem(cartKey)!==null){
+            let arr = JSON.parse(localStorage.getItem(cartKey));
+            cartCountNumber(arr.length);
+        }
+    },[]);
 
     const onClickMenu=(value)=>{
         setMenu(value);
@@ -146,7 +153,7 @@ function MypageComponent({loginId, signinKey}) {
                                         <ul>
                                             <li>
                                                 <h4><i><img src="./img/mypage/mypage_icon_shopping_info.png" alt="" /></i>장바구니</h4>
-                                                <span><a href="!#"><strong>0</strong>개</a></span>
+                                                <span><a href="!#"><strong>{cartCount}</strong>개</a></span>
                                             </li>
                                             <li>
                                                 <h4><i><img src="./img/mypage/mypage_icon_shopping_info.png" alt="" /></i>찜한상품</h4>
