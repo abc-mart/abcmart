@@ -841,9 +841,32 @@ export default function SignupbComponent({allAgree}){
                                                 <p className={state.isPwError?'on':''}>{state.isPwMsg}</p>
                                                 <li><div className="colTitle">비밀번호 확인<i></i></div><input type="password" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
                                                 <p className={state.isPcError?'on':''}>{state.isPcMsg}</p>
-                                                <li><div className="colTitle">이메일<i></i></div><input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/></li>
+                                                <li>
+                                                    <div className="colTitle">이메일<i></i></div>
+                                                    <input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/>
+                                                    <select name="email_back" id="emailBack">
+                                                        <option value="">직접입력</option>
+                                                        <option value="dreamwiz.com">dreamwiz.com</option>
+                                                        <option value="empas.com">empas.com</option>
+                                                        <option value="freechal.com">freechal.com</option>
+                                                        <option value="gmail.com">gmail.com</option>
+                                                        <option value="hanmail.net">hanmail.net</option>
+                                                        <option value="hanmir.com">hanmir.com</option>
+                                                        <option value="hotmail.com">hotmail.com</option>
+                                                        <option value="korea.com">korea.com</option>
+                                                        <option value="lycos.co.kr">lycos.co.kr</option>
+                                                        <option value="nate.com">nate.com</option>
+                                                        <option value="naver.com">naver.com</option>
+                                                        <option value="paran.com">paran.com</option>
+                                                        <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                                    </select>
+                                                </li>
                                                 <p className={state.isEmError?'on':''}>{state.isEmMsg}</p>
-                                                <li><div className="colTitle">휴대폰 번호</div><input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/></li>
+                                                <li>
+                                                    <div className="colTitle">휴대폰 번호</div>
+                                                    <input type="text" id="Ph" name='ph' onChange={onChangePh} value={state.ph} placeholder='휴대폰 번호를 ‘-’ 없이 입력해주세요.'/>
+                                                    <button>인증번호 요청</button>
+                                                </li>
                                                 <p className={state.isPhError?'on':''}>{state.isPhMsg}</p>
                                             </ul>
                                         </div>
