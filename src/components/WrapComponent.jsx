@@ -367,7 +367,7 @@ export default function WrapComponent(){
                         <Route path='/LOGIN' element={<LoginComponent setSigin={setSigin}/>}/>
                         <Route path='/SIGNUPA' element={<SignupaComponent/>}/>
                         <Route path='/SIGNUPB' element={<SignupbComponent/>}/>
-                        <Route path='/MYPAGE' element={<MypageComponent loginId={loginId} signinKey={signinKey}/>}/>
+                        <Route path='/MYPAGE' element={<MypageComponent loginId={loginId} signinKey={signinKey} cartCount={cartCount} cartCountNumber={cartCountNumber} cartKey={cartKey}/>}/>
                         <Route path='/SERVICE' element={<ServiceComponent loginId={loginId} />}/>
                         <Route path='/KIDS' element={<KidsComponent/>}/>
                         <Route path='/ONLY' element={<OnlyAbcComponent/>}/>

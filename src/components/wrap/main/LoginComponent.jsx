@@ -153,7 +153,6 @@ export default function LoginComponent({setSigin}){
                                         <a href="!#" onClick={onClickMember} className={member?'on':''}>회원 로그인</a>
                                         <a href="!#" onClick={onClickNotMember} className={member?'':'on'}>비회원 주문조회</a>
                                     </div>
-
                                 </div>
                                 <div className="box2">
                                     <form method='POST'>
