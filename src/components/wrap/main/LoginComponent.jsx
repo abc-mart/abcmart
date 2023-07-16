@@ -103,10 +103,7 @@ export default function LoginComponent({setSigin}){
                 console.log( res.data.result );
                 try {                    
                     if( result === -1 ){
-                        alert('가입회원이 아닙니다. 회원가입하세요');
-                        setTimeout(function(){
-                            window.location.pathname = `/SIGNUP`;
-                        }, 1000);                                                       
+                        alert('가입회원이 아닙니다.');                                               
                     }
                     else if( result === 0 ){
                         alert('비밀번호를 확인하고 다시 시도해주세요');                        
@@ -162,7 +159,7 @@ export default function LoginComponent({setSigin}){
                                     <form method='POST'>
                                         <div className='box21'>
                                             <div className='box211'><input type="text" onChange={onChangeUserId} value={state.id} name='id' placeholder='아이디' /></div>
-                                            <div className='box212'><input type="text" onChange={onChangeUserPw} value={state.pw} name='pw' placeholder='비밀번호' /></div>
+                                            <div className='box212'><input type="password" onChange={onChangeUserPw} value={state.pw} name='pw' placeholder='비밀번호' /></div>
                                             <div className="box213">
 									            <input className="checkboxSaveID" id='chkSaveID' type="checkbox"/>
 									            <label htmlFor="chkSaveID">아이디 저장</label>

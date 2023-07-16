@@ -7,8 +7,10 @@ import PrivacyComponent from './mypage/PrivacyComponent';
 import PasswordComponent from './mypage/PasswordComponent';
 import WithdrawalComponent from './mypage/WithdrawalComponent';
 import MypageModalComponent from './mypage/modal/MypageModalComponent';
+import PrivacySubComponent from './mypage/privacy/PrivacySubComponent';
 function MypageComponent({loginId, signinKey}) {
     const [menu, setMenu]=React.useState('마이페이지');
+    const[userInfo, setUserInfo]= React.useState(null);
 
     const onClickMenu=(value)=>{
         setMenu(value);
@@ -94,7 +96,7 @@ function MypageComponent({loginId, signinKey}) {
                                     <li>
                                         <h2>개인정보</h2>
                                         <button onClick={()=>onClickMenu('나의 사이즈 관리')} className={`${menu==='나의 사이즈 관리'?'on':''}`} >나의 사이즈 관리</button>
-                                        <button onClick={()=>onClickMenu('개인정보 수정')} className={`${menu==='개인정보 수정'?'on':''}`} >개인정보 수정</button>
+                                        <button onClick={()=>onClickMenu('개인정보')} className={`${menu==='개인정보 수정' || menu==='개인정보'?'on':''}`} >개인정보 수정</button>
                                         <button onClick={()=>onClickMenu('비밀번호 변경')} className={`${menu==='비밀번호 변경'?'on':''}`} >비밀번호 변경</button>
                                         <button onClick={()=>onClickMenu('회원 탈퇴')} className={`${menu==='회원 탈퇴'?'on':''}`} >회원 탈퇴</button>
                                     </li>                                  
@@ -156,7 +158,8 @@ function MypageComponent({loginId, signinKey}) {
                             </div>
                                 {menu==='마이페이지' && <MypageSubComponent/>}
                                 {menu==='나의 사이즈 관리' && <MySizeComponent />}
-                                {menu==='개인정보 수정' && <PrivacyComponent loginId={loginId} signinKey={signinKey}/>}
+                                {menu==='개인정보' && <PrivacyComponent setMenu={setMenu} loginId={loginId} signinKey={signinKey} setUserInfo={setUserInfo}/>}
+                                {menu==='개인정보 수정' && <PrivacySubComponent userInfo={userInfo} setUserInfo={setUserInfo}/>}
                                 {menu==='비밀번호 변경' && <PasswordComponent loginId={loginId} signinKey={signinKey}/>}
                                 {menu==='회원 탈퇴' && <WithdrawalComponent loginId={loginId} signinKey={signinKey}/>}
                         </div>

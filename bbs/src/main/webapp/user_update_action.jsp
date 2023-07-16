@@ -26,11 +26,10 @@
         || userDTO.getUserEmail()==null
         || userDTO.getUserPhone()==null
     ){
+        //빈값
 %>
-    <script>
-        alert("빈값은 허용하지 않습니다. \n확인하고 다시시도해주세요");
-        history.go(-1);
-    </script>
+    {"result": false}
+    
 <%
     }
     else{
@@ -41,20 +40,17 @@
 
         <% 
             if(result>=1){ 
+                //성공
         %>
-            <script>                
-                alert("회원 정보가 수정되었습니다.");
-                location.href="./kurly_user_main.jsp";
-            </script>
+            {"result":<%= result %>}
+            
         <% 
                 }
             else {
+                //실패
         %>
-                <script>
-                    alert( <%= result %> );
-                    alert("회원 정보의 수정이 실패 했습니다. \n데이터 확인하고 다시 시도하세요");
-                    history.go(-1);
-                </script>
+                {"result":0>}
+                
         <%
             }
         %>

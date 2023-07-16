@@ -93,7 +93,7 @@ export default function SignupbComponent(){
         let isIdMsg = '';
 
         const regExp1 = /[`~!@#$%^&*()\-_=+[{\]}\\|;:'",<.>/?\s]/g;
-        const regExp2 = /^(.){3,20}$/g;
+        const regExp2 = /^(.){6,20}$/g;
         const regExp3 = /[가-힣ㄱ-ㅎㅏ-ㅣ]/g;
         const regExp4 = /[A-Za-z]+[0-9]*/g;
         const regExp5 = /\s/g;
@@ -749,9 +749,9 @@ export default function SignupbComponent(){
                                                 <p className={state.isNmError?'on':''}>{state.isNmMsg}</p>
                                                 <li><div className="colTitle">아이디<i></i></div><input type="text" id="Id" name='id' onChange={onChangeId} value={state.id} placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/></li>
                                                 <p className={state.isIdError?'on':''}>{state.isIdMsg}</p>
-                                                <li><div className="colTitle">비밀번호<i></i></div><input type="text" id="Pw" name='pw' onChange={onChangePw} value={state.pw} placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/></li>
+                                                <li><div className="colTitle">비밀번호<i></i></div><input type="password" id="Pw" name='pw' onChange={onChangePw} value={state.pw} placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/></li>
                                                 <p className={state.isPwError?'on':''}>{state.isPwMsg}</p>
-                                                <li><div className="colTitle">비밀번호 확인<i></i></div><input type="text" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
+                                                <li><div className="colTitle">비밀번호 확인<i></i></div><input type="password" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
                                                 <p className={state.isPcError?'on':''}>{state.isPcMsg}</p>
                                                 <li><div className="colTitle">이메일<i></i></div><input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/></li>
                                                 <p className={state.isEmError?'on':''}>{state.isEmMsg}</p>

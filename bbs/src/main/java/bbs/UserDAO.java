@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import bbs.BbsDTO;
+import java.sql.SQLException;
+
+
 
 public class UserDAO {
 	
@@ -201,8 +203,50 @@ public class UserDAO {
 				}
 				return -1;  // -1반환
 			}
+
+			public UserDTO getUserInfo(String userId, String userPw) {
+				String SQL = "SELECT * FROM user WHERE userId = ? AND userPw = ?";
+				UserDTO userInfo = null;
+				try {
+					PreparedStatement ps = conn.prepareStatement(SQL);	
+					ps.setString(1, userId);
+					ps.setString(2, userPw);
+					rs = ps.executeQuery();
+					
+		
+					if (rs.next()) {
+						// 결과가 존재하는 경우 회원가입 정보를 가져옴						
+						String userName = rs.getString("userName");
+						String userEmail = rs.getString("userEmail");
+						String userPhone = rs.getString("userPhone");
+		
+						// UserDTO 객체 생성
+						userInfo = new UserDTO();
+						userInfo.setUserId(userId);
+						userInfo.setUserPw(userPw);
+						userInfo.setUserName(userName);
+						userInfo.setUserEmail(userEmail);
+						userInfo.setUserPhone(userPhone);
+					}
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				} 
+				finally {  
+					try{
+						 if(rs !=null ){rs.close();}
+						 if(ps !=null ){ps.close();}
+						 if(conn !=null ){conn.close();}
+					}
+					catch(Exception e){                    
+					} 
+				}
+		
+				return userInfo;
+			}
+}
 			
 	
 	
 	
-}
+
