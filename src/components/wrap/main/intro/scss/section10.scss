@@ -34,42 +34,45 @@
                         width: 100%;
                         overflow: hidden;
                         .slide-wrap{
-                            width: 305px * 34;
+                            width: 16% * 34;
                             display: flex;
                             position: relative;
                             z-index: 1;
-                            margin: 0 0 0 ((-305px * 7) + 50px);
-                            // margin: 0 0 0 calc((-305px * 6) - 260px);
-                            // margin: 0 0 0 calc(-100% - 150px);
+                            margin: 0 0 0 calc((-16% * 7) + 50px);
                             .slide{
-                                margin: 0 20px 0 0;
-                                a{
+                                padding: 0 20px 0 0;
+                                figure{
                                     position: relative;
                                     display: block;
-                                    figure{
+                                    cursor: pointer;
+                                    a{
+                                        pointer-events: none;
                                         img{
                                             width: auto;
                                         }
                                     }
                                     span{
-                                        position: absolute;
-                                        top: 0;
-                                        left: 0;
-                                        width: 100%;
-                                        height: 100%;
-                                        font-size: 14px;
-                                        line-height: 22px;
-                                        text-align: center;
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: center;
-                                        color: #fff;
-                                        padding: 0 10px;
-                                        background: rgba(0, 0, 0, 0.6);
-                                        opacity: 0;
-                                        transition: all 0.23s;
-                                        &:hover{
-                                            opacity: 1;
+                                        pre{
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;
+                                            width: 100%;
+                                            height: 100%;
+                                            font-size: 14px;
+                                            font-family: 'Noto Sans KR';
+                                            line-height: 22px;
+                                            text-align: center;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            color: #fff;
+                                            padding: 0 10px;
+                                            background: rgba(0, 0, 0, 0.6);
+                                            opacity: 0;
+                                            transition: all 0.23s;
+                                            &:hover{
+                                                opacity: 1;
+                                            }
                                         }
                                     }
                                 }

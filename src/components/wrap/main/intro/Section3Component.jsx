@@ -7,7 +7,7 @@ export default function Section3Component(){
 
     const [state, setState] = React.useState({
         newArrivals: [],
-        n: 0
+        n3: 0
     });
 
     React.useEffect(()=>{
@@ -21,7 +21,7 @@ export default function Section3Component(){
                 setState({
                     ...state,
                     newArrivals: res.data.new_arrivals,
-                    n: res.data.new_arrivals.length
+                    n3: res.data.new_arrivals.length
                 });
             }
         })
@@ -40,7 +40,7 @@ export default function Section3Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${100 * (state.n/5)}%` });
+        $slideWrap.css({width: `${100 * (state.n3/5)}%` });
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-100 * cnt}%`}, 600, function(){
@@ -57,7 +57,7 @@ export default function Section3Component(){
         }
 
         function nextCount(){
-            if(cnt<((state.n/5)-1)){
+            if(cnt<((state.n3/5)-1)){
                 cnt++;
             }
             mainSlide();
@@ -79,7 +79,7 @@ export default function Section3Component(){
             }
         });
 
-    },[state.n]);
+    },[state.n3]);
 
     
     return (

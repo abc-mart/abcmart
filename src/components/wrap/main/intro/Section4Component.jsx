@@ -4,10 +4,10 @@ import axios from 'axios';
 import './scss/section4.scss';
 
 export default function Section4Component(){
-
+    const count = React.useRef(0);
     const [state, setState] = React.useState({
         eventSlide: [],
-        n: 0
+        n4: 0
     });
     React.useEffect(()=>{
 
@@ -20,8 +20,9 @@ export default function Section4Component(){
                 setState({
                     ...state,
                     eventSlide: res.data.event_slide,
-                    n: res.data.event_slide.length-10
+                    n4: res.data.event_slide.length
                 });
+                count.current = res.data.event_slide.length;
             }
         })
         .catch((err)=>{
@@ -31,39 +32,46 @@ export default function Section4Component(){
     },[]);
 
     React.useEffect(()=>{
-
-        const $slideWrap = $(`#section4 .slide-wrap`);
+        let t = 0;
+        if(state.n4>0){
+            if(t===0){
+                t=1;
+            
+                const $slideWrap = $(`#section4 .slide-wrap`);
+                
+                let cnt = 0;
+                let setId = 0;
         
-        let cnt = 0;
-        let setId = 0;
-
-        // $slideWrap.css({width: `${407 * (state.n+10)}px` });
-
-        function mainSlide(){
-            $slideWrap.stop().animate({left: `${-407 * cnt}px`}, 600, function(){
-                if(cnt>9) {cnt=0;}
-                if(cnt<0) {cnt=9;}
-                $slideWrap.stop().animate({left: `${-407 * cnt}px`}, 0);
-            });
+                console.log( count.current );
+                $slideWrap.css({width: `${22 * count.current}%` });
+        
+                function mainSlide(){
+                    $slideWrap.stop().animate({left: `${-22 * cnt}%`}, 600, function(){
+                        if(cnt>=10) {cnt=0;}
+                        if(cnt<0) {cnt=10;}
+                        $slideWrap.stop().animate({left: `${-22 * cnt}%`}, 0);
+                    });
+                }
+        
+                function prevCount(){
+                    cnt--;
+                    mainSlide();
+                }
+        
+                function nextCount(){
+                    cnt++;
+                    mainSlide();
+                }
+        
+                function autoTimer(){
+                    clearInterval(setId);
+                    setId = setInterval(nextCount, 3000);
+                }
+                autoTimer();
+            }
         }
 
-        function prevCount(){
-            cnt--;
-            mainSlide();
-        }
-
-        function nextCount(){
-            cnt++;
-            mainSlide();
-        }
-
-        function autoTimer(){
-            clearInterval(setId);
-            setId = setInterval(nextCount, 3000);
-        }
-        autoTimer();
-
-    },[]);
+    },[state.n4]);
 
 
     return (

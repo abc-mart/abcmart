@@ -432,6 +432,7 @@ export default function BrandSection3Component({abcGrand, adidas, 아디다스AB
             뱃지4: item.뱃지4,
             추천: item.추천,
             배경: item.배경,
+            색상: item.색상
         }
     
         console.log(item);

@@ -7,7 +7,7 @@ export default function Section2Component(){
 
     const [state, setState] = React.useState({
         hotDeal: [],
-        n: 0
+        n2: 0
     });
 
     React.useEffect(()=>{
@@ -21,7 +21,7 @@ export default function Section2Component(){
                 setState({
                     ...state,
                     hotDeal: res.data.hot_deal,
-                    n: res.data.hot_deal.length-6
+                    n2: res.data.hot_deal.length-6
                 });
             }
         })
@@ -40,12 +40,12 @@ export default function Section2Component(){
         let cnt = 0;
         let setId = 0;
 
-        $slideWrap.css({width: `${305 * (state.n+6)}px` });
+        $slideWrap.css({width: `${305 * (state.n2+6)}px` });
 
         function mainSlide(){
             $slideWrap.stop().animate({left: `${-306 * cnt}px`}, 600, function(){
-                if(cnt>=state.n) cnt=0;
-                if(cnt<0) cnt=state.n-1;
+                if(cnt>=state.n2) cnt=0;
+                if(cnt<0) cnt=state.n2-1;
                 $slideWrap.stop().animate({left: `${-306 * cnt}px`}, 0);
             });
         }
@@ -76,14 +76,14 @@ export default function Section2Component(){
             }
         });
 
-    },[state.n]);
+    },[state.n2]);
 
 
     React.useEffect(()=>{
         let setId=0;
 
         function saleTimer(){
-            let start = new Date('2023-06-30 24:00:00');
+            let start = new Date('2023-07-17 24:00:00');
             let now = new Date();
             start.setHours(start.getHours());
             let end = start - now;
@@ -92,8 +92,6 @@ export default function Section2Component(){
             let eH = Math.floor(end/(60*60*1000)%24);
             let eM = Math.floor(end/(60*1000)%60);
             let eS = Math.floor(end/1000%60);
-
-            // $('.sale-period').text(`${start.getFullYear()}.${start.getMonth()}.${start.getDate()} ~ `);
 
             if(now >= start){
                 clearInterval(setId);
@@ -116,7 +114,7 @@ export default function Section2Component(){
 
         setId = setInterval(saleTimer, 1000);
 
-    },[]);
+    },[state.n2]);
 
 
     return (
@@ -170,9 +168,9 @@ export default function Section2Component(){
                                                             </div>
                                                             <div className="sale-period-box">
                                                                 <span className="sale-period">
-                                                                    23.06.27 09:00 ~
+                                                                    23.07.11 09:00 ~
                                                                     <br />
-                                                                    23.06.30 08:59
+                                                                    23.07.17 24:00
                                                                 </span>
                                                                 <span className="rest-product-count">
                                                                     <span className='rest-product-count-value'>30</span>개 남음
