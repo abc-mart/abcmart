@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function NoticeComponent({notice, islogin, sortNotice, setItem,setMenu, setIndex}) {
+export default function NoticeComponent({notice, loginId, sortNotice, setItem,setMenu, setIndex}) {
     
 
     
@@ -75,6 +75,7 @@ export default function NoticeComponent({notice, islogin, sortNotice, setItem,se
         setMenu('고정');
     }
 
+
     return (
         <>
         <div className='sub-title'>
@@ -139,7 +140,7 @@ export default function NoticeComponent({notice, islogin, sortNotice, setItem,se
                     {cnt < Math.ceil(notice.length/list/groupPage) && <a href="!#" className="next-btn"  onClick={onClickNextGroup}><img src="./img/service/select_icon_arrow.png" alt="" /></a>}
                 </div> 
             </div>
-            {islogin && <button onClick={()=>onClickWrite('글쓰기')}>글쓰기</button>}
+            {loginId!=='' && <button onClick={()=>onClickWrite('글쓰기')}>글쓰기</button>}
         </div>
         </>
     );

@@ -3,6 +3,9 @@ import './scss/eventSub.scss';
 import { Link } from 'react-router-dom';
 
 export default function EventSubComponent(props) {
+    React.useEffect(()=>{
+        window.scrollTo(0, 200);
+    },[])
     return (
         <main id='eventSub'>
             <div className="container">

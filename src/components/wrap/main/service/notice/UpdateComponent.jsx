@@ -48,9 +48,26 @@ export default function UpdateComponent({islogin, item, setMenu, setItem}) {
             console.log( res );
             console.log( res.data );
 
-            // window.location.pathname='/SERVICE';
+            if(res.status===200){
+                const result =res.data.result;
+                try {                    
+                    if( result === false ){
+                        alert('본인이 작성한 글만 수정 할 수 있습니다.');                                                       
+                    }
+                    else if( result === -1 ){
+                        alert('글 수정 실패했습니다');                        
+                    }
+                    else{
+                        alert('글 수정 성공했습니다.');                        
+                        setMenu('글보기');                        
+
+                    }
+                } catch (error) {
+                    console.log( error );
+                }
+            }
             
-            setMenu('글보기');
+            
             
 
         })
@@ -60,25 +77,7 @@ export default function UpdateComponent({islogin, item, setMenu, setItem}) {
 
     }
 
-    //이미지
-    const [image1, setImage1] = React.useState('');
-
-    const onChangeImg = (e, setImage) => {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-  
-      reader.onload = () => {
-        setImage(reader.result);
-      };
-  
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    };
-
-    const onClickDel=(setImage)=>{
-        setImage('');
-    }
+    
 
     
     React.useEffect(()=>{
@@ -117,26 +116,6 @@ export default function UpdateComponent({islogin, item, setMenu, setItem}) {
                                     value={item.내용}
                                     ></textarea>
                         </label>
-                    </li>
-                    <li>
-                        <div className='file-add'>
-                            <span>파일첨부</span>
-                            <div className='img-add'>
-                                <label htmlFor="fileAdd1">
-                                    <input type="file" id='fileAdd1' accept="image/*" onChange={(e)=>onChangeImg(e,setImage1)}/>
-                                    <figure>
-                                        {image1 &&
-                                           
-                                                <img src={image1} alt="" /> 
-                                          
-                                        }
-                                    </figure>
-                                
-                                </label>
-                                {image1 && <span onClick={()=>onClickDel(setImage1)}></span>}
-                            </div>
-                        </div>
-                        
                     </li>
                 </ul>
                 <div className="btn-box">

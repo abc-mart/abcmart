@@ -159,15 +159,93 @@
   font-size: 13px;
   padding: 0 18px 0 5px;
 }
-#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a img {
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a {
+  position: relative;
+  display: block;
+  width: 27px;
   height: 24px;
 }
-#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a img:first-child {
-  width: 27px;
-  margin: 0 18px 0 0;
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a:nth-child(1) {
+  width: 35px;
 }
-#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a img:last-child {
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a:nth-child(2) {
   width: 25px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(../../../../../public/img/detail/btn_icon_prod_favorite.png);
+  background-size: cover;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a span.on {
+  background: url(../../../../../public/img/detail/btn_icon_prod_favorite.png) 100% 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a img {
+  width: 100%;
+  height: 100%;
+  margin: 0 0 0 10px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box {
+  position: absolute;
+  top: -8px;
+  right: -17px;
+  width: 275px;
+  height: 38px;
+  display: none;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 0 15px;
+  border: 2px solid #000;
+  border-radius: 25px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box a {
+  height: 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box .facebook {
+  width: 9px;
+  background: url(../../../../../public/img/detail/btn_icon_sns.png) no-repeat;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box .tweeter {
+  width: 20px;
+  background: url(../../../../../public/img/detail/btn_icon_sns.png) no-repeat -49px 0;
+  margin: 0 0 0 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box .kakaostory {
+  width: 11px;
+  background: url(../../../../../public/img/detail/btn_icon_sns.png) no-repeat -84px 0;
+  margin: 0 0 0 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box .band {
+  width: 15px;
+  background: url(../../../../../public/img/detail/btn_icon_sns.png) no-repeat -69px 0;
+  margin: 0 0 0 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box .line {
+  width: 22px;
+  background: url(../../../../../public/img/detail/btn_icon_sns.png) no-repeat -95px 0;
+  margin: 0 0 0 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box .kakao {
+  width: 21px;
+  background: url(../../../../../public/img/detail/btn_icon_sns.png) no-repeat -29px 0;
+  margin: 0 0 0 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a .sns-box .link-box .URL {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: "Montserrat";
+  color: #000;
+  margin: 0 0 0 20px;
+  line-height: 20px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .top .heart-url a:hover .sns-box {
+  display: block;
 }
 #ProductDetail #section1 .container .gap .menu .product-box .right .txt {
   width: 100%;
@@ -194,6 +272,7 @@
   color: #999;
 }
 #ProductDetail #section1 .container .gap .menu .product-box .right .txt .price {
+  position: relative;
   display: flex;
   align-items: flex-end;
   font-family: "Montserrat", "Noto Sans KR", "sans-serif";
@@ -223,6 +302,87 @@
   width: 18px;
   height: 18px;
   transform: translateY(3px);
+  display: none;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price img.on {
+  display: block;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss {
+  display: none;
+  position: absolute;
+  top: 28px;
+  left: 90px;
+  width: 300px;
+  height: 197px;
+  padding: 10px 0 0 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss.on {
+  display: block;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale {
+  position: relative;
+  width: 300px;
+  height: 197px;
+  border: 1px solid #000;
+  background: #fff;
+  padding: 12px 14px;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .regular {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0 15px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .regular span {
+  font-size: 13px;
+  color: #000;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .discounted {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0 20px 0;
+  border-bottom: 1px solid #b5b5b5;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .discounted span {
+  font-size: 13px;
+  color: #666;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .discount-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0 20px 0;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .discount-result span:nth-child(1) {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .discount-result span:nth-child(2) {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ee1c25;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .discount-result span:nth-child(2) i {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .maybe {
+  font-size: 12px;
+  color: #999;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .txt .price .mostsaleboss .mostsale .triangle {
+  position: absolute;
+  top: -4px;
+  left: 120px;
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  background: #fff;
+  transform: rotate(-45deg);
 }
 #ProductDetail #section1 .container .gap .menu .product-box .right .style-color {
   padding: 20px 0;
@@ -237,6 +397,10 @@
   font-weight: 500;
   font-weight: "Montserrat";
   color: #333;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .style-color a img {
+  width: 48px;
+  height: 48px;
 }
 #ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul {
   padding-bottom: 50px;
@@ -372,6 +536,9 @@
 #ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .size a:hover {
   border: 1px solid #000;
 }
+#ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li .size a:focus {
+  border: 1px solid #000;
+}
 #ProductDetail #section1 .container .gap .menu .product-box .right .delivery-size ul li select {
   display: block;
   width: 360px;
@@ -385,9 +552,6 @@
 }
 #ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product {
   display: none;
-}
-#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product.on {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
@@ -395,6 +559,9 @@
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #999;
   background: #f8f8f8;
+}
+#ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product.on {
+  display: flex;
 }
 #ProductDetail #section1 .container .gap .menu .product-box .right .choice .choice-product .ea-price {
   display: flex;
@@ -1215,4 +1382,159 @@
   border-bottom: none;
   color: #000;
   font-weight: 600;
+}
+#ProductDetail #section6 .container .gap .explain {
+  padding: 40px 0 25px 0;
+  border-bottom: 2px solid #000;
+}
+#ProductDetail #section6 .container .gap .explain p {
+  line-height: 150%;
+}
+#ProductDetail #section6 .container .gap .explain p i {
+  margin: 0 7px 0 0;
+}
+#ProductDetail #section6 .container .gap .qna {
+  width: 100%;
+}
+#ProductDetail #section6 .container .gap .qna ul {
+  width: 100%;
+}
+#ProductDetail #section6 .container .gap .qna ul li {
+  height: 71px;
+  display: flex;
+  padding: 25px 20px;
+  border-bottom: 1px solid #ccc;
+}
+#ProductDetail #section6 .container .gap .qna ul li:last-child {
+  border-bottom: 1px solid #ccc;
+}
+#ProductDetail #section6 .container .gap .qna ul li span {
+  display: block;
+  line-height: 20px;
+}
+#ProductDetail #section6 .container .gap .qna ul li span:nth-child(1) {
+  width: 710px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000;
+}
+#ProductDetail #section6 .container .gap .qna ul li span:nth-child(2) {
+  width: 240px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+#ProductDetail #section6 .container .gap .qna ul li span:nth-child(3) {
+  width: 120px;
+  text-align: center;
+  font-size: 14px;
+  font-family: "Montserrat";
+  color: #666;
+}
+#ProductDetail #section6 .container .gap .qna ul li span:nth-child(4) {
+  width: 90px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ee1c25;
+}
+#ProductDetail #section6 .container .gap .qna .qna-button .button-box {
+  padding: 30px 0;
+}
+#ProductDetail #section6 .container .gap .qna .qna-button .button-box button {
+  height: 44px;
+}
+#ProductDetail #section6 .container .gap .qna .qna-button .button-box button:nth-child(1) {
+  width: 156px;
+}
+#ProductDetail #section6 .container .gap .qna .qna-button .button-box button:nth-child(2) {
+  width: 156px;
+}
+#ProductDetail #section6 .container .gap .delivery {
+  width: 100%;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #ccc;
+}
+#ProductDetail #section6 .container .gap .delivery .headline {
+  width: 100%;
+  height: 71px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 20px;
+}
+#ProductDetail #section6 .container .gap .delivery .headline span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+#ProductDetail #section6 .container .gap .delivery .headline i {
+  width: 13px;
+  height: 7px;
+  background: url(../../../../../public/img/detail/fold_icon_arrow.png);
+}
+#ProductDetail #section6 .container .gap .delivery p {
+  padding: 0 20px 26px 20px;
+  line-height: 160%;
+  font-size: 13px;
+}
+#ProductDetail #section6 .container .gap .delivery p i {
+  margin: 0 4px 0 0;
+}
+#ProductDetail #section6 .container .gap .change {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+#ProductDetail #section6 .container .gap .change .headline {
+  width: 100%;
+  height: 71px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 20px;
+}
+#ProductDetail #section6 .container .gap .change .headline span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+#ProductDetail #section6 .container .gap .change .headline i {
+  width: 13px;
+  height: 7px;
+  background: url(../../../../../public/img/detail/fold_icon_arrow.png);
+}
+#ProductDetail #section6 .container .gap .change p {
+  padding: 0 20px 26px 20px;
+  line-height: 160%;
+  font-size: 13px;
+}
+#ProductDetail #section6 .container .gap .change p i {
+  margin: 0 4px 0 0;
+}
+#ProductDetail #section6 .container .gap .AS {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+#ProductDetail #section6 .container .gap .AS .headline {
+  width: 100%;
+  height: 71px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 20px;
+}
+#ProductDetail #section6 .container .gap .AS .headline span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+#ProductDetail #section6 .container .gap .AS .headline i {
+  width: 13px;
+  height: 7px;
+  background: url(../../../../../public/img/detail/fold_icon_arrow.png);
+}
+#ProductDetail #section6 .container .gap .AS p {
+  padding: 0 20px 26px 20px;
+  line-height: 160%;
+  font-size: 13px;
+}
+#ProductDetail #section6 .container .gap .AS p i {
+  margin: 0 4px 0 0;
 }

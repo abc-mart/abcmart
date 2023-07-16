@@ -3,9 +3,16 @@ import './scss/brandSection1.scss';
 
 export default function BrandSection1Component({abcGrand, adidas, 아디다스ABC, 아디다스GRAND, nike, 나이키ABC, 나이키GRAND, converse, 컨버스ABC, 컨버스GRAND, vans, 반스ABC, 반스GRAND, newbalance, 뉴발란스ABC, 뉴발란스GRAND}) {
     const [favorite, setFavorite] = React.useState(false);
+    const [share, setShare] = React.useState(false);
 
     const onClickOn =()=>{
         setFavorite(on => !on);
+    }
+    const onMouseEnterShare =()=>{
+        setShare(true);
+    }
+    const onMouseLeaveShare =()=>{
+        setShare(false);
     }
 
     return (
@@ -23,13 +30,24 @@ export default function BrandSection1Component({abcGrand, adidas, 아디다스AB
                             </ul>
                         </div>
                         <div className="row2">
-                            <h1>
+                            <div className='row2-container'>
                                 ADIDAS
                                 <span>
                                     <button onClick={onClickOn} className={`${favorite?'on':''}`}><img src="./img/brand/btn_icon_prod_favorite.png" alt="" /></button>
-                                    <button ><img src="./img/brand/btn_icon_share.png" alt="" /></button>
+                                    <button onMouseEnter={onMouseEnterShare}><img src="./img/brand/btn_icon_share.png" alt="" /></button>
                                 </span>
-                            </h1>
+                                <div onMouseLeave={onMouseLeaveShare} className={`inner-box ${share?'on':''}`}>
+                                    <ul>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#">URL</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>                        
                     </div>
                     
@@ -94,13 +112,24 @@ export default function BrandSection1Component({abcGrand, adidas, 아디다스AB
                             </ul>
                         </div>
                         <div className="row2">
-                            <h1>
+                            <div className='row2-container'>
                                 NIKE
                                 <span>
                                     <button onClick={onClickOn} className={`${favorite?'on':''}`}><img src="./img/brand/btn_icon_prod_favorite.png" alt="" /></button>
-                                    <button ><img src="./img/brand/btn_icon_share.png" alt="" /></button>
+                                    <button onMouseEnter={onMouseEnterShare}><img src="./img/brand/btn_icon_share.png" alt="" /></button>
                                 </span>
-                            </h1>
+                                <div onMouseLeave={onMouseLeaveShare} className={`inner-box ${share?'on':''}`}>
+                                    <ul>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#">URL</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>                        
                     </div>
                     
@@ -164,13 +193,24 @@ export default function BrandSection1Component({abcGrand, adidas, 아디다스AB
                             </ul>
                         </div>
                         <div className="row2">
-                            <h1>
+                            <div className='row2-container'>
                                 CONVERSE
                                 <span>
                                     <button onClick={onClickOn} className={`${favorite?'on':''}`}><img src="./img/brand/btn_icon_prod_favorite.png" alt="" /></button>
-                                    <button ><img src="./img/brand/btn_icon_share.png" alt="" /></button>
+                                    <button onMouseEnter={onMouseEnterShare}><img src="./img/brand/btn_icon_share.png" alt="" /></button>
                                 </span>
-                            </h1>
+                                <div onMouseLeave={onMouseLeaveShare} className={`inner-box ${share?'on':''}`}>
+                                    <ul>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#">URL</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>                        
                     </div>
                     
@@ -234,13 +274,24 @@ export default function BrandSection1Component({abcGrand, adidas, 아디다스AB
                             </ul>
                         </div>
                         <div className="row2">
-                            <h1>
+                            <div className='row2-container'>
                                 VANS
                                 <span>
                                     <button onClick={onClickOn} className={`${favorite?'on':''}`}><img src="./img/brand/btn_icon_prod_favorite.png" alt="" /></button>
-                                    <button ><img src="./img/brand/btn_icon_share.png" alt="" /></button>
+                                    <button onMouseEnter={onMouseEnterShare}><img src="./img/brand/btn_icon_share.png" alt="" /></button>
                                 </span>
-                            </h1>
+                                <div onMouseLeave={onMouseLeaveShare} className={`inner-box ${share?'on':''}`}>
+                                    <ul>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#">URL</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>                        
                     </div>
                     
@@ -304,13 +355,24 @@ export default function BrandSection1Component({abcGrand, adidas, 아디다스AB
                             </ul>
                         </div>
                         <div className="row2">
-                            <h1>
+                            <div className='row2-container'>
                                 NEW BALANCE
                                 <span>
                                     <button onClick={onClickOn} className={`${favorite?'on':''}`}><img src="./img/brand/btn_icon_prod_favorite.png" alt="" /></button>
-                                    <button ><img src="./img/brand/btn_icon_share.png" alt="" /></button>
+                                    <button onMouseEnter={onMouseEnterShare}><img src="./img/brand/btn_icon_share.png" alt="" /></button>
                                 </span>
-                            </h1>
+                                <div onMouseLeave={onMouseLeaveShare} className={`inner-box ${share?'on':''}`}>
+                                    <ul>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#"><img src="./img/event/btn_icon_sns.png" alt="" /></a></li>
+                                        <li><a href="!#">URL</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>                        
                     </div>
                     

@@ -1,9 +1,9 @@
 import React from 'react';
 import './scss/login.scss';
-import $ from 'jquery';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default function LoginComponent(){
+export default function LoginComponent({setSigin}){
 
     const [member, setMember] = React.useState(true);
 
@@ -17,51 +17,125 @@ export default function LoginComponent(){
         setMember(false);
     }
 
-    const [state, setState] = React.useState({
+    // const [state, setState] = React.useState({
+    //     id:"",
+    //     pw:""
+    // })
+
+    // const onChangeId=(e)=>{
+    //     e.preventDefault();
+    //     const { value } = e.target;
+    //     let id = '';
+    //     setState({
+    //         ...state,
+    //         id: value
+    //     })
+    // }
+    // const onChangePw=(e)=>{
+    //     e.preventDefault();
+    //     const { value } = e.target;
+    //     let pw = '';
+    //     setState({
+    //         ...state,
+    //         pw: value
+    //     })
+    // }
+
+     // 로그인 이벤트
+    //  const onSubmitSignin=(e)=>{
+    //     e.preventDefault();
+    //     const formData = {
+    //         "id": state.id,
+    //         "pw": state.pw
+    //     }
+    //     console.log(formData);
+    //     $.ajax({
+    //         url: '/JSP/abc/signin_action.jsp',
+    //         type: 'POST',
+    //         data: formData,
+    //         success(res){
+    //             console.log('AJAX 성공');
+    //             console.log(res);
+    //             window.location.pathname = '/INTRO';
+    //         },
+    //         error(err){
+    //             console.log('AJAX 실패 : ' + err);
+    //         }
+    //     })
+    // }
+
+    const [state, setState]=React.useState({
         id:"",
         pw:""
     })
 
-    const onChangeId=(e)=>{
-        e.preventDefault();
-        const { value } = e.target;
-        let id = '';
+    const onChangeUserId=(e)=>{
         setState({
             ...state,
-            id: value
-        })
-    }
-    const onChangePw=(e)=>{
-        e.preventDefault();
-        const { value } = e.target;
-        let pw = '';
-        setState({
-            ...state,
-            pw: value
+            id:e.target.value
         })
     }
 
-     // 로그인 이벤트
+    const onChangeUserPw=(e)=>{
+        setState({
+            ...state,
+            pw:e.target.value
+        })
+        
+    }
      const onSubmitSignin=(e)=>{
         e.preventDefault();
-        const formData = {
-            "id": state.id,
-            "pw": state.pw
-        }
-        console.log(formData);
-        $.ajax({
-            url: '/JSP/abc/signin_action.jsp',
-            type: 'POST',
-            data: formData,
-            success(res){
-                console.log('AJAX 성공');
-                console.log(res);
-                window.location.pathname = '/INTRO';
-            },
-            error(err){
-                console.log('AJAX 실패 : ' + err);
+        axios({
+            url:'/bbs/loginAction.jsp',
+            method: 'POST',
+            data:{},
+            params: {
+                "userId": state.id,
+                "userPw": state.pw
             }
         })
+        .then((res)=>{
+            console.log( res );
+            console.log( res.data );
+            
+            if(res.status===200){
+                const result =res.data.result;
+                console.log( res.data.result );
+                try {                    
+                    if( result === -1 ){
+                        alert('가입회원이 아닙니다.');                                               
+                    }
+                    else if( result === 0 ){
+                        alert('비밀번호를 확인하고 다시 시도해주세요');                        
+                    }
+                    else{
+                        
+                        let toDay = new Date();
+                        toDay.setTime(toDay.getTime() + (30 * 60 * 1000)); //로그인이 30분 후 만료 만료일
+                        const obj = {
+                            userId: state.id,
+                            expires: toDay.getTime()
+                        }
+                        localStorage.setItem('ABCUSERLOGIN', JSON.stringify(obj) );                            
+                        setSigin({
+                            userId: state.id,
+                            expires: toDay.getTime()
+                        })
+                        alert('로그인이 되었습니다.');
+                        
+                        window.location.pathname='/INTRO';  
+                        
+
+                    }
+                } catch (error) {
+                    console.log( error );
+                }
+            }
+            
+        })
+        .catch((err)=>{
+            console.log(`AXIOS 실패! ${err} `)
+        });
     }
 
     return (
@@ -84,11 +158,11 @@ export default function LoginComponent(){
                                 <div className="box2">
                                     <form method='POST'>
                                         <div className='box21'>
-                                            <div className='box211'><input type="text" onChange={onChangeId} value={state.id} name='id' placeholder='아이디' /></div>
-                                            <div className='box212'><input type="text" onChange={onChangePw} value={state.pw} name='pw' placeholder='비밀번호' /></div>
+                                            <div className='box211'><input type="text" onChange={onChangeUserId} value={state.id} name='id' placeholder='아이디' /></div>
+                                            <div className='box212'><input type="password" onChange={onChangeUserPw} value={state.pw} name='pw' placeholder='비밀번호' /></div>
                                             <div className="box213">
 									            <input className="checkboxSaveID" id='chkSaveID' type="checkbox"/>
-									            <label for="chkSaveID">아이디 저장</label>
+									            <label htmlFor="chkSaveID">아이디 저장</label>
 								            </div>
                                         </div>
                                         <div className='box22'>

@@ -12,6 +12,10 @@
 }
 #section9 .container .gap .content {
   width: 100%;
+  cursor: pointer;
+}
+#section9 .container .gap .content a {
+  pointer-events: none;
 }
 #section9 .container .gap .content a img {
   width: 50%;

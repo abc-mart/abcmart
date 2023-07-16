@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function DetailComponent({notice, islogin, item, setMenu, index}) {
+export default function DetailComponent({notice, loginId, item, setMenu, index}) {
 
     const [currentIndex, setCurrentIndex] = React.useState(index);
     const [currentItem, setCurrentItem] = React.useState(item);
@@ -68,13 +68,32 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
             
         })
         .then((res)=>{
-    
-            
-            
             console.log( res );
             console.log( res.data );
 
-            window.location.pathname='/SERVICE';
+            if(res.status===200){
+                const result =res.data.result;
+                try {                    
+                    if( result === false ){
+                        alert('본인이 작성한 글만 삭제 할 수 있습니다.');                                                       
+                    }
+                    else if( result === true ){
+                        alert('삭제할 데이터가 없습니다.');                        
+                    }
+                    else if( result === -1 ){
+                        alert('글 삭제 실패했습니다');                        
+                    }
+                    else{
+                        alert('글 삭제 성공했습니다.');                        
+                        window.location.pathname='/SERVICE';                       
+
+                    }
+                } catch (error) {
+                    console.log( error );
+                }
+            }
+
+            
             // setMenu('글보기');
 
         })
@@ -82,6 +101,7 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
             console.log(`AXIOS 실패! ${err} `)
         });
     }
+
     
     return (
         <>
@@ -126,7 +146,7 @@ export default function DetailComponent({notice, islogin, item, setMenu, index})
                         </div>
                     </div>
                     <div className="btn-box">
-                    {islogin && 
+                    {loginId!=='' && 
                         <div className="left-btn">
                             <button onClick={()=>setMenu('수정')}>수정</button>
                             <button onClick={onClickDel}>삭제</button>  

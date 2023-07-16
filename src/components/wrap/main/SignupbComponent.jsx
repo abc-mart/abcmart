@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./scss/signupb.scss";
-import $ from 'jquery';
+import axios from "axios";
 
 export default function SignupbComponent(){
 
@@ -93,7 +93,7 @@ export default function SignupbComponent(){
         let isIdMsg = '';
 
         const regExp1 = /[`~!@#$%^&*()\-_=+[{\]}\\|;:'",<.>/?\s]/g;
-        const regExp2 = /^(.){3,20}$/g;
+        const regExp2 = /^(.){6,20}$/g;
         const regExp3 = /[가-힣ㄱ-ㅎㅏ-ㅣ]/g;
         const regExp4 = /[A-Za-z]+[0-9]*/g;
         const regExp5 = /\s/g;
@@ -279,26 +279,73 @@ export default function SignupbComponent(){
                 confirmMsg: '휴대폰번호를 입력해주세요'                
             })
         }
-        const formData = {
-            "nm": state.nm,
-            "id": state.id,
-            "pw": state.pw,
-            "em": state.em,
-            "ph": state.ph          
-        }
-        $.ajax({
-            url: '/JSP/abc/signup_action.jsp',
-            type: 'POST',
-            data: formData,
-            success(res){
-                console.log('AJAX 성공');
-                console.log(res);
-                window.location.pathname = '/LOGIN';
-            },
-            error(err){
-                console.log('AJAX 실패 : ' + err);
+        // const formData = {
+        //     "nm": state.nm,
+        //     "id": state.id,
+        //     "pw": state.pw,
+        //     "em": state.em,
+        //     "ph": state.ph          
+        // }
+        // $.ajax({
+        //     url: '/bbs/signupAction',
+        //     type: 'POST',
+        //     data: formData,
+        //     success(res){
+        //         console.log('AJAX 성공');
+        //         console.log(res);
+        //         // window.location.pathname = '/LOGIN';
+        //     },
+        //     error(err){
+        //         console.log('AJAX 실패 : ' + err);
+        //     }
+        // })
+        axios({
+            url:'/bbs/signupAction.jsp',
+            method: 'POST',
+            data:{},
+            params: {
+                "userId": state.id,
+                "userPw": state.pw,
+                "userName": state.nm,
+                "userEmail": state.em,
+                "userPhone": state.ph
+
             }
         })
+        .then((res)=>{
+            console.log(state.id)
+            console.log( res );
+            console.log( res.data );
+            // window.location.pathname='/INTRO';
+
+            if(res.status===200){
+                const result =res.data.result;
+                try {                    
+                    if( result === true ){
+                        alert('아이디, 비밀번호, 이름은 필수 입력사항 입니다.');                                                       
+                    }
+                    else if( result === -1 ){
+                        alert('가입오류 이미 존재하는 아이디 입니다.');                    
+                    }
+                    else{   
+                        alert('회원 가입이 완료되었습니다. 로그인 페이지로 이동합니다.');                      
+                        
+                        window.location.pathname='/LOGIN';                     
+    
+                    }
+                } catch (error) {
+                    console.log( error );
+                }
+            }
+    
+        
+
+        })
+        .catch((err)=>{
+            console.log(`AXIOS 실패! ${err} `)
+        }); 
+
+        
     }
 
     return(
@@ -702,9 +749,9 @@ export default function SignupbComponent(){
                                                 <p className={state.isNmError?'on':''}>{state.isNmMsg}</p>
                                                 <li><div className="colTitle">아이디<i></i></div><input type="text" id="Id" name='id' onChange={onChangeId} value={state.id} placeholder='아이디를 입력해주세요 (영문, 숫자 사용 3~20자)'/></li>
                                                 <p className={state.isIdError?'on':''}>{state.isIdMsg}</p>
-                                                <li><div className="colTitle">비밀번호<i></i></div><input type="text" id="Pw" name='pw' onChange={onChangePw} value={state.pw} placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/></li>
+                                                <li><div className="colTitle">비밀번호<i></i></div><input type="password" id="Pw" name='pw' onChange={onChangePw} value={state.pw} placeholder='비밀번호를 입력해 주세요. (영문, 숫자, 특수문자 2개 이상 10~20자)'/></li>
                                                 <p className={state.isPwError?'on':''}>{state.isPwMsg}</p>
-                                                <li><div className="colTitle">비밀번호 확인<i></i></div><input type="text" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
+                                                <li><div className="colTitle">비밀번호 확인<i></i></div><input type="password" id="Pc" name='pc' onChange={onChangePc} value={state.pc} placeholder='비밀번호를 재입력해 주세요.'/></li>
                                                 <p className={state.isPcError?'on':''}>{state.isPcMsg}</p>
                                                 <li><div className="colTitle">이메일<i></i></div><input type="text" id="Em" name='em' onChange={onChangeEm} value={state.em} placeholder='이메일 주소를 입력해 주세요.'/></li>
                                                 <p className={state.isEmError?'on':''}>{state.isEmMsg}</p>

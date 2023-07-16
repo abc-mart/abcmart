@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import bbs.BbsDTO;
+import java.sql.SQLException;
+
+
 
 public class UserDAO {
 	
@@ -29,13 +31,14 @@ public class UserDAO {
 			// 관리자 회원가입
 			public int signup(UserDTO userDTO) {
 				// SQL INSERT INTO user
-				String SQL = "INSERT INTO user(userId, userPw, userName, userEmail)  VALUES(?, ?, ?, ?)";
+				String SQL = "INSERT INTO user(userId, userPw, userName, userEmail, userPhone)  VALUES(?, ?, ?, ?, ?)";
 				try {
 					PreparedStatement ps = conn.prepareStatement(SQL);
 					ps.setString(1, userDTO.getUserId());
 					ps.setString(2, userDTO.getUserPw());
 					ps.setString(3, userDTO.getUserName());
 					ps.setString(4, userDTO.getUserEmail());
+					ps.setString(5, userDTO.getUserPhone());
 					return ps.executeUpdate();
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -125,8 +128,125 @@ public class UserDAO {
 				}
 				return null;
 			}
+
+			// 수정 메서드
+			public int update(UserDTO userDTO){
+				String SQL = "UPDATE user SET userPw = ?, userName = ?, userEmail = ?, userPhone = ?  WHERE userId = ? ";
+				try{
+					ps = conn.prepareStatement(SQL);
+					ps.setString(1,  userDTO.getUserPw());
+					ps.setString(2,  userDTO.getUserName());
+					ps.setString(3,  userDTO.getUserEmail());
+					ps.setString(4,  userDTO.getUserPhone());					
+					ps.setString(5, userDTO.getUserId());
+					return ps.executeUpdate();
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
+				finally {  
+					try{
+						 if(rs !=null ){rs.close();}
+						 if(ps !=null ){ps.close();}
+						 if(conn !=null ){conn.close();}
+					}
+					catch(Exception e){                    
+					} 
+				}
+				return -1;
+			}
+
+			// 삭제 메서드
+			public int delete(String userId, String userPw){
+				String SQL = "DELETE FROM user  WHERE userId = ? AND  userPw = ?";
+				try{
+					ps = conn.prepareStatement(SQL);
+					ps.setString(1, userId);
+					ps.setString(2, userPw);
+					return ps.executeUpdate();
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
+				finally {  
+					try{
+						 if(rs !=null ){rs.close();}
+						 if(ps !=null ){ps.close();}
+						 if(conn !=null ){conn.close();}
+					}
+					catch(Exception e){                    
+					} 
+				}
+				return -1;
+			}
+
+			// 비밀번호  재설정 메서드
+			public int pwReset(String userPw, String userId){
+				String SQL = "UPDATE user SET userPw = ? WHERE userId = ?";
+				try{
+					ps = conn.prepareStatement(SQL);
+					ps.setString(1, userPw);
+					ps.setString(2, userId);
+					return ps.executeUpdate();  // 1반환
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
+				finally {  
+					try{
+						 if(rs !=null ){rs.close();}
+						 if(ps !=null ){ps.close();}
+						 if(conn !=null ){conn.close();}
+					}
+					catch(Exception e){                    
+					} 
+				}
+				return -1;  // -1반환
+			}
+
+			public UserDTO getUserInfo(String userId, String userPw) {
+				String SQL = "SELECT * FROM user WHERE userId = ? AND userPw = ?";
+				UserDTO userInfo = null;
+				try {
+					PreparedStatement ps = conn.prepareStatement(SQL);	
+					ps.setString(1, userId);
+					ps.setString(2, userPw);
+					rs = ps.executeQuery();
+					
+		
+					if (rs.next()) {
+						// 결과가 존재하는 경우 회원가입 정보를 가져옴						
+						String userName = rs.getString("userName");
+						String userEmail = rs.getString("userEmail");
+						String userPhone = rs.getString("userPhone");
+		
+						// UserDTO 객체 생성
+						userInfo = new UserDTO();
+						userInfo.setUserId(userId);
+						userInfo.setUserPw(userPw);
+						userInfo.setUserName(userName);
+						userInfo.setUserEmail(userEmail);
+						userInfo.setUserPhone(userPhone);
+					}
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				} 
+				finally {  
+					try{
+						 if(rs !=null ){rs.close();}
+						 if(ps !=null ){ps.close();}
+						 if(conn !=null ){conn.close();}
+					}
+					catch(Exception e){                    
+					} 
+				}
+		
+				return userInfo;
+			}
+}
 			
 	
 	
 	
-}
+

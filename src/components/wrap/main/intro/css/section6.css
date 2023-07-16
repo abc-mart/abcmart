@@ -32,6 +32,10 @@
 }
 #section6 .container .gap .content ul li {
   width: 285px;
+  cursor: pointer;
+}
+#section6 .container .gap .content ul li a {
+  pointer-events: none;
 }
 #section6 .container .gap .content ul li a figure {
   position: relative;
@@ -46,7 +50,7 @@
   font-weight: 600;
   font-family: "Montserrat";
 }
-#section6 .container .gap .content ul li a .information-box h3 {
+#section6 .container .gap .content ul li a .information-box h3 pre {
   width: 100%;
   margin: 4px 0 0 0;
   font-size: 18px;
@@ -54,4 +58,5 @@
   color: #000;
   line-height: 28px;
   margin: 10px 0 0 0;
+  font-family: "Noto Sans KR";
 }

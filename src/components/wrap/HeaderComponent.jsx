@@ -4,7 +4,13 @@ import axios from 'axios';
 import './scss/header.scss';
 import $ from 'jquery';
 
-export default function HeaderComponent({setSelectButton, cartCount, cartCountNumber, cartKey}){
+export default function HeaderComponent({signinKey, loginId, setSelectButton, cartCount, cartCountNumber, cartKey}){
+
+    const onClickLogOut=(e)=>{
+        e.preventDefault();
+        localStorage.removeItem(signinKey); // 로그인 정보 모두 삭제
+        window.location.pathname='/INTRO';
+    }
 
     React.useEffect(()=>{
         if(localStorage.getItem(cartKey)!==null){
@@ -214,30 +220,40 @@ export default function HeaderComponent({setSelectButton, cartCount, cartCountNu
                                 </div>
                                 <div className="box1_3">
                                     <ul>
+                                        {loginId==='' &&
+                                        <>
                                         <Link to="/LOGIN" className="a1">
                                             <li className="box3_ul_li1">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
                                                 <div className="h6">LOGIN</div>
                                             </li>
                                         </Link>
-                                        <a href="!#" className="a1">
+                                        <Link to="/SIGNUPA" className="a2">
+                                        <li className="box3_ul_li2">
+                                            <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
+                                            <div className="h6">JOIN</div>
+                                        </li>
+                                        </Link>
+                                        </>
+                                        }
+                                        {loginId!=='' &&
+                                        <>
+                                        <a onClick={onClickLogOut} href="!#" className="a1">
                                             <li className="box3_ul_li1">
                                                 <figure className='logout-figure'><img  src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
                                                 <div className="h6">LOGOUT</div>
                                             </li>
                                         </a>
-                                        <Link to="/SIGNUPA" className="a2">
-                                            <li className="box3_ul_li2">
-                                                <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
-                                                <div className="h6">JOIN</div>
-                                            </li>
-                                        </Link>
                                         <Link to="/MYPAGE" className="a2">
                                             <li className="box3_ul_li2">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
                                                 <div className="h6">MY</div>
                                             </li>
                                         </Link>
+                                        </>
+                                        }
+                                        
+                                        
                                         <Link to="/CART" className="a3">
                                             <li className="box3_ul_li3">
                                                 <figure><img src="./img/headereventfooter/comm_header_util_link_abc_mart.png" alt=''/></figure>
@@ -775,7 +791,7 @@ export default function HeaderComponent({setSelectButton, cartCount, cartCountNu
                                                     </div>
                                                     <div className="row row2">
                                                         <h2>My Brands</h2>
-                                                        <a href="http://localhost:3000/LOGIN">로그인 하여 나의 관심브랜드를 <br /> 확인해보세요.</a>
+                                                        {loginId==='' && <a href="http://localhost:3000/LOGIN">로그인 하여 나의 관심브랜드를 <br /> 확인해보세요.</a>}
                                                     </div>
                                                     <div className="row row3">
                                                         <h2>Hot Brands</h2>
