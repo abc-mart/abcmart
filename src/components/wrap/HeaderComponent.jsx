@@ -6,6 +6,7 @@ import $ from 'jquery';
 
 export default function HeaderComponent({signinKey, loginId, setSelectButton, cartCount, cartCountNumber, cartKey}){
 
+
     const onClickLogOut=(e)=>{
         e.preventDefault();
         localStorage.removeItem(signinKey); // 로그인 정보 모두 삭제

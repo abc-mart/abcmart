@@ -602,6 +602,13 @@
   position: relative;
   height: 40px;
   width: auto;
+  cursor: auto;
+}
+#mypage .container .gap .content .right .password-content form .form-box label span {
+  position: absolute;
+  margin: 0 0 0 120px;
+  display: block;
+  width: 200px;
 }
 #mypage .container .gap .content .right .password-content form .form-box label input {
   position: absolute;
