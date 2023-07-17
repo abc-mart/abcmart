@@ -31,7 +31,7 @@ public class UserDAO {
 			// 관리자 회원가입
 			public int signup(UserDTO userDTO) {
 				// SQL INSERT INTO user
-				String SQL = "INSERT INTO user(userId, userPw, userName, userEmail, userPhone)  VALUES(?, ?, ?, ?, ?)";
+				String SQL = "INSERT INTO abcuser(userId, userPw, userName, userEmail, userPhone)  VALUES(?, ?, ?, ?, ?)";
 				try {
 					PreparedStatement ps = conn.prepareStatement(SQL);
 					ps.setString(1, userDTO.getUserId());
@@ -54,12 +54,12 @@ public class UserDAO {
 			// login()  
 			// 1 로그인 성공
 			// 0 비밀번호 불일치
-			//-1 아이디 불일치
+			//-1 아이디 불일치ROM user
 			//-2 데이터베이스 오류
 			// 아이디 입력값 받아서 비교하고 
 			// 아이디가 맞으면 그다음 비밀번호를 비교한다. 그리고 로그인 구현
 			public int login(String userId, String userPw) {
-				String SQL = "SELECT userPw FROM user WHERE userId = ?";
+				String SQL = "SELECT userPw FROM abcuser WHERE userId = ?";
 				try {
 					PreparedStatement ps = conn.prepareStatement(SQL);
 					ps.setString(1, userId);
@@ -84,7 +84,7 @@ public class UserDAO {
 			// 1차 검색 이름
 			// 1차 검색 결과를 이용하여 반복문 WHILE 사용 이메일을 검색 			
 			public UserDTO idSearch(String userName, String userEmail){
-				String SQL = "SELECT userEmail, userId  FROM user WHERE userName = ?";
+				String SQL = "SELECT userEmail, userId  FROM abcuser WHERE userName = ?";
 				try {
 					PreparedStatement ps = conn.prepareStatement(SQL);	
 					ps.setString(1, userName);
@@ -109,7 +109,7 @@ public class UserDAO {
 			// 1차 검색 아이디
 			// 1차 검색 결과를 이용하여 반복문 WHILE 사용 이메일을 검색 			
 			public UserDTO pwSearch(String userId, String userEmail){
-				String SQL = "SELECT userEmail, userPw  FROM user WHERE userId = ?";
+				String SQL = "SELECT userEmail, userPw  FROM abcuser WHERE userId = ?";
 				try {
 					PreparedStatement ps = conn.prepareStatement(SQL);	
 					ps.setString(1, userId);
@@ -158,7 +158,7 @@ public class UserDAO {
 
 			// 삭제 메서드
 			public int delete(String userId, String userPw){
-				String SQL = "DELETE FROM user  WHERE userId = ? AND  userPw = ?";
+				String SQL = "DELETE FROM abcuser  WHERE userId = ? AND  userPw = ?";
 				try{
 					ps = conn.prepareStatement(SQL);
 					ps.setString(1, userId);
@@ -205,7 +205,7 @@ public class UserDAO {
 			}
 
 			public UserDTO getUserInfo(String userId, String userPw) {
-				String SQL = "SELECT * FROM user WHERE userId = ? AND userPw = ?";
+				String SQL = "SELECT * FROM abcuser WHERE userId = ? AND userPw = ?";
 				UserDTO userInfo = null;
 				try {
 					PreparedStatement ps = conn.prepareStatement(SQL);	
