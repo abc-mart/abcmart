@@ -21,8 +21,7 @@ export default function CookieComponent({CookieClose}){
                 <div className="close-box">
                     <a className='oneday-close' onClick={onClickOnedayCookieClose} href="!#">오늘 하루 그만 보기</a>
                     <a className='close' onClick={onClickCookieClose} href="!#">닫기</a>
-                </div>                   
-                    
+                </div>
             </div>
         </div>
     );
